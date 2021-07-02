@@ -43,7 +43,21 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_cliente` (
   `cnpj_cliente` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id_cliente`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `bd_tommotos`.`tb_fornecedor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_fornecedor` (
+  `id_fornecedor` INT NOT NULL AUTO_INCREMENT,
+  `nome_fornecedor` VARCHAR(100) NULL DEFAULT NULL,
+  `cnpj_fornecedor` VARCHAR(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_fornecedor`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -71,47 +85,28 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `bd_tommotos`.`tb_fornecedor`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_fornecedor` (
-  `id_fornecedor` INT NOT NULL AUTO_INCREMENT,
-  `nome_fornecedor` VARCHAR(100) NULL DEFAULT NULL,
-  `cnpj_fornecedor` VARCHAR(20) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_fornecedor`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_usuario` (
   `id_usuario` INT NOT NULL AUTO_INCREMENT,
-  `fk_funcionario_id` INT NULL,
-  `fk_cliente_id` INT NULL,
-  `fk_fornecedor_id` INT NULL,
+  `fk_funcionario_id` INT NULL DEFAULT NULL,
+  `fk_cliente_id` INT NULL DEFAULT NULL,
+  `fk_fornecedor_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   INDEX `fk_tb_usuario_tb_funcionario1_idx` (`fk_funcionario_id` ASC) VISIBLE,
   INDEX `fk_tb_usuario_tb_cliente1_idx` (`fk_cliente_id` ASC) VISIBLE,
   INDEX `fk_tb_usuario_tb_fornecedor1_idx` (`fk_fornecedor_id` ASC) VISIBLE,
-  CONSTRAINT `fk_tb_usuario_tb_funcionario1`
-    FOREIGN KEY (`fk_funcionario_id`)
-    REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_tb_usuario_tb_cliente1`
     FOREIGN KEY (`fk_cliente_id`)
-    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`),
   CONSTRAINT `fk_tb_usuario_tb_fornecedor1`
     FOREIGN KEY (`fk_fornecedor_id`)
-    REFERENCES `bd_tommotos`.`tb_fornecedor` (`id_fornecedor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `bd_tommotos`.`tb_fornecedor` (`id_fornecedor`),
+  CONSTRAINT `fk_tb_usuario_tb_funcionario1`
+    FOREIGN KEY (`fk_funcionario_id`)
+    REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -127,10 +122,9 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_email` (
   INDEX `fk_tb_email_tb_usuario1_idx` (`fk_usuario_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_email_tb_usuario1`
     FOREIGN KEY (`fk_usuario_id`)
-    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -150,10 +144,9 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_endereco` (
   INDEX `fk_tb_endereco_tb_usuario1_idx` (`fk_usuario_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_endereco_tb_usuario1`
     FOREIGN KEY (`fk_usuario_id`)
-    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -193,16 +186,18 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_venda` (
   `data_venda` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `total_venda` DOUBLE NOT NULL,
   `fk_veiculo_id` INT NULL DEFAULT NULL,
-  `fk_cliente_id` INT NULL DEFAULT NULL,
+  `fk_usuario_id` INT NOT NULL,
   PRIMARY KEY (`id_venda`),
   INDEX `fk_veiculo` (`fk_veiculo_id` ASC) VISIBLE,
-  INDEX `fk_cliente` (`fk_cliente_id` ASC) VISIBLE,
+  INDEX `fk_tb_venda_tb_usuario1_idx` (`fk_usuario_id` ASC) VISIBLE,
   CONSTRAINT `fk_veiculo`
     FOREIGN KEY (`fk_veiculo_id`)
     REFERENCES `bd_tommotos`.`tb_veiculo` (`id_veiculo`),
-  CONSTRAINT `tb_venda_ibfk_1`
-    FOREIGN KEY (`fk_cliente_id`)
-    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`))
+  CONSTRAINT `fk_tb_venda_tb_usuario1`
+    FOREIGN KEY (`fk_usuario_id`)
+    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
@@ -214,17 +209,17 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_grupo_funcionarios` (
   `id_grupo_funcionarios` INT NOT NULL AUTO_INCREMENT,
-  `fk_venda_id` INT NULL DEFAULT NULL,
-  `fk_usuario_id` INT NOT NULL,
+  `fk_venda_id` INT NOT NULL,
+  `fk_funcionario_id` INT NOT NULL,
   PRIMARY KEY (`id_grupo_funcionarios`),
   INDEX `fk_venda` (`fk_venda_id` ASC) VISIBLE,
-  INDEX `fk_tb_grupo_funcionarios_tb_usuario1_idx` (`fk_usuario_id` ASC) VISIBLE,
+  INDEX `fk_tb_grupo_funcionarios_tb_funcionario1_idx` (`fk_funcionario_id` ASC) VISIBLE,
   CONSTRAINT `fk_venda`
     FOREIGN KEY (`fk_venda_id`)
     REFERENCES `bd_tommotos`.`tb_venda` (`id_venda`),
-  CONSTRAINT `fk_tb_grupo_funcionarios_tb_usuario1`
-    FOREIGN KEY (`fk_usuario_id`)
-    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)
+  CONSTRAINT `fk_tb_grupo_funcionarios_tb_funcionario1`
+    FOREIGN KEY (`fk_funcionario_id`)
+    REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -246,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto` (
   `imagem_produto` LONGBLOB NULL DEFAULT NULL,
   PRIMARY KEY (`id_produto`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -268,10 +263,9 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_log_fornecimento` (
     REFERENCES `bd_tommotos`.`tb_produto` (`id_produto`),
   CONSTRAINT `fk_tb_log_fornecimento_tb_usuario1`
     FOREIGN KEY (`fk_usuario_id`)
-    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -336,17 +330,135 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_telefone` (
   INDEX `fk_tb_telefone_tb_usuario1_idx` (`fk_usuario_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_telefone_tb_usuario1`
     FOREIGN KEY (`fk_usuario_id`)
-    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
+USE `bd_tommotos` ;
+
+-- -----------------------------------------------------
+-- procedure MostrarVenda
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarVenda`()
+BEGIN
+select tb_venda.descricao_venda,tb_venda.preco_mao_de_obra, tb_venda.validade_orcamento_servico,tb_venda.data_venda,
+tb_venda.total_venda, tb_veiculo.placa_veiculo, tb_veiculo.modelo_veiculo ,
+ tb_cliente.nome_cliente,tb_cliente.cpf_cliente, tb_produto_usado.quantidade_produto_usado, tb_produto_usado.validade_da_garantia_produto, tb_produto.descricao_produto,
+ tb_produto.valor_produto, tb_produto.marca_produto, tb_produto.imagem_produto, tb_grupo_funcionarios.fk_usuario_id from tb_venda
+ inner join tb_veiculo on tb_venda.fk_veiculo_id = tb_veiculo.id_veiculo
+ inner join tb_cliente on tb_venda.fk_cliente_id = tb_cliente.id_cliente
+ inner join tb_produto_usado on tb_produto_usado.fk_venda_id = tb_produto_usado.id_produto_usado
+ inner join tb_produto on tb_produto_usado.fk_produto_id = tb_produto.id_produto
+ inner join tb_grupo_funcionarios on tb_grupo_funcionarios.fk_venda_id = tb_grupo_funcionarios.id_grupo_funcionarios;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure criacaoCliente
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoCliente`(IN NOME varchar(15), IN SOBRENOME varchar(40), IN DATA_NASC DATE, CPF varchar(15), CNPJ varchar(45))
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+ IF EXISTS(SELECT*FROM tb_cliente where tb_cliente.cpf_cliente = CPF)THEN
+    BEGIN
+     SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, CPF JA EXISTE';
+      END;
+     
+     ELSEIF EXISTS(SELECT*FROM tb_cliente where tb_cliente.cnpj_cliente = CNPJ)THEN
+    BEGIN
+     SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, CNPJ JA EXISTE';
+      END;
+	    
+	ELSE  
+		insert into tb_cliente(tb_cliente.nome_cliente, tb_cliente.sobrenome_cliente, tb_cliente.data_nascimento_cliente, tb_cliente.cpf_cliente, tb_cliente.cnpj_cliente) values (NOME, SOBRENOME, DATA_NASC, CPF, CNPJ);
+		
+        insert into tb_usuario(fk_cliente_id)values(LAST_INSERT_ID());
+  END IF;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure criacaoEmail
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoEmail`(IN EMAIL VARCHAR(50), IN FK_USUARIO INT)
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+IF NOT EXISTS (select tb_email.fk_usuario_id, tb_email.nome_email from tb_email
+inner join tb_usuario on tb_email.fk_usuario_id = tb_usuario.id_usuario where tb_email.nome_email = EMAIL and tb_email.fk_usuario_id = FK_USUARIO) THEN
+BEGIN
+INSERT INTO tb_email(nome_email ,fk_usuario_id) VALUES(EMAIL ,FK_USUARIO);
+END;
+ELSE 
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, EMAIL JA EXISTE';
+END IF;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure criacaoEndereco
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoEndereco`(IN CEP varchar(15), IN RUA varchar(40), IN CIDADE text, IN BAIRRO varchar(15),IN NUMERO varchar(45),IN FK_USUARIO INT )
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+IF NOT EXISTS (select tb_endereco.fk_usuario_id, tb_endereco.numero_endereco, tb_endereco.cep_endereco from tb_endereco
+inner join tb_usuario on tb_endereco.fk_usuario_id = tb_usuario.id_usuario where tb_endereco.cep_endereco = CEP  and tb_endereco.numero_endereco = NUMERO and tb_endereco.fk_usuario_id = FK_USUARIO) THEN
+BEGIN
+INSERT INTO tb_endereco(cep_endereco,rua_endereco,cidade_endereco,bairro_endereco,numero_endereco,fk_usuario_id) VALUES(CEP,RUA,CIDADE , BAIRRO,NUMERO,FK_USUARIO);
+END;
+ELSE 
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, ENDEREÇO JA EXISTE';
+END IF;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure criacaoTelefone
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoTelefone`(IN TELEFONE VARCHAR(17), IN FK_USUARIO INT)
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+IF NOT EXISTS (select tb_telefone.fk_usuario_id, tb_telefone.numero_telefone from tb_telefone
+inner join tb_usuario on tb_telefone.fk_usuario_id = tb_usuario.id_usuario where tb_telefone.numero_telefone = TELEFONE and tb_telefone.fk_usuario_id = FK_USUARIO) THEN
+BEGIN
+INSERT INTO tb_telefone(numero_telefone,fk_usuario_id) VALUES(TELEFONE ,FK_USUARIO);
+END;
+ELSE 
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, TELEFONE JA EXISTE';
+END IF;
+END$$
+
+DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 insert into tb_fornecedor(nome_fornecedor, cnpj_fornecedor) values ('NOME', '99999999');
 insert into tb_produto(descricao_produto, quantidade_produto, valor_produto) values ('DESCRIÇÂO', 5, 10);

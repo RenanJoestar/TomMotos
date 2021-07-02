@@ -81,18 +81,69 @@ $$
 DELIMITER ;
 
 
+/*STORE PROCEDURE PARA MOSTRAR DADOS DA VENDA*/
+DELIMITER $$
+CREATE PROCEDURE MostrarVenda()
+BEGIN
+select 
+tb_venda.id_venda, 
+tb_venda.descricao_venda, 
+tb_venda.preco_mao_de_obra, 
+tb_venda.validade_orcamento_servico, 
+tb_venda.data_venda,
+tb_venda.total_venda, 
+tb_cliente.nome_cliente, 
+tb_cliente.cpf_cliente,
+tb_produto.descricao_produto,
+tb_veiculo.marca_veiculo,
+tb_veiculo.placa_veiculo,
+tb_funcionario.nome_funcionario
+from tb_venda
+ inner join tb_usuario on tb_venda.fk_usuario_id = tb_usuario.id_usuario
+ inner join tb_cliente on tb_cliente.id_cliente = tb_usuario.fk_cliente_id
+ inner join tb_produto_usado on tb_produto_usado.fk_venda_id = tb_venda.id_venda
+ inner join tb_produto on tb_produto_usado.fk_produto_id = tb_produto.id_produto
+ inner join tb_grupo_funcionarios on tb_grupo_funcionarios.fk_venda_id = tb_venda.id_venda
+ inner join tb_funcionario on tb_grupo_funcionarios.fk_funcionario_id = tb_funcionario.id_funcionario
+ inner join tb_veiculo on tb_veiculo.id_veiculo = tb_venda.fk_veiculo_id ; 
+END 
+$$
+DELIMITER ;
 
+/* CALLS */
+CALL MostrarVenda;
 call criacaoEndereco('1234','pereira','santana','germano','284',5);
 call criacaoTelefone('123','5');
 call criacaoEmail('samuel@gmail.com','5');
-
-
 call criacaoCliente('Samuel', 'Santos Souza', null,null,null);
-select * from tb_email;
+call criacaoCliente('Matheus', 'Santos', null,null,null);
 
 
+/*INSERTS */
+insert into tb_veiculo(marca_veiculo, modelo_veiculo, placa_veiculo,fk_cliente_id) values("honda","fazer","12345",9);
+insert into tb_venda(descricao_venda, preco_mao_de_obra, total_venda, fk_usuario_id, fk_veiculo_id) values ('DESCRIÇÃO', 10, 150, 5, null);
+insert tb_cargo(nome_cargo, salario_cargo) values ('MECANICO', 1000);
+insert tb_funcionario(nome_funcionario, sobrenome_funcionario, fk_cargo_id) values ('JOÃO', 'SANTOS', 3);
+insert tb_funcionario(nome_funcionario, sobrenome_funcionario, fk_cargo_id) values ('ANDRÉ', 'SOUZA', 3);
+insert tb_grupo_funcionarios(fk_venda_id, fk_funcionario_id) values (3, 3);
+insert tb_grupo_funcionarios(fk_venda_id, fk_funcionario_id) values (3, 4);
+insert into tb_produto(tb_produto.imagem_produto, tb_produto.descricao_produto, tb_produto.quantidade_produto, tb_produto.quantidade_virtual_produto, tb_produto.valor_produto, tb_produto.marca_produto) values('', "Oléo semi sintético", 200, 200, 22, "Mobil");
+insert into tb_produto(tb_produto.imagem_produto, tb_produto.descricao_produto, tb_produto.quantidade_produto, tb_produto.quantidade_virtual_produto,tb_produto.valor_produto, tb_produto.marca_produto) values ('', "Filtro de ar", 200, 200, 100, "Honda");
+insert into tb_produto_usado(quantidade_produto_usado, fk_produto_id, fk_venda_id) values (4, 5, 3);
+insert into tb_produto_usado(quantidade_produto_usado, fk_produto_id, fk_venda_id) values (5, 5, 3);
 
 
+/*SELECTS
+
+select * from tb_cliente;
+select * from tb_cargo;
+select * from tb_funcionario;
+select * from tb_grupo_funcionarios;
+select * from tb_usuario;
+select * from tb_venda;
+select * from tb_produto;
+select * from tb_produto_usado;
+select * from tb_veiculo;
 
 
 
