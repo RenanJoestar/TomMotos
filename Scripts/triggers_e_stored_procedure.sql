@@ -25,27 +25,70 @@ $$
 
 DELIMITER ;
 
-/*STORED PROCEDURE PARA CRIAÇÃO DE CLIENTE
+/*STORED PROCEDURE PARA CRIAÇÃO DE ENDERECO*/
 DELIMITER $$
-CREATE PROCEDURE criacaoEndereco (IN CEP varchar(15), IN RUA varchar(40), IN CIDADE DATE, BAIRRO varchar(15), NUMERO varchar(45),FK_FORNECEDOR INT, FK_CLIENTE INT, FK_FUNCIONARIO INT )
+CREATE PROCEDURE criacaoEndereco (IN CEP varchar(15), IN RUA varchar(40), IN CIDADE text, IN BAIRRO varchar(15),IN NUMERO varchar(45),IN FK_USUARIO INT )
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
-IF NOT EXISTS (select*from tb_endereco where tb_cliente.fk_fornecedor )
+IF NOT EXISTS (select tb_endereco.fk_usuario_id, tb_endereco.numero_endereco, tb_endereco.cep_endereco from tb_endereco
+inner join tb_usuario on tb_endereco.fk_usuario_id = tb_usuario.id_usuario where tb_endereco.cep_endereco = CEP  and tb_endereco.numero_endereco = NUMERO and tb_endereco.fk_usuario_id = FK_USUARIO) THEN
 BEGIN
-INSERT INTO tb_endereco VALUES(CEP, RUA, CIDADE, BAIRRO, NUMERO,FK_FORNECEDOR, FK_CLIENTE,FK_FUNCIONARIO);
+INSERT INTO tb_endereco(cep_endereco,rua_endereco,cidade_endereco,bairro_endereco,numero_endereco,fk_usuario_id) VALUES(CEP,RUA,CIDADE , BAIRRO,NUMERO,FK_USUARIO);
 END;
-END
+ELSE 
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, ENDEREÇO JA EXISTE';
+END IF;
+END 
 $$
 
 DELIMITER ;
-*/
+
+/*STORED PROCEDURE PARA CRIAÇÃO DE TELEFONE*/
+DELIMITER $$
+CREATE PROCEDURE criacaoTelefone (IN TELEFONE VARCHAR(17), IN FK_USUARIO INT)
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+IF NOT EXISTS (select tb_telefone.fk_usuario_id, tb_telefone.numero_telefone from tb_telefone
+inner join tb_usuario on tb_telefone.fk_usuario_id = tb_usuario.id_usuario where tb_telefone.numero_telefone = TELEFONE and tb_telefone.fk_usuario_id = FK_USUARIO) THEN
+BEGIN
+INSERT INTO tb_telefone(numero_telefone,fk_usuario_id) VALUES(TELEFONE ,FK_USUARIO);
+END;
+ELSE 
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, TELEFONE JA EXISTE';
+END IF;
+END 
+$$
+DELIMITER ;
+
+/*STORED PROCEDURE PARA CRIAÇÃO DE EMAIL*/
+DELIMITER $$
+CREATE PROCEDURE criacaoEmail (IN EMAIL VARCHAR(50), IN FK_USUARIO INT)
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+IF NOT EXISTS (select tb_email.fk_usuario_id, tb_email.nome_email from tb_email
+inner join tb_usuario on tb_email.fk_usuario_id = tb_usuario.id_usuario where tb_email.nome_email = EMAIL and tb_email.fk_usuario_id = FK_USUARIO) THEN
+BEGIN
+INSERT INTO tb_email(nome_email ,fk_usuario_id) VALUES(EMAIL ,FK_USUARIO);
+END;
+ELSE 
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, EMAIL JA EXISTE';
+END IF;
+END 
+$$
+DELIMITER ;
 
 
 
+call criacaoEndereco('1234','pereira','santana','germano','284',5);
+call criacaoTelefone('123','5');
+call criacaoEmail('samuel@gmail.com','5');
 
 
 call criacaoCliente('Samuel', 'Santos Souza', null,null,null);
-select * from tb_USUARIO;
+select * from tb_email;
 
 
 
