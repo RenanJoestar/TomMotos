@@ -1,0 +1,6 @@
+COISAS PARA FAZER
+
+STORED PROCEDURES
+
+inserir produto (ta no outro arquivo)
+inserir produto selecionado (ta no outro arquivo)
