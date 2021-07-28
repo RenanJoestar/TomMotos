@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5331B2E4-1B02-4603-AEE4-15E246515ACB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TomMotos</RootNamespace>
+    <AssemblyName>TomMotos</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942" />
+    <Reference Include="Google.Protobuf, Version=3.11.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL" />
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL" />
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL" />
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.23.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ClienteDAO.cs" />
+    <Compile Include="Classes\FornecedorDAO.cs" />
+    <Compile Include="Classes\FuncionarioDAO.cs" />
+    <Compile Include="Classes\ProdutoDAO.cs" />
+    <Compile Include="Conexao\ConnectionFactory.cs" />
+    <Compile Include="Model\ClienteModel.cs" />
+    <Compile Include="Model\FornecedorModel.cs" />
+    <Compile Include="Model\FuncionarioModel.cs" />
+    <Compile Include="Model\ProdutoModel.cs" />
+    <Compile Include="view\fmrcliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\fmrcliente.Designer.cs">
+      <DependentUpon>fmrcliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Fmrfornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Fmrfornecedor.Designer.cs">
+      <DependentUpon>Fmrfornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Fmrfuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Fmrfuncionario.Designer.cs">
+      <DependentUpon>Fmrfuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Fmrproduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Fmrproduto.Designer.cs">
+      <DependentUpon>Fmrproduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\fmrsumario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\fmrsumario.Designer.cs">
+      <DependentUpon>fmrsumario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\Fmrsumariocadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Fmrsumariocadastro.Designer.cs">
+      <DependentUpon>Fmrsumariocadastro.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="view\fmrcliente.resx">
+      <DependentUpon>fmrcliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Fmrfornecedor.resx">
+      <DependentUpon>Fmrfornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Fmrfuncionario.resx">
+      <DependentUpon>Fmrfuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\fmrsumario.resx">
+      <DependentUpon>fmrsumario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Fmrsumariocadastro.resx">
+      <DependentUpon>Fmrsumariocadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
