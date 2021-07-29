@@ -33,7 +33,7 @@ namespace TomMotos.view
                 Cadastro.cadastrarFornecedor(obj);
 
                 MessageBox.Show("Cadastrado com sucesso!");
-                dg_cliente.DataSource = Cadastro.ListarTodosFornecedores();
+                dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
             }
             catch (Exception erro)
             {
@@ -46,7 +46,7 @@ namespace TomMotos.view
         {
             FornecedorDAO Cadastro = new FornecedorDAO();
            
-            dg_cliente.DataSource = Cadastro.ListarTodosFornecedores();
+            dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
         }
     }
 }

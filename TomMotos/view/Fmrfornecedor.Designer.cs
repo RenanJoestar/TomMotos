@@ -40,12 +40,12 @@ namespace TomMotos.view
             this.button4 = new System.Windows.Forms.Button();
             this.txt_cnpj = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dg_cliente = new System.Windows.Forms.DataGridView();
+            this.dg_fornecedor = new System.Windows.Forms.DataGridView();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_fornecedor)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -110,7 +110,7 @@ namespace TomMotos.view
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(275, 304);
+            this.groupBox1.Size = new System.Drawing.Size(275, 366);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
@@ -168,17 +168,17 @@ namespace TomMotos.view
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(14, 25);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(204, 19);
+            this.label7.Size = new System.Drawing.Size(202, 19);
             this.label7.TabIndex = 18;
-            this.label7.Text = "Cadastro de Funcionario";
+            this.label7.Text = "Cadastro de Fornecedor";
             // 
-            // dg_cliente
+            // dg_fornecedor
             // 
-            this.dg_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_cliente.Location = new System.Drawing.Point(293, 25);
-            this.dg_cliente.Name = "dg_cliente";
-            this.dg_cliente.Size = new System.Drawing.Size(503, 326);
-            this.dg_cliente.TabIndex = 23;
+            this.dg_fornecedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_fornecedor.Location = new System.Drawing.Point(293, 25);
+            this.dg_fornecedor.Name = "dg_fornecedor";
+            this.dg_fornecedor.Size = new System.Drawing.Size(503, 326);
+            this.dg_fornecedor.TabIndex = 23;
             // 
             // btnCadastrar
             // 
@@ -217,7 +217,7 @@ namespace TomMotos.view
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.dg_cliente);
+            this.Controls.Add(this.dg_fornecedor);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
             this.Name = "Fmrfornecedor";
@@ -225,7 +225,7 @@ namespace TomMotos.view
             this.Load += new System.EventHandler(this.Fmrfornecedor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_fornecedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,7 +243,7 @@ namespace TomMotos.view
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox txt_cnpj;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dg_cliente;
+        private System.Windows.Forms.DataGridView dg_fornecedor;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;

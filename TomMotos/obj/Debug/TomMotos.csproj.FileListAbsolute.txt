@@ -27,3 +27,5 @@ C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CopyComplete
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
 C:\TomMotos\TomMotos\TomMotos\bin\Debug\TomMotos.pdb
+C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csprojAssemblyReference.cache
+C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrproduto.resources

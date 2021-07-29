@@ -20,7 +20,7 @@ namespace TomMotos.Classes
         }
 
         #region METODO LISTAR
-        public DataTable ListarTodosClientes()
+        public DataTable ListarTodosFuncionario()
         {
             string sql = @"select * from tb_funcionario";
 
@@ -41,18 +41,47 @@ namespace TomMotos.Classes
         #endregion
 
 
+        #region METODO LISTAR CARGO
+        public DataTable ListarTodosCargos()
+        {
+            string sql = @"select * from tb_cargo";
+
+            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
+
+            conexao.Open();
+            executacmdsql.ExecuteNonQuery();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataTable tabelaCargo = new DataTable();
+            da.Fill(tabelaCargo);
+
+            conexao.Close();
+
+            return tabelaCargo;
+        }
+        #endregion
+
+
+
         #region METODO CADASTRAR
 
-        public void cadastrar(ClienteModel obj)
+        public void cadastrarFuncionario(FuncionarioModel obj)
         {
             try
             {
-                string insert = @"CALL criacaoFuncionario(@nome, @cnpj)";
+                string insert = @"CALL criacaoFuncionario(@nome, @sobrenome,@cpf, @data_nasc, @data_contratacao, @sexo,@cargo_fk)";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
                 executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
-                executacmdsql.Parameters.AddWithValue("@cnpj", obj.cnpj);
-
+                executacmdsql.Parameters.AddWithValue("@sobrenome", obj.sobrenome);
+                executacmdsql.Parameters.AddWithValue("@cpf", obj.cpf);
+                executacmdsql.Parameters.AddWithValue("@data_nasc", obj.data_nasc);
+                executacmdsql.Parameters.AddWithValue("@data_contratacao", obj.data_contratacao);
+                executacmdsql.Parameters.AddWithValue("@sexo", obj.sexo);
+                executacmdsql.Parameters.AddWithValue("@cargo_fk", obj.cargo_fk);
+                
+                
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
