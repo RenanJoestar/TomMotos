@@ -47,6 +47,7 @@ namespace TomMotos.Classes
 
         public void cadastrarProduto(ProdutoModel obj)
         {
+            
             try
             {
                 string insert = @"CALL criacaoProduto(@descricao, @quantidade,@quantidade_virtual, @valor, @marca, @imagem)";

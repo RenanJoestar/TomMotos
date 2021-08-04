@@ -21,24 +21,43 @@ namespace TomMotos.view
         {
             fmrcliente Fmrcliente = new fmrcliente();
             Fmrcliente.Show();
+            this.Hide();
         }
 
         private void btnFuncionario_Click(object sender, EventArgs e)
         {
             Fmrfuncionario fmrfuncionario = new Fmrfuncionario();
             fmrfuncionario.Show();
+            this.Hide();
         }
 
         private void btnFornecedor_Click(object sender, EventArgs e)
         {
             Fmrfornecedor fmrfornecedor = new Fmrfornecedor();
             fmrfornecedor.Show();
+            this.Hide();
         }
 
         private void btnProduto_Click(object sender, EventArgs e)
         {
             Fmrproduto fmrproduto = new Fmrproduto();
             fmrproduto.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Fmrcargo fmrcargo = new Fmrcargo();
+            fmrcargo.Show();
+            this.Hide();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Fmrveiculo fmrveiculo = new Fmrveiculo();
+            fmrveiculo.Show();
+            this.Hide();
         }
     }
 }

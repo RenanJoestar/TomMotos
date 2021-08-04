@@ -118,6 +118,7 @@ namespace TomMotos.view
             this.dgv_cargo.Size = new System.Drawing.Size(267, 115);
             this.dgv_cargo.TabIndex = 32;
             this.dgv_cargo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cargo_CellClick);
+            this.dgv_cargo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cargo_CellContentClick);
             // 
             // txt_cargo
             // 

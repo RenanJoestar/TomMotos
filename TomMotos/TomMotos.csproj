@@ -66,15 +66,25 @@
     <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CargoDAO.cs" />
     <Compile Include="Classes\ClienteDAO.cs" />
     <Compile Include="Classes\FornecedorDAO.cs" />
     <Compile Include="Classes\FuncionarioDAO.cs" />
     <Compile Include="Classes\ProdutoDAO.cs" />
+    <Compile Include="Classes\VeiculoDAO.cs" />
     <Compile Include="Conexao\ConnectionFactory.cs" />
+    <Compile Include="Model\CargoModel.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\FornecedorModel.cs" />
     <Compile Include="Model\FuncionarioModel.cs" />
     <Compile Include="Model\ProdutoModel.cs" />
+    <Compile Include="Model\VeiculoModel.cs" />
+    <Compile Include="view\Fmrcargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Fmrcargo.Designer.cs">
+      <DependentUpon>Fmrcargo.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\fmrcliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +123,12 @@
     <Compile Include="view\Fmrsumariocadastro.Designer.cs">
       <DependentUpon>Fmrsumariocadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Fmrveiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Fmrveiculo.Designer.cs">
+      <DependentUpon>Fmrveiculo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -123,6 +139,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="view\Fmrcargo.resx">
+      <DependentUpon>Fmrcargo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\fmrcliente.resx">
       <DependentUpon>fmrcliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrsumariocadastro.resx">
       <DependentUpon>Fmrsumariocadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Fmrveiculo.resx">
+      <DependentUpon>Fmrveiculo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

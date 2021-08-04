@@ -78,7 +78,11 @@ namespace TomMotos.view
         {
             txt_cargo.Text = dgv_cargo.CurrentRow.Cells[0].Value.ToString();
         }
-        
+
+        private void dgv_cargo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
     
 }

@@ -1,0 +1,94 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using TomMotos.Conexao;
+using TomMotos.Model;
+
+namespace TomMotos.Classes
+{
+    class CargoDAO
+    {
+        MySqlConnection conexao = ConnectionFactory.getConnection();
+
+        public CargoDAO()
+        {
+        }
+
+        #region METODO LISTAR
+        public DataTable ListarTodosCargos()
+        {
+
+            string sql = @"select * from tb_cargo";
+
+            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
+
+            conexao.Open();
+            executacmdsql.ExecuteNonQuery();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataTable tabelaCargo = new DataTable();
+            da.Fill(tabelaCargo);
+
+            conexao.Close();
+
+            return tabelaCargo;
+        }
+        #endregion
+
+
+        #region METODO CADASTRAR
+
+        public void cadastrarCargo(CargoModel obj)
+        {
+            int a = 1;
+            if (obj.nome == "" || obj.salario == "")
+            {
+                MessageBox.Show("Preencha todos valores Obrigatorio! = *");
+
+            }
+
+            else
+            {
+
+
+                try
+                {
+                    string insert = @"CALL criacaoCargo(@nome, @salario)";
+
+                    MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
+                    executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
+                    executacmdsql.Parameters.AddWithValue("@salario", obj.salario);
+
+                    conexao.Open();
+                    executacmdsql.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro);
+                    a = 2;
+                    
+                }
+
+                if (a == 1)
+                {
+                    MessageBox.Show("Cadastrado com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Cadastrado não Realizado!");
+                }
+            }
+        }
+        
+
+        #endregion
+
+    }
+}
