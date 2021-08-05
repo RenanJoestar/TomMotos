@@ -116,11 +116,14 @@ DELIMITER ;
 DELIMITER $$
 USE `bd_tommotos`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoCargo`(IN NOME VARCHAR(50), IN SALARIO DOUBLE)
-BEGIN DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000'; IF NOT EXISTS (
+BEGIN DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000'; 
+IF NOT EXISTS (
 
 select * from tb_cargo where tb_cargo.nome_cargo = NOME) THEN BEGIN 
 
-INSERT INTO tb_cargo(nome_cargo , salario_cargo) VALUES(NOME , SALARIO); END; ELSE SIGNAL CUSTOM_EXCEPTION
+INSERT INTO tb_cargo(nome_cargo , salario_cargo) VALUES(NOME , SALARIO);
+ END; 
+ ELSE SIGNAL CUSTOM_EXCEPTION
 
 SET MESSAGE_TEXT = 'ERRO, CARGO JA EXISTE'; END IF; END$$
 
@@ -199,6 +202,7 @@ END IF;
 END$$
 
 DELIMITER ;
+
 
 -- -----------------------------------------------------
 -- procedure criacaoFornecedor
@@ -312,13 +316,18 @@ DELIMITER ;
 -- -----------------------------------------------------
 -- procedure criacaoVeiculo
 -- -----------------------------------------------------
-
+select*from tb_cliente;
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVeiculo`(IN MARCA_VEICULO VARCHAR(30), IN MODELO_VEICULO VARCHAR(30), IN COR_VEICULO TEXT, IN ANO_VEICULO INT, IN KM_VEICULO DOUBLE, IN PLACA_VEICULO VARCHAR(12), IN OBS_VEICULO VARCHAR(300), IN FK_CLIENTE_ID INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVeiculo`(IN MARCA VARCHAR(30), IN MODELO VARCHAR(30), IN COR VARCHAR(30), IN ANO VARCHAR(30), IN KM VARCHAR(30), IN PLACA VARCHAR(12), IN OBS VARCHAR(300), IN FK_CLIENTE INT)
 BEGIN 
-
-INSERT INTO tb_veiculo(marca_veiculo, modelo_veiculo, cor_veiculo, ano_veiculo, km_veiculo, placa_veiculo, obs_veiculo, fk_cliente_id) VALUES (MARCA_VEICULO, MODELO_VEICULO, COR_VEICULO, ANO_VEICULO, KM_VEICULO, PLACA_VEICULO, OBS_VEICULO, FK_CLIENTE_ID);
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+if exists(select marca_veiculo, modelo_veiculo, placa_veiculo, fk_cliente_id from tb_veiculo where modelo_veiculo = MODELO AND marca_veiculo = MARCA and fk_cliente_id = FK_CLIENTE)then
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, VEICULO JA CADASTRADO';
+ELSE 
+INSERT INTO tb_veiculo(marca_veiculo, modelo_veiculo, cor_veiculo, ano_veiculo, km_veiculo, placa_veiculo, obs_veiculo, fk_cliente_id) VALUES (MARCA, MODELO, COR, ANO, KM, PLACA, OBS, FK_CLIENTE);
+END IF;
 END$$
 
 DELIMITER ;
@@ -336,7 +345,7 @@ INSERT INTO tb_venda /*INSERE*/ (tb_venda.descricao_venda, tb_venda.validade_orc
 DELIMITER ;
 
 
-
+select * from tb_veiculo;
 
 /*STORED PROCEDURE PARA MOSTRAR CLIENTES*/
 DELIMITER $$
