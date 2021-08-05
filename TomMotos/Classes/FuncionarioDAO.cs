@@ -107,5 +107,35 @@ namespace TomMotos.Classes
 
         #endregion
 
+        #region METODO ALTERAR
+        public void alterar(FuncionarioModel obj)
+        {
+            try
+            {
+
+                string update = @"Update  tb_funcionario set  nome_funcionario=@nome, sobrenome_funcionario=@sobrenome,cpf_funcionario=@cpf,data_nascimento_funcionario=@data_nasc,
+data_contratacao_funcionario=@data_contratacao, sexo_funcionario=@sexo, fk_cargo_id=@cargo_fk where id_funcionario=@id";
+                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+                executacmdsql.Parameters.AddWithValue("@id", obj.id);
+                executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
+                executacmdsql.Parameters.AddWithValue("@sobrenome", obj.sobrenome);
+                executacmdsql.Parameters.AddWithValue("@cpf", obj.cpf);
+                executacmdsql.Parameters.AddWithValue("@data_nasc", obj.data_nasc);
+                executacmdsql.Parameters.AddWithValue("@data_contratacao", obj.data_contratacao);
+                executacmdsql.Parameters.AddWithValue("@sexo", obj.sexo);
+                executacmdsql.Parameters.AddWithValue("@cargo_fk", obj.cargo_fk);
+                conexao.Open();
+                executacmdsql.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um Erro" + erro);
+            }
+
+
+        }
+        #endregion
+
     }
 }

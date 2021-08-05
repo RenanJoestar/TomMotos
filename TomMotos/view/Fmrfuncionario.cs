@@ -29,8 +29,10 @@ namespace TomMotos.view
                 FuncionarioModel obj = new FuncionarioModel();
 
                 obj.id = int.Parse(txt_cargo.Text);
-                obj.nome = txt_nome.Text;
-                obj.sobrenome = txt_sobrenome.Text;
+                if (txt_nome.Text == "") obj.nome = null;
+                else obj.nome = txt_nome.Text;
+                if (txt_sobrenome.Text == "") obj.sobrenome = null; 
+                else obj.sobrenome = txt_sobrenome.Text;
                 obj.data_nasc = txt_nascimento.Text;
                 obj.cpf = txt_cpf.Text;
                 obj.sexo = cbx_sexo.Text;
@@ -41,7 +43,7 @@ namespace TomMotos.view
 
                 Cadastro.cadastrarFuncionario(obj);
                
-                dg_fornecedor.DataSource = Cadastro.ListarTodosFuncionario();
+                dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
             }
             catch (Exception erro)
             {
@@ -52,7 +54,7 @@ namespace TomMotos.view
         private void Fmrfuncionario_Load(object sender, EventArgs e)
         {
             FuncionarioDAO Cadastro = new FuncionarioDAO();
-            dg_fornecedor.DataSource = Cadastro.ListarTodosFuncionario();
+            dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
             FuncionarioDAO Showcargo = new FuncionarioDAO();
             dgv_cargo.DataSource = Showcargo.ListarTodosCargos();
         } 
@@ -64,6 +66,45 @@ namespace TomMotos.view
         private void dgv_cargo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FuncionarioModel obj = new FuncionarioModel();
+                obj.id = int.Parse(txt_cargo.Text);
+                if (txt_nome.Text == "") obj.nome = null;
+                else obj.nome = txt_nome.Text;
+                if (txt_sobrenome.Text == "") obj.sobrenome = null;
+                else obj.sobrenome = txt_sobrenome.Text;
+                obj.data_nasc = txt_nascimento.Text;
+                obj.cpf = txt_cpf.Text;
+                obj.sexo = cbx_sexo.Text;
+                obj.cargo_fk = txt_cargo.Text;
+                obj.data_contratacao = txt_contratacao.Text;
+
+                FuncionarioDAO dao = new FuncionarioDAO();
+                dao.alterar(obj);
+                dg_funcionario.DataSource = dao.ListarTodosFuncionario();
+                MessageBox.Show("Alterado com Sucesso!");
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu algum erro" + erro);
+            }
+        }
+
+        private void dg_funcionario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id.Text = dg_funcionario.CurrentRow.Cells[0].Value.ToString();
+            txt_nome.Text = dg_funcionario.CurrentRow.Cells[1].Value.ToString();
+            txt_sobrenome.Text = dg_funcionario.CurrentRow.Cells[2].Value.ToString();
+            txt_nascimento.Text = dg_funcionario.CurrentRow.Cells[4].Value.ToString();
+            txt_cpf.Text = dg_funcionario.CurrentRow.Cells[3].Value.ToString();
+            cbx_sexo.Text = dg_funcionario.CurrentRow.Cells[6].Value.ToString();
+            txt_cargo.Text = dg_funcionario.CurrentRow.Cells[7].Value.ToString();
+            txt_contratacao.Text = dg_funcionario.CurrentRow.Cells[5].Value.ToString();
         }
     }
     

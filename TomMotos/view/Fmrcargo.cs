@@ -30,8 +30,10 @@ namespace TomMotos.view
                 CargoModel obj = new CargoModel();
 
 
-                obj.nome = txt_nome.Text;
-                obj.salario = txt_salario.Text;
+                if (txt_nome.Text == "") obj.nome = null;
+                else obj.nome = txt_nome.Text;
+                if (txt_salario.Text == "") obj.salario = null;
+                else obj.salario = txt_salario.Text;
 
                 Cadastro.cadastrarCargo(obj);
 
@@ -53,6 +55,34 @@ namespace TomMotos.view
         {
             CargoDAO Cadastro = new CargoDAO();
             dgCargo.DataSource = Cadastro.ListarTodosCargos();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CargoModel obj = new CargoModel();
+
+                obj.nome = txt_nome.Text;
+                obj.salario = txt_salario.Text;
+                 obj.id = int.Parse(txt_id.Text);
+
+                CargoDAO dao = new CargoDAO();
+                dao.alterar(obj);
+                dgCargo.DataSource = dao.ListarTodosCargos();
+                MessageBox.Show("Alterado com Sucesso!");
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu algum erro" + erro);
+            }
+        }
+
+        private void dgCargo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id.Text = dgCargo.CurrentRow.Cells[0].Value.ToString();
+            txt_nome.Text = dgCargo.CurrentRow.Cells[1].Value.ToString();
+            txt_salario.Text = dgCargo.CurrentRow.Cells[2].Value.ToString();
         }
     }
 }

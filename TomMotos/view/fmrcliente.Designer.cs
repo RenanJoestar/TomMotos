@@ -259,6 +259,7 @@ namespace TomMotos.view
             this.button2.TabIndex = 19;
             this.button2.Text = "ALTERAR";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -276,6 +277,8 @@ namespace TomMotos.view
             this.dg_cliente.Name = "dg_cliente";
             this.dg_cliente.Size = new System.Drawing.Size(503, 326);
             this.dg_cliente.TabIndex = 21;
+            this.dg_cliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_cliente_CellClick);
+            this.dg_cliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_cliente_CellContentClick);
             // 
             // fmrcliente
             // 

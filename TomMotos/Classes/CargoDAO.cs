@@ -86,8 +86,33 @@ namespace TomMotos.Classes
                 }
             }
         }
-        
 
+
+        #endregion
+
+        #region METODO ALTERAR
+        public void alterar(CargoModel obj)
+        {
+            try
+            {
+
+                string update = @"Update  tb_cargo set  nome_cargo=@nome, salario_cargo=@salario where id_cargo=@id";
+                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+
+                executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
+                executacmdsql.Parameters.AddWithValue("@salario", obj.salario);
+                executacmdsql.Parameters.AddWithValue("@id", obj.id);
+                conexao.Open();
+                executacmdsql.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um Erro" + erro);
+            }
+
+
+        }
         #endregion
 
     }

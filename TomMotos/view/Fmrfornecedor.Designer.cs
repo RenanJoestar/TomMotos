@@ -179,6 +179,8 @@ namespace TomMotos.view
             this.dg_fornecedor.Name = "dg_fornecedor";
             this.dg_fornecedor.Size = new System.Drawing.Size(503, 326);
             this.dg_fornecedor.TabIndex = 23;
+            this.dg_fornecedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_fornecedor_CellClick);
+            this.dg_fornecedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_fornecedor_CellContentClick);
             // 
             // btnCadastrar
             // 
@@ -198,6 +200,7 @@ namespace TomMotos.view
             this.btnAlterar.TabIndex = 25;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 

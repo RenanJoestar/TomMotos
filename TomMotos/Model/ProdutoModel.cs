@@ -14,7 +14,7 @@ namespace TomMotos.Model
         public int quantidade_virtual { get; set; }
         public double valor { get; set; }
         public string marca { get; set; }
-        public string imagem { get; set; }
+        public byte[] imagem { get; set; }
        
     }
 }

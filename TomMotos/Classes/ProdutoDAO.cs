@@ -82,7 +82,36 @@ namespace TomMotos.Classes
                     MessageBox.Show("Cadastrado não Realizado!");
                 }
             }
-        
+
+        #endregion
+
+        #region METODO ALTERAR
+        public void alterar(ProdutoModel obj)
+        {
+            try
+            {
+
+                string update = @"Update  tb_produto set descricao_produto=@descricao,quantidade_produto=@quantidade,valor_produto=@valor,
+marca_produto=@marca,quantidade_virtual_produto=@quantidade_virtual, imagem_produto=@imagem where id_produto=@id";
+                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+                executacmdsql.Parameters.AddWithValue("@id", obj.id);
+                executacmdsql.Parameters.AddWithValue("@descricao", obj.descricao);
+                executacmdsql.Parameters.AddWithValue("@quantidade", obj.quantidade);
+                executacmdsql.Parameters.AddWithValue("@quantidade_virtual", obj.quantidade_virtual);
+                executacmdsql.Parameters.AddWithValue("@valor", obj.valor);
+                executacmdsql.Parameters.AddWithValue("@marca", obj.marca);
+                executacmdsql.Parameters.AddWithValue("@imagem", obj.imagem);
+                conexao.Open();
+                executacmdsql.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um Erro" + erro);
+            }
+
+
+        }
         #endregion
     }
 

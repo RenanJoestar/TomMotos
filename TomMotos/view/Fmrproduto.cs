@@ -1,13 +1,16 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TomMotos.Classes;
+using TomMotos.Conexao;
 using TomMotos.Model;
 
 namespace TomMotos.view
@@ -15,8 +18,11 @@ namespace TomMotos.view
     public partial class Fmrproduto : Form
 
     {
+        MySqlConnection conexao = ConnectionFactory.getConnection();
+        
+        byte[] base64Text;
         Bitmap image;
-        string base64Text;
+      
         public Fmrproduto()
         {
             InitializeComponent();
@@ -34,15 +40,17 @@ namespace TomMotos.view
                 ptb_perfil.ImageLocation = openFileDialog1.FileName;
                 ptb_perfil.Load();
                 lblCaminho.Text = "Caminho do arquivo: " + openFileDialog1.FileName;
-                image = new Bitmap(openFileDialog1.FileName);
+                 image = new Bitmap(openFileDialog1.FileName);
                 ptb_perfil.Image = (Image)image;
-
-                byte[] imageArray = System.IO.File.ReadAllBytes(openFileDialog1.FileName);
-                base64Text = Convert.ToBase64String(imageArray); //convertendo para base64
-                
+                MemoryStream imageArray = new MemoryStream();
+                ptb_perfil.Image.Save(imageArray, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] pic = imageArray.ToArray();
+                base64Text = pic;
+                //base64Text = Convert.ToBase64String(imageArray); //convertendo para base64
+            
             }
         }
-
+       
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             int a = 1;
@@ -60,8 +68,9 @@ namespace TomMotos.view
                     obj.descricao = txt_descricao_produto.Text;
                     obj.quantidade = int.Parse(np_quantidade.Text);
                     obj.quantidade_virtual = int.Parse(np_quantidade.Text);
-                    obj.valor = int.Parse(txt_valor_produto.Text);
-                    obj.marca = txt_marca_produto.Text;
+                    obj.valor = double.Parse(txt_valor_produto.Text);
+                    if (txt_marca_produto.Text == "") obj.marca = null;
+                    else obj.marca = txt_marca_produto.Text;
                     obj.imagem = base64Text;
 
 
@@ -97,5 +106,75 @@ namespace TomMotos.view
             dg_produto.DataSource = Cadastro.ListarTodosProdutos();
 
         }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ProdutoModel obj = new ProdutoModel();
+                obj.id = int.Parse(txt_id.Text);
+                obj.descricao = txt_descricao_produto.Text;
+                obj.quantidade = int.Parse(np_quantidade.Text);
+                obj.quantidade_virtual = int.Parse(np_quantidade.Text);
+                obj.valor = double.Parse(txt_valor_produto.Text);
+                if (txt_marca_produto.Text == "") obj.marca = null;
+                else obj.marca = txt_marca_produto.Text;
+                obj.imagem = base64Text;
+
+                ProdutoDAO dao = new ProdutoDAO();
+                dao.alterar(obj);
+                dg_produto.DataSource = dao.ListarTodosProdutos();
+                MessageBox.Show("Alterado com Sucesso!");
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu algum erro" + erro);
+            }
+        }
+
+        private void dg_produto_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id.Text = dg_produto.CurrentRow.Cells[0].Value.ToString();
+            txt_descricao_produto.Text = dg_produto.CurrentRow.Cells[1].Value.ToString();
+            np_quantidade.Text = dg_produto.CurrentRow.Cells[2].Value.ToString();            
+            txt_valor_produto.Text = dg_produto.CurrentRow.Cells[3].Value.ToString();
+            txt_marca_produto.Text = dg_produto.CurrentRow.Cells[4].Value.ToString();
+            
+            Base64ToImage();
+
+        }
+
+        public Image Base64ToImage()
+        {
+        if(txt_id.Text != "") { 
+            try
+            {
+                string select = @"select imagem_produto from tb_produto where id_produto =" + txt_id.Text;
+                MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+                conexao.Open();
+                    MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        MemoryStream ms = new MemoryStream((byte[])ds.Tables[0].Rows[0]["imagem_produto"]);
+                        ptb_perfil.Image = new Bitmap(ms);
+                    }
+                    conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um Erro" + erro);
+            }
+          }
+
+            else
+            {
+
+            }
+            return image;
+        }
+        
+
     }
 }

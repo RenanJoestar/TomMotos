@@ -59,7 +59,7 @@ namespace TomMotos.view
             // ptb_perfil
             // 
             this.ptb_perfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptb_perfil.Image = global::TomMotos.Properties.Resources._9aa5e10b_b8d6_4e13_a4de_839ba6ad8e42;
+            this.ptb_perfil.Image = global::TomMotos.Properties.Resources.SAM_3321;
             this.ptb_perfil.Location = new System.Drawing.Point(107, 263);
             this.ptb_perfil.Name = "ptb_perfil";
             this.ptb_perfil.Size = new System.Drawing.Size(100, 107);
@@ -250,6 +250,7 @@ namespace TomMotos.view
             this.dg_produto.Name = "dg_produto";
             this.dg_produto.Size = new System.Drawing.Size(502, 314);
             this.dg_produto.TabIndex = 20;
+            this.dg_produto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_produto_CellClick);
             // 
             // btnCadastrar
             // 
@@ -269,6 +270,7 @@ namespace TomMotos.view
             this.btnAlterar.TabIndex = 22;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 

@@ -179,6 +179,7 @@ namespace TomMotos.view
             this.dgCargo.Name = "dgCargo";
             this.dgCargo.Size = new System.Drawing.Size(493, 267);
             this.dgCargo.TabIndex = 20;
+            this.dgCargo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCargo_CellClick);
             // 
             // btnCadastrar
             // 
@@ -198,6 +199,7 @@ namespace TomMotos.view
             this.btnAlterar.TabIndex = 22;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 

@@ -30,7 +30,7 @@ namespace TomMotos.view
         private void InitializeComponent()
         {
             this.label7 = new System.Windows.Forms.Label();
-            this.dg_fornecedor = new System.Windows.Forms.DataGridView();
+            this.dg_funcionario = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_cargo = new System.Windows.Forms.DataGridView();
             this.txt_cargo = new System.Windows.Forms.TextBox();
@@ -55,7 +55,7 @@ namespace TomMotos.view
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_fornecedor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_funcionario)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cargo)).BeginInit();
             this.SuspendLayout();
@@ -71,13 +71,14 @@ namespace TomMotos.view
             this.label7.TabIndex = 19;
             this.label7.Text = "Cadastro de Funcionario";
             // 
-            // dg_fornecedor
+            // dg_funcionario
             // 
-            this.dg_fornecedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_fornecedor.Location = new System.Drawing.Point(326, 22);
-            this.dg_fornecedor.Name = "dg_fornecedor";
-            this.dg_fornecedor.Size = new System.Drawing.Size(653, 406);
-            this.dg_fornecedor.TabIndex = 24;
+            this.dg_funcionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_funcionario.Location = new System.Drawing.Point(326, 22);
+            this.dg_funcionario.Name = "dg_funcionario";
+            this.dg_funcionario.Size = new System.Drawing.Size(653, 406);
+            this.dg_funcionario.TabIndex = 24;
+            this.dg_funcionario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_funcionario_CellClick);
             // 
             // groupBox2
             // 
@@ -330,6 +331,7 @@ namespace TomMotos.view
             this.btnAlterar.TabIndex = 27;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
@@ -350,12 +352,12 @@ namespace TomMotos.view
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dg_fornecedor);
+            this.Controls.Add(this.dg_funcionario);
             this.Controls.Add(this.label7);
             this.Name = "Fmrfuncionario";
             this.Text = "Fmrfuncionario";
             this.Load += new System.EventHandler(this.Fmrfuncionario_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dg_fornecedor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_funcionario)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cargo)).EndInit();
@@ -367,7 +369,7 @@ namespace TomMotos.view
         #endregion
 
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dg_fornecedor;
+        private System.Windows.Forms.DataGridView dg_funcionario;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgv_cargo;
         private System.Windows.Forms.TextBox txt_cargo;

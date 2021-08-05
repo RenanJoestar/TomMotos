@@ -30,6 +30,7 @@ namespace TomMotos.view
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_marca = new System.Windows.Forms.TextBox();
             this.txt_obs = new System.Windows.Forms.TextBox();
@@ -54,7 +55,6 @@ namespace TomMotos.view
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_veiculo)).BeginInit();
@@ -90,6 +90,15 @@ namespace TomMotos.view
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PREENCHER DADOS";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(146, 333);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 15);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "SELECIONE O CLIENTE";
             // 
             // label1
             // 
@@ -299,6 +308,7 @@ namespace TomMotos.view
             this.dg_veiculo.Name = "dg_veiculo";
             this.dg_veiculo.Size = new System.Drawing.Size(648, 330);
             this.dg_veiculo.TabIndex = 33;
+            this.dg_veiculo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_veiculo_CellClick);
             // 
             // btnCadastrar
             // 
@@ -318,6 +328,7 @@ namespace TomMotos.view
             this.btnAlterar.TabIndex = 35;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
@@ -327,15 +338,6 @@ namespace TomMotos.view
             this.btnExcluir.TabIndex = 36;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(146, 333);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 15);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "SELECIONE O CLIENTE";
             // 
             // Fmrveiculo
             // 

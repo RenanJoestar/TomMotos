@@ -25,8 +25,9 @@ namespace TomMotos.view
             {
                 FornecedorModel obj = new FornecedorModel();
 
-                obj.nome = txt_nome.Text;               
-                obj.cnpj = txt_cnpj.Text;
+                obj.nome = txt_nome.Text;
+                if (txt_cnpj.Text == "") obj.cnpj = null;
+                else obj.cnpj = txt_cnpj.Text;
 
                 FornecedorDAO Cadastro = new FornecedorDAO();
 
@@ -47,6 +48,39 @@ namespace TomMotos.view
             FornecedorDAO Cadastro = new FornecedorDAO();
            
             dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FornecedorModel obj = new FornecedorModel();
+                obj.id = int.Parse(txt_id.Text);
+                obj.nome = txt_nome.Text;
+                if (txt_cnpj.Text == "") obj.cnpj = null;
+                else obj.cnpj = txt_cnpj.Text;
+
+                FornecedorDAO dao = new FornecedorDAO();
+                dao.alterar(obj);
+                dg_fornecedor.DataSource = dao.ListarTodosFornecedores();
+                MessageBox.Show("Alterado com Sucesso!");
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu algum erro" + erro);
+            }
+        }
+
+        private void dg_fornecedor_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id.Text = dg_fornecedor.CurrentRow.Cells[0].Value.ToString();
+            txt_nome.Text = dg_fornecedor.CurrentRow.Cells[1].Value.ToString();
+            txt_cnpj.Text = dg_fornecedor.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void dg_fornecedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_cliente` (
   `id_cliente` INT NOT NULL AUTO_INCREMENT,
   `nome_cliente` VARCHAR(15) NOT NULL,
   `sobrenome_cliente` VARCHAR(40) NULL DEFAULT NULL,
-  `data_nascimento_cliente` DATE NULL DEFAULT NULL,
+  `data_nascimento_cliente` varchar(15) NULL DEFAULT NULL,
   `cpf_cliente` VARCHAR(15) NULL DEFAULT NULL,
   `cnpj_cliente` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`id_cliente`))
@@ -46,7 +46,6 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
 
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_fornecedor`
@@ -61,7 +60,7 @@ AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-/*ALTER TABLE tb_funcionario  MODIFY COLUMN data_nascimento_funcionario varchar(15);*/
+/*ALTER TABLE tb_cliente  MODIFY COLUMN data_nascimento_cliente varchar(15);*/
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_funcionario`
 -- -----------------------------------------------------
