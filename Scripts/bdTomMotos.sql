@@ -61,7 +61,7 @@ AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-
+/*ALTER TABLE tb_funcionario  MODIFY COLUMN data_nascimento_funcionario varchar(15);*/
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_funcionario`
 -- -----------------------------------------------------
@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_funcionario` (
   `nome_funcionario` VARCHAR(50) NOT NULL,
   `sobrenome_funcionario` VARCHAR(40) NULL DEFAULT NULL,
   `cpf_funcionario` VARCHAR(15) NOT NULL,
-  `data_nascimento_funcionario` DATE NULL DEFAULT NULL,
-  `data_contratacao_funcionario` DATE NULL DEFAULT NULL,
+  `data_nascimento_funcionario` varchar(15) NULL DEFAULT NULL,
+  `data_contratacao_funcionario` varchar(15) NULL DEFAULT NULL,
   `sexo_funcionario` CHAR(1) NULL DEFAULT '?',
   `fk_cargo_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id_funcionario`),
@@ -90,6 +90,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_usuario` (
   `id_usuario` INT NOT NULL AUTO_INCREMENT,
+   `senha` VARCHAR(45) NULL,
   `fk_funcionario_id` INT NULL DEFAULT NULL,
   `fk_cliente_id` INT NULL DEFAULT NULL,
   `fk_fornecedor_id` INT NULL DEFAULT NULL,
@@ -150,7 +151,7 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
+CALL criacaoVeiculo("ASGFG", "ASGFG", null ,null, null, null, null, null);
 
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_veiculo`
@@ -159,9 +160,9 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_veiculo` (
   `id_veiculo` INT NOT NULL AUTO_INCREMENT,
   `marca_veiculo` VARCHAR(30) NOT NULL,
   `modelo_veiculo` VARCHAR(30) NOT NULL,
-  `cor_veiculo` TEXT NULL DEFAULT NULL,
-  `ano_veiculo` INT NULL DEFAULT NULL,
-  `km_veiculo` DOUBLE NULL DEFAULT NULL,
+  `cor_veiculo` VARCHAR(30) NULL DEFAULT NULL,
+  `ano_veiculo` VARCHAR(15) NULL DEFAULT NULL,
+  `km_veiculo` varchar(30) NULL DEFAULT NULL,
   `placa_veiculo` VARCHAR(12) NULL DEFAULT NULL,
   `obs_veiculo` VARCHAR(300) NULL DEFAULT NULL,
   `fk_cliente_id` INT NULL DEFAULT NULL,
