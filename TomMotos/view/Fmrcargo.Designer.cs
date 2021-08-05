@@ -92,11 +92,11 @@ namespace TomMotos.view
             this.lbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl.ForeColor = System.Drawing.Color.White;
-            this.lbl.Location = new System.Drawing.Point(29, 127);
+            this.lbl.Location = new System.Drawing.Point(21, 127);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(60, 15);
+            this.lbl.Size = new System.Drawing.Size(68, 15);
             this.lbl.TabIndex = 25;
-            this.lbl.Text = "SALARIO:";
+            this.lbl.Text = "* SALARIO:";
             // 
             // button4
             // 
@@ -155,11 +155,11 @@ namespace TomMotos.view
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(42, 86);
+            this.label2.Location = new System.Drawing.Point(34, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 15);
+            this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 7;
-            this.label2.Text = "NOME:";
+            this.label2.Text = "* NOME:";
             // 
             // label7
             // 

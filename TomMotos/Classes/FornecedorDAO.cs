@@ -48,21 +48,38 @@ namespace TomMotos.Classes
 
         public void cadastrarFornecedor(FornecedorModel obj)
         {
-            try
+            int a = 1;
+            if (obj.nome == "")
             {
-                string insert = @"CALL criacaoFornecedor(@nome, @cnpj)";
-
-                MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
-                executacmdsql.Parameters.AddWithValue("@nome", obj.nome);              
-                executacmdsql.Parameters.AddWithValue("@cnpj", obj.cnpj);
-
-                conexao.Open();
-                executacmdsql.ExecuteNonQuery();
-                conexao.Close();
+                MessageBox.Show("Preencha todos valores Obrigatorio! = *");
             }
-            catch (Exception erro)
+            else
             {
-                MessageBox.Show("Erro: " + erro);
+                try
+                {
+                    string insert = @"CALL criacaoFornecedor(@nome, @cnpj)";
+
+                    MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
+                    executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
+                    executacmdsql.Parameters.AddWithValue("@cnpj", obj.cnpj);
+
+                    conexao.Open();
+                    executacmdsql.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+                    a = 2;
+                    MessageBox.Show("Erro: " + erro);
+                }
+                if (a == 1)
+                {
+                    MessageBox.Show("Cadastrado com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Cadastrado não Realizado!");
+                }
             }
         }
         #endregion

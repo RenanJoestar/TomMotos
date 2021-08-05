@@ -68,17 +68,14 @@ namespace TomMotos.Classes
 
         public void cadastrar(VeiculoModel obj)
         {
-            int a=1;
-            if (obj.marca == "" || obj.modelo == "")
-            {
-                MessageBox.Show("Preencha todos valores Obrigatorio! = *");
 
-            }
-            else
-            {
+            int a=1;
+           
+
 
                 try
                 {
+
                     string insert = @"CALL criacaoVeiculo(@marca, @modelo, @cor ,@ano, @km, @placa, @obs, @fk_cliente_id)";
 
                     MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
@@ -89,17 +86,20 @@ namespace TomMotos.Classes
                     executacmdsql.Parameters.AddWithValue("@km", obj.km_veiculo);
                     executacmdsql.Parameters.AddWithValue("@placa", obj.placa_veiculo);
                     executacmdsql.Parameters.AddWithValue("@obs", obj.obs_veiculo);
-                    executacmdsql.Parameters.AddWithValue("@fk_cliente_id", obj.cliente_fk);
+                    //executacmdsql.Parameters.AddWithValue("@fk_cliente_id", obj.cliente_fk);
+                    executacmdsql.Parameters.AddWithValue("@fk_cliente_id", obj.cliente_fk == null ? (object)DBNull.Value : obj.cliente_fk);
 
-                    conexao.Open();
+                conexao.Open();
                     executacmdsql.ExecuteNonQuery();
                     conexao.Close();
                 }
+
                 catch (Exception erro)
                 {
                     a = 2;
                     MessageBox.Show("Erro: " + erro);
                 }
+
                 if (a == 1)
                 {
                     MessageBox.Show("Cadastrado com sucesso!");
@@ -110,7 +110,7 @@ namespace TomMotos.Classes
                 }
             }
 
-        }
+        
         #endregion
     }
 }

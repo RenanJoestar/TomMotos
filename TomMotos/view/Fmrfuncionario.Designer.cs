@@ -133,11 +133,11 @@ namespace TomMotos.view
             this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(37, 309);
+            this.label10.Location = new System.Drawing.Point(37, 312);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 15);
+            this.label10.Size = new System.Drawing.Size(57, 15);
             this.label10.TabIndex = 30;
-            this.label10.Text = "CARGO:";
+            this.label10.Text = "*CARGO:";
             // 
             // cbx_sexo
             // 
@@ -156,7 +156,7 @@ namespace TomMotos.view
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(47, 277);
+            this.label11.Location = new System.Drawing.Point(46, 277);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 15);
             this.label11.TabIndex = 28;
@@ -221,11 +221,11 @@ namespace TomMotos.view
             this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(56, 202);
+            this.label13.Location = new System.Drawing.Point(51, 202);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(33, 15);
+            this.label13.Size = new System.Drawing.Size(38, 15);
             this.label13.TabIndex = 22;
-            this.label13.Text = "CPF:";
+            this.label13.Text = "*CPF:";
             // 
             // label14
             // 
@@ -308,9 +308,9 @@ namespace TomMotos.view
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(42, 86);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(47, 15);
+            this.label17.Size = new System.Drawing.Size(52, 15);
             this.label17.TabIndex = 7;
-            this.label17.Text = "NOME:";
+            this.label17.Text = "*NOME:";
             // 
             // btnCadastrar
             // 

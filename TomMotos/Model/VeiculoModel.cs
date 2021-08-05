@@ -12,10 +12,10 @@ namespace TomMotos.Model
         public string marca { get; set; }
         public string modelo { get; set; }
         public string cor_veiculo { get; set; }
-        public int ano_veiculo { get; set; }
-        public double km_veiculo { get; set; }
+        public string ano_veiculo { get; set; }
+        public string km_veiculo { get; set; }
         public string placa_veiculo { get; set; }
         public string obs_veiculo { get; set; }
-        public int cliente_fk { get; set; }
+        public string cliente_fk { get; set; }
     }
 }

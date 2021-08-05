@@ -30,6 +30,8 @@ namespace TomMotos.view
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_marca = new System.Windows.Forms.TextBox();
             this.txt_obs = new System.Windows.Forms.TextBox();
             this.dgv_cliente = new System.Windows.Forms.DataGridView();
             this.txt_cliente = new System.Windows.Forms.TextBox();
@@ -52,8 +54,7 @@ namespace TomMotos.view
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.txt_marca = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_veiculo)).BeginInit();
@@ -61,6 +62,7 @@ namespace TomMotos.view
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txt_marca);
             this.groupBox2.Controls.Add(this.txt_obs);
@@ -89,6 +91,25 @@ namespace TomMotos.view
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PREENCHER DADOS";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(30, 123);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 15);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "* MARCA:";
+            // 
+            // txt_marca
+            // 
+            this.txt_marca.Location = new System.Drawing.Point(95, 120);
+            this.txt_marca.Name = "txt_marca";
+            this.txt_marca.Size = new System.Drawing.Size(133, 21);
+            this.txt_marca.TabIndex = 34;
+            // 
             // txt_obs
             // 
             this.txt_obs.Location = new System.Drawing.Point(95, 293);
@@ -107,6 +128,7 @@ namespace TomMotos.view
             // 
             // txt_cliente
             // 
+            this.txt_cliente.Enabled = false;
             this.txt_cliente.Location = new System.Drawing.Point(95, 330);
             this.txt_cliente.Name = "txt_cliente";
             this.txt_cliente.Size = new System.Drawing.Size(45, 21);
@@ -118,11 +140,11 @@ namespace TomMotos.view
             this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(28, 333);
+            this.label10.Location = new System.Drawing.Point(22, 333);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 15);
+            this.label10.Size = new System.Drawing.Size(68, 15);
             this.label10.TabIndex = 30;
-            this.label10.Text = "CLIENTE:";
+            this.label10.Text = "* CLIENTE:";
             // 
             // label11
             // 
@@ -130,7 +152,7 @@ namespace TomMotos.view
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(0, 293);
+            this.label11.Location = new System.Drawing.Point(4, 293);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(90, 15);
             this.label11.TabIndex = 28;
@@ -168,7 +190,7 @@ namespace TomMotos.view
             this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(4, 221);
+            this.label13.Location = new System.Drawing.Point(4, 224);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 15);
             this.label13.TabIndex = 22;
@@ -253,11 +275,11 @@ namespace TomMotos.view
             this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(26, 86);
+            this.label17.Location = new System.Drawing.Point(19, 86);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(63, 15);
+            this.label17.Size = new System.Drawing.Size(71, 15);
             this.label17.TabIndex = 7;
-            this.label17.Text = "MODELO:";
+            this.label17.Text = "* MODELO:";
             // 
             // label7
             // 
@@ -273,7 +295,7 @@ namespace TomMotos.view
             // dg_veiculo
             // 
             this.dg_veiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_veiculo.Location = new System.Drawing.Point(507, 65);
+            this.dg_veiculo.Location = new System.Drawing.Point(513, 65);
             this.dg_veiculo.Name = "dg_veiculo";
             this.dg_veiculo.Size = new System.Drawing.Size(648, 330);
             this.dg_veiculo.TabIndex = 33;
@@ -306,24 +328,14 @@ namespace TomMotos.view
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = true;
             // 
-            // txt_marca
+            // label2
             // 
-            this.txt_marca.Location = new System.Drawing.Point(95, 120);
-            this.txt_marca.Name = "txt_marca";
-            this.txt_marca.Size = new System.Drawing.Size(133, 21);
-            this.txt_marca.TabIndex = 34;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(37, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 15);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "MARCA:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(146, 333);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 15);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "SELECIONE O CLIENTE";
             // 
             // Fmrveiculo
             // 
@@ -376,5 +388,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_marca;
+        private System.Windows.Forms.Label label2;
     }
 }

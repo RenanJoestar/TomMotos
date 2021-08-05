@@ -45,6 +45,13 @@ namespace TomMotos.Classes
 
         public void cadastrar(ClienteModel obj)
         {
+            int a = 1;
+            if (obj.nome == "")
+            {
+                MessageBox.Show("Preencha todos valores Obrigatorio! = *");
+            }
+            else {
+
             try
             {
                 string insert = @"CALL criacaoCliente(@nome, @sobrenome, @data_nasc ,@cpf, @cnpj)";
@@ -62,7 +69,17 @@ namespace TomMotos.Classes
             }
             catch (Exception erro)
             {
+                    a = 2;
                 MessageBox.Show("Erro: " + erro);
+            }
+                if (a == 1)
+                {
+                    MessageBox.Show("Cadastrado com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Cadastrado não Realizado!");
+                }
             }
         }
         #endregion

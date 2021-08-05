@@ -24,8 +24,7 @@ namespace TomMotos.view
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            int a = 1;
-
+        
             try
             {
                 FuncionarioModel obj = new FuncionarioModel();
@@ -48,20 +47,14 @@ namespace TomMotos.view
             }
             catch (Exception erro)
             {
-                a = 2;
+              
                 MessageBox.Show("Erro: " + erro);
             }
-
            
 
-            if (a == 1)
-            {
-                MessageBox.Show("Cadastrado com sucesso!");
-            }
-            else
-            {
-                MessageBox.Show("Cadastrado não Realizado!");
-            }
+
+
+
         }
 
         private void Fmrfuncionario_Load(object sender, EventArgs e)

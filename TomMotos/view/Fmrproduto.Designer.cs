@@ -84,7 +84,7 @@ namespace TomMotos.view
             // lblCaminho
             // 
             this.lblCaminho.AutoSize = true;
-            this.lblCaminho.Location = new System.Drawing.Point(118, 384);
+            this.lblCaminho.Location = new System.Drawing.Point(104, 384);
             this.lblCaminho.Name = "lblCaminho";
             this.lblCaminho.Size = new System.Drawing.Size(41, 15);
             this.lblCaminho.TabIndex = 2;
@@ -166,11 +166,11 @@ namespace TomMotos.view
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(44, 158);
+            this.label5.Location = new System.Drawing.Point(39, 158);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 15);
+            this.label5.Size = new System.Drawing.Size(54, 15);
             this.label5.TabIndex = 29;
-            this.label5.Text = "VALOR:";
+            this.label5.Text = "*VALOR:";
             // 
             // label3
             // 
@@ -178,11 +178,11 @@ namespace TomMotos.view
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(6, 127);
+            this.label3.Location = new System.Drawing.Point(1, 123);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 15);
+            this.label3.Size = new System.Drawing.Size(92, 15);
             this.label3.TabIndex = 25;
-            this.label3.Text = "QUANTIDADE:";
+            this.label3.Text = "*QUANTIDADE:";
             // 
             // label1
             // 
@@ -216,7 +216,7 @@ namespace TomMotos.view
             this.txt_descricao_produto.ForeColor = System.Drawing.Color.White;
             this.txt_descricao_produto.Location = new System.Drawing.Point(95, 84);
             this.txt_descricao_produto.Name = "txt_descricao_produto";
-            this.txt_descricao_produto.Size = new System.Drawing.Size(154, 21);
+            this.txt_descricao_produto.Size = new System.Drawing.Size(160, 21);
             this.txt_descricao_produto.TabIndex = 1;
             // 
             // label2
@@ -226,11 +226,11 @@ namespace TomMotos.view
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(10, 86);
+            this.label2.Location = new System.Drawing.Point(6, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 15);
+            this.label2.Size = new System.Drawing.Size(87, 15);
             this.label2.TabIndex = 7;
-            this.label2.Text = "DESCRIÇÃO:";
+            this.label2.Text = "* DESCRIÇÃO:";
             // 
             // label8
             // 

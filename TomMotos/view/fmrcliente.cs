@@ -43,7 +43,7 @@ namespace TomMotos.view
                 
                 Cadastro.cadastrar(obj);
                 
-                MessageBox.Show("Cadastrado com sucesso!");
+              
                 dg_cliente.DataSource = Cadastro.ListarTodosClientes();
             }
             catch (Exception erro)

@@ -46,33 +46,38 @@ namespace TomMotos.view
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             int a = 1;
-
-            try
+            if (txt_descricao_produto.Text == "" || txt_valor_produto.Text =="" )
             {
-                ProdutoModel obj = new ProdutoModel();
-
-                
-                obj.descricao = txt_descricao_produto.Text;
-                obj.quantidade = int.Parse(np_quantidade.Text);
-                obj.quantidade_virtual = int.Parse(np_quantidade.Text);
-                obj.valor = int.Parse(txt_valor_produto.Text);
-                obj.marca= txt_marca_produto.Text;
-                obj.imagem = base64Text;
-                
-
-                ProdutoDAO Cadastro = new ProdutoDAO();
-
-                Cadastro.cadastrarProduto(obj);
-
-
-                dg_produto.DataSource = Cadastro.ListarTodosProdutos();
+                MessageBox.Show("Preencha todos valores Obrigatorio! = *");
             }
-            catch (Exception erro)
+            else
             {
-                a = 2;
-                MessageBox.Show("Erro: " + erro);
-            }
+                try
+                {
+                    ProdutoModel obj = new ProdutoModel();
 
+
+                    obj.descricao = txt_descricao_produto.Text;
+                    obj.quantidade = int.Parse(np_quantidade.Text);
+                    obj.quantidade_virtual = int.Parse(np_quantidade.Text);
+                    obj.valor = int.Parse(txt_valor_produto.Text);
+                    obj.marca = txt_marca_produto.Text;
+                    obj.imagem = base64Text;
+
+
+                    ProdutoDAO Cadastro = new ProdutoDAO();
+
+                    Cadastro.cadastrarProduto(obj);
+
+
+                    dg_produto.DataSource = Cadastro.ListarTodosProdutos();
+                }
+                catch (Exception erro)
+                {
+                    a = 2;
+                    MessageBox.Show("Erro: " + erro);
+                }
+            
 
 
             if (a == 1)
@@ -83,6 +88,7 @@ namespace TomMotos.view
             {
                 MessageBox.Show("Cadastrado não Realizado!");
             }
+          }
         }
 
         private void Fmrproduto_Load(object sender, EventArgs e)

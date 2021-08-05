@@ -68,29 +68,46 @@ namespace TomMotos.Classes
 
         public void cadastrarFuncionario(FuncionarioModel obj)
         {
-            try
+            int a =1;
+            if (obj.nome == "" || obj.cpf == ""|| obj.cargo_fk == "")
             {
-                string insert = @"CALL criacaoFuncionario(@nome, @sobrenome,@cpf, @data_nasc, @data_contratacao, @sexo,@cargo_fk)";
-
-                MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
-                executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
-                executacmdsql.Parameters.AddWithValue("@sobrenome", obj.sobrenome);
-                executacmdsql.Parameters.AddWithValue("@cpf", obj.cpf);
-                executacmdsql.Parameters.AddWithValue("@data_nasc", obj.data_nasc);
-                executacmdsql.Parameters.AddWithValue("@data_contratacao", obj.data_contratacao);
-                executacmdsql.Parameters.AddWithValue("@sexo", obj.sexo);
-                executacmdsql.Parameters.AddWithValue("@cargo_fk", obj.cargo_fk);
-                
-                
-                conexao.Open();
-                executacmdsql.ExecuteNonQuery();
-                conexao.Close();
+                MessageBox.Show("Preencha todos os campos obrigatórios");
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro: " + erro);
+            else {
+                try
+                {
+                    string insert = @"CALL criacaoFuncionario(@nome, @sobrenome,@cpf, @data_nasc, @data_contratacao, @sexo,@cargo_fk)";
+
+                    MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
+                    executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
+                    executacmdsql.Parameters.AddWithValue("@sobrenome", obj.sobrenome);
+                    executacmdsql.Parameters.AddWithValue("@cpf", obj.cpf);
+                    executacmdsql.Parameters.AddWithValue("@data_nasc", obj.data_nasc);
+                    executacmdsql.Parameters.AddWithValue("@data_contratacao", obj.data_contratacao);
+                    executacmdsql.Parameters.AddWithValue("@sexo", obj.sexo);
+                    executacmdsql.Parameters.AddWithValue("@cargo_fk", obj.cargo_fk);
+
+
+                    conexao.Open();
+                    executacmdsql.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+                    a = 2;
+                    MessageBox.Show("Erro: " + erro);
+                }
+                if (a==1)
+                {
+                    MessageBox.Show("Cadastrado com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Cadastrado não Realizado!");
+                }
             }
         }
+
         #endregion
 
     }

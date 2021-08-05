@@ -34,6 +34,14 @@ namespace TomMotos.view
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.txt_cnpj = new System.Windows.Forms.TextBox();
+            this.txt_nascimento = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_cpf = new System.Windows.Forms.TextBox();
             this.txt_sobrenome = new System.Windows.Forms.TextBox();
@@ -41,14 +49,6 @@ namespace TomMotos.view
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txt_nascimento = new System.Windows.Forms.TextBox();
-            this.txt_cnpj = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.dg_cliente = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
@@ -95,11 +95,11 @@ namespace TomMotos.view
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(42, 86);
+            this.label2.Location = new System.Drawing.Point(35, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 15);
+            this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 7;
-            this.label2.Text = "NOME:";
+            this.label2.Text = "* NOME:";
             // 
             // groupBox1
             // 
@@ -126,6 +126,83 @@ namespace TomMotos.view
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(184, 285);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(85, 53);
+            this.button6.TabIndex = 26;
+            this.button6.Text = "ENDERECO";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(100, 284);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 54);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "EMAIL";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(49, 239);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 15);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "CNPJ:";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(6, 285);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(83, 53);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "TELEFONE";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // txt_cnpj
+            // 
+            this.txt_cnpj.Location = new System.Drawing.Point(95, 236);
+            this.txt_cnpj.Name = "txt_cnpj";
+            this.txt_cnpj.Size = new System.Drawing.Size(133, 21);
+            this.txt_cnpj.TabIndex = 24;
+            // 
+            // txt_nascimento
+            // 
+            this.txt_nascimento.Location = new System.Drawing.Point(96, 160);
+            this.txt_nascimento.Name = "txt_nascimento";
+            this.txt_nascimento.Size = new System.Drawing.Size(132, 21);
+            this.txt_nascimento.TabIndex = 23;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(56, 202);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 15);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "CPF:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(1, 160);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 15);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "NASCIMENTO:";
             // 
             // label4
             // 
@@ -163,7 +240,6 @@ namespace TomMotos.view
             this.label7.Size = new System.Drawing.Size(175, 19);
             this.label7.TabIndex = 17;
             this.label7.Text = "Cadastro de clientes";
-          
             // 
             // button1
             // 
@@ -192,83 +268,6 @@ namespace TomMotos.view
             this.button3.TabIndex = 20;
             this.button3.Text = "EXCLUIR";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1, 160);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 15);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "NASCIMENTO:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(56, 202);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 15);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "CPF:";
-            // 
-            // txt_nascimento
-            // 
-            this.txt_nascimento.Location = new System.Drawing.Point(96, 160);
-            this.txt_nascimento.Name = "txt_nascimento";
-            this.txt_nascimento.Size = new System.Drawing.Size(132, 21);
-            this.txt_nascimento.TabIndex = 23;
-            // 
-            // txt_cnpj
-            // 
-            this.txt_cnpj.Location = new System.Drawing.Point(95, 236);
-            this.txt_cnpj.Name = "txt_cnpj";
-            this.txt_cnpj.Size = new System.Drawing.Size(133, 21);
-            this.txt_cnpj.TabIndex = 24;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(49, 239);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 15);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "CNPJ:";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(6, 285);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 53);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "TELEFONE";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(100, 284);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 54);
-            this.button5.TabIndex = 22;
-            this.button5.Text = "EMAIL";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(184, 285);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(85, 53);
-            this.button6.TabIndex = 26;
-            this.button6.Text = "ENDERECO";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // dg_cliente
             // 

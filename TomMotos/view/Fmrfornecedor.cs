@@ -32,7 +32,7 @@ namespace TomMotos.view
 
                 Cadastro.cadastrarFornecedor(obj);
 
-                MessageBox.Show("Cadastrado com sucesso!");
+                
                 dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
             }
             catch (Exception erro)
