@@ -40,7 +40,6 @@ namespace TomMotos.Classes
         }
         #endregion
 
-
         #region METODO LISTAR CARGO
         public DataTable ListarTodosCargos()
         {
@@ -61,8 +60,6 @@ namespace TomMotos.Classes
             return tabelaCargo;
         }
         #endregion
-
-
 
         #region METODO CADASTRAR
 

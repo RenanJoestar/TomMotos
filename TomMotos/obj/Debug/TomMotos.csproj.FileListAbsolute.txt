@@ -31,3 +31,36 @@ C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csprojAssemblyReference.cache
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrproduto.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrcargo.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrveiculo.resources
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\TomMotos.exe.config
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\TomMotos.exe
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\TomMotos.pdb
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\BouncyCastle.Crypto.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\Google.Protobuf.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\K4os.Compression.LZ4.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\K4os.Compression.LZ4.Streams.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\K4os.Hash.xxHash.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\MySql.Data.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\System.Buffers.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\System.Memory.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\System.Numerics.Vectors.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\Ubiety.Dns.Core.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\Zstandard.Net.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\Renci.SshNet.dll
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\MySql.Data.xml
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csprojAssemblyReference.cache
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe.config
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.Properties.Resources.resources
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrcargo.resources
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.fmrcliente.resources
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrfornecedor.resources
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrfuncionario.resources
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrproduto.resources
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.Fmrsumario.resources
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrsumariocadastro.resources
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrveiculo.resources
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.GenerateResource.cache
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CoreCompileInputs.cache
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CopyComplete
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe
+F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.pdb

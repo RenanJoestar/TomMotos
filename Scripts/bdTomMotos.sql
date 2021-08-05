@@ -151,7 +151,6 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-CALL criacaoVeiculo("ASGFG", "ASGFG", null ,null, null, null, null, null);
 
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_veiculo`
@@ -339,70 +338,6 @@ USE `bd_tommotos` ;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-
-insert into tb_veiculo(marca_veiculo, modelo_veiculo, cor_veiculo, ano_veiculo, km_veiculo, placa_veiculo, obs_veiculo, fk_cliente_id) values ('null', 'null', null, null, null, null, null, null);
-
-select*from tb_veiculo;
-select*from tb_cargo;
-select*from tb_cliente;
-select*from tb_email;
-select*from tb_usuario;
-select*from tb_endereco;
-select*from tb_telefone;
-select*from tb_fornecedor;
-select*from tb_funcionario;
-select*from tb_produto;
-
-call criacaoCliente('samuel','santos','2002/04/22','99999999',null);
-call criacaoCliente('matheus','santos','2002/04/23','99929999',null);
-call criacaoCliente('pedro','santos','2002/04/20','99929959',null);
-call criacaoEmail('samuca@gmail.com','6');
-call criacaoEmail('matheus@gmail.com','7');
-call criacaoEmail('pedro@gmail.com','8');
-call criacaoEndereco('006666600','rua limonada','santana de parnaiba','germano','23','6');
-call criacaoEndereco('006666600','rua aquario','santana de parnaiba','parque santana','20','7');
-call criacaoEndereco('0066655','rua touro','santana de parnaiba','parque santana','20','8');
-call criacaoTelefone('1199999999',6);
-call criacaoTelefone('1199994444',7);
-call criacaoTelefone(null,8);
-call criacaoVeiculo('kawasaki','honda','preto',null,null,'00000001',null,'9');
-call criacaoVeiculo('xt','yamaha','preto',null,null,'00000001',null,'10');
-call criacaoVeiculo('xtz','yamaha','azul',null,null,'0000022',null,'11');
-
-/* fornecedor*/
-
-call criacaoFornecedor('Jose silvio','222222');
-call criacaoEmail('samuca@gmail.com','9');
-call criacaoEndereco('006666655','rua cachoeira','santana de parnaiba','imperial','13','9');
-call criacaoTelefone('119988888',9);
-
-
-/*Funcionario*/
-
-call criacaoCargo('mecanico','1200');
-call criacaoFuncionario('João','blindo',007733133,'2003-10-22','2019-11-22','m','3');
-call criacaoEmail('blindo@gmail.com','10');
-call criacaoEndereco('00663332','rua alemão','santana de parnaiba','isaura','11','10');
-call criacaoTelefone('11998444',10);
-call criacaoFuncionario('Alemao','Santos',0077333322,'2002-12-22','2019-12-22','m','3');
-call criacaoEmail('Alemao@gmail.com','10');
-call criacaoEndereco('00660000','rua indio','santana de parnaiba','baruru','12','11');
-call criacaoTelefone('119981114',11);
-
-/*CRIACAO PRODUTO*/
-
-call criacaoProduto('oleo preto','0','0','15','mobil',null);
-call criacaoProduto('oleo','0','0','12','mobil',null);
-
-
-
-
-call mostrarClientePorID(11);
-call mostrarFornecedores();
-call mostrarFornecedorPorID(3);
-
-
 
 -- -----------------------------------------------------
 -- procedure CriacaoProduto
@@ -960,4 +895,47 @@ tb_produto.quantidade_virtual_produto = tb_produto.quantidade_virtual_produto + 
 WHERE new.fk_produto_id = tb_produto.id_produto 
 AND new.fk_cliente_id = tb_cliente.id_cliente; END IF; END $$ DELIMITER ; 
 
+insert into tb_veiculo(marca_veiculo, modelo_veiculo, cor_veiculo, ano_veiculo, km_veiculo, placa_veiculo, obs_veiculo, fk_cliente_id) values ('null', 'null', null, null, null, null, null, null);
+call criacaoCliente('samuel','santos','2002/04/22','99999999',null);
+call criacaoCliente('matheus','santos','2002/04/23','99929999',null);
+call criacaoCliente('pedro','santos','2002/04/20','99929959',null);
+call criacaoEmail('samuca@gmail.com','6');
+call criacaoEmail('matheus@gmail.com','7');
+call criacaoEmail('pedro@gmail.com','8');
+call criacaoEndereco('006666600','rua limonada','santana de parnaiba','germano','23','6');
+call criacaoEndereco('006666600','rua aquario','santana de parnaiba','parque santana','20','7');
+call criacaoEndereco('0066655','rua touro','santana de parnaiba','parque santana','20','8');
+call criacaoTelefone('1199999999',6);
+call criacaoTelefone('1199994444',7);
+call criacaoTelefone(null,8);
+call criacaoVeiculo('kawasaki','honda','preto',null,null,'00000001',null,'9');
+call criacaoVeiculo('xt','yamaha','preto',null,null,'00000001',null,'10');
+call criacaoVeiculo('xtz','yamaha','azul',null,null,'0000022',null,'11');
 
+/* fornecedor*/
+
+call criacaoFornecedor('Jose silvio','222222');
+call criacaoEmail('samuca@gmail.com','9');
+call criacaoEndereco('006666655','rua cachoeira','santana de parnaiba','imperial','13','9');
+call criacaoTelefone('119988888',9);
+
+/*Funcionario*/
+
+call criacaoCargo('mecanico','1200');
+call criacaoFuncionario('João','blindo',007733133,'2003-10-22','2019-11-22','m','3');
+call criacaoEmail('blindo@gmail.com','10');
+call criacaoEndereco('00663332','rua alemão','santana de parnaiba','isaura','11','10');
+call criacaoTelefone('11998444',10);
+call criacaoFuncionario('Alemao','Santos',0077333322,'2002-12-22','2019-12-22','m','3');
+call criacaoEmail('Alemao@gmail.com','10');
+call criacaoEndereco('00660000','rua indio','santana de parnaiba','baruru','12','11');
+call criacaoTelefone('119981114',11);
+
+/*CRIACAO PRODUTO*/
+
+call criacaoProduto('oleo preto','0','0','15','mobil',null);
+call criacaoProduto('oleo','0','0','12','mobil',null);
+
+call mostrarClientePorID(11);
+call mostrarFornecedores();
+call mostrarFornecedorPorID(3);

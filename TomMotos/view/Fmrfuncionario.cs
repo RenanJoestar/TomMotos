@@ -24,7 +24,6 @@ namespace TomMotos.view
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-        
             try
             {
                 FuncionarioModel obj = new FuncionarioModel();
@@ -34,27 +33,20 @@ namespace TomMotos.view
                 obj.sobrenome = txt_sobrenome.Text;
                 obj.data_nasc = txt_nascimento.Text;
                 obj.cpf = txt_cpf.Text;
-                obj.sexo = cbx_sexo.Text ;
+                obj.sexo = cbx_sexo.Text;
                 obj.cargo_fk = txt_cargo.Text;
                 obj.data_contratacao = txt_contratacao.Text;
 
                 FuncionarioDAO Cadastro = new FuncionarioDAO();
 
                 Cadastro.cadastrarFuncionario(obj);
-
                
                 dg_fornecedor.DataSource = Cadastro.ListarTodosFuncionario();
             }
             catch (Exception erro)
             {
-              
                 MessageBox.Show("Erro: " + erro);
             }
-           
-
-
-
-
         }
 
         private void Fmrfuncionario_Load(object sender, EventArgs e)
@@ -63,9 +55,6 @@ namespace TomMotos.view
             dg_fornecedor.DataSource = Cadastro.ListarTodosFuncionario();
             FuncionarioDAO Showcargo = new FuncionarioDAO();
             dgv_cargo.DataSource = Showcargo.ListarTodosCargos();
-
-           
-
         } 
           private void dgv_cargo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
