@@ -109,6 +109,30 @@ namespace TomMotos.Classes
         }
         #endregion
 
+
+        #region METODO EXCLUIR
+        public void Excluir(FornecedorModel obj)
+        {
+            try
+            {
+
+                string update = @"Delete from  tb_fornecedor  where id_cliente=@id";
+                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+                executacmdsql.Parameters.AddWithValue("@id", obj.id);
+               
+                conexao.Open();
+                executacmdsql.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um Erro" + erro);
+            }
+
+
+        }
+        #endregion
+
     }
 }
 

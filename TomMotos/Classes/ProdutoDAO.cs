@@ -113,6 +113,29 @@ marca_produto=@marca,quantidade_virtual_produto=@quantidade_virtual, imagem_prod
 
         }
         #endregion
+
+        #region METODO EXCLUIR
+        public void Excluir(ProdutoModel obj)
+        {
+            try
+            {
+
+                string update = @"Delete  tb_produto  where id_produto=@id";
+                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+                executacmdsql.Parameters.AddWithValue("@id", obj.id);
+                
+                conexao.Open();
+                executacmdsql.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um Erro" + erro);
+            }
+
+
+        }
+        #endregion
     }
 
 

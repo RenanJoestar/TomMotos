@@ -115,5 +115,29 @@ namespace TomMotos.Classes
         }
         #endregion
 
+
+        #region METODO EXCLUIR
+        public void Excluir(CargoModel obj)
+        {
+            try
+            {
+
+                string update = @"Delete from tb_cargo where id_cargo=@id";
+                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+
+                executacmdsql.Parameters.AddWithValue("@id", obj.id);
+                conexao.Open();
+                executacmdsql.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um Erro" + erro);
+            }
+
+
+        }
+        #endregion
+
     }
 }

@@ -18,8 +18,34 @@ namespace TomMotos.view
         public Fmrveiculo()
         {
             InitializeComponent();
-        }
+            
+           
 
+        }
+        public void validaPlaca()
+        {
+            Regex Padrao = new Regex(@"^[a-zA-Z]{3}\-\d{4}$");
+            Regex Mercosul = new Regex(@"^[a-zA-Z]{3}[0-9]{1}[a-zA-Z]{1}[0-9]{2}$");
+
+
+
+            if (!Mercosul.IsMatch(txt_placa.Text)&& !Padrao.IsMatch(txt_placa.Text))
+                    {
+                        
+                        txt_placa.ForeColor = Color.Red;
+                    
+                       
+                    }
+                    else
+                    {
+                        
+                        txt_placa.ForeColor = Color.Green;
+                    }
+
+                
+              
+           
+        }
 
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -33,11 +59,13 @@ namespace TomMotos.view
 
             else
             {
+                
+                 
                 try
                 {
                     VeiculoModel obj = new VeiculoModel();
 
-                    obj.id = int.Parse(txt_cliente.Text);
+                    obj.id = int.Parse(txt_id.Text);
                     obj.modelo = txt_modelo.Text;
                     obj.marca = txt_marca.Text;
                     obj.cor_veiculo = txt_cor.Text;
@@ -72,11 +100,15 @@ namespace TomMotos.view
 
         private void Fmrveiculo_Load(object sender, EventArgs e)
         {
+            
             VeiculoDAO Cadastro = new VeiculoDAO();                       
             dg_veiculo.DataSource = Cadastro.ListarTodosVeiculos();
 
             VeiculoDAO Cliente = new VeiculoDAO();
             dgv_cliente.DataSource = Cliente.ListarTodosClientes();
+
+          
+
         }
 
 
@@ -86,7 +118,7 @@ namespace TomMotos.view
             try
             {
                 VeiculoModel obj = new VeiculoModel();
-                obj.id = int.Parse(txt_cliente.Text);
+                obj.id = int.Parse(txt_id.Text);
                 obj.modelo = txt_modelo.Text;
                 obj.marca = txt_marca.Text;
                 obj.cor_veiculo = txt_cor.Text;
@@ -122,6 +154,50 @@ namespace TomMotos.view
             txt_cliente.Text = dg_veiculo.CurrentRow.Cells[9].Value.ToString();
 
             
+        }
+
+
+
+
+
+        private void txt_placa_Leave(object sender, EventArgs e)
+        {
+            if (txt_placa.Text != "")
+            {
+                validaPlaca();
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+
+                var result = MessageBox.Show("Deseja excluir o Veiculo" + txt_modelo.Text + "?", "EXCLUIR",
+                                        MessageBoxButtons.YesNo,
+                                        MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        VeiculoModel obj = new VeiculoModel();
+                        obj.id = int.Parse(txt_id.Text);
+
+
+                        VeiculoDAO dao = new VeiculoDAO();
+                        dao.Excluir(obj);
+                        dg_veiculo.DataSource = dao.ListarTodosClientes();
+                        MessageBox.Show("Excluido com Sucesso!");
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+
         }
     }
 }

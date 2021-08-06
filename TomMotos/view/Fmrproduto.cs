@@ -104,6 +104,7 @@ namespace TomMotos.view
         {
             ProdutoDAO Cadastro = new ProdutoDAO();
             dg_produto.DataSource = Cadastro.ListarTodosProdutos();
+            lblCaminho.Text = "";
 
         }
 
@@ -174,7 +175,41 @@ namespace TomMotos.view
             }
             return image;
         }
-        
 
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            ptb_perfil.Image = null;
+            lblCaminho.Text = "";
+            
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+                var result = MessageBox.Show("Deseja excluir o Fornecedor" + txt_descricao_produto.Text + "?", "EXCLUIR",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        ProdutoModel obj = new ProdutoModel();
+                        obj.id = int.Parse(txt_id.Text);
+
+
+                        ProdutoDAO dao = new ProdutoDAO();
+                        dao.Excluir(obj);
+                        dg_produto.DataSource = dao.ListarTodosProdutos();
+                        MessageBox.Show("Excluido com Sucesso!");
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            
+         }
     }
 }

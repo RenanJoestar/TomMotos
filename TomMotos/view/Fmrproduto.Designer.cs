@@ -50,6 +50,7 @@ namespace TomMotos.view
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.np_quantidade)).BeginInit();
@@ -58,8 +59,8 @@ namespace TomMotos.view
             // 
             // ptb_perfil
             // 
+            this.ptb_perfil.BackColor = System.Drawing.SystemColors.Menu;
             this.ptb_perfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptb_perfil.Image = global::TomMotos.Properties.Resources.SAM_3321;
             this.ptb_perfil.Location = new System.Drawing.Point(107, 263);
             this.ptb_perfil.Name = "ptb_perfil";
             this.ptb_perfil.Size = new System.Drawing.Size(100, 107);
@@ -84,7 +85,7 @@ namespace TomMotos.view
             // lblCaminho
             // 
             this.lblCaminho.AutoSize = true;
-            this.lblCaminho.Location = new System.Drawing.Point(104, 384);
+            this.lblCaminho.Location = new System.Drawing.Point(15, 437);
             this.lblCaminho.Name = "lblCaminho";
             this.lblCaminho.Size = new System.Drawing.Size(41, 15);
             this.lblCaminho.TabIndex = 2;
@@ -92,6 +93,7 @@ namespace TomMotos.view
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnLimpar);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txt_valor_produto);
             this.groupBox1.Controls.Add(this.lblCaminho);
@@ -213,7 +215,7 @@ namespace TomMotos.view
             this.txt_descricao_produto.BackColor = System.Drawing.SystemColors.Window;
             this.txt_descricao_produto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_descricao_produto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_descricao_produto.ForeColor = System.Drawing.Color.White;
+            this.txt_descricao_produto.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txt_descricao_produto.Location = new System.Drawing.Point(95, 84);
             this.txt_descricao_produto.Name = "txt_descricao_produto";
             this.txt_descricao_produto.Size = new System.Drawing.Size(160, 21);
@@ -280,6 +282,17 @@ namespace TomMotos.view
             this.btnExcluir.TabIndex = 23;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(18, 411);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.TabIndex = 36;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // Fmrproduto
             // 
@@ -329,5 +342,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

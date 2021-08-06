@@ -137,5 +137,29 @@ data_contratacao_funcionario=@data_contratacao, sexo_funcionario=@sexo, fk_cargo
         }
         #endregion
 
+        #region METODO EXCLUIR
+        public void Excluir(FuncionarioModel obj)
+        {
+            try
+            {
+
+                string update = @"Delete from tb_funcionario where id_funcionario=@id";
+                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+                executacmdsql.Parameters.AddWithValue("@id", obj.id);
+               
+                conexao.Open();
+                executacmdsql.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um Erro" + erro);
+            }
+
+
+        }
+        #endregion
+
+
     }
 }

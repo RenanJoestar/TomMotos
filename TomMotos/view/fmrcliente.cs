@@ -95,5 +95,33 @@ namespace TomMotos.view
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+                var result = MessageBox.Show("Deseja excluir o cliente " + txt_nome.Text + "?", "EXCLUIR",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Exclamation);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        ClienteModel obj = new ClienteModel();
+                        obj.id = int.Parse(txt_id.Text);
+
+                        ClienteDAO dao = new ClienteDAO();
+                        dao.Excluir(obj);
+                        dg_cliente.DataSource = dao.ListarTodosClientes();
+                        MessageBox.Show("Excluido com Sucesso!");
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
     }
 }

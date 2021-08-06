@@ -84,6 +84,35 @@ namespace TomMotos.view
             txt_nome.Text = dgCargo.CurrentRow.Cells[1].Value.ToString();
             txt_salario.Text = dgCargo.CurrentRow.Cells[2].Value.ToString();
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+                var result = MessageBox.Show("Deseja excluir o cargo " + txt_nome.Text + "?", "EXCLUIR",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Exclamation);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        CargoModel obj = new CargoModel();
+
+
+                        obj.id = int.Parse(txt_id.Text);
+
+                        CargoDAO dao = new CargoDAO();
+                        dao.Excluir(obj);
+                        dgCargo.DataSource = dao.ListarTodosCargos();
+                        MessageBox.Show("Excluido com Sucesso!");
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Não foi possivel excluir", "EXCLUIR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -181,10 +181,12 @@ namespace TomMotos.view
             // 
             // txt_placa
             // 
+            this.txt_placa.ForeColor = System.Drawing.Color.Black;
             this.txt_placa.Location = new System.Drawing.Point(97, 255);
             this.txt_placa.Name = "txt_placa";
             this.txt_placa.Size = new System.Drawing.Size(133, 21);
             this.txt_placa.TabIndex = 24;
+            this.txt_placa.Leave += new System.EventHandler(this.txt_placa_Leave);
             // 
             // txt_ano
             // 
@@ -338,6 +340,7 @@ namespace TomMotos.view
             this.btnExcluir.TabIndex = 36;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // Fmrveiculo
             // 

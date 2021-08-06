@@ -144,5 +144,28 @@ km_veiculo=@km, placa_veiculo=@placa, obs_veiculo=@obs, fk_cliente=@fk_cliente_i
         }
         #endregion
 
+        #region METODO ALTERAR
+        public void Excluir(VeiculoModel obj)
+        {
+            try
+            {
+
+                string update = @"Delete from  tb_veiculo  where id_veiculo=@id";
+                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+                executacmdsql.Parameters.AddWithValue("@id", obj.id);
+                
+                conexao.Open();
+                executacmdsql.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um Erro" + erro);
+            }
+
+
+        }
+        #endregion
+
     }
 }

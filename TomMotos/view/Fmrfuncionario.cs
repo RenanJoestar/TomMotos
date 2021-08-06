@@ -28,7 +28,7 @@ namespace TomMotos.view
             {
                 FuncionarioModel obj = new FuncionarioModel();
 
-                obj.id = int.Parse(txt_cargo.Text);
+                obj.id = int.Parse(txt_id.Text);
                 if (txt_nome.Text == "") obj.nome = null;
                 else obj.nome = txt_nome.Text;
                 if (txt_sobrenome.Text == "") obj.sobrenome = null; 
@@ -73,7 +73,8 @@ namespace TomMotos.view
             try
             {
                 FuncionarioModel obj = new FuncionarioModel();
-                obj.id = int.Parse(txt_cargo.Text);
+                obj.id = int.Parse(txt_id.Text);
+                
                 if (txt_nome.Text == "") obj.nome = null;
                 else obj.nome = txt_nome.Text;
                 if (txt_sobrenome.Text == "") obj.sobrenome = null;
@@ -83,6 +84,7 @@ namespace TomMotos.view
                 obj.sexo = cbx_sexo.Text;
                 obj.cargo_fk = txt_cargo.Text;
                 obj.data_contratacao = txt_contratacao.Text;
+
 
                 FuncionarioDAO dao = new FuncionarioDAO();
                 dao.alterar(obj);
@@ -105,6 +107,35 @@ namespace TomMotos.view
             cbx_sexo.Text = dg_funcionario.CurrentRow.Cells[6].Value.ToString();
             txt_cargo.Text = dg_funcionario.CurrentRow.Cells[7].Value.ToString();
             txt_contratacao.Text = dg_funcionario.CurrentRow.Cells[5].Value.ToString();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+                var result = MessageBox.Show("Deseja excluir o Funcionario " + txt_nome.Text + "?", "EXCLUIR",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        FuncionarioModel obj = new FuncionarioModel();
+                        obj.id = int.Parse(txt_id.Text);
+
+
+                        FuncionarioDAO dao = new FuncionarioDAO();
+                        dao.Excluir(obj);
+                        dg_funcionario.DataSource = dao.ListarTodosFuncionario();
+                        MessageBox.Show("Excluido com Sucesso!");
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+            }
         }
     }
     
