@@ -189,6 +189,7 @@ namespace TomMotos.view
             this.button7.TabIndex = 21;
             this.button7.Text = "TELEFONE";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label12
             // 

@@ -71,6 +71,7 @@
     <Compile Include="Classes\FornecedorDAO.cs" />
     <Compile Include="Classes\FuncionarioDAO.cs" />
     <Compile Include="Classes\ProdutoDAO.cs" />
+    <Compile Include="Classes\TelefoneDAO.cs" />
     <Compile Include="Classes\VeiculoDAO.cs" />
     <Compile Include="Conexao\ConnectionFactory.cs" />
     <Compile Include="Model\CargoModel.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Model\FornecedorModel.cs" />
     <Compile Include="Model\FuncionarioModel.cs" />
     <Compile Include="Model\ProdutoModel.cs" />
+    <Compile Include="Model\TelefoneModel.cs" />
     <Compile Include="Model\VeiculoModel.cs" />
     <Compile Include="view\Fmrcargo.cs">
       <SubType>Form</SubType>
@@ -123,6 +125,12 @@
     <Compile Include="view\Fmrsumariocadastro.Designer.cs">
       <DependentUpon>Fmrsumariocadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Fmrtelefone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Fmrtelefone.Designer.cs">
+      <DependentUpon>Fmrtelefone.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Fmrveiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrsumariocadastro.resx">
       <DependentUpon>Fmrsumariocadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Fmrtelefone.resx">
+      <DependentUpon>Fmrtelefone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrveiculo.resx">
       <DependentUpon>Fmrveiculo.cs</DependentUpon>

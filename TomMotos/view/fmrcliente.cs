@@ -1,15 +1,22 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Data;
 using System.Windows.Forms;
 using TomMotos.Classes;
+using TomMotos.Conexao;
 using TomMotos.Model;
 
 namespace TomMotos.view
 {
     public partial class fmrcliente : Form
     {
+        
+        static string idUser,nome;
+        MySqlConnection conexao = ConnectionFactory.getConnection();
         public fmrcliente()
         {
             InitializeComponent();
+
         }
 
         private void fmrcliente_Load(object sender, EventArgs e)
@@ -123,5 +130,46 @@ namespace TomMotos.view
             }
 
         }
+
+        public void button4_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+                try
+                {
+
+                    nome = ("CADASTRO DE TELEFONE DO CLIENTE "+txt_nome.Text).ToUpper();
+                    string select = "select id_usuario from tb_usuario where fk_cliente_id =" + txt_id.Text;
+                    MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+                    conexao.Open();
+                    MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
+                    conexao.Close();
+
+                    TelefoneModel.id = idUser;
+                    Fmrtelefone nomeCliente = new Fmrtelefone(nome);
+                    nomeCliente.Show();
+
+                    
+                    
+                  
+
+
+
+
+                }
+                catch (Exception erro) {
+                    MessageBox.Show(erro.ToString());
+                }
+
+
+            }
+            else { MessageBox.Show("Escolha um Cliente que deseja cadastrar o email", "Erro",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);}
+           
+        }
+
     }
 }

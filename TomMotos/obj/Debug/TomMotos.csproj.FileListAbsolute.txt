@@ -64,3 +64,4 @@ F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj
 F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CopyComplete
 F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
+C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrtelefone.resources
