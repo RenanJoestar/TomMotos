@@ -186,7 +186,6 @@ namespace TomMotos.view
             this.txt_placa.Name = "txt_placa";
             this.txt_placa.Size = new System.Drawing.Size(133, 21);
             this.txt_placa.TabIndex = 24;
-            
             this.txt_placa.Leave += new System.EventHandler(this.txt_placa_Leave);
             // 
             // txt_ano

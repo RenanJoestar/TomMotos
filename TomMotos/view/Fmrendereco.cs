@@ -42,11 +42,9 @@ namespace TomMotos.view
             {
                 if (txt_cep.Text != "")
                 {
-                   
-                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://viacep.com.br/ws/" + txt_cep.Text + "/json/");
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://viacep.com.br/ws/"+txt_cep.Text+"/json/");
                     request.AllowAutoRedirect = false;
 
-                    
                     using (HttpWebResponse ChecaServidor = (HttpWebResponse)request.GetResponse())
                     {
                         using (Stream webStream = ChecaServidor.GetResponseStream())
@@ -92,12 +90,12 @@ namespace TomMotos.view
                                         }
 
                                         cont++;
-                                    }
+                                  }
                                 }
+                              }
                             }
+                          }
                         }
-                       }
-                    }
                 
                 else
                 {
@@ -109,15 +107,10 @@ namespace TomMotos.view
 
             catch (Exception erro)
             {
-                if (erro.ToString().Contains("400"))
-                {
-                    MessageBox.Show("CEP não encontrado");
-                }
-                else if(erro.ToString().Contains("viacep.com.br")) {
-                    MessageBox.Show("Servidor indisponivel");
-                }
-                
-                
+                if (erro.ToString().Contains("400")) MessageBox.Show("CEP não encontrado");
+                else if(erro.ToString().Contains("viacep.com.br")) MessageBox.Show("Servidor indisponivel");
+                else MessageBox.Show(erro.ToString());
+
                 txt_bairro.Text = "";
                 txt_cidade.Text = "";
                 txt_endereco.Text = "";
@@ -126,21 +119,17 @@ namespace TomMotos.view
 
         }
 
-   
-    
-
-   
     private void btnCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
                 EnderecoModel obj = new EnderecoModel();
                 EnderecoModel.id = txt_id.Text;
-                obj.cep = txt_cep.Text;
-                obj.endereco = txt_endereco.Text;
-                obj.bairro = txt_bairro.Text;
-                obj.numero = txt_numero.Text;
-                obj.cidade = txt_cidade.Text;
+                obj.cep = txt_cep.Text.ToUpper();
+                obj.endereco = txt_endereco.Text.ToUpper();
+                obj.bairro = txt_bairro.Text.ToUpper();
+                obj.numero = txt_numero.Text.ToUpper();
+                obj.cidade = txt_cidade.Text.ToUpper();
 
 
                 EnderecoDAO Cadastro = new EnderecoDAO();
@@ -167,7 +156,6 @@ namespace TomMotos.view
         private void txt_cep_Leave(object sender, EventArgs e)
         {
             PegaJson();
-
         }
     }
 }

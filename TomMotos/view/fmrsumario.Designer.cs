@@ -29,8 +29,12 @@ namespace TomMotos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCaixa = new System.Windows.Forms.Button();
             this.btnCadastro = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.alowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCaixa
@@ -52,6 +56,21 @@ namespace TomMotos
             this.btnCadastro.UseVisualStyleBackColor = true;
             this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alowToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(100, 26);
+            // 
+            // alowToolStripMenuItem
+            // 
+            this.alowToolStripMenuItem.Name = "alowToolStripMenuItem";
+            this.alowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alowToolStripMenuItem.Text = "alow";
+            this.alowToolStripMenuItem.Click += new System.EventHandler(this.alowToolStripMenuItem_Click);
+            // 
             // Fmrsumario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -61,6 +80,7 @@ namespace TomMotos
             this.Controls.Add(this.btnCaixa);
             this.Name = "Fmrsumario";
             this.Text = "Form1";
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -69,6 +89,8 @@ namespace TomMotos
 
         private System.Windows.Forms.Button btnCaixa;
         private System.Windows.Forms.Button btnCadastro;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem alowToolStripMenuItem;
     }
 }
 

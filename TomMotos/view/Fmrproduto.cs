@@ -54,7 +54,7 @@ namespace TomMotos.view
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             int a = 1;
-            if (txt_descricao_produto.Text == "" || txt_valor_produto.Text =="" )
+            if (txt_descricao_produto.Text == "" || txt_valor_produto.Text ==""|| np_quantidade.Text ==null)
             {
                 MessageBox.Show("Preencha todos valores Obrigatorio! = *");
             }
@@ -65,12 +65,12 @@ namespace TomMotos.view
                     ProdutoModel obj = new ProdutoModel();
 
 
-                    obj.descricao = txt_descricao_produto.Text;
+                    obj.descricao = txt_descricao_produto.Text.ToUpper();
                     obj.quantidade = int.Parse(np_quantidade.Text);
                     obj.quantidade_virtual = int.Parse(np_quantidade.Text);
                     obj.valor = double.Parse(txt_valor_produto.Text);
                     if (txt_marca_produto.Text == "") obj.marca = null;
-                    else obj.marca = txt_marca_produto.Text;
+                    else obj.marca = txt_marca_produto.Text.ToUpper();
                     obj.imagem = base64Text;
 
 
@@ -110,16 +110,18 @@ namespace TomMotos.view
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            try
+            if (txt_id.Text != "")
+            {
+             try
             {
                 ProdutoModel obj = new ProdutoModel();
                 obj.id = int.Parse(txt_id.Text);
-                obj.descricao = txt_descricao_produto.Text;
+                obj.descricao = txt_descricao_produto.Text.ToUpper();
                 obj.quantidade = int.Parse(np_quantidade.Text);
                 obj.quantidade_virtual = int.Parse(np_quantidade.Text);
-                obj.valor = double.Parse(txt_valor_produto.Text);
+                obj.valor = double.Parse(txt_valor_produto.Text.ToUpper());
                 if (txt_marca_produto.Text == "") obj.marca = null;
-                else obj.marca = txt_marca_produto.Text;
+                else obj.marca = txt_marca_produto.Text.ToUpper();
                 obj.imagem = base64Text;
 
                 ProdutoDAO dao = new ProdutoDAO();
@@ -131,6 +133,8 @@ namespace TomMotos.view
             {
                 MessageBox.Show("Aconteceu algum erro" + erro);
             }
+            }
+            else MessageBox.Show("Escolha um id que deseja Alterar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dg_produto_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -203,7 +207,7 @@ namespace TomMotos.view
                         dg_produto.DataSource = dao.ListarTodosProdutos();
                         MessageBox.Show("Excluido com Sucesso!");
                     }
-                    catch (Exception erro)
+                    catch (Exception)
                     {
                         MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }

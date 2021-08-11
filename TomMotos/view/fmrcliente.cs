@@ -33,17 +33,17 @@ namespace TomMotos.view
             {
                 ClienteModel obj = new ClienteModel();
 
-                obj.nome = txt_nome.Text;
-                obj.sobrenome = txt_sobrenome.Text;
+                obj.nome = txt_nome.Text.ToUpper();
+                obj.sobrenome = txt_sobrenome.Text.ToUpper();
 
                 if (txt_nascimento.Text == "") obj.data_nasc = null; // Verifica se a data de nascimento é null
-                else obj.data_nasc = txt_nascimento.Text;
+                else obj.data_nasc = txt_nascimento.Text.ToUpper();
 
                 if (txt_cpf.Text == "") obj.cpf = null;
-                else obj.cpf = txt_cpf.Text;
+                else obj.cpf = txt_cpf.Text.ToUpper();
 
                 if (txt_cnpj.Text == "") obj.cnpj = null;  // É interessante perceber que isso não deve ser usado para alguns ints, por exemplo de quantidade tendo em vista
-                else obj.cnpj = txt_cnpj.Text;             // que quantidade é um valor que não pode ser armazenado como nulo, se o produto não se encontra 
+                else obj.cnpj = txt_cnpj.Text.ToUpper();             // que quantidade é um valor que não pode ser armazenado como nulo, se o produto não se encontra 
                                                            // ele tem que ser cadastrado como 0.
                 ClienteDAO Cadastro = new ClienteDAO();
                 
@@ -60,21 +60,24 @@ namespace TomMotos.view
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (txt_id.Text != "")
+            {
+            
             try
             {
                 ClienteModel obj = new ClienteModel();
                 obj.id = int.Parse(txt_id.Text);
-                obj.nome = txt_nome.Text;
-                obj.sobrenome = txt_sobrenome.Text;
+                obj.nome = txt_nome.Text.ToUpper();
+                obj.sobrenome = txt_sobrenome.Text.ToUpper();
 
                 if (txt_nascimento.Text == "") obj.data_nasc = null; // Verifica se a data de nascimento é null
-                else obj.data_nasc = txt_nascimento.Text;
+                else obj.data_nasc = txt_nascimento.Text.ToUpper();
 
                 if (txt_cpf.Text == "") obj.cpf = null;
-                else obj.cpf = txt_cpf.Text;
+                else obj.cpf = txt_cpf.Text.ToUpper();
 
                 if (txt_cnpj.Text == "") obj.cnpj = null;  // É interessante perceber que isso não deve ser usado para alguns ints, por exemplo de quantidade tendo em vista
-                else obj.cnpj = txt_cnpj.Text;
+                else obj.cnpj = txt_cnpj.Text.ToUpper();
 
                 ClienteDAO dao = new ClienteDAO();
                 dao.alterar(obj);
@@ -85,6 +88,8 @@ namespace TomMotos.view
             {
                 MessageBox.Show("Aconteceu algum erro" + erro);
             }
+           }
+            else MessageBox.Show("Erro", "Escolha um id que deseja Alterar", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dg_cliente_CellClick(object sender, DataGridViewCellEventArgs e)

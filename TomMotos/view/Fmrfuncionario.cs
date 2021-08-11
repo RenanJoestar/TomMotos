@@ -34,14 +34,14 @@ namespace TomMotos.view
 
                 obj.id = int.Parse(txt_id.Text);
                 if (txt_nome.Text == "") obj.nome = null;
-                else obj.nome = txt_nome.Text;
+                else obj.nome = txt_nome.Text.ToUpper();
                 if (txt_sobrenome.Text == "") obj.sobrenome = null; 
-                else obj.sobrenome = txt_sobrenome.Text;
-                obj.data_nasc = txt_nascimento.Text;
-                obj.cpf = txt_cpf.Text;
-                obj.sexo = cbx_sexo.Text;
-                obj.cargo_fk = txt_cargo.Text;
-                obj.data_contratacao = txt_contratacao.Text;
+                else obj.sobrenome = txt_sobrenome.Text.ToUpper();
+                obj.data_nasc = txt_nascimento.Text.ToUpper();
+                obj.cpf = txt_cpf.Text.ToUpper();
+                obj.sexo = cbx_sexo.Text.ToUpper();
+                obj.cargo_fk = txt_cargo.Text.ToUpper();
+                obj.data_contratacao = txt_contratacao.Text.ToUpper();
 
                 FuncionarioDAO Cadastro = new FuncionarioDAO();
 
@@ -74,20 +74,22 @@ namespace TomMotos.view
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            try
+            if (txt_id.Text != "")
+            {
+             try
             {
                 FuncionarioModel obj = new FuncionarioModel();
                 obj.id = int.Parse(txt_id.Text);
                 
                 if (txt_nome.Text == "") obj.nome = null;
-                else obj.nome = txt_nome.Text;
+                else obj.nome = txt_nome.Text.ToUpper();
                 if (txt_sobrenome.Text == "") obj.sobrenome = null;
-                else obj.sobrenome = txt_sobrenome.Text;
-                obj.data_nasc = txt_nascimento.Text;
-                obj.cpf = txt_cpf.Text;
-                obj.sexo = cbx_sexo.Text;
-                obj.cargo_fk = txt_cargo.Text;
-                obj.data_contratacao = txt_contratacao.Text;
+                else obj.sobrenome = txt_sobrenome.Text.ToUpper();
+                obj.data_nasc = txt_nascimento.Text.ToUpper();
+                obj.cpf = txt_cpf.Text.ToUpper();
+                obj.sexo = cbx_sexo.Text.ToUpper();
+                obj.cargo_fk = txt_cargo.Text.ToUpper();
+                obj.data_contratacao = txt_contratacao.Text.ToUpper();
 
 
                 FuncionarioDAO dao = new FuncionarioDAO();
@@ -99,6 +101,8 @@ namespace TomMotos.view
             {
                 MessageBox.Show("Aconteceu algum erro" + erro);
             }
+            }
+            else MessageBox.Show("Escolha um id que deseja Alterar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dg_funcionario_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -30,7 +30,7 @@ namespace TomMotos.view
             {
                 EmailModel obj = new EmailModel();
                 EmailModel.id = txt_id.Text;
-                obj.nome = txt_email.Text;
+                obj.nome = txt_email.Text.ToUpper();
 
                 EmailDAO Cadastro = new EmailDAO();
 

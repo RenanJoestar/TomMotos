@@ -29,9 +29,9 @@ namespace TomMotos.view
             {
                 FornecedorModel obj = new FornecedorModel();
 
-                obj.nome = txt_nome.Text;
+                obj.nome = txt_nome.Text.ToUpper();
                 if (txt_cnpj.Text == "") obj.cnpj = null;
-                else obj.cnpj = txt_cnpj.Text;
+                else obj.cnpj = txt_cnpj.Text.ToUpper();
 
                 FornecedorDAO Cadastro = new FornecedorDAO();
 
@@ -56,13 +56,16 @@ namespace TomMotos.view
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            if (txt_id.Text != "")
+            {
+            
             try
             {
                 FornecedorModel obj = new FornecedorModel();
                 obj.id = int.Parse(txt_id.Text);
-                obj.nome = txt_nome.Text;
+                obj.nome = txt_nome.Text.ToUpper();
                 if (txt_cnpj.Text == "") obj.cnpj = null;
-                else obj.cnpj = txt_cnpj.Text;
+                else obj.cnpj = txt_cnpj.Text.ToUpper();
 
                 FornecedorDAO dao = new FornecedorDAO();
                 dao.alterar(obj);
@@ -73,6 +76,8 @@ namespace TomMotos.view
             {
                 MessageBox.Show("Aconteceu algum erro" + erro);
             }
+            }
+            else MessageBox.Show("Escolha um id que deseja Alterar", "Erro",  MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dg_fornecedor_CellClick(object sender, DataGridViewCellEventArgs e)

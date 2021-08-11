@@ -64,7 +64,7 @@ namespace TomMotos.view
             {
                 TelefoneModel obj = new TelefoneModel();
                 TelefoneModel.id = txt_id.Text;
-                obj.nome = txt_telefone.Text;
+                obj.nome = txt_telefone.Text.ToUpper();
                          
                 TelefoneDAO Cadastro = new TelefoneDAO();
 
@@ -80,6 +80,9 @@ namespace TomMotos.view
 
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

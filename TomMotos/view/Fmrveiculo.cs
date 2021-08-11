@@ -53,27 +53,25 @@ namespace TomMotos.view
             if (txt_marca.Text == "" || txt_modelo.Text == "" || txt_cliente.Text == "")
             {
                 MessageBox.Show("Preencha todos valores Obrigatorio! = *");
-
             }
 
 
             else
             {
                 
-                 
                 try
                 {
                     VeiculoModel obj = new VeiculoModel();
 
                     obj.id = int.Parse(txt_id.Text);
-                    obj.modelo = txt_modelo.Text;
-                    obj.marca = txt_marca.Text;
-                    obj.cor_veiculo = txt_cor.Text;
+                    obj.modelo = txt_modelo.Text.ToUpper();
+                    obj.marca = txt_marca.Text.ToUpper();
+                    obj.cor_veiculo = txt_cor.Text.ToUpper();
                     obj.ano_veiculo = txt_ano.Text;
                     obj.km_veiculo = txt_km.Text;
                     if (txt_placa.Text == "") obj.placa_veiculo = null;
-                    else obj.placa_veiculo = txt_placa.Text;
-                    obj.obs_veiculo = txt_obs.Text;
+                    else obj.placa_veiculo = txt_placa.Text.ToUpper();
+                    obj.obs_veiculo = txt_obs.Text.ToUpper();
                     obj.cliente_fk = txt_cliente.Text;
 
 
@@ -96,6 +94,7 @@ namespace TomMotos.view
         private void dgv_cliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txt_cliente.Text = dgv_cliente.CurrentRow.Cells[0].Value.ToString();
+
         }
 
         private void Fmrveiculo_Load(object sender, EventArgs e)
@@ -107,7 +106,6 @@ namespace TomMotos.view
             VeiculoDAO Cliente = new VeiculoDAO();
             dgv_cliente.DataSource = Cliente.ListarTodosClientes();
 
-          
 
         }
 
@@ -115,29 +113,33 @@ namespace TomMotos.view
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            try
+            if (txt_id.Text != "")
             {
-                VeiculoModel obj = new VeiculoModel();
-                obj.id = int.Parse(txt_id.Text);
-                obj.modelo = txt_modelo.Text;
-                obj.marca = txt_marca.Text;
-                obj.cor_veiculo = txt_cor.Text;
-                obj.ano_veiculo = txt_ano.Text;
-                obj.km_veiculo = txt_km.Text;
-                if (txt_placa.Text == "") obj.placa_veiculo = null;
-                else obj.placa_veiculo = txt_placa.Text;
-                obj.obs_veiculo = txt_obs.Text;
-                obj.cliente_fk = txt_cliente.Text;
+                try
+                {
+                    VeiculoModel obj = new VeiculoModel();
+                    obj.id = int.Parse(txt_id.Text);
+                    obj.modelo = txt_modelo.Text.ToUpper();
+                    obj.marca = txt_marca.Text.ToUpper();
+                    obj.cor_veiculo = txt_cor.Text.ToUpper();
+                    obj.ano_veiculo = txt_ano.Text;
+                    obj.km_veiculo = txt_km.Text;
+                    if (txt_placa.Text == "") obj.placa_veiculo = null;
+                    else obj.placa_veiculo = txt_placa.Text.ToUpper();
+                    obj.obs_veiculo = txt_obs.Text.ToUpper();
+                    obj.cliente_fk = txt_cliente.Text;
 
-                VeiculoDAO dao = new VeiculoDAO();
-                dao.alterar(obj);
-                dg_veiculo.DataSource = dao.ListarTodosClientes();
-                MessageBox.Show("Alterado com Sucesso!");
+                    VeiculoDAO dao = new VeiculoDAO();
+                    dao.alterar(obj);
+                    dg_veiculo.DataSource = dao.ListarTodosClientes();
+                    MessageBox.Show("Alterado com Sucesso!");
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Aconteceu algum erro" + erro);
+                }
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Aconteceu algum erro" + erro);
-            }
+            else MessageBox.Show("Erro","Escolha um id que deseja Alterar",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
         }
 

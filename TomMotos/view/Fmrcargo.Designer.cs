@@ -30,10 +30,7 @@ namespace TomMotos.view
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.lbl = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.txt_salario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
@@ -50,10 +47,7 @@ namespace TomMotos.view
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.lbl);
-            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.txt_salario);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txt_id);
@@ -68,24 +62,6 @@ namespace TomMotos.view
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(184, 192);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(85, 53);
-            this.button6.TabIndex = 26;
-            this.button6.Text = "ENDERECO";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(95, 192);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 54);
-            this.button5.TabIndex = 22;
-            this.button5.Text = "EMAIL";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // lbl
             // 
             this.lbl.AutoSize = true;
@@ -97,15 +73,6 @@ namespace TomMotos.view
             this.lbl.Size = new System.Drawing.Size(68, 15);
             this.lbl.TabIndex = 25;
             this.lbl.Text = "* SALARIO:";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(6, 193);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(83, 53);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "TELEFONE";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // txt_salario
             // 
@@ -237,10 +204,7 @@ namespace TomMotos.view
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label lbl;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox txt_salario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_id;

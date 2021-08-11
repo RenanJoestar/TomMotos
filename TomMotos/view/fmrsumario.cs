@@ -20,9 +20,16 @@ namespace TomMotos
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-            
+            contextMenuStrip1.Show();
+            //Fmrsumariocadastro fmrsumariocadastro = new Fmrsumariocadastro();
+            //fmrsumariocadastro.Show();
+        }
+
+        private void alowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Fmrsumariocadastro fmrsumariocadastro = new Fmrsumariocadastro();
             fmrsumariocadastro.Show();
+
         }
     }
 }
