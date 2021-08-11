@@ -49,14 +49,6 @@ namespace TomMotos.view
                     
                     using (HttpWebResponse ChecaServidor = (HttpWebResponse)request.GetResponse())
                     {
-                        //MessageBox.Show(ChecaServidor.ToString());
-
-                        if (ChecaServidor.StatusCode != HttpStatusCode.OK)
-                        {
-                            MessageBox.Show("Servidor indisponível");
-                        }
-
-
                         using (Stream webStream = ChecaServidor.GetResponseStream())
                         {
                             if (webStream != null)
@@ -74,13 +66,7 @@ namespace TomMotos.view
                                     {
                                         if (cont == 1)
                                         {
-                                            string[] valor = substring.Split(":".ToCharArray());
-                                            if (valor[0] == " Erro")
-                                            {
-                                                MessageBox.Show("CEP não encontrado");
                                                 txt_cep.Focus();
-
-                                            }
                                         }
 
                                         //Logradouro
@@ -110,8 +96,9 @@ namespace TomMotos.view
                                 }
                             }
                         }
+                       }
                     }
-                }
+                
                 else
                 {
                     txt_bairro.Text = "";
@@ -120,9 +107,16 @@ namespace TomMotos.view
                 }
           }
 
-            catch (Exception)
+            catch (Exception erro)
             {
-                MessageBox.Show("Cep não encontrado ou servidor indisponivel");
+                if (erro.ToString().Contains("400"))
+                {
+                    MessageBox.Show("CEP não encontrado");
+                }
+                else if(erro.ToString().Contains("viacep.com.br")) {
+                    MessageBox.Show("Servidor indisponivel");
+                }
+                
                 
                 txt_bairro.Text = "";
                 txt_cidade.Text = "";
