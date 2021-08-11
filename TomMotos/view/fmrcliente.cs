@@ -163,6 +163,39 @@ namespace TomMotos.view
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+                try
+                {
+                    nome = ("CADASTRO DE ENDEREÇO DO CLIENTE " + txt_nome.Text).ToUpper();
+                    string select = "select id_usuario from tb_usuario where fk_cliente_id =" + txt_id.Text;
+                    MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+                    conexao.Open();
+                    MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
+                    conexao.Close();
+                    EnderecoModel.id = idUser;
+
+                    Fmrendereco destino = new Fmrendereco(nome);
+                    destino.Show();
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Ouve um Erro" + erro);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Escolha um Cliente que deseja cadastrar o endereco", "Erro",
+             MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
         public void button4_Click(object sender, EventArgs e)
         {
             if (txt_id.Text != "")

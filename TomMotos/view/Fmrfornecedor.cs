@@ -127,9 +127,14 @@ namespace TomMotos.view
                     MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
-                    idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
+                        EmailModel.id = idUser;
+                    }
+                    
                     conexao.Close();
-                    EmailModel.id = idUser;
+                    
                     Fmremail nomeCliente = new Fmremail(nome);
                     nomeCliente.Show();
                 }
@@ -146,6 +151,43 @@ namespace TomMotos.view
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+                try
+                {
+                    nome = ("CADASTRO DE ENDEREÇO DO FORNECEDOR " + txt_nome.Text).ToUpper();
+                    string select = "select id_usuario from tb_usuario where fk_fornecedor_id =" + txt_id.Text;
+                    MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+                    conexao.Open();
+                    MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
+                        EnderecoModel.id = idUser;
+                    }
+                    conexao.Close();
+                    
+
+                    Fmrendereco destino = new Fmrendereco(nome);
+                    destino.Show();
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Ouve um Erro" + erro);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Escolha um Fornecedor que deseja cadastrar o endereco", "Erro",
+             MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             if (txt_id.Text != "")
@@ -159,9 +201,13 @@ namespace TomMotos.view
                     MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
-                    idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
+                        TelefoneModel.id = idUser;
+                    }
                     conexao.Close();
-                    TelefoneModel.id = idUser;
+                    
 
                     Fmrtelefone destino = new Fmrtelefone(nome);
                     destino.Show();

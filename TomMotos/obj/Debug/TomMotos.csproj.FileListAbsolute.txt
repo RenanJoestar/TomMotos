@@ -66,3 +66,4 @@ F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrtelefone.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmremail.resources
+C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrendereco.resources
