@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Classes\CargoDAO.cs" />
     <Compile Include="Classes\ClienteDAO.cs" />
+    <Compile Include="Classes\EmailDAO.cs" />
     <Compile Include="Classes\FornecedorDAO.cs" />
     <Compile Include="Classes\FuncionarioDAO.cs" />
     <Compile Include="Classes\ProdutoDAO.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Conexao\ConnectionFactory.cs" />
     <Compile Include="Model\CargoModel.cs" />
     <Compile Include="Model\ClienteModel.cs" />
+    <Compile Include="Model\EmailModel.cs" />
     <Compile Include="Model\FornecedorModel.cs" />
     <Compile Include="Model\FuncionarioModel.cs" />
     <Compile Include="Model\ProdutoModel.cs" />
@@ -92,6 +94,12 @@
     </Compile>
     <Compile Include="view\fmrcliente.Designer.cs">
       <DependentUpon>fmrcliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Fmremail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Fmremail.Designer.cs">
+      <DependentUpon>Fmremail.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Fmrfornecedor.cs">
       <SubType>Form</SubType>
@@ -152,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\fmrcliente.resx">
       <DependentUpon>fmrcliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Fmremail.resx">
+      <DependentUpon>Fmremail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrfornecedor.resx">
       <DependentUpon>Fmrfornecedor.cs</DependentUpon>

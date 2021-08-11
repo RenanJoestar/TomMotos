@@ -114,6 +114,38 @@ namespace TomMotos.view
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+                try
+                {
+                    nome = ("CADASTRO DE EMAIL DO FORNECEDOR " + txt_nome.Text).ToUpper();
+                    string select = "select id_usuario from tb_usuario where fk_fornecedor_id =" + txt_id.Text;
+                    MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+                    conexao.Open();
+                    MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
+                    conexao.Close();
+                    EmailModel.id = idUser;
+                    Fmremail nomeCliente = new Fmremail(nome);
+                    nomeCliente.Show();
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show(erro.ToString());
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Escolha um Fornecedor que deseja cadastrar o email", "Erro",
+             MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             if (txt_id.Text != "")

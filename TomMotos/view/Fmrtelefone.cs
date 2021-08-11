@@ -16,10 +16,6 @@ namespace TomMotos.view
 {
     public partial class Fmrtelefone : Form
     {
-        //string user;
-        string valorFinal,NomeFinal;
-        MySqlConnection conexao = ConnectionFactory.getConnection();
-
         public Fmrtelefone()
         {
             InitializeComponent();

@@ -180,6 +180,7 @@ namespace TomMotos.view
             this.button8.TabIndex = 22;
             this.button8.Text = "EMAIL";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
