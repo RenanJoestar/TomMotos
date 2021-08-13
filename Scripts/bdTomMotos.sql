@@ -130,7 +130,6 @@ AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_endereco`
 -- -----------------------------------------------------
@@ -151,6 +150,7 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
 
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_veiculo`
@@ -223,17 +223,16 @@ AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_produto`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto` (
   `id_produto` INT NOT NULL AUTO_INCREMENT,
   `descricao_produto` VARCHAR(45) NOT NULL,
-  `quantidade_produto` INT NOT NULL,
+  `quantidade_produto` DOUBLE NOT NULL,
   `valor_produto` DOUBLE NOT NULL,
   `marca_produto` VARCHAR(30) NULL DEFAULT NULL,
-  `quantidade_virtual_produto` INT NULL DEFAULT NULL,
+  `quantidade_virtual_produto` DOUBLE NULL DEFAULT NULL,
   `imagem_produto` LONGBLOB NULL DEFAULT NULL,
   PRIMARY KEY (`id_produto`))
 ENGINE = InnoDB
