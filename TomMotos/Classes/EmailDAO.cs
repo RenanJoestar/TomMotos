@@ -83,5 +83,77 @@ namespace TomMotos.Classes
         }
 
         #endregion
+        #region METODO ALTERAR
+        public void alterar(EmailModel obj)
+        {
+            if (obj.nome == "")
+            {
+                MessageBox.Show("Preencha todos valores Obrigatorio! = *");
+            }
+            else
+            {
+                try
+                {
+                    string update = @"Update tb_email set nome_email=@nome where id_email = @id";
+
+                    MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+                    executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
+                    executacmdsql.Parameters.AddWithValue("@id", EmailModel.id_email);
+
+                    conexao.Open();
+                    executacmdsql.ExecuteNonQuery();
+                    MessageBox.Show("Cadastrado com sucesso!");
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show("Erro: " + erro);
+                    MessageBox.Show("Cadastrado não Realizado!");
+                }
+
+            }
+
+        }
+        #endregion
+
+        #region METODO EXCLUIR
+        public void Excluir(EmailModel obj)
+        {
+            if (EmailModel.id_email != "")
+            {
+                var result = MessageBox.Show("Deseja excluir o Telefone " + obj.nome + "?", "EXCLUIR",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Exclamation);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    try
+                    {
+
+                        string delete = @"Delete from tb_email  where id_email = @id";
+                        MySqlCommand executacmdsql = new MySqlCommand(delete, conexao);
+                        executacmdsql.Parameters.AddWithValue("@id", EmailModel.id_email);
+                        executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
+
+                        conexao.Open();
+                        executacmdsql.ExecuteNonQuery();
+                        MessageBox.Show("Excluido com Sucesso!");
+                        conexao.Close();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Aconteceu um Erro" + erro);
+                        MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
+
+
+        #endregion
+       }
     }
-}
+

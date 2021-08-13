@@ -143,7 +143,6 @@ namespace TomMotos.view
             this.txt_cep.Size = new System.Drawing.Size(170, 20);
             this.txt_cep.TabIndex = 4;
             this.txt_cep.Leave += new System.EventHandler(this.txt_cep_Leave);
-            
             // 
             // txt_id
             // 
@@ -187,6 +186,7 @@ namespace TomMotos.view
             this.dgEndereco.Name = "dgEndereco";
             this.dgEndereco.Size = new System.Drawing.Size(448, 235);
             this.dgEndereco.TabIndex = 13;
+            this.dgEndereco.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEndereco_CellClick);
             // 
             // btnCadastrar
             // 
@@ -206,6 +206,7 @@ namespace TomMotos.view
             this.btnAlterar.TabIndex = 15;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
@@ -215,6 +216,7 @@ namespace TomMotos.view
             this.btnExcluir.TabIndex = 16;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // Fmrendereco
             // 

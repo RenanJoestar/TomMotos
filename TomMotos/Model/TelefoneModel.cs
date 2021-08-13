@@ -10,6 +10,7 @@ namespace TomMotos.Model
     {
        
         public static string id { set; get; }
+        public static string id_telefone { set; get; }
         public string nome { get; set; }
      
 

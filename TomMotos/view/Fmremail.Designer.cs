@@ -105,6 +105,7 @@ namespace TomMotos.view
             this.dgEmail.Name = "dgEmail";
             this.dgEmail.Size = new System.Drawing.Size(403, 191);
             this.dgEmail.TabIndex = 12;
+            this.dgEmail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEmail_CellClick);
             // 
             // btnCadastrar
             // 
@@ -124,6 +125,7 @@ namespace TomMotos.view
             this.button2.TabIndex = 14;
             this.button2.Text = "ALTERAR";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -133,6 +135,7 @@ namespace TomMotos.view
             this.button3.TabIndex = 15;
             this.button3.Text = "EXCLUIR";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Fmremail
             // 

@@ -9,6 +9,7 @@ namespace TomMotos.Model
     class EmailModel
     {
         public static string id { set; get; }
+        public static string id_email { set; get; }
         public string nome { get; set; }
 
     }

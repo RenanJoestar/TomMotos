@@ -128,6 +128,7 @@ namespace TomMotos.Classes
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
+
                 conexao.Close();
             }
             catch (Exception erro)

@@ -58,6 +58,7 @@ namespace TomMotos.view
             this.dgTelefone.Name = "dgTelefone";
             this.dgTelefone.Size = new System.Drawing.Size(403, 191);
             this.dgTelefone.TabIndex = 1;
+            this.dgTelefone.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTelefone_CellClick);
             // 
             // btnCadastrar
             // 
@@ -112,6 +113,7 @@ namespace TomMotos.view
             this.button2.TabIndex = 8;
             this.button2.Text = "EXCLUIR";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 

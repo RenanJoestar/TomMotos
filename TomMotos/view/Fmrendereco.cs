@@ -157,5 +157,66 @@ namespace TomMotos.view
         {
             PegaJson();
         }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EnderecoModel obj = new EnderecoModel();
+                obj.cep = txt_cep.Text.ToUpper();
+                obj.endereco = txt_endereco.Text.ToUpper();
+                obj.bairro = txt_bairro.Text.ToUpper();
+                obj.numero = txt_numero.Text.ToUpper();
+                obj.cidade = txt_cidade.Text.ToUpper();
+
+
+                EnderecoDAO Alterar = new EnderecoDAO();
+
+                Alterar.alterar(obj);
+
+                dgEndereco.DataSource = Alterar.ListarEndereco();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro: " + erro);
+            }
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EnderecoModel obj = new EnderecoModel();
+                obj.cep = txt_cep.Text.ToUpper();
+                obj.endereco = txt_endereco.Text.ToUpper();
+                obj.bairro = txt_bairro.Text.ToUpper();
+                obj.numero = txt_numero.Text.ToUpper();
+                obj.cidade = txt_cidade.Text.ToUpper();
+
+
+                EnderecoDAO Excluir = new EnderecoDAO();
+
+                Excluir.Excluir(obj);
+
+                dgEndereco.DataSource = Excluir.ListarEndereco();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro: " + erro);
+            }
+        }
+
+        private void dgEndereco_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string idEndereco;
+            idEndereco = dgEndereco.CurrentRow.Cells[0].Value.ToString();
+            txt_cep.Text = dgEndereco.CurrentRow.Cells[1].Value.ToString();
+            EnderecoModel.id_endereco = idEndereco;
+            txt_endereco.Text = dgEndereco.CurrentRow.Cells[2].Value.ToString();
+            txt_bairro.Text = dgEndereco.CurrentRow.Cells[3].Value.ToString();
+            txt_numero.Text = dgEndereco.CurrentRow.Cells[4].Value.ToString();
+            txt_cidade.Text = dgEndereco.CurrentRow.Cells[5].Value.ToString();          
+        }
     }
 }

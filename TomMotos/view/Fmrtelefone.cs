@@ -82,6 +82,50 @@ namespace TomMotos.view
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                TelefoneModel obj = new TelefoneModel();
+                
+                obj.nome = txt_telefone.Text.ToUpper();
+
+                TelefoneDAO Alterar = new TelefoneDAO();
+
+                Alterar.alterar(obj);
+
+                dgTelefone.DataSource = Alterar.ListarTelefones();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro: " + erro);
+            }
+
+        }
+
+        private void dgTelefone_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string idTel = dgTelefone.CurrentRow.Cells[0].Value.ToString();
+            txt_telefone.Text = dgTelefone.CurrentRow.Cells[1].Value.ToString();
+            TelefoneModel.id_telefone = idTel;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TelefoneModel obj = new TelefoneModel();
+
+                obj.nome = txt_telefone.Text.ToUpper();
+
+                TelefoneDAO Excluir = new TelefoneDAO();
+
+                Excluir.Excluir(obj);
+
+                dgTelefone.DataSource = Excluir.ListarTelefones();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro: " + erro);
+            }
 
         }
     }

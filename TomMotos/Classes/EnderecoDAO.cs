@@ -21,7 +21,7 @@ namespace TomMotos.Classes
 
         public void cadastrarEndereco(EnderecoModel obj)
         {
-            int a = 1;
+            
             if (obj.endereco == "" || obj.numero =="")
             {
                 MessageBox.Show("Preencha todos valores Obrigatorio! = *");
@@ -42,21 +42,16 @@ namespace TomMotos.Classes
                     
                     conexao.Open();
                     executacmdsql.ExecuteNonQuery();
+                    MessageBox.Show("Cadastrado com sucesso!");
                     conexao.Close();
                 }
                 catch (Exception erro)
                 {
-                    a = 2;
+                  
                     MessageBox.Show("Erro: " + erro);
-                }
-                if (a == 1)
-                {
-                    MessageBox.Show("Cadastrado com sucesso!");
-                }
-                else
-                {
                     MessageBox.Show("Cadastrado não Realizado!");
                 }
+             
             }
         }
         #endregion
@@ -87,5 +82,85 @@ namespace TomMotos.Classes
         }
 
         #endregion
+
+        #region METODO ALTERAR
+        public void alterar(EnderecoModel obj)
+        {
+            
+            if (obj.endereco == ""|| obj.numero == "")
+            {
+                MessageBox.Show("Preencha todos valores Obrigatorio! = *");
+            }
+            else
+            {
+                try
+                {
+                    string update = @"Update tb_endereco set nome_email=@nome where id_endereco = @id";
+
+                    MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+                    executacmdsql.Parameters.AddWithValue("@id", EnderecoModel.id_endereco);
+                    executacmdsql.Parameters.AddWithValue("@cep", obj.cep);
+                    executacmdsql.Parameters.AddWithValue("@rua", obj.endereco);
+                    executacmdsql.Parameters.AddWithValue("@cidade", obj.cidade);
+                    executacmdsql.Parameters.AddWithValue("@bairro", obj.bairro);
+                    executacmdsql.Parameters.AddWithValue("@numero", obj.numero);
+
+                    conexao.Open();
+                    executacmdsql.ExecuteNonQuery();
+                    conexao.Close();
+                    MessageBox.Show("Alterado com sucesso!");
+                }
+                catch (Exception erro)
+                {
+                   
+                    MessageBox.Show("Erro: " + erro);
+                    MessageBox.Show("Alteração não Realizado!");
+                }
+           
+            }
+
+        }
+        #endregion
+
+        #region METODO EXCLUIR
+        public void Excluir(EnderecoModel obj)
+        {
+            if (EnderecoModel.id_endereco != "")
+            {
+                var result = MessageBox.Show("Deseja excluir o Endereço " + obj.endereco + "?", "EXCLUIR",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Exclamation);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+
+                        string delete = @"Delete from tb_endereco  where id_endereco = @id";
+                        MySqlCommand executacmdsql = new MySqlCommand(delete, conexao);
+                        executacmdsql.Parameters.AddWithValue("@id", EnderecoModel.id_endereco);
+                        executacmdsql.Parameters.AddWithValue("@cep", obj.cep);
+                        executacmdsql.Parameters.AddWithValue("@rua", obj.endereco);
+                        executacmdsql.Parameters.AddWithValue("@cidade", obj.cidade);
+                        executacmdsql.Parameters.AddWithValue("@bairro", obj.bairro);
+                        executacmdsql.Parameters.AddWithValue("@numero", obj.numero);
+
+                        conexao.Open();
+                        executacmdsql.ExecuteNonQuery();
+                        MessageBox.Show("Excluido com Sucesso!");
+                        conexao.Close();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Aconteceu um Erro" + erro);
+                        MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            
+        }
+        #endregion
+
+      
     }
 }
