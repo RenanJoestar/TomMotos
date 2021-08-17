@@ -17,19 +17,61 @@ namespace TomMotos
         {
             InitializeComponent();
         }
-
+      
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-            //contextMenuStrip1.Show();
-            Fmrsumariocadastro fmrsumariocadastro = new Fmrsumariocadastro();
-            fmrsumariocadastro.Show();
+           
+        contextMenuStrip1.Show(PointToScreen(btnCadastro.Location));
+         // Fmrsumariocadastro fmrsumariocadastro = new Fmrsumariocadastro();
+          //fmrsumariocadastro.Show();
         }
 
         private void alowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Fmrsumariocadastro fmrsumariocadastro = new Fmrsumariocadastro();
-            //fmrsumariocadastro.Show();
+            Fmrcliente Fmrcliente = new Fmrcliente();
+            Fmrcliente.Show();
+            this.Hide();
 
+        }
+        private void cargoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fmrcargo fmrcargo = new Fmrcargo();
+            fmrcargo.Show();
+            this.Hide();
+        }
+
+        private void fornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fmrfornecedor fmrfornecedor = new Fmrfornecedor();
+            fmrfornecedor.Show();
+            this.Hide();
+        }
+
+        private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fmrfuncionario fmrfuncionario = new Fmrfuncionario();
+            fmrfuncionario.Show();
+            this.Hide();
+        }
+
+        private void produtoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fmrproduto fmrproduto = new Fmrproduto();
+            fmrproduto.Show();
+            this.Hide();
+        }
+
+        private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fmrveiculo fmrveiculo = new Fmrveiculo();
+            fmrveiculo.Show();
+            this.Hide();
+        }
+
+        private void Fmrsumario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+            Application.Exit();
         }
     }
 }

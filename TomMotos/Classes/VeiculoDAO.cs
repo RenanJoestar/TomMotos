@@ -137,14 +137,15 @@ km_veiculo=@km, placa_veiculo=@placa, obs_veiculo=@obs, fk_cliente=@fk_cliente_i
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Aconteceu um Erro" + erro);
+                MessageBox.Show("erro " + erro);
+                
             }
 
 
         }
         #endregion
 
-        #region METODO ALTERAR
+        #region METODO EXCLUIR
         public void Excluir(VeiculoModel obj)
         {
             try
@@ -160,7 +161,9 @@ km_veiculo=@km, placa_veiculo=@placa, obs_veiculo=@obs, fk_cliente=@fk_cliente_i
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Aconteceu um Erro" + erro);
+                if (erro.ToString().Contains("Cannot delete or update"))
+                    MessageBox.Show("O veiculo está em uso");
+                else MessageBox.Show("erro " + erro);
             }
 
 

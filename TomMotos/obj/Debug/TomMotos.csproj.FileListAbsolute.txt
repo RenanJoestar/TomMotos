@@ -20,7 +20,6 @@ C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.fmrcliente.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrfornecedor.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrfuncionario.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.Fmrsumario.resources
-C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrsumariocadastro.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.GenerateResource.cache
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CoreCompileInputs.cache
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CopyComplete

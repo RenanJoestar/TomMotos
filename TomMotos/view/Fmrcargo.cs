@@ -23,6 +23,8 @@ namespace TomMotos.view
 
         private void btnCadastrar_Click(object sender, EventArgs e)
        {
+            if (txt_nome.Text != "")
+            {
             try
             {
 
@@ -44,7 +46,9 @@ namespace TomMotos.view
             {
 
                 MessageBox.Show("Erro: " + erro);
+             }
             }
+            else MessageBox.Show("Preencha os campos obrigatórios =*");
 
 
 
@@ -117,6 +121,15 @@ namespace TomMotos.view
                 }
             }
         }
+
+        private void Fmrcargo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Fmrsumario fmrsumario = new Fmrsumario();
+            fmrsumario.Show();
+            
+        }
+
+    
     }
 }
 

@@ -360,6 +360,7 @@ namespace TomMotos.view
             this.Controls.Add(this.label7);
             this.Name = "Fmrfuncionario";
             this.Text = "Fmrfuncionario";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrfuncionario_FormClosed);
             this.Load += new System.EventHandler(this.Fmrfuncionario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_funcionario)).EndInit();
             this.groupBox2.ResumeLayout(false);

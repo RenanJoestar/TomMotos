@@ -219,6 +219,13 @@ namespace TomMotos.view
 
         }
 
+        private void Fmrfuncionario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Fmrsumario fmrsumario = new Fmrsumario();
+            fmrsumario.Show();
+            
+        }
+
         private void button7_Click(object sender, EventArgs e)
         {
             if(txt_id.Text != "")

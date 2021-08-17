@@ -229,6 +229,7 @@ namespace TomMotos.view
             this.Controls.Add(this.groupBox1);
             this.Name = "Fmrfornecedor";
             this.Text = "Fmrfornecedor";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrfornecedor_FormClosed);
             this.Load += new System.EventHandler(this.Fmrfornecedor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

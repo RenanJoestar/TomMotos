@@ -120,7 +120,10 @@ namespace TomMotos.Classes
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Aconteceu um Erro" + erro);
+                if (erro.ToString().Contains("Cannot delete or update"))
+                    MessageBox.Show("O Cliente está em uso");
+                else MessageBox.Show("erro " + erro);
+                
             }
 
 

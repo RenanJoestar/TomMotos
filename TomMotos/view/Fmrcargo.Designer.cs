@@ -192,6 +192,8 @@ namespace TomMotos.view
             this.Controls.Add(this.groupBox1);
             this.Name = "Fmrcargo";
             this.Text = "Fmrcargo";
+            
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrcargo_FormClosed);
             this.Load += new System.EventHandler(this.Fmrcargo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

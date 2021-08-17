@@ -8,12 +8,12 @@ using TomMotos.Model;
 
 namespace TomMotos.view
 {
-    public partial class fmrcliente : Form
+    public partial class Fmrcliente : Form
     {
         
         static string idUser,nome;
         MySqlConnection conexao = ConnectionFactory.getConnection();
-        public fmrcliente()
+        public Fmrcliente()
         {
             InitializeComponent();
 
@@ -201,6 +201,13 @@ namespace TomMotos.view
 
         }
 
+        private void Fmrcliente_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Fmrsumario fmrsumario = new Fmrsumario();
+            fmrsumario.Show();
+
+        }
+
         public void button4_Click(object sender, EventArgs e)
         {
             if (txt_id.Text != "")
@@ -236,8 +243,8 @@ namespace TomMotos.view
 
 
             }
-            else { MessageBox.Show("Escolha um Cliente que deseja cadastrar o Telefone", "Erro",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);}
+            else MessageBox.Show("Escolha um Cliente que deseja cadastrar o Telefone", "Erro",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
            
         }
 

@@ -66,6 +66,7 @@ namespace TomMotos.view
 
 
                     obj.descricao = txt_descricao_produto.Text.ToUpper();
+                    if(np_quantidade.ToString() == "") obj.quantidade = 0;
                     obj.quantidade = int.Parse(np_quantidade.Text);
                     obj.quantidade_virtual = int.Parse(np_quantidade.Text);
                     obj.valor = double.Parse(txt_valor_produto.Text);
@@ -215,5 +216,12 @@ namespace TomMotos.view
             }
             
          }
+
+        private void Fmrproduto_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Fmrsumario fmrsumario = new Fmrsumario();
+            fmrsumario.Show();
+            
+        }
     }
 }

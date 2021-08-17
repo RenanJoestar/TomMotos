@@ -1,7 +1,7 @@
 ﻿
 namespace TomMotos.view
 {
-    partial class fmrcliente
+    partial class Fmrcliente
     {
         /// <summary>
         /// Required designer variable.
@@ -284,7 +284,7 @@ namespace TomMotos.view
             this.dg_cliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_cliente_CellClick);
             this.dg_cliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_cliente_CellContentClick);
             // 
-            // fmrcliente
+            // Fmrcliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -296,8 +296,9 @@ namespace TomMotos.view
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
-            this.Name = "fmrcliente";
+            this.Name = "Fmrcliente";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrcliente_FormClosed);
             this.Load += new System.EventHandler(this.fmrcliente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
