@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TomMotos.Conexao;
@@ -115,13 +116,17 @@ namespace TomMotos.Classes
         {
             try
             {
-
-                string update = @"Delete from  tb_fornecedor  where id_cliente=@id";
-                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+                string delete = @"Delete from  tb_usuario  where fk_fornecedor_id=@id";
+                string delete2 = @"Delete from  tb_fornecedor  where id_fornecedor=@id";
+                MySqlCommand executacmdsql = new MySqlCommand(delete, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
-               
+                Thread.Sleep(500);
+                MySqlCommand executacmdsql2 = new MySqlCommand(delete2, conexao);
+                executacmdsql.Parameters.AddWithValue("@id", obj.id);
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
+                Thread.Sleep(500);
+                executacmdsql2.ExecuteNonQuery();
                 conexao.Close();
             }
             catch (Exception erro)

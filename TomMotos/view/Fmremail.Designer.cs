@@ -39,6 +39,9 @@ namespace TomMotos.view
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.cbxBuscar = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmail)).BeginInit();
             this.SuspendLayout();
@@ -137,11 +140,42 @@ namespace TomMotos.view
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // cbxBuscar
+            // 
+            this.cbxBuscar.FormattingEnabled = true;
+            this.cbxBuscar.Items.AddRange(new object[] {
+            "ID",
+            "NOME"});
+            this.cbxBuscar.Location = new System.Drawing.Point(353, 12);
+            this.cbxBuscar.Name = "cbxBuscar";
+            this.cbxBuscar.Size = new System.Drawing.Size(73, 21);
+            this.cbxBuscar.TabIndex = 16;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(432, 12);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(254, 20);
+            this.txtBuscar.TabIndex = 17;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(693, 13);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(63, 23);
+            this.btnPesquisar.TabIndex = 18;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // Fmremail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.cbxBuscar);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnCadastrar);
@@ -172,5 +206,8 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cbxBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnPesquisar;
     }
 }

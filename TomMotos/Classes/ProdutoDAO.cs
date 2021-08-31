@@ -48,7 +48,6 @@ namespace TomMotos.Classes
 
         public void cadastrarProduto(ProdutoModel obj)
         {
-            int a = 1;
             
                 try
                 {
@@ -66,21 +65,15 @@ namespace TomMotos.Classes
 
                     conexao.Open();
                     executacmdsql.ExecuteNonQuery();
-                    conexao.Close();
+                MessageBox.Show("Cadastrado com sucesso!");
+                conexao.Close();
                 }
                 catch (Exception erro)
-                {
-                    a = 2;
+                {                   
                     MessageBox.Show("Erro: " + erro);
-                }
-                if (a == 1)
-                {
-                    MessageBox.Show("Cadastrado com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Cadastrado não Realizado!");
-                }
+                MessageBox.Show("Cadastrado não Realizado!");
+            }
+          
             }
 
         #endregion
@@ -120,7 +113,7 @@ marca_produto=@marca,quantidade_virtual_produto=@quantidade_virtual, imagem_prod
             try
             {
 
-                string update = @"Delete  tb_produto  where id_produto=@id";
+                string update = @"Delete from tb_produto  where id_produto=@id";
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
                 

@@ -221,5 +221,19 @@ namespace TomMotos.view
         {
             PegaJson();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+           
+            string campo = cbxBuscar.Text.ToString() + "_endereco";
+            FiltroModel.filtro = @"select * from tb_endereco where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%' and fk_usuario_id = " + txt_id.Text.ToString();
+            FiltroDAO dao = new FiltroDAO();
+            dgEndereco.DataSource = dao.buscaCargo(); 
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
     }
 }

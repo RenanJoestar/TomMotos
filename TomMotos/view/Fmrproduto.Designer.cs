@@ -51,6 +51,9 @@ namespace TomMotos.view
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.cbxBuscar = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.np_quantidade)).BeginInit();
@@ -258,9 +261,9 @@ namespace TomMotos.view
             // dg_produto
             // 
             this.dg_produto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_produto.Location = new System.Drawing.Point(415, 56);
+            this.dg_produto.Location = new System.Drawing.Point(415, 93);
             this.dg_produto.Name = "dg_produto";
-            this.dg_produto.Size = new System.Drawing.Size(502, 314);
+            this.dg_produto.Size = new System.Drawing.Size(502, 277);
             this.dg_produto.TabIndex = 20;
             this.dg_produto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_produto_CellClick);
             // 
@@ -294,12 +297,44 @@ namespace TomMotos.view
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(826, 36);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "Pesquisar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cbxBuscar
+            // 
+            this.cbxBuscar.FormattingEnabled = true;
+            this.cbxBuscar.Items.AddRange(new object[] {
+            "ID",
+            "DESCRICAO",
+            "MARCA"});
+            this.cbxBuscar.Location = new System.Drawing.Point(415, 38);
+            this.cbxBuscar.Name = "cbxBuscar";
+            this.cbxBuscar.Size = new System.Drawing.Size(105, 21);
+            this.cbxBuscar.TabIndex = 25;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(546, 37);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(258, 20);
+            this.txtBuscar.TabIndex = 26;
+            // 
             // Fmrproduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(956, 593);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.cbxBuscar);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCadastrar);
@@ -344,5 +379,8 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cbxBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
     }
 }

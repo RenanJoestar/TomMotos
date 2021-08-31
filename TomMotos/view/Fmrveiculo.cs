@@ -208,5 +208,18 @@ namespace TomMotos.view
             fmrsumario.Show();
            
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string campo = cbxBuscar.Text.ToString() + "_veiculo";
+                FiltroModel.filtro = @"select * from tb_veiculo where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                // MessageBox.Show("Test " + FiltroModel.filtro);
+                FiltroDAO dao = new FiltroDAO();
+                dg_veiculo.DataSource = dao.buscaCargo();
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
     }
 }

@@ -129,8 +129,9 @@ namespace TomMotos.view
             txt_sobrenome.Text = dg_funcionario.CurrentRow.Cells[2].Value.ToString();
             txt_nascimento.Text = dg_funcionario.CurrentRow.Cells[4].Value.ToString();
             txt_cpf.Text = dg_funcionario.CurrentRow.Cells[3].Value.ToString();
-            cbx_sexo.Text = dg_funcionario.CurrentRow.Cells[6].Value.ToString();
+            cbx_sexo.Text = dg_funcionario.CurrentRow.Cells[6].Value.ToString();           
             string fk_cargo = dg_funcionario.CurrentRow.Cells[7].Value.ToString();
+            if (fk_cargo != "") { 
             string select = "select nome_cargo, id_funcionario from tb_funcionario inner join tb_cargo on tb_cargo.id_cargo = tb_funcionario.fk_cargo_id where id_funcionario = " + fk_cargo;
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
@@ -138,13 +139,16 @@ namespace TomMotos.view
 
             DataSet ds = new DataSet();
             da.Fill(ds);
+            
             if (ds.Tables[0].Rows.Count > 0)
             {
                 string nome_cargo = ds.Tables[0].Rows[0]["nome_cargo"].ToString();
 
                 cbxCargos.Text = nome_cargo.ToString();
+             }
             }
-           
+            else cbxCargos.Text = "";
+
             txt_contratacao.Text = dg_funcionario.CurrentRow.Cells[5].Value.ToString();
         }
 
@@ -257,7 +261,19 @@ namespace TomMotos.view
             
         }
 
-      
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string campo = cbxBuscar.Text.ToString()+"_funcionario" ;
+                FiltroModel.filtro = @"select * from tb_funcionario where " + campo.ToLower()+ " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                //MessageBox.Show("Test "+ FiltroModel.filtro);
+                FiltroDAO dao = new FiltroDAO();
+                dg_funcionario.DataSource = dao.buscaCargo();               
+             
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
 
         private void button7_Click(object sender, EventArgs e)
         {

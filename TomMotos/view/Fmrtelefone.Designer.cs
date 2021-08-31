@@ -39,6 +39,9 @@ namespace TomMotos.view
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblNome = new System.Windows.Forms.Label();
+            this.cbxBuscar = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgTelefone)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -54,15 +57,15 @@ namespace TomMotos.view
             // dgTelefone
             // 
             this.dgTelefone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgTelefone.Location = new System.Drawing.Point(375, 30);
+            this.dgTelefone.Location = new System.Drawing.Point(353, 66);
             this.dgTelefone.Name = "dgTelefone";
-            this.dgTelefone.Size = new System.Drawing.Size(403, 191);
+            this.dgTelefone.Size = new System.Drawing.Size(425, 191);
             this.dgTelefone.TabIndex = 1;
             this.dgTelefone.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTelefone_CellClick);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(375, 293);
+            this.btnCadastrar.Location = new System.Drawing.Point(365, 293);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(113, 49);
             this.btnCadastrar.TabIndex = 2;
@@ -97,7 +100,7 @@ namespace TomMotos.view
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(524, 294);
+            this.button1.Location = new System.Drawing.Point(515, 293);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 48);
             this.button1.TabIndex = 7;
@@ -107,7 +110,7 @@ namespace TomMotos.view
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(682, 294);
+            this.button2.Location = new System.Drawing.Point(671, 293);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 48);
             this.button2.TabIndex = 8;
@@ -137,11 +140,39 @@ namespace TomMotos.view
             this.lblNome.TabIndex = 10;
             this.lblNome.Text = "CADASTRO DE TELEFONE";
             // 
+            // cbxBuscar
+            // 
+            this.cbxBuscar.FormattingEnabled = true;
+            this.cbxBuscar.Location = new System.Drawing.Point(353, 18);
+            this.cbxBuscar.Name = "cbxBuscar";
+            this.cbxBuscar.Size = new System.Drawing.Size(82, 21);
+            this.cbxBuscar.TabIndex = 11;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(453, 19);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(220, 20);
+            this.txtBuscar.TabIndex = 12;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(682, 19);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 13;
+            this.btnBuscar.Text = "Pesquisar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // Fmrtelefone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.cbxBuscar);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
@@ -173,5 +204,8 @@ namespace TomMotos.view
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.ComboBox cbxBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

@@ -30,30 +30,36 @@ namespace TomMotos.view
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG" +
-            "|All files(*.*)|*.*";
-            openFileDialog1.CheckFileExists = true;
-            openFileDialog1.Multiselect = false;
-            if (openFileDialog1.ShowDialog()==DialogResult.OK)
+            try
             {
-                ptb_perfil.ImageLocation = openFileDialog1.FileName;
-                ptb_perfil.Load();
-                lblCaminho.Text = "Caminho do arquivo: " + openFileDialog1.FileName;
-                 image = new Bitmap(openFileDialog1.FileName);
-                ptb_perfil.Image = (Image)image;
-                MemoryStream imageArray = new MemoryStream();
-                ptb_perfil.Image.Save(imageArray, System.Drawing.Imaging.ImageFormat.Jpeg);
-                byte[] pic = imageArray.ToArray();
-                base64Text = pic;
-                //base64Text = Convert.ToBase64String(imageArray); //convertendo para base64
-            
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG" +
+                "|All files(*.*)|*.*";
+                openFileDialog1.CheckFileExists = true;
+                openFileDialog1.Multiselect = false;
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    ptb_perfil.ImageLocation = openFileDialog1.FileName;
+                    ptb_perfil.Load();
+                    lblCaminho.Text = "Caminho do arquivo: " + openFileDialog1.FileName;
+                    image = new Bitmap(openFileDialog1.FileName);
+                    ptb_perfil.Image = (Image)image;
+                    MemoryStream imageArray = new MemoryStream();
+                    ptb_perfil.Image.Save(imageArray, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    byte[] pic = imageArray.ToArray();
+                    base64Text = pic;
+                    //base64Text = Convert.ToBase64String(imageArray); //convertendo para base64
+
+                }
+            }
+            catch (Exception erro) {
+                MessageBox.Show("Ouve um erro "+erro);
             }
         }
        
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            int a = 1;
+          
             if (txt_descricao_produto.Text == "" || txt_valor_produto.Text ==""|| np_quantidade.Text ==null)
             {
                 MessageBox.Show("Preencha todos valores Obrigatorio! = *");
@@ -84,20 +90,10 @@ namespace TomMotos.view
                 }
                 catch (Exception erro)
                 {
-                    a = 2;
+                   
                     MessageBox.Show("Erro: " + erro);
                 }
-            
-
-
-            if (a == 1)
-            {
-                MessageBox.Show("Cadastrado com sucesso!");
-            }
-            else
-            {
-                MessageBox.Show("Cadastrado não Realizado!");
-            }
+        
           }
         }
 
@@ -152,7 +148,7 @@ namespace TomMotos.view
 
         public Image Base64ToImage()
         {
-        if(txt_id.Text != "") { 
+        if(txt_id.Text != "" ) { 
             try
             {
                 string select = @"select imagem_produto from tb_produto where id_produto =" + txt_id.Text;
@@ -163,20 +159,27 @@ namespace TomMotos.view
                     da.Fill(ds);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                        if (Convert.IsDBNull(ds.Tables[0].Rows[0]["imagem_produto"]))
+                        {
+                            ptb_perfil.Image = null;
+                        }
+                        else {
                         MemoryStream ms = new MemoryStream((byte[])ds.Tables[0].Rows[0]["imagem_produto"]);
                         ptb_perfil.Image = new Bitmap(ms);
+                        }
+
                     }
                     conexao.Close();
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Aconteceu um Erro" + erro);
+                    MessageBox.Show("Aconteceu um Erro" + erro);
             }
           }
 
             else
             {
-
+              
             }
             return image;
         }
@@ -222,6 +225,20 @@ namespace TomMotos.view
             Fmrsumario fmrsumario = new Fmrsumario();
             fmrsumario.Show();
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+          
+            string campo = cbxBuscar.Text.ToString() + "_produto";
+            FiltroModel.filtro = @"select * from tb_produto where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+            // MessageBox.Show("Test " + FiltroModel.filtro);
+            FiltroDAO dao = new FiltroDAO();
+            dg_produto.DataSource = dao.buscaCargo();
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
     }
 }

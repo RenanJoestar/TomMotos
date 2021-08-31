@@ -212,37 +212,11 @@ namespace TomMotos.view
         {
             try
             {
-                if (cbxFiltrar.Text == "ID")
-                {
-                    FiltroModel.filtro = @"select * from tb_cliente where id_cliente = " + txtFiltrar.Text;
-                    FiltroDAO dao = new FiltroDAO();
-                    dg_cliente.DataSource = dao.buscaCargo();
-
-                }
-                else if (cbxFiltrar.Text == "NOME")
-                {
-                    FiltroModel.filtro = @"select * from tb_cliente where nome_cliente like " + "'%" + txtFiltrar.Text.ToString() + "%'";
-                    FiltroDAO dao = new FiltroDAO();
-                    dg_cliente.DataSource = dao.buscaCargo();
-                }
-                else if (cbxFiltrar.Text == "SOBRENOME")
-                {
-                    FiltroModel.filtro = @"select * from tb_cliente where sobrenome_cliente like " + "'%" + txtFiltrar.Text.ToString() + "%'";
-                    FiltroDAO dao = new FiltroDAO();
-                    dg_cliente.DataSource = dao.buscaCargo();
-                }
-                else if (cbxFiltrar.Text == "CPF")
-                {
-                    FiltroModel.filtro = @"select * from tb_cliente where cpf_cliente like " + "'%" + txtFiltrar.Text.ToString() + "%'";
-                    FiltroDAO dao = new FiltroDAO();
-                    dg_cliente.DataSource = dao.buscaCargo();
-                }
-                else if (cbxFiltrar.Text == "CNPJ")
-                {
-                    FiltroModel.filtro = @"select * from tb_cliente where cnpj_cliente like " + "'%" + txtFiltrar.Text.ToString() + "%'";
-                    FiltroDAO dao = new FiltroDAO();
-                    dg_cliente.DataSource = dao.buscaCargo();
-                }
+                string campo = cbxFiltrar.Text.ToString() + "_cliente";
+                FiltroModel.filtro = @"select * from tb_cliente where " + campo.ToLower() + " like " + "'%" + txtFiltrar.Text.ToString() + "%'";
+               // MessageBox.Show("Test " + FiltroModel.filtro);
+                FiltroDAO dao = new FiltroDAO();
+                dg_cliente.DataSource = dao.buscaCargo();
 
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }

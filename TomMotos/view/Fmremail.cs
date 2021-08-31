@@ -107,5 +107,17 @@ namespace TomMotos.view
             EmailModel.id_email = idEmail;
               
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+            string campo = cbxBuscar.Text.ToString() + "_email";
+            FiltroModel.filtro = @"select * from tb_email where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%' and fk_usuario_id = "+txt_id.Text.ToString();            
+            FiltroDAO dao = new FiltroDAO();
+            dgEmail.DataSource = dao.buscaCargo(); 
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
     }
 }

@@ -132,18 +132,13 @@ namespace TomMotos.view
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            try { 
-            if (cbxBuscar.Text == "ID") {
-                FiltroModel.filtro = @"select * from tb_cargo where id_cargo = "+txtFiltro.Text;
+            try {
+                string campo = cbxBuscar.Text.ToString() + "_cargo";
+                FiltroModel.filtro = @"select * from tb_cargo where " + campo.ToLower() + " like " + "'%" + txtFiltro.Text.ToString() + "%'";
+                // MessageBox.Show("Test " + FiltroModel.filtro);
                 FiltroDAO dao = new FiltroDAO();
                 dgCargo.DataSource = dao.buscaCargo();
-
-            } else if(cbxBuscar.Text =="NOME"){
-                FiltroModel.filtro = @"select * from tb_cargo where nome_cargo like " + "'%" + txtFiltro.Text.ToString()+ "%'";
-                FiltroDAO dao = new FiltroDAO();
-                dgCargo.DataSource = dao.buscaCargo(); }
-
-                }
+            }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
 

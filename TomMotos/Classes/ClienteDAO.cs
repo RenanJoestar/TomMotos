@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TomMotos.Conexao;
+using System.Threading;
 
 namespace TomMotos.Classes
 {
@@ -110,12 +111,14 @@ namespace TomMotos.Classes
             try
             {
 
-                string update = @"Delete from tb_cliente where id_cliente=@id";
-                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
-                executacmdsql.Parameters.AddWithValue("@id", obj.id);
-             
+                string delete= @"Delete from tb_cliente where id_cliente=@id";
+               
+
+                MySqlCommand executacmdsql = new MySqlCommand(delete, conexao);
+                executacmdsql.Parameters.AddWithValue("@id", obj.id);                
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
+               
                 conexao.Close();
             }
             catch (Exception erro)

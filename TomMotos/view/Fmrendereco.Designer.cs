@@ -47,6 +47,9 @@ namespace TomMotos.view
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.cbxBuscar = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEndereco)).BeginInit();
             this.SuspendLayout();
@@ -143,7 +146,6 @@ namespace TomMotos.view
             this.txt_cep.Name = "txt_cep";
             this.txt_cep.Size = new System.Drawing.Size(170, 20);
             this.txt_cep.TabIndex = 4;
-          
             // 
             // txt_id
             // 
@@ -183,9 +185,9 @@ namespace TomMotos.view
             // dgEndereco
             // 
             this.dgEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgEndereco.Location = new System.Drawing.Point(326, 24);
+            this.dgEndereco.Location = new System.Drawing.Point(326, 77);
             this.dgEndereco.Name = "dgEndereco";
-            this.dgEndereco.Size = new System.Drawing.Size(448, 235);
+            this.dgEndereco.Size = new System.Drawing.Size(448, 213);
             this.dgEndereco.TabIndex = 13;
             this.dgEndereco.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEndereco_CellClick);
             // 
@@ -219,11 +221,45 @@ namespace TomMotos.view
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // cbxBuscar
+            // 
+            this.cbxBuscar.FormattingEnabled = true;
+            this.cbxBuscar.Items.AddRange(new object[] {
+            "CEP",
+            "RUA",
+            "CIDADE",
+            "BAIRRO",
+            "NUMERO"});
+            this.cbxBuscar.Location = new System.Drawing.Point(330, 24);
+            this.cbxBuscar.Name = "cbxBuscar";
+            this.cbxBuscar.Size = new System.Drawing.Size(91, 21);
+            this.cbxBuscar.TabIndex = 17;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(427, 25);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(240, 20);
+            this.txtBuscar.TabIndex = 18;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(685, 24);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 19;
+            this.btnBuscar.Text = "Pesquisar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Fmrendereco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.cbxBuscar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCadastrar);
@@ -262,5 +298,8 @@ namespace TomMotos.view
         private System.Windows.Forms.TextBox txt_cidade;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_endereco;
+        private System.Windows.Forms.ComboBox cbxBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

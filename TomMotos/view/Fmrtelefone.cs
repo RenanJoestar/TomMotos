@@ -128,5 +128,18 @@ namespace TomMotos.view
             }
 
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string campo = cbxBuscar.Text.ToString() + "_telefone";
+                FiltroModel.filtro = @"select * from tb_telefone where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                // MessageBox.Show("Test " + FiltroModel.filtro);
+                FiltroDAO dao = new FiltroDAO();
+                dgTelefone.DataSource = dao.buscaCargo();
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
     }
 }
