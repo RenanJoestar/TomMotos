@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,7 @@ namespace TomMotos.view
     public partial class Fmrcargo : Form
     {
 
-
+    
         public Fmrcargo()
         {
             InitializeComponent();
@@ -129,7 +130,23 @@ namespace TomMotos.view
             
         }
 
-    
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try { 
+            if (cbxBuscar.Text == "ID") {
+                FiltroModel.filtro = @"select * from tb_cargo where id_cargo = "+txtFiltro.Text;
+                FiltroDAO dao = new FiltroDAO();
+                dgCargo.DataSource = dao.buscaCargo();
+
+            } else if(cbxBuscar.Text =="NOME"){
+                FiltroModel.filtro = @"select * from tb_cargo where nome_cargo like " + "'%" + txtFiltro.Text.ToString()+ "%'";
+                FiltroDAO dao = new FiltroDAO();
+                dgCargo.DataSource = dao.buscaCargo(); }
+
+                }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
+
     }
 }
 

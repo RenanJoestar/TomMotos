@@ -135,6 +135,7 @@ namespace TomMotos.view
             this.txt_endereco.Name = "txt_endereco";
             this.txt_endereco.Size = new System.Drawing.Size(170, 20);
             this.txt_endereco.TabIndex = 7;
+            this.txt_endereco.MouseUp += new System.Windows.Forms.MouseEventHandler(this.txt_endereco_MouseUp);
             // 
             // txt_cep
             // 
@@ -142,7 +143,7 @@ namespace TomMotos.view
             this.txt_cep.Name = "txt_cep";
             this.txt_cep.Size = new System.Drawing.Size(170, 20);
             this.txt_cep.TabIndex = 4;
-            this.txt_cep.Leave += new System.EventHandler(this.txt_cep_Leave);
+          
             // 
             // txt_id
             // 

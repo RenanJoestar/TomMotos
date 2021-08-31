@@ -153,10 +153,7 @@ namespace TomMotos.view
             txt_id.Text = EnderecoModel.id;
         }
 
-        private void txt_cep_Leave(object sender, EventArgs e)
-        {
-            PegaJson();
-        }
+      
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
@@ -217,6 +214,12 @@ namespace TomMotos.view
             txt_bairro.Text = dgEndereco.CurrentRow.Cells[3].Value.ToString();
             txt_numero.Text = dgEndereco.CurrentRow.Cells[4].Value.ToString();
             txt_cidade.Text = dgEndereco.CurrentRow.Cells[5].Value.ToString();          
+        }
+
+       
+        private void txt_endereco_MouseUp(object sender, MouseEventArgs e)
+        {
+            PegaJson();
         }
     }
 }

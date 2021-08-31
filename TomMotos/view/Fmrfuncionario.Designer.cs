@@ -32,8 +32,7 @@ namespace TomMotos.view
             this.label7 = new System.Windows.Forms.Label();
             this.dg_funcionario = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgv_cargo = new System.Windows.Forms.DataGridView();
-            this.txt_cargo = new System.Windows.Forms.TextBox();
+            this.cbxCargos = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbx_sexo = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -55,9 +54,11 @@ namespace TomMotos.view
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_funcionario)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_cargo)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -74,16 +75,15 @@ namespace TomMotos.view
             // dg_funcionario
             // 
             this.dg_funcionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_funcionario.Location = new System.Drawing.Point(326, 22);
+            this.dg_funcionario.Location = new System.Drawing.Point(326, 81);
             this.dg_funcionario.Name = "dg_funcionario";
-            this.dg_funcionario.Size = new System.Drawing.Size(653, 406);
+            this.dg_funcionario.Size = new System.Drawing.Size(653, 347);
             this.dg_funcionario.TabIndex = 24;
             this.dg_funcionario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_funcionario_CellClick);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgv_cargo);
-            this.groupBox2.Controls.Add(this.txt_cargo);
+            this.groupBox2.Controls.Add(this.cbxCargos);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.cbx_sexo);
             this.groupBox2.Controls.Add(this.label11);
@@ -106,27 +106,19 @@ namespace TomMotos.view
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(12, 44);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(296, 516);
+            this.groupBox2.Size = new System.Drawing.Size(296, 460);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PREENCHER DADOS";
             // 
-            // dgv_cargo
+            // cbxCargos
             // 
-            this.dgv_cargo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_cargo.Location = new System.Drawing.Point(6, 337);
-            this.dgv_cargo.Name = "dgv_cargo";
-            this.dgv_cargo.Size = new System.Drawing.Size(267, 115);
-            this.dgv_cargo.TabIndex = 32;
-            this.dgv_cargo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cargo_CellClick);
-            this.dgv_cargo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cargo_CellContentClick);
-            // 
-            // txt_cargo
-            // 
-            this.txt_cargo.Location = new System.Drawing.Point(96, 309);
-            this.txt_cargo.Name = "txt_cargo";
-            this.txt_cargo.Size = new System.Drawing.Size(45, 21);
-            this.txt_cargo.TabIndex = 31;
+            this.cbxCargos.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.cbxCargos.FormattingEnabled = true;
+            this.cbxCargos.Location = new System.Drawing.Point(95, 308);
+            this.cbxCargos.Name = "cbxCargos";
+            this.cbxCargos.Size = new System.Drawing.Size(121, 23);
+            this.cbxCargos.TabIndex = 33;
             // 
             // label10
             // 
@@ -165,7 +157,7 @@ namespace TomMotos.view
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(177, 457);
+            this.button9.Location = new System.Drawing.Point(174, 384);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(85, 53);
             this.button9.TabIndex = 26;
@@ -175,7 +167,7 @@ namespace TomMotos.view
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(96, 457);
+            this.button8.Location = new System.Drawing.Point(93, 383);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 54);
             this.button8.TabIndex = 22;
@@ -185,7 +177,7 @@ namespace TomMotos.view
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(4, 458);
+            this.button7.Location = new System.Drawing.Point(4, 383);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(83, 53);
             this.button7.TabIndex = 21;
@@ -346,12 +338,44 @@ namespace TomMotos.view
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "NOME",
+            "SOBRENOME",
+            "CPF",
+            "CARGO"});
+            this.comboBox1.Location = new System.Drawing.Point(382, 24);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(72, 21);
+            this.comboBox1.TabIndex = 29;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(477, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(356, 20);
+            this.textBox1.TabIndex = 30;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(860, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(67, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Pesquisar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Fmrfuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1001, 572);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCadastrar);
@@ -365,7 +389,6 @@ namespace TomMotos.view
             ((System.ComponentModel.ISupportInitialize)(this.dg_funcionario)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_cargo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,8 +399,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dg_funcionario;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgv_cargo;
-        private System.Windows.Forms.TextBox txt_cargo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbx_sexo;
         private System.Windows.Forms.Label label11;
@@ -399,5 +420,9 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.ComboBox cbxCargos;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

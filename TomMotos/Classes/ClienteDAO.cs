@@ -129,5 +129,29 @@ namespace TomMotos.Classes
 
         }
         #endregion
+
+        #region METODO FILTRAR
+        public DataTable buscaCargo()
+        {
+
+            string sql = FiltroModel.filtro;
+
+            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
+            //executacmdsql.Parameters.AddWithValue("@filtro", CargoModel.filtro);
+
+            conexao.Open();
+
+            executacmdsql.ExecuteNonQuery();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataTable Cargo = new DataTable();
+            da.Fill(Cargo);
+
+            conexao.Close();
+
+            return Cargo;
+        }
+        #endregion
     }
 }

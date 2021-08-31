@@ -120,7 +120,7 @@ namespace TomMotos.Classes
             {
 
                 string update = @"Update  tb_veiculo set  marca_veiculo=@marca, modelo_veiculo=@modelo, cor_veiculo=@cor ,ano_veiculo=@ano,
-km_veiculo=@km, placa_veiculo=@placa, obs_veiculo=@obs, fk_cliente=@fk_cliente_id where id_veiculo=@id";
+km_veiculo=@km, placa_veiculo=@placa, obs_veiculo=@obs, fk_cliente_id=@fk_cliente_id where id_veiculo=@id";
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
                 executacmdsql.Parameters.AddWithValue("@marca", obj.marca);

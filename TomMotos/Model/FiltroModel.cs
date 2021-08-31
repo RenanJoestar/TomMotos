@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace TomMotos.Model
 {
-    class CargoModel
+    class FiltroModel
     {
-        public int id { get; set; }
-        public string nome { get; set; }
-        public string salario { get; set; }
-        
+        public static string filtro { get; set; }
     }
 }

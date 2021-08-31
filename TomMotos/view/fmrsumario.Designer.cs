@@ -120,7 +120,7 @@ namespace TomMotos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 450);
+            this.ClientSize = new System.Drawing.Size(375, 450);
             this.Controls.Add(this.btnCadastro);
             this.Controls.Add(this.btnCaixa);
             this.Name = "Fmrsumario";

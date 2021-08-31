@@ -70,6 +70,7 @@
     <Compile Include="Classes\ClienteDAO.cs" />
     <Compile Include="Classes\EmailDAO.cs" />
     <Compile Include="Classes\EnderecoDAO.cs" />
+    <Compile Include="Classes\FiltroDAO.cs" />
     <Compile Include="Classes\FornecedorDAO.cs" />
     <Compile Include="Classes\FuncionarioDAO.cs" />
     <Compile Include="Classes\ProdutoDAO.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\EmailModel.cs" />
     <Compile Include="Model\EnderecoModel.cs" />
+    <Compile Include="Model\FiltroModel.cs" />
     <Compile Include="Model\FornecedorModel.cs" />
     <Compile Include="Model\FuncionarioModel.cs" />
     <Compile Include="Model\ProdutoModel.cs" />

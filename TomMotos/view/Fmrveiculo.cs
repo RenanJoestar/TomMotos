@@ -131,7 +131,7 @@ namespace TomMotos.view
 
                     VeiculoDAO dao = new VeiculoDAO();
                     dao.alterar(obj);
-                    dg_veiculo.DataSource = dao.ListarTodosClientes();
+                    dg_veiculo.DataSource = dao.ListarTodosVeiculos();
                     MessageBox.Show("Alterado com Sucesso!");
                 }
                 catch (Exception erro)
@@ -189,7 +189,7 @@ namespace TomMotos.view
 
                         VeiculoDAO dao = new VeiculoDAO();
                         dao.Excluir(obj);
-                        dg_veiculo.DataSource = dao.ListarTodosClientes();
+                        dg_veiculo.DataSource = dao.ListarTodosVeiculos();
                         MessageBox.Show("Excluido com Sucesso!");
                     }
                     catch (Exception erro)

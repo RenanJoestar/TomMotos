@@ -41,6 +41,9 @@ namespace TomMotos.view
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.cbxBuscar = new System.Windows.Forms.ComboBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCargo)).BeginInit();
             this.SuspendLayout();
@@ -142,7 +145,7 @@ namespace TomMotos.view
             // dgCargo
             // 
             this.dgCargo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCargo.Location = new System.Drawing.Point(344, 53);
+            this.dgCargo.Location = new System.Drawing.Point(344, 92);
             this.dgCargo.Name = "dgCargo";
             this.dgCargo.Size = new System.Drawing.Size(493, 267);
             this.dgCargo.TabIndex = 20;
@@ -178,12 +181,44 @@ namespace TomMotos.view
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Location = new System.Drawing.Point(459, 37);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(228, 20);
+            this.txtFiltro.TabIndex = 24;
+            // 
+            // cbxBuscar
+            // 
+            this.cbxBuscar.Enabled = false;
+            this.cbxBuscar.FormattingEnabled = true;
+            this.cbxBuscar.Items.AddRange(new object[] {
+            "ID",
+            "NOME"});
+            this.cbxBuscar.Location = new System.Drawing.Point(395, 36);
+            this.cbxBuscar.Name = "cbxBuscar";
+            this.cbxBuscar.Size = new System.Drawing.Size(58, 21);
+            this.cbxBuscar.TabIndex = 25;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(710, 35);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(53, 23);
+            this.btnBuscar.TabIndex = 26;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // Fmrcargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(873, 513);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.cbxBuscar);
+            this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCadastrar);
@@ -192,7 +227,6 @@ namespace TomMotos.view
             this.Controls.Add(this.groupBox1);
             this.Name = "Fmrcargo";
             this.Text = "Fmrcargo";
-            
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrcargo_FormClosed);
             this.Load += new System.EventHandler(this.Fmrcargo_Load);
             this.groupBox1.ResumeLayout(false);
@@ -217,5 +251,8 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.ComboBox cbxBuscar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

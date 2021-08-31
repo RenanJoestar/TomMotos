@@ -46,7 +46,7 @@ namespace TomMotos.Classes
 
         public void cadastrarCargo(CargoModel obj)
         {
-            int a = 1;
+         
             if (obj.nome == "" || obj.salario == "")
             {
                 MessageBox.Show("Preencha todos valores Obrigatorio! = *");
@@ -67,23 +67,16 @@ namespace TomMotos.Classes
 
                     conexao.Open();
                     executacmdsql.ExecuteNonQuery();
+                    MessageBox.Show("Cadastrado com sucesso!");
                     conexao.Close();
                 }
                 catch (Exception erro)
                 {
                     MessageBox.Show("Erro: " + erro);
-                    a = 2;
-                    
+                    MessageBox.Show("Cadastrado não Realizado!");
+
                 }
 
-                if (a == 1)
-                {
-                    MessageBox.Show("Cadastrado com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Cadastrado não Realizado!");
-                }
             }
         }
 
@@ -141,6 +134,9 @@ namespace TomMotos.Classes
 
         }
         #endregion
+
+       
+       
 
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TomMotos.Conexao;
@@ -18,6 +19,8 @@ namespace TomMotos.Classes
         public FuncionarioDAO()
         {
         }
+
+
 
         #region METODO LISTAR
         public DataTable ListarTodosFuncionario()
@@ -143,12 +146,18 @@ data_contratacao_funcionario=@data_contratacao, sexo_funcionario=@sexo, fk_cargo
             try
             {
 
-                string update = @"Delete from tb_funcionario where id_funcionario=@id";
-                MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
+                string delete2 = @"Delete from tb_funcionario where id_funcionario=@id";
+                string delete = @"Delete from tb_usuario where fk_funcionario_id=@id";
+                MySqlCommand executacmdsql = new MySqlCommand(delete, conexao);
+                Thread.Sleep(2000);
+                MySqlCommand executacmdsql2 = new MySqlCommand(delete2, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
-               
+                executacmdsql2.Parameters.AddWithValue("@id", obj.id);
+
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
+                Thread.Sleep(2000);
+                executacmdsql2.ExecuteNonQuery();
                 conexao.Close();
             }
             catch (Exception erro)

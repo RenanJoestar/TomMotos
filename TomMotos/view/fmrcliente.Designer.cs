@@ -50,6 +50,9 @@ namespace TomMotos.view
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dg_cliente = new System.Windows.Forms.DataGridView();
+            this.txtFiltrar = new System.Windows.Forms.TextBox();
+            this.cbxFiltrar = new System.Windows.Forms.ComboBox();
+            this.BtnFiltro = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
             this.SuspendLayout();
@@ -277,12 +280,43 @@ namespace TomMotos.view
             // dg_cliente
             // 
             this.dg_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_cliente.Location = new System.Drawing.Point(293, 31);
+            this.dg_cliente.Location = new System.Drawing.Point(293, 74);
             this.dg_cliente.Name = "dg_cliente";
-            this.dg_cliente.Size = new System.Drawing.Size(503, 326);
+            this.dg_cliente.Size = new System.Drawing.Size(503, 256);
             this.dg_cliente.TabIndex = 21;
             this.dg_cliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_cliente_CellClick);
             this.dg_cliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_cliente_CellContentClick);
+            // 
+            // txtFiltrar
+            // 
+            this.txtFiltrar.Location = new System.Drawing.Point(424, 35);
+            this.txtFiltrar.Name = "txtFiltrar";
+            this.txtFiltrar.Size = new System.Drawing.Size(268, 20);
+            this.txtFiltrar.TabIndex = 22;
+            // 
+            // cbxFiltrar
+            // 
+            this.cbxFiltrar.FormattingEnabled = true;
+            this.cbxFiltrar.Items.AddRange(new object[] {
+            "ID",
+            "NOME",
+            "SOBRENOME",
+            "CPF",
+            "CNPJ"});
+            this.cbxFiltrar.Location = new System.Drawing.Point(333, 35);
+            this.cbxFiltrar.Name = "cbxFiltrar";
+            this.cbxFiltrar.Size = new System.Drawing.Size(85, 21);
+            this.cbxFiltrar.TabIndex = 23;
+            // 
+            // BtnFiltro
+            // 
+            this.BtnFiltro.Location = new System.Drawing.Point(711, 33);
+            this.BtnFiltro.Name = "BtnFiltro";
+            this.BtnFiltro.Size = new System.Drawing.Size(61, 23);
+            this.BtnFiltro.TabIndex = 24;
+            this.BtnFiltro.Text = "Buscar";
+            this.BtnFiltro.UseVisualStyleBackColor = true;
+            this.BtnFiltro.Click += new System.EventHandler(this.BtnFiltro_Click);
             // 
             // Fmrcliente
             // 
@@ -290,6 +324,9 @@ namespace TomMotos.view
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(808, 458);
+            this.Controls.Add(this.BtnFiltro);
+            this.Controls.Add(this.cbxFiltrar);
+            this.Controls.Add(this.txtFiltrar);
             this.Controls.Add(this.dg_cliente);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -331,5 +368,8 @@ namespace TomMotos.view
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dg_cliente;
+        private System.Windows.Forms.TextBox txtFiltrar;
+        private System.Windows.Forms.ComboBox cbxFiltrar;
+        private System.Windows.Forms.Button BtnFiltro;
     }
 }

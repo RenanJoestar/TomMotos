@@ -16,7 +16,7 @@ namespace TomMotos.view
 {
     public partial class Fmrfuncionario : Form
     {
-        static string nome, idUser;
+        static string nome, idUser, id_cargo;
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrfuncionario()
         {
@@ -40,7 +40,20 @@ namespace TomMotos.view
                 obj.data_nasc = txt_nascimento.Text.ToUpper();
                 obj.cpf = txt_cpf.Text.ToUpper();
                 obj.sexo = cbx_sexo.Text.ToUpper();
-                obj.cargo_fk = txt_cargo.Text.ToUpper();
+                string select = "select id_cargo from tb_cargo where nome_cargo = " + "'" + cbxCargos.Text.ToString() + "'";
+                MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+                
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+                
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    id_cargo = ds.Tables[0].Rows[0]["id_cargo"].ToString();
+
+                    obj.cargo_fk = id_cargo;
+                }
+               
                 obj.data_contratacao = txt_contratacao.Text.ToUpper();
 
                 FuncionarioDAO Cadastro = new FuncionarioDAO();
@@ -60,18 +73,12 @@ namespace TomMotos.view
             FuncionarioDAO Cadastro = new FuncionarioDAO();
             dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
             FuncionarioDAO Showcargo = new FuncionarioDAO();
-            dgv_cargo.DataSource = Showcargo.ListarTodosCargos();
+            
+            carregarCargo();
+
         } 
-          private void dgv_cargo_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_cargo.Text = dgv_cargo.CurrentRow.Cells[0].Value.ToString();
-        }
 
-        private void dgv_cargo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+       
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             if (txt_id.Text != "")
@@ -79,18 +86,28 @@ namespace TomMotos.view
              try
             {
                 FuncionarioModel obj = new FuncionarioModel();
-                obj.id = int.Parse(txt_id.Text);
-                
+                obj.id = int.Parse(txt_id.Text);                
                 if (txt_nome.Text == "") obj.nome = null;
                 else obj.nome = txt_nome.Text.ToUpper();
                 if (txt_sobrenome.Text == "") obj.sobrenome = null;
                 else obj.sobrenome = txt_sobrenome.Text.ToUpper();
                 obj.data_nasc = txt_nascimento.Text.ToUpper();
                 obj.cpf = txt_cpf.Text.ToUpper();
-                obj.sexo = cbx_sexo.Text.ToUpper();
-                obj.cargo_fk = txt_cargo.Text.ToUpper();
-                obj.data_contratacao = txt_contratacao.Text.ToUpper();
+                obj.sexo = cbx_sexo.Text.ToUpper(); 
+                    string select = "select id_cargo from tb_cargo where nome_cargo = " + "'" + cbxCargos.Text.ToString() + "'";
+                    MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
+                    MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        id_cargo = ds.Tables[0].Rows[0]["id_cargo"].ToString();
+
+                        obj.cargo_fk = id_cargo;
+                    }
+                    obj.data_contratacao = txt_contratacao.Text.ToUpper();
 
                 FuncionarioDAO dao = new FuncionarioDAO();
                 dao.alterar(obj);
@@ -113,7 +130,21 @@ namespace TomMotos.view
             txt_nascimento.Text = dg_funcionario.CurrentRow.Cells[4].Value.ToString();
             txt_cpf.Text = dg_funcionario.CurrentRow.Cells[3].Value.ToString();
             cbx_sexo.Text = dg_funcionario.CurrentRow.Cells[6].Value.ToString();
-            txt_cargo.Text = dg_funcionario.CurrentRow.Cells[7].Value.ToString();
+            string fk_cargo = dg_funcionario.CurrentRow.Cells[7].Value.ToString();
+            string select = "select nome_cargo, id_funcionario from tb_funcionario inner join tb_cargo on tb_cargo.id_cargo = tb_funcionario.fk_cargo_id where id_funcionario = " + fk_cargo;
+            MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                string nome_cargo = ds.Tables[0].Rows[0]["nome_cargo"].ToString();
+
+                cbxCargos.Text = nome_cargo.ToString();
+            }
+           
             txt_contratacao.Text = dg_funcionario.CurrentRow.Cells[5].Value.ToString();
         }
 
@@ -155,7 +186,7 @@ namespace TomMotos.view
                     nome = ("CADASTRO DE EMAIL DO FUNCIONARIO " + txt_nome.Text).ToUpper();
                     string select = "select id_usuario from tb_usuario where fk_funcionario_id =" + txt_id.Text;
                     MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-                    conexao.Open();
+                    //conexao.Open();
                     MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -164,7 +195,7 @@ namespace TomMotos.view
                         idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
                         EmailModel.id = idUser;
                     }
-                    conexao.Close();
+                    //conexao.Close();
                     
                     Fmremail nomeFuncionario= new Fmremail(nome);
                     nomeFuncionario.Show();
@@ -191,7 +222,7 @@ namespace TomMotos.view
                     nome = ("CADASTRO DE ENDEREÇO DO FUNCIONARIO " + txt_nome.Text).ToUpper();
                     string select = "select id_usuario from tb_usuario where fk_funcionario_id =" + txt_id.Text;
                     MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-                    conexao.Open();
+                   // conexao.Open();
                     MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -200,7 +231,7 @@ namespace TomMotos.view
                         idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
                         EnderecoModel.id = idUser;
                     }
-                    conexao.Close();
+                    //conexao.Close();
                     
 
                     Fmrendereco destino = new Fmrendereco(nome);
@@ -226,6 +257,8 @@ namespace TomMotos.view
             
         }
 
+      
+
         private void button7_Click(object sender, EventArgs e)
         {
             if(txt_id.Text != "")
@@ -235,7 +268,7 @@ namespace TomMotos.view
                     nome = ("CADASTRO DE TELEFONE DO FUNCIONARIO " + txt_nome.Text).ToUpper();
                     string select = "select id_usuario from tb_usuario where fk_funcionario_id =" + txt_id.Text;
                     MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-                    conexao.Open();
+                    //conexao.Open();
                     MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -244,7 +277,7 @@ namespace TomMotos.view
                         idUser = ds.Tables[0].Rows[0]["id_usuario"].ToString();
                         TelefoneModel.id = idUser;
                     }
-                    conexao.Close();
+                   // conexao.Close();
                     
 
                     Fmrtelefone destino = new Fmrtelefone(nome);
@@ -261,6 +294,26 @@ namespace TomMotos.view
              MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-    }
+
+        private void carregarCargo() {
+
+            MySqlConnection cn = new MySqlConnection();
+            cn = conexao;            
+            cn.Open();
+            MySqlCommand com = new MySqlCommand();
+            com.Connection = cn;
+            com.CommandText = "select id_cargo, nome_cargo from tb_cargo";
+            MySqlDataReader dr = com.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            cbxCargos.DisplayMember = "nome_cargo";
+            cbxCargos.DataSource = dt;
+            cbxCargos.Text = null;
+
+        }
+
+
+     }
+ 
     
 }

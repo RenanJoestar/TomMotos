@@ -10,8 +10,8 @@ namespace TomMotos.view
 {
     public partial class Fmrcliente : Form
     {
-        
-        static string idUser,nome;
+
+        static string idUser, nome;
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrcliente()
         {
@@ -23,7 +23,7 @@ namespace TomMotos.view
         {
             ClienteDAO Cadastro = new ClienteDAO();
 
-           
+
             dg_cliente.DataSource = Cadastro.ListarTodosClientes();
         }
 
@@ -44,12 +44,12 @@ namespace TomMotos.view
 
                 if (txt_cnpj.Text == "") obj.cnpj = null;  // É interessante perceber que isso não deve ser usado para alguns ints, por exemplo de quantidade tendo em vista
                 else obj.cnpj = txt_cnpj.Text.ToUpper();             // que quantidade é um valor que não pode ser armazenado como nulo, se o produto não se encontra 
-                                                           // ele tem que ser cadastrado como 0.
+                                                                     // ele tem que ser cadastrado como 0.
                 ClienteDAO Cadastro = new ClienteDAO();
-                
+
                 Cadastro.cadastrar(obj);
-                
-              
+
+
                 dg_cliente.DataSource = Cadastro.ListarTodosClientes();
             }
             catch (Exception erro)
@@ -62,33 +62,33 @@ namespace TomMotos.view
         {
             if (txt_id.Text != "")
             {
-            
-            try
-            {
-                ClienteModel obj = new ClienteModel();
-                obj.id = int.Parse(txt_id.Text);
-                obj.nome = txt_nome.Text.ToUpper();
-                obj.sobrenome = txt_sobrenome.Text.ToUpper();
 
-                if (txt_nascimento.Text == "") obj.data_nasc = null; // Verifica se a data de nascimento é null
-                else obj.data_nasc = txt_nascimento.Text.ToUpper();
+                try
+                {
+                    ClienteModel obj = new ClienteModel();
+                    obj.id = int.Parse(txt_id.Text);
+                    obj.nome = txt_nome.Text.ToUpper();
+                    obj.sobrenome = txt_sobrenome.Text.ToUpper();
 
-                if (txt_cpf.Text == "") obj.cpf = null;
-                else obj.cpf = txt_cpf.Text.ToUpper();
+                    if (txt_nascimento.Text == "") obj.data_nasc = null; // Verifica se a data de nascimento é null
+                    else obj.data_nasc = txt_nascimento.Text.ToUpper();
 
-                if (txt_cnpj.Text == "") obj.cnpj = null;  // É interessante perceber que isso não deve ser usado para alguns ints, por exemplo de quantidade tendo em vista
-                else obj.cnpj = txt_cnpj.Text.ToUpper();
+                    if (txt_cpf.Text == "") obj.cpf = null;
+                    else obj.cpf = txt_cpf.Text.ToUpper();
 
-                ClienteDAO dao = new ClienteDAO();
-                dao.alterar(obj);
-                dg_cliente.DataSource = dao.ListarTodosClientes();
-                MessageBox.Show("Alterado com Sucesso!");
+                    if (txt_cnpj.Text == "") obj.cnpj = null;  // É interessante perceber que isso não deve ser usado para alguns ints, por exemplo de quantidade tendo em vista
+                    else obj.cnpj = txt_cnpj.Text.ToUpper();
+
+                    ClienteDAO dao = new ClienteDAO();
+                    dao.alterar(obj);
+                    dg_cliente.DataSource = dao.ListarTodosClientes();
+                    MessageBox.Show("Alterado com Sucesso!");
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Aconteceu algum erro" + erro);
+                }
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Aconteceu algum erro" + erro);
-            }
-           }
             else MessageBox.Show("Erro", "Escolha um id que deseja Alterar", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -100,7 +100,7 @@ namespace TomMotos.view
             txt_nascimento.Text = dg_cliente.CurrentRow.Cells[3].Value.ToString();
             txt_cpf.Text = dg_cliente.CurrentRow.Cells[4].Value.ToString();
             txt_cnpj.Text = dg_cliente.CurrentRow.Cells[5].Value.ToString();
-            
+
         }
 
         private void dg_cliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -205,6 +205,49 @@ namespace TomMotos.view
         {
             Fmrsumario fmrsumario = new Fmrsumario();
             fmrsumario.Show();
+
+        }
+
+        private void BtnFiltro_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbxFiltrar.Text == "ID")
+                {
+                    FiltroModel.filtro = @"select * from tb_cliente where id_cliente = " + txtFiltrar.Text;
+                    FiltroDAO dao = new FiltroDAO();
+                    dg_cliente.DataSource = dao.buscaCargo();
+
+                }
+                else if (cbxFiltrar.Text == "NOME")
+                {
+                    FiltroModel.filtro = @"select * from tb_cliente where nome_cliente like " + "'%" + txtFiltrar.Text.ToString() + "%'";
+                    FiltroDAO dao = new FiltroDAO();
+                    dg_cliente.DataSource = dao.buscaCargo();
+                }
+                else if (cbxFiltrar.Text == "SOBRENOME")
+                {
+                    FiltroModel.filtro = @"select * from tb_cliente where sobrenome_cliente like " + "'%" + txtFiltrar.Text.ToString() + "%'";
+                    FiltroDAO dao = new FiltroDAO();
+                    dg_cliente.DataSource = dao.buscaCargo();
+                }
+                else if (cbxFiltrar.Text == "CPF")
+                {
+                    FiltroModel.filtro = @"select * from tb_cliente where cpf_cliente like " + "'%" + txtFiltrar.Text.ToString() + "%'";
+                    FiltroDAO dao = new FiltroDAO();
+                    dg_cliente.DataSource = dao.buscaCargo();
+                }
+                else if (cbxFiltrar.Text == "CNPJ")
+                {
+                    FiltroModel.filtro = @"select * from tb_cliente where cnpj_cliente like " + "'%" + txtFiltrar.Text.ToString() + "%'";
+                    FiltroDAO dao = new FiltroDAO();
+                    dg_cliente.DataSource = dao.buscaCargo();
+                }
+
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+
+
 
         }
 

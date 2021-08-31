@@ -178,9 +178,9 @@ namespace TomMotos.view
             // dg_fornecedor
             // 
             this.dg_fornecedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_fornecedor.Location = new System.Drawing.Point(293, 25);
+            this.dg_fornecedor.Location = new System.Drawing.Point(293, 86);
             this.dg_fornecedor.Name = "dg_fornecedor";
-            this.dg_fornecedor.Size = new System.Drawing.Size(503, 326);
+            this.dg_fornecedor.Size = new System.Drawing.Size(503, 265);
             this.dg_fornecedor.TabIndex = 23;
             this.dg_fornecedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_fornecedor_CellClick);
             this.dg_fornecedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_fornecedor_CellContentClick);
