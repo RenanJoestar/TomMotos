@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_cliente` (
   `id_cliente` INT NOT NULL AUTO_INCREMENT,
   `nome_cliente` VARCHAR(15) NOT NULL,
   `sobrenome_cliente` VARCHAR(40) NULL DEFAULT NULL,
-  `data_nascimento_cliente` DATE NULL DEFAULT NULL,
+  `data_nascimento_cliente` varchar(15) NULL DEFAULT NULL,
   `cpf_cliente` VARCHAR(15) NULL DEFAULT NULL,
   `cnpj_cliente` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`id_cliente`))
@@ -46,7 +46,6 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
 
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_fornecedor`
@@ -61,7 +60,7 @@ AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-/*ALTER TABLE tb_funcionario  MODIFY COLUMN data_nascimento_funcionario varchar(15);*/
+/*ALTER TABLE tb_cliente  MODIFY COLUMN data_nascimento_cliente varchar(15);*/
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_funcionario`
 -- -----------------------------------------------------
@@ -100,13 +99,13 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_usuario` (
   INDEX `fk_tb_usuario_tb_fornecedor1_idx` (`fk_fornecedor_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_usuario_tb_cliente1`
     FOREIGN KEY (`fk_cliente_id`)
-    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`),
+    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`)ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_tb_usuario_tb_fornecedor1`
     FOREIGN KEY (`fk_fornecedor_id`)
-    REFERENCES `bd_tommotos`.`tb_fornecedor` (`id_fornecedor`),
+    REFERENCES `bd_tommotos`.`tb_fornecedor` (`id_fornecedor`)ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_tb_usuario_tb_funcionario1`
     FOREIGN KEY (`fk_funcionario_id`)
-    REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`))
+    REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
@@ -116,6 +115,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_email`
 -- -----------------------------------------------------
+
+
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_email` (
   `id_email` INT NOT NULL AUTO_INCREMENT,
   `nome_email` VARCHAR(50) NULL DEFAULT NULL,
@@ -124,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_email` (
   INDEX `fk_tb_email_tb_usuario1_idx` (`fk_usuario_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_email_tb_usuario1`
     FOREIGN KEY (`fk_usuario_id`)
-    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`))
+    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
@@ -145,13 +146,11 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_endereco` (
   INDEX `fk_tb_endereco_tb_usuario1_idx` (`fk_usuario_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_endereco_tb_usuario1`
     FOREIGN KEY (`fk_usuario_id`)
-    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`))
+    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
-
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_veiculo`
 -- -----------------------------------------------------
@@ -169,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_veiculo` (
   INDEX `fk_cliente_idx` (`fk_cliente_id` ASC) VISIBLE,
   CONSTRAINT `fk_cliente`
     FOREIGN KEY (`fk_cliente_id`)
-    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`))
+    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8mb4
@@ -192,10 +191,10 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_venda` (
   INDEX `fk_tb_venda_tb_cliente1_idx` (`fk_cliente_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_venda_tb_cliente1`
     FOREIGN KEY (`fk_cliente_id`)
-    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`),
+    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`)ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_veiculo`
     FOREIGN KEY (`fk_veiculo_id`)
-    REFERENCES `bd_tommotos`.`tb_veiculo` (`id_veiculo`))
+    REFERENCES `bd_tommotos`.`tb_veiculo` (`id_veiculo`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
@@ -214,14 +213,15 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_grupo_funcionarios` (
   INDEX `fk_tb_grupo_funcionarios_tb_funcionario1_idx` (`fk_funcionario_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_grupo_funcionarios_tb_funcionario1`
     FOREIGN KEY (`fk_funcionario_id`)
-    REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`),
+    REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`)ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_venda`
     FOREIGN KEY (`fk_venda_id`)
-    REFERENCES `bd_tommotos`.`tb_venda` (`id_venda`))
+    REFERENCES `bd_tommotos`.`tb_venda` (`id_venda`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
 
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_produto`
@@ -229,10 +229,10 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto` (
   `id_produto` INT NOT NULL AUTO_INCREMENT,
   `descricao_produto` VARCHAR(45) NOT NULL,
-  `quantidade_produto` DOUBLE NOT NULL,
+  `quantidade_produto` INT NOT NULL,
   `valor_produto` DOUBLE NOT NULL,
   `marca_produto` VARCHAR(30) NULL DEFAULT NULL,
-  `quantidade_virtual_produto` DOUBLE NULL DEFAULT NULL,
+  `quantidade_virtual_produto` INT NULL DEFAULT NULL,
   `imagem_produto` LONGBLOB NULL DEFAULT NULL,
   PRIMARY KEY (`id_produto`))
 ENGINE = InnoDB
@@ -255,10 +255,10 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_log_fornecimento` (
   INDEX `fk_tb_log_fornecimento_tb_funcionario1_idx` (`fk_fornecedor_id` ASC) VISIBLE,
   CONSTRAINT `fk_produto_id`
     FOREIGN KEY (`fk_produto_id`)
-    REFERENCES `bd_tommotos`.`tb_produto` (`id_produto`),
+    REFERENCES `bd_tommotos`.`tb_produto` (`id_produto`)ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_tb_log_fornecimento_tb_funcionario1`
     FOREIGN KEY (`fk_fornecedor_id`)
-    REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`))
+    REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
@@ -280,10 +280,10 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto_selecionado` (
   INDEX `fk_cliente_id` (`fk_cliente_id` ASC) VISIBLE,
   CONSTRAINT `tb_produto_selecionado_ibfk_1`
     FOREIGN KEY (`fk_produto_id`)
-    REFERENCES `bd_tommotos`.`tb_produto` (`id_produto`),
+    REFERENCES `bd_tommotos`.`tb_produto` (`id_produto`)ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tb_produto_selecionado_ibfk_2`
     FOREIGN KEY (`fk_cliente_id`)
-    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`))
+    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
@@ -304,10 +304,10 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto_usado` (
   INDEX `fk_venda_id` (`fk_venda_id` ASC) VISIBLE,
   CONSTRAINT `tb_prroduto_usado_ibfk_1`
     FOREIGN KEY (`fk_produto_id`)
-    REFERENCES `bd_tommotos`.`tb_produto` (`id_produto`),
+    REFERENCES `bd_tommotos`.`tb_produto` (`id_produto`)ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tb_prroduto_usado_ibfk_2`
     FOREIGN KEY (`fk_venda_id`)
-    REFERENCES `bd_tommotos`.`tb_venda` (`id_venda`))
+    REFERENCES `bd_tommotos`.`tb_venda` (`id_venda`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
@@ -325,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_telefone` (
   INDEX `fk_tb_telefone_tb_usuario1_idx` (`fk_usuario_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_telefone_tb_usuario1`
     FOREIGN KEY (`fk_usuario_id`)
-    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`))
+    REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
