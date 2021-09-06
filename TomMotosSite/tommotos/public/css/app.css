@@ -1,0 +1,230 @@
+/*BARRA DO TOPO*/
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+.box-claro {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 20px;
+    background: rgba(37, 41, 62, 0.7);
+}
+.box-escura {
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background: #25293E;
+}
+.box-claro-baixo {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 60px;
+    background: rgba(37, 41, 62, 0.7);
+}
+.search-box {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    width: 350px;
+    outline: none;
+    padding: 8px;
+    margin-top: 20px;
+}
+.btn_prourar {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    padding: 9px;
+    color: #fff;
+    background: #C4302B;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 90px;
+    margin-left: auto;
+    margin-right: 20px;
+    display: inline-block;
+}
+.tag_log {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: #C4302B;
+    font-weight: bold;
+    margin-left: 20px;
+    border-bottom: 3px solid #C4302B;
+}
+.hiperlink_a {
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 4px;
+    color: white;
+}
+.hiperlink_a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 4px;
+    color: white;
+    border-bottom: 3px solid #C4302B;
+}
+/*BARRA DO TOPO*/
+
+/*BOLAS ABAIXO DO SLIDE SHOW*/
+.lime {
+    background: lightgrey;
+
+}
+.circulo-pequeno {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+.circulo-pequeno:hover {
+    transform: rotateY(180deg);
+}
+/*BOLAS ABAIXO DO SLIDE SHOW*/
+
+/*SLIDE SHOW*/
+.mySlides {
+    display: none;
+}
+img {
+    vertical-align: middle;
+}
+.slideshow-container {
+    max-width: 1366px;
+    position: relative;
+    margin: auto;
+}
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #25293E;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active {
+    background-color: #717171;
+}
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/*SLIDE SHOW*/
+
+/*CARDS(PRODUTOS)*/
+.container {
+    max-width: 1360px;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 500px;
+    display: inline-block;
+    text-align: center;
+    font-family: arial;
+    margin: 10px;
+}
+.preco {
+    color: grey;
+    font-size: 22px;
+}
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #C4302B;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 40px;
+    font-size: 18px;
+}
+.card button:hover {
+    opacity: 0.7;
+    background-color: green;
+}
+/*CARDS(PRODUTOS)*/
+
+/*BARRA DE CIMA TOPO(ICONES)*/
+.icone-zap {
+    width: 40px;
+}
+.numero {
+    color: white;
+    font: arial;
+}
+
+/*EXPANDIR CARD COM OS PRODUTOS*/
+.btn_açao {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 200px;
+    padding: 8px;
+    background-color: transparent;
+    font-weight: bold;
+    border: 1px solid black;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.btn_açao:hover {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 200px;
+    padding: 8px;
+    background-color: transparent;
+    font-weight: bold;
+    border: 1px solid black;
+
+}
+hr {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    max-width: 1366px;
+}
+.footer {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    height: 1002;
+    background: #25293E;
+}
