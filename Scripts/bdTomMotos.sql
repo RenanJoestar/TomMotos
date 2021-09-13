@@ -180,15 +180,16 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_venda` (
   `id_venda` INT NOT NULL AUTO_INCREMENT,
-  `descricao_venda` TEXT NOT NULL,
-  `preco_mao_de_obra` DOUBLE NULL DEFAULT NULL,
+  `descricao_mao_de_obra` TEXT NOT NULL,
+  `preco_mao_de_obra` DOUBLE NULL DEFAULT 0.00,
   `validade_orcamento_servico` DATE NULL DEFAULT NULL,
   `data_venda` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `venda_finalizada` BOOL DEFAULT FALSE,
   `fk_veiculo_id` INT NULL DEFAULT NULL,
-  `fk_cliente_id` INT NOT NULL,
+  `fk_cliente_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id_venda`),
   INDEX `fk_veiculo` (`fk_veiculo_id` ASC) VISIBLE,
-  INDEX `fk_tb_venda_tb_cliente1_idx` (`fk_cliente_id` ASC) VISIBLE,
+  INDEX `fk_cliente` (`fk_cliente_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_venda_tb_cliente1`
     FOREIGN KEY (`fk_cliente_id`)
     REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`)ON DELETE CASCADE ON UPDATE CASCADE,
@@ -199,7 +200,6 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
 
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_grupo_funcionarios`
@@ -269,13 +269,13 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `bd_tommotos`.`tb_produto_selecionado`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto_selecionado` (
-  `id_produto_usado` INT NOT NULL AUTO_INCREMENT,
+  `id_produto_selecionado` INT NOT NULL AUTO_INCREMENT,
   `buscado_produto_selecionado` TINYINT(1) NOT NULL,
   `data_produto_selecionado` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `qtd_produto_selecionado` INT NOT NULL,
   `fk_produto_id` INT NULL DEFAULT NULL,
   `fk_cliente_id` INT NULL DEFAULT NULL,
-  PRIMARY KEY (`id_produto_usado`),
+  PRIMARY KEY (`id_produto_selecionado`),
   INDEX `fk_produto_idx` (`fk_produto_id` ASC) VISIBLE,
   INDEX `fk_cliente_id` (`fk_cliente_id` ASC) VISIBLE,
   CONSTRAINT `tb_produto_selecionado_ibfk_1`
@@ -386,7 +386,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarVendaPorID`(IN ID_CLIENTE in
 BEGIN
 select 
 tb_venda.id_venda,
-tb_venda.descricao_venda,
+tb_venda.descricao_mao_de_obra,
 tb_venda.preco_mao_de_obra, 
 tb_veiculo.placa_veiculo, 
 tb_veiculo.modelo_veiculo,
@@ -423,7 +423,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarVendas`()
 BEGIN
 select 
 tb_venda.id_venda,
-tb_venda.descricao_venda,
+tb_venda.descricao_mao_de_obra,
 tb_venda.preco_mao_de_obra, 
 tb_veiculo.placa_veiculo, 
 tb_veiculo.modelo_veiculo,
@@ -680,12 +680,15 @@ DELIMITER $$
 USE `bd_tommotos`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN DESCRICAO TEXT, IN VALIDADE_ORCAMENTO_SERVICO date, PRECO_MAO_DE_OBRA double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
 BEGIN
-INSERT INTO tb_venda /*INSERE*/ (tb_venda.descricao_venda, tb_venda.validade_orcamento_servico, tb_venda.preco_mao_de_obra, fk_veiculo_id, fk_cliente_id) values (DESCRICAO , VALIDADE_ORCAMENTO_SERVICO, PRECO_MAO_DE_OBRA, FK_VEICULO_ID, FK_CLIENTE_ID); END$$
+INSERT INTO tb_venda /*INSERE*/ 
+(tb_venda.descricao_mao_de_obra, tb_venda.validade_orcamento_servico, 
+tb_venda.preco_mao_de_obra, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id) 
+values 
+(DESCRICAO, VALIDADE_ORCAMENTO_SERVICO, 
+PRECO_MAO_DE_OBRA, FK_VEICULO_ID, FK_CLIENTE_ID); 
+END$$
 
 DELIMITER ;
-
-
-select * from tb_veiculo;
 
 /*STORED PROCEDURE PARA MOSTRAR CLIENTES*/
 DELIMITER $$
@@ -852,22 +855,50 @@ tb_endereco.cep_endereco
  where tb_fornecedor.id_fornecedor = IF_FORNECEDOR;
 END $$
 DELIMITER ;
-;
+
+/*STORED PROCEDURE PARA MUDAR STATUS DA VENDA*/
+DELIMITER $$
+CREATE PROCEDURE mudarStatusVenda(IN idVenda INT, IN novoStatusProduto bool)
+BEGIN
+		UPDATE tb_venda
+		set tb_venda.venda_finalizada = novoStatusProduto
+		WHERE tb_venda.id_venda = idVenda;
+END$$
+DELIMITER ;
+
+/*STORED PROCEDURE PARA MUDAR STATUS DO PRODUTO*/
+DELIMITER $$
+CREATE PROCEDURE mudarStatusProduto(IN idProdutoSelecionado INT, IN novoStatusProduto bool)
+BEGIN
+		UPDATE tb_produto_selecionado
+		set tb_produto_selecionado.buscado_produto_selecionado = novoStatusProduto
+		WHERE tb_produto_selecionado.id_produtoUsado = idProdutoSelecionado;
+END$$
+DELIMITER ;
 
 /*TRIGGER PARA DIMINUIÇÃO DE QUANTIDADE QUANDO ACONTECER VENDA*/ 
 DELIMITER $$
-CREATE TRIGGER diminuicaoDeQTD after insert
-ON tb_venda FOR EACH ROW BEGIN /*diminui a qtd normalmente */ UPDATE tb_produto
+CREATE TRIGGER diminuicaoDeQTD after update
+ON tb_venda FOR EACH ROW BEGIN /*diminui a qtd normalmente */ 
+IF (new.venda_finalizada = true AND old.venda_finalizada = false) THEN 
+
+UPDATE tb_produto
 INNER JOIN tb_produto_usado
 ON tb_produto_usado.fk_produto_id = tb_produto.id_produto
-INNER JOIN tb_cliente
-ON tb_produto_selecionado.fk_cliente_id = tb_cliente.id_cliente
-
 SET tb_produto.quantidade_produto = tb_produto.quantidade_produto - tb_produto_usado.quantidade_produto_usado, 
 tb_produto.quantidade_virtual_produto = tb_produto.quantidade_virtual_produto - tb_produto_usado.quantidade_produto_usado
+WHERE tb_produto_usado.fk_venda_id = new.id_venda ;
 
-WHERE fk_produto_id = tb_produto.id_produto 
-AND fk_cliente_id = tb_cliente.id_cliente; END $$ DELIMITER ; 
+ELSEIF(new.venda_finalizada = false AND old.venda_finalizada = true) THEN 
+
+UPDATE tb_produto 
+INNER JOIN tb_produto_usado
+ON tb_produto_usado.fk_produto_id = tb_produto.id_produto
+SET tb_produto.quantidade_produto = tb_produto.quantidade_produto + tb_produto_usado.quantidade_produto_usado, 
+tb_produto.quantidade_virtual_produto = tb_produto.quantidade_virtual_produto + tb_produto_usado.quantidade_produto_usado
+WHERE tb_produto_usado.fk_venda_id = new.id_venda ;
+
+END IF; END $$ DELIMITER ; 
 
 /*TRIGGER PARA DIMINUIÇÃO DE QUANTIDADE QUANDO PRODUTO FOR BUSCADO*/
 DELIMITER $$
@@ -875,26 +906,17 @@ CREATE TRIGGER diminuicaoDeQTDqndProdutoBuscado after update
 ON tb_produto_selecionado FOR EACH ROW BEGIN IF (new.buscado_produto_selecionado = true AND old.buscado_produto_selecionado = false) THEN UPDATE tb_produto
 INNER JOIN tb_produto_selecionado
 ON tb_produto_selecionado.fk_produto_id = tb_produto.id_produto
-INNER JOIN tb_cliente
-ON tb_produto_selecionado.fk_cliente_id = tb_cliente.id_cliente
+SET tb_produto.quantidade_produto = tb_produto.quantidade_produto - tb_produto_usado.quantidade_produto_usado
+WHERE tb_produto_usado.fk_venda_id = new.id_produto_selecionado ;
 
-SET tb_produto.quantidade_produto = tb_produto.quantidade_produto - tb_produto_usado.quantidade_produto_usado, 
-tb_produto.quantidade_virtual_produto = tb_produto.quantidade_virtual_produto - tb_produto_usado.quantidade_produto_usado
-
-WHERE new.fk_produto_id = tb_produto.id_produto 
-AND new.fk_cliente_id = tb_cliente.id_cliente; ELSEIF(new.buscado_produto_selecionado = false AND old.buscado_produto_selecionado = true) THEN UPDATE tb_produto 
+ELSEIF(new.buscado_produto_selecionado = false AND old.buscado_produto_selecionado = true) THEN UPDATE tb_produto 
 INNER JOIN tb_produto_selecionado
 ON tb_produto_selecionado.fk_produto_id = tb_produto.id_produto
-INNER JOIN tb_cliente
-ON tb_produto_selecionado.fk_cliente_id = tb_cliente.id_cliente
+SET tb_produto.quantidade_produto = tb_produto.quantidade_produto + tb_produto_usado.quantidade_produto_usado
+WHERE tb_produto_usado.fk_venda_id = new.id_produto_selecionado ; 
+END IF; END $$ DELIMITER ; 
 
-
-SET tb_produto.quantidade_produto = tb_produto.quantidade_produto + tb_produto_usado.quantidade_produto_usado, 
-tb_produto.quantidade_virtual_produto = tb_produto.quantidade_virtual_produto + tb_produto_usado.quantidade_produto_usado
-WHERE new.fk_produto_id = tb_produto.id_produto 
-AND new.fk_cliente_id = tb_cliente.id_cliente; END IF; END $$ DELIMITER ; 
-
-insert into tb_veiculo(marca_veiculo, modelo_veiculo, cor_veiculo, ano_veiculo, km_veiculo, placa_veiculo, obs_veiculo, fk_cliente_id) values ('null', 'null', null, null, null, null, null, null);
+call criacaoCliente('null','null', null, null, null);
 call criacaoCliente('samuel','santos','2002/04/22','99999999',null);
 call criacaoCliente('matheus','santos','2002/04/23','99929999',null);
 call criacaoCliente('pedro','santos','2002/04/20','99929959',null);
