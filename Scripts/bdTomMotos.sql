@@ -183,7 +183,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_orcamento` (
   `id_orcamento` INT NOT NULL AUTO_INCREMENT,
   `descricao_orcamento` TEXT NOT NULL,
-  `preco_mao_de_obra` DOUBLE NULL DEFAULT NULL,
+  `preco_mao_de_obra` DOUBLE NULL DEFAULT 0.00,
   `validade_orcamento_servico` DATE NULL DEFAULT NULL,
   `data_orcamento` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `fk_veiculo_id` INT NULL DEFAULT NULL,
