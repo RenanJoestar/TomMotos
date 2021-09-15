@@ -185,6 +185,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_venda` (
   `validade_orcamento_servico` DATE NULL DEFAULT NULL,
   `data_venda` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `venda_finalizada` BOOL DEFAULT FALSE,
+  `e_orcamento` BOOL DEFAULT FALSE,
   `fk_veiculo_id` INT NULL DEFAULT NULL,
   `fk_cliente_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id_venda`),
@@ -256,9 +257,9 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_log_fornecimento` (
   CONSTRAINT `fk_produto_id`
     FOREIGN KEY (`fk_produto_id`)
     REFERENCES `bd_tommotos`.`tb_produto` (`id_produto`)ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_tb_log_fornecimento_tb_funcionario1`
+  CONSTRAINT `fk_tb_log_fornecimento_tb_fornecedor1`
     FOREIGN KEY (`fk_fornecedor_id`)
-    REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`)ON DELETE CASCADE ON UPDATE CASCADE)
+    REFERENCES `bd_tommotos`.`tb_fornecedor` (`id_fornecedor`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
