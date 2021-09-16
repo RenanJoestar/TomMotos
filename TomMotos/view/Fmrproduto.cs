@@ -22,7 +22,8 @@ namespace TomMotos.view
         
         byte[] base64Text;
         Bitmap image;
-      
+        string id_fornecedor;
+
         public Fmrproduto()
         {
             InitializeComponent();
@@ -73,7 +74,7 @@ namespace TomMotos.view
 
                     obj.descricao = txt_descricao_produto.Text.ToUpper();
                     if(np_quantidade.ToString() == "") obj.quantidade = 0;
-                    obj.quantidade = int.Parse(np_quantidade.Text);
+                    else obj.quantidade = int.Parse(np_quantidade.Text);
                     obj.quantidade_virtual = int.Parse(np_quantidade.Text);
                     obj.valor = double.Parse(txt_valor_produto.Text);
                     if (txt_marca_produto.Text == "") obj.marca = null;
@@ -99,9 +100,19 @@ namespace TomMotos.view
 
         private void Fmrproduto_Load(object sender, EventArgs e)
         {
-            ProdutoDAO Cadastro = new ProdutoDAO();
-            dg_produto.DataSource = Cadastro.ListarTodosProdutos();
+            
+            btnPesquisar.Enabled = true;
+            np_quantidade.Enabled = false;
+            cbxFornecedor.Enabled = false;
+            txt_marca_produto.Enabled = true;
+            txt_descricao_produto.Enabled = true;
+            txt_valor_produto.Enabled = true;
+            btnCadastrar.Visible = true;
+            btnAlterar.Visible = true;
+            btnExcluir.Visible = true;
+            btnAdd.Visible = false;
             lblCaminho.Text = "";
+            carregarfornecedor();
 
         }
 
@@ -153,7 +164,7 @@ namespace TomMotos.view
             {
                 string select = @"select imagem_produto from tb_produto where id_produto =" + txt_id.Text;
                 MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-                conexao.Open();
+               
                     MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -169,7 +180,7 @@ namespace TomMotos.view
                         }
 
                     }
-                    conexao.Close();
+                  
             }
             catch (Exception erro)
             {
@@ -239,6 +250,95 @@ namespace TomMotos.view
             dg_produto.DataSource = dao.buscaCargo();
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
+        private void carregarfornecedor()
+        {
+
+            MySqlConnection cn = new MySqlConnection();
+            cn = conexao;
+            cn.Open();
+            MySqlCommand com = new MySqlCommand();
+            com.Connection = cn;
+            com.CommandText = "select id_fornecedor, nome_fornecedor from tb_fornecedor";
+            MySqlDataReader dr = com.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            cbxFornecedor.DisplayMember = "nome_fornecedor";
+            cbxFornecedor.DataSource = dt;
+            cbxFornecedor.Text = null;
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            ProdutoDAO Cadastro = new ProdutoDAO();
+            dg_produto.DataSource = Cadastro.ListarTodosProdutos();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            ProdutoDAO logs = new ProdutoDAO();
+            dg_produto.DataSource = logs.ListarTodosFornecimento();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxAdd.Checked == true)
+            {
+                np_quantidade.Enabled = true;
+                cbxFornecedor.Enabled = true;
+                txt_marca_produto.Enabled = false;
+                txt_descricao_produto.Enabled = false;
+                txt_valor_produto.Enabled = false;
+                btnCadastrar.Visible = false;
+                btnAlterar.Visible = false;
+                btnExcluir.Visible = false;
+                btnAdd.Visible = true;
+                btnPesquisar.Enabled = false;
+            }
+            else
+            {
+                np_quantidade.Enabled = false;
+                cbxFornecedor.Enabled = false;
+                txt_marca_produto.Enabled = true;
+                txt_descricao_produto.Enabled = true;
+                txt_valor_produto.Enabled = true;
+                btnCadastrar.Visible = true;
+                btnAlterar.Visible = true;
+                btnExcluir.Visible = true;
+                btnAdd.Visible = false;
+                btnPesquisar.Enabled = true;
+            }
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ProdutoModel obj = new ProdutoModel();
+            
+            string select = "select id_fornecedor from tb_fornecedor where nome_fornecedor = " + "'" + cbxFornecedor.Text.ToString() + "'";
+            MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                id_fornecedor = ds.Tables[0].Rows[0]["id_fornecedor"].ToString();
+            }
+
+            obj.id_fornecedor = id_fornecedor;
+            obj.id = int.Parse(txt_id.Text);
+            if (np_quantidade.ToString() == "" || np_quantidade.ToString() == "0") MessageBox.Show("DIGITE UMA QUANTIDADE VALIDA");
+            else obj.quantidade = int.Parse(np_quantidade.Text);
+            MessageBox.Show("idFor "+id_fornecedor);
+            MessageBox.Show("Qtd" + np_quantidade.Text.ToString());
+            MessageBox.Show("Test " + obj.id);
+
+            ProdutoDAO Add = new ProdutoDAO();
+            Add.adiocionarQtd(obj);
+
         }
     }
 }

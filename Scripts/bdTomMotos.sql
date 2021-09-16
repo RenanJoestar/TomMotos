@@ -975,9 +975,9 @@ call criacaoProduto('oleo','0','0','12','mobil',null);
 call mostrarFornecedores();
 call mostrarFornecedorPorID(3);
 
-/*call acrescentarQTDProduto(4, 15, 2); 2 = fornecedor desconhecido
-call acrescentarQTDProduto(4, 15, 3); 3 = fornecedor real
-
+/*
+call acrescentarQTDProduto(4, 3, 2); 
+call acrescentarQTDProduto(4, 1, 3);
 select tb_produto.descricao_produto AS 'NOME PRODUTO', tb_produto.quantidade_produto AS 'QUANTIDADE PRODUTO',
 tb_produto.quantidade_virtual_produto AS 'QUANTIDADE PRODUTO VIRTUAL', tb_fornecedor.nome_fornecedor AS 'NOME FORNECEDOR', 
 tb_log_fornecimento.qtd_produto_fornecido AS 'QUANTIDADE FORNECIDO', tb_log_fornecimento.data_log_fornecimento AS 'DATA DO FORNECIMENTO'
@@ -985,4 +985,4 @@ from tb_produto
 inner join tb_log_fornecimento 
 on tb_log_fornecimento.fk_produto_id = tb_produto.id_produto
 inner join tb_fornecedor
-on tb_log_fornecimento.fk_fornecedor_id = tb_fornecedor.id_fornecedor;*/
+on tb_log_fornecimento.fk_fornecedor_id = tb_fornecedor.id_fornecedor;

@@ -1,8 +1,12 @@
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 -- -----------------------------------------------------
 -- procedure CriacaoProduto
 -- -----------------------------------------------------
 DELIMITER $$
-CREATE PROCEDURE CriacaoProduto (IN DESCRICAO VARCHAR(45), IN QUANTIDADE_PRODUTO INT, QUANTIDADE_PRODUTO_VIRTUAL INT, IN VALOR_PRODUTO double, IN MARCA VARCHAR(40), IN IMAGEM LONGBLOB)
+CREATE PROCEDURE criacaoProduto (IN DESCRICAO VARCHAR(45), IN QUANTIDADE_PRODUTO INT, QUANTIDADE_PRODUTO_VIRTUAL INT, IN VALOR_PRODUTO double, IN MARCA VARCHAR(40), IN IMAGEM LONGBLOB)
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
 IF EXISTS(SELECT*FROM tb_produto where tb_produto.descricao_produto = DESCRICAO AND tb_produto.valor_produto = VALOR_PRODUTO) THEN
@@ -534,4 +538,18 @@ BEGIN
 		set tb_produto_selecionado.buscado_produto_selecionado = novoStatusProduto
 		WHERE tb_produto_selecionado.id_produtoUsado = idProdutoSelecionado;
 END$$
-DELIMITER ;
+DELIMITER ; 
+
+/*STORED PROCEDURE PARA MUDAR A QUANTIDADE DO PRODUTO*/
+DELIMITER $$
+CREATE PROCEDURE acrescentarQTDProduto(IN idProduto INT, IN qtdProduto INT, IN idFornecedor INT)
+BEGIN
+		UPDATE tb_produto
+		set tb_produto.quantidade_produto = tb_produto.quantidade_produto + qtdProduto,
+		tb_produto.quantidade_virtual_produto = tb_produto.quantidade_virtual_produto + qtdProduto
+		WHERE tb_produto.id_produto = idProduto;
+        
+		insert into tb_log_fornecimento (qtd_produto_fornecido, fk_produto_id, fk_fornecedor_id) values
+        (qtdProduto, idProduto, idFornecedor);
+END$$
+DELIMITER ; 

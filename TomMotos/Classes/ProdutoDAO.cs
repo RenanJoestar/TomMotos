@@ -19,11 +19,33 @@ namespace TomMotos.Classes
         {
         }
 
-        #region METODO LISTAR
+        #region METODO LISTAR PRODUTOS
         public DataTable ListarTodosProdutos()
         {
            
             string sql = @"select * from tb_produto";
+
+            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
+
+            conexao.Open();
+            executacmdsql.ExecuteNonQuery();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataTable tabelaProduto = new DataTable();
+            da.Fill(tabelaProduto);
+
+            conexao.Close();
+
+            return tabelaProduto;
+        }
+        #endregion
+
+        #region METODO LISTAR FORNECIMENTO
+        public DataTable ListarTodosFornecimento()
+        {
+
+            string sql = @"select * from tb_log_fornecimento";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 
@@ -75,6 +97,37 @@ namespace TomMotos.Classes
             }
           
             }
+
+        #endregion
+        #region METODO ADICIONAR QUANTIDADE
+
+        public void adiocionarQtd(ProdutoModel obj)
+        {
+
+            try
+            {
+                string insert = @"call acrescentarQTDProduto(@id_produto, @quantidade,@fornecedor);";
+
+                MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);                
+                executacmdsql.Parameters.AddWithValue("@quantidade", obj.quantidade);     
+  
+                executacmdsql.Parameters.AddWithValue("@fornecedor", obj.id_fornecedor);
+                executacmdsql.Parameters.AddWithValue("@id_produto", obj.id);
+
+
+
+                conexao.Open();
+                executacmdsql.ExecuteNonQuery();
+                MessageBox.Show("Adicionada com sucesso!");
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Adicão não Realizado!");
+            }
+
+        }
 
         #endregion
 

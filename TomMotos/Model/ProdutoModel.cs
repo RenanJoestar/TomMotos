@@ -9,6 +9,7 @@ namespace TomMotos.Model
     class ProdutoModel
     {
         public int id { get; set; }
+        public string id_fornecedor { get; set; }
         public string descricao { get; set; }
         public int quantidade { get; set; }
         public int quantidade_virtual { get; set; }
