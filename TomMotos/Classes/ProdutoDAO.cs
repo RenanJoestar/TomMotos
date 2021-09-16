@@ -40,32 +40,7 @@ namespace TomMotos.Classes
             return tabelaProduto;
         }
         #endregion
-
-        #region METODO LISTAR FORNECIMENTO
-        public DataTable ListarTodosFornecimento()
-        {
-
-            string sql = @"select * from tb_log_fornecimento";
-
-            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
-
-            conexao.Open();
-            executacmdsql.ExecuteNonQuery();
-
-            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-            DataTable tabelaProduto = new DataTable();
-            da.Fill(tabelaProduto);
-
-            conexao.Close();
-
-            return tabelaProduto;
-        }
-        #endregion
-
-
-
-
+                
         #region METODO CADASTRAR
 
         public void cadastrarProduto(ProdutoModel obj)
@@ -99,9 +74,10 @@ namespace TomMotos.Classes
             }
 
         #endregion
+
         #region METODO ADICIONAR QUANTIDADE
 
-        public void adiocionarQtd(ProdutoModel obj)
+        public void adicionarQtd(ProdutoModel obj)
         {
 
             try

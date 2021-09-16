@@ -23,6 +23,7 @@ namespace TomMotos.view
         byte[] base64Text;
         Bitmap image;
         string id_fornecedor;
+        ProdutoDAO Cadastro = new ProdutoDAO();
 
         public Fmrproduto()
         {
@@ -71,7 +72,6 @@ namespace TomMotos.view
                 {
                     ProdutoModel obj = new ProdutoModel();
 
-
                     obj.descricao = txt_descricao_produto.Text.ToUpper();
                     if(np_quantidade.ToString() == "") obj.quantidade = 0;
                     else obj.quantidade = int.Parse(np_quantidade.Text);
@@ -81,11 +81,7 @@ namespace TomMotos.view
                     else obj.marca = txt_marca_produto.Text.ToUpper();
                     obj.imagem = base64Text;
 
-
-                    ProdutoDAO Cadastro = new ProdutoDAO();
-
                     Cadastro.cadastrarProduto(obj);
-
 
                     dg_produto.DataSource = Cadastro.ListarTodosProdutos();
                 }
@@ -100,7 +96,6 @@ namespace TomMotos.view
 
         private void Fmrproduto_Load(object sender, EventArgs e)
         {
-            
             btnPesquisar.Enabled = true;
             np_quantidade.Enabled = false;
             cbxFornecedor.Enabled = false;
@@ -113,7 +108,6 @@ namespace TomMotos.view
             btnAdd.Visible = false;
             lblCaminho.Text = "";
             carregarfornecedor();
-
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -180,14 +174,12 @@ namespace TomMotos.view
                         }
 
                     }
-                  
             }
             catch (Exception erro)
             {
                     MessageBox.Show("Aconteceu um Erro" + erro);
             }
           }
-
             else
             {
               
@@ -242,7 +234,6 @@ namespace TomMotos.view
         {
             try
             {
-          
             string campo = cbxBuscar.Text.ToString() + "_produto";
             FiltroModel.filtro = @"select * from tb_produto where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
             // MessageBox.Show("Test " + FiltroModel.filtro);
@@ -251,9 +242,8 @@ namespace TomMotos.view
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
-        private void carregarfornecedor()
+        private void carregarfornecedor() //não é melhor usar a função ja pronta do fornecedorDAO?
         {
-
             MySqlConnection cn = new MySqlConnection();
             cn = conexao;
             cn.Open();
@@ -266,19 +256,6 @@ namespace TomMotos.view
             cbxFornecedor.DisplayMember = "nome_fornecedor";
             cbxFornecedor.DataSource = dt;
             cbxFornecedor.Text = null;
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            ProdutoDAO Cadastro = new ProdutoDAO();
-            dg_produto.DataSource = Cadastro.ListarTodosProdutos();
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            ProdutoDAO logs = new ProdutoDAO();
-            dg_produto.DataSource = logs.ListarTodosFornecimento();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -337,8 +314,9 @@ namespace TomMotos.view
             MessageBox.Show("Test " + obj.id);
 
             ProdutoDAO Add = new ProdutoDAO();
-            Add.adiocionarQtd(obj);
+            Add.adicionarQtd(obj);
 
+            dg_produto.DataSource = Cadastro.ListarTodosProdutos();
         }
     }
 }

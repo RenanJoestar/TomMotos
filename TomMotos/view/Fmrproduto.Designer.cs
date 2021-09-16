@@ -29,17 +29,18 @@ namespace TomMotos.view
         /// </summary>
         private void InitializeComponent()
         {
-            this.ptb_perfil = new System.Windows.Forms.PictureBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lblCaminho = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.cbxAdd = new System.Windows.Forms.CheckBox();
             this.cbxFornecedor = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.txt_valor_produto = new System.Windows.Forms.TextBox();
             this.np_quantidade = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.txt_marca_produto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,26 +57,12 @@ namespace TomMotos.view
             this.button2 = new System.Windows.Forms.Button();
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.cbxAdd = new System.Windows.Forms.CheckBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).BeginInit();
+            this.ptb_perfil = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.np_quantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_produto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ptb_perfil
-            // 
-            this.ptb_perfil.BackColor = System.Drawing.SystemColors.Menu;
-            this.ptb_perfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptb_perfil.Location = new System.Drawing.Point(107, 176);
-            this.ptb_perfil.Name = "ptb_perfil";
-            this.ptb_perfil.Size = new System.Drawing.Size(100, 107);
-            this.ptb_perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_perfil.TabIndex = 0;
-            this.ptb_perfil.TabStop = false;
             // 
             // btnPesquisar
             // 
@@ -130,6 +117,27 @@ namespace TomMotos.view
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(107, 469);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 40;
+            this.btnAdd.Text = "Adicionar";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // cbxAdd
+            // 
+            this.cbxAdd.AutoSize = true;
+            this.cbxAdd.Location = new System.Drawing.Point(35, 386);
+            this.cbxAdd.Name = "cbxAdd";
+            this.cbxAdd.Size = new System.Drawing.Size(153, 19);
+            this.cbxAdd.TabIndex = 39;
+            this.cbxAdd.Text = "ADICIONAR PRODUTO";
+            this.cbxAdd.UseVisualStyleBackColor = true;
+            this.cbxAdd.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // cbxFornecedor
             // 
             this.cbxFornecedor.FormattingEnabled = true;
@@ -157,18 +165,6 @@ namespace TomMotos.view
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(34, 176);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 15);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "IMAGEM:";
-            // 
             // txt_valor_produto
             // 
             this.txt_valor_produto.Location = new System.Drawing.Point(95, 111);
@@ -182,6 +178,18 @@ namespace TomMotos.view
             this.np_quantidade.Name = "np_quantidade";
             this.np_quantidade.Size = new System.Drawing.Size(86, 21);
             this.np_quantidade.TabIndex = 32;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(34, 176);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 15);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "IMAGEM:";
             // 
             // txt_marca_produto
             // 
@@ -353,50 +361,16 @@ namespace TomMotos.view
             this.txtBuscar.Size = new System.Drawing.Size(258, 20);
             this.txtBuscar.TabIndex = 26;
             // 
-            // radioButton1
+            // ptb_perfil
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(536, 65);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(67, 17);
-            this.radioButton1.TabIndex = 27;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Produtos";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(668, 65);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(89, 17);
-            this.radioButton2.TabIndex = 28;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Fornecimento";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // cbxAdd
-            // 
-            this.cbxAdd.AutoSize = true;
-            this.cbxAdd.Location = new System.Drawing.Point(35, 386);
-            this.cbxAdd.Name = "cbxAdd";
-            this.cbxAdd.Size = new System.Drawing.Size(153, 19);
-            this.cbxAdd.TabIndex = 39;
-            this.cbxAdd.Text = "ADICIONAR PRODUTO";
-            this.cbxAdd.UseVisualStyleBackColor = true;
-            this.cbxAdd.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(107, 469);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 40;
-            this.btnAdd.Text = "Adicionar";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.ptb_perfil.BackColor = System.Drawing.SystemColors.Menu;
+            this.ptb_perfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptb_perfil.Location = new System.Drawing.Point(107, 176);
+            this.ptb_perfil.Name = "ptb_perfil";
+            this.ptb_perfil.Size = new System.Drawing.Size(100, 107);
+            this.ptb_perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_perfil.TabIndex = 0;
+            this.ptb_perfil.TabStop = false;
             // 
             // Fmrproduto
             // 
@@ -404,8 +378,6 @@ namespace TomMotos.view
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(956, 593);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.cbxBuscar);
             this.Controls.Add(this.button2);
@@ -419,11 +391,11 @@ namespace TomMotos.view
             this.Text = "Fmrproduto";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrproduto_FormClosed);
             this.Load += new System.EventHandler(this.Fmrproduto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.np_quantidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_produto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,8 +430,6 @@ namespace TomMotos.view
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.ComboBox cbxFornecedor;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.CheckBox cbxAdd;
         private System.Windows.Forms.Button btnAdd;
     }

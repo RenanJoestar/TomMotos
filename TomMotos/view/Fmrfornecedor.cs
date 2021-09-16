@@ -36,7 +36,6 @@ namespace TomMotos.view
                 FornecedorDAO Cadastro = new FornecedorDAO();
 
                 Cadastro.cadastrarFornecedor(obj);
-
                 
                 dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
             }
@@ -46,11 +45,9 @@ namespace TomMotos.view
             }
         }
 
-
         private void Fmrfornecedor_Load(object sender, EventArgs e)
         {
             FornecedorDAO Cadastro = new FornecedorDAO();
-           
             dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
         }
 
@@ -197,17 +194,16 @@ namespace TomMotos.view
         {
             Fmrsumario fmrsumario = new Fmrsumario();
             fmrsumario.Show();
-            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
             {           
-            string campo = cbxBuscar.Text.ToString() + "_fornecedor";
+                string campo = cbxBuscar.Text.ToString() + "_fornecedor";
                 FiltroModel.filtro = @"select * from tb_fornecedor where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
                 FiltroDAO dao = new FiltroDAO();
-            dg_fornecedor.DataSource = dao.buscaCargo(); 
+                dg_fornecedor.DataSource = dao.buscaCargo(); 
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }

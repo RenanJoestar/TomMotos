@@ -72,6 +72,7 @@
     <Compile Include="Classes\EnderecoDAO.cs" />
     <Compile Include="Classes\FiltroDAO.cs" />
     <Compile Include="Classes\FornecedorDAO.cs" />
+    <Compile Include="Classes\LogFornecimentoDAO.cs" />
     <Compile Include="Classes\FuncionarioDAO.cs" />
     <Compile Include="Classes\ProdutoDAO.cs" />
     <Compile Include="Classes\TelefoneDAO.cs" />
@@ -149,6 +150,12 @@
     <Compile Include="view\Fmrveiculo.Designer.cs">
       <DependentUpon>Fmrveiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\FrmlogFornecimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmlogFornecimento.Designer.cs">
+      <DependentUpon>FrmlogFornecimento.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -188,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrveiculo.resx">
       <DependentUpon>Fmrveiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmlogFornecimento.resx">
+      <DependentUpon>FrmlogFornecimento.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

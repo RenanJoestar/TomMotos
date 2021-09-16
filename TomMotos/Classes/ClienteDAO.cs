@@ -77,7 +77,6 @@ namespace TomMotos.Classes
         }
         #endregion
 
-
         #region METODO ALTERAR
         public void alterar(ClienteModel obj)
         {

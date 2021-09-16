@@ -325,11 +325,6 @@ namespace TomMotos.view
             cbxCargos.DisplayMember = "nome_cargo";
             cbxCargos.DataSource = dt;
             cbxCargos.Text = null;
-
         }
-
-
      }
- 
-    
 }

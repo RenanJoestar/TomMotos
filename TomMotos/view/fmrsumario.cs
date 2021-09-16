@@ -21,8 +21,8 @@ namespace TomMotos
         private void btnCadastro_Click(object sender, EventArgs e)
         {
            
-        contextMenuStrip1.Show(PointToScreen(btnCadastro.Location));
-         // Fmrsumariocadastro fmrsumariocadastro = new Fmrsumariocadastro();
+            contextMenuStrip1.Show(PointToScreen(btnCadastro.Location));
+          //Fmrsumariocadastro fmrsumariocadastro = new Fmrsumariocadastro();
           //fmrsumariocadastro.Show();
         }
 
@@ -65,6 +65,12 @@ namespace TomMotos
         {
             Fmrveiculo fmrveiculo = new Fmrveiculo();
             fmrveiculo.Show();
+            this.Hide();
+        }
+        private void logFornecimentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmlogFornecimento frmlogFornecimento = new FrmlogFornecimento();
+            frmlogFornecimento.Show();
             this.Hide();
         }
 

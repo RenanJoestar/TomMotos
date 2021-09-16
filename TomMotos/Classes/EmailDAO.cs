@@ -78,7 +78,6 @@ namespace TomMotos.Classes
         
         #endregion
 
-
         #region METODO LISTAR
         public DataTable ListarEmails()
         {
@@ -90,7 +89,6 @@ namespace TomMotos.Classes
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
             executacmdsql.Parameters.AddWithValue("@id", EmailModel.id);
 
-
             executacmdsql.ExecuteNonQuery();
 
             MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
@@ -100,10 +98,10 @@ namespace TomMotos.Classes
 
             conexao.Close();
             return tabelaEmail;
-
         }
 
         #endregion
+
         #region METODO ALTERAR
         public void alterar(EmailModel obj)
         {

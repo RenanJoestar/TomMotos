@@ -28,10 +28,8 @@ namespace TomMotos.view
             {
             try
             {
-
                 CargoDAO Cadastro = new CargoDAO();
                 CargoModel obj = new CargoModel();
-
 
                 if (txt_nome.Text == "") obj.nome = null;
                 else obj.nome = txt_nome.Text.ToUpper();
@@ -50,11 +48,7 @@ namespace TomMotos.view
              }
             }
             else MessageBox.Show("Preencha os campos obrigatórios =*");
-
-
-
         }
-
 
         private void Fmrcargo_Load(object sender, EventArgs e)
         {
@@ -127,7 +121,6 @@ namespace TomMotos.view
         {
             Fmrsumario fmrsumario = new Fmrsumario();
             fmrsumario.Show();
-            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
