@@ -46,7 +46,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarVendaPorID`(IN ID_CLIENTE in
 BEGIN
 select 
 tb_venda.id_venda,
-tb_venda.descricao_venda,
+tb_venda.descricao_mao_de_obra,
 tb_venda.preco_mao_de_obra, 
 tb_veiculo.placa_veiculo, 
 tb_veiculo.modelo_veiculo,
@@ -83,7 +83,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarVendas`()
 BEGIN
 select 
 tb_venda.id_venda,
-tb_venda.descricao_venda,
+tb_venda.descricao_mao_de_obra,
 tb_venda.preco_mao_de_obra, 
 tb_veiculo.placa_veiculo, 
 tb_veiculo.modelo_veiculo,
@@ -340,12 +340,15 @@ DELIMITER $$
 USE `bd_tommotos`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN DESCRICAO TEXT, IN VALIDADE_ORCAMENTO_SERVICO date, PRECO_MAO_DE_OBRA double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
 BEGIN
-INSERT INTO tb_venda /*INSERE*/ (tb_venda.descricao_venda, tb_venda.validade_orcamento_servico, tb_venda.preco_mao_de_obra, fk_veiculo_id, fk_cliente_id) values (DESCRICAO , VALIDADE_ORCAMENTO_SERVICO, PRECO_MAO_DE_OBRA, FK_VEICULO_ID, FK_CLIENTE_ID); END$$
+INSERT INTO tb_venda /*INSERE*/ 
+(tb_venda.descricao_mao_de_obra, tb_venda.validade_orcamento_servico, 
+tb_venda.preco_mao_de_obra, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id) 
+values 
+(DESCRICAO, VALIDADE_ORCAMENTO_SERVICO, 
+PRECO_MAO_DE_OBRA, FK_VEICULO_ID, FK_CLIENTE_ID); 
+END$$
 
 DELIMITER ;
-
-
-select * from tb_veiculo;
 
 /*STORED PROCEDURE PARA MOSTRAR CLIENTES*/
 DELIMITER $$
@@ -512,4 +515,23 @@ tb_endereco.cep_endereco
  where tb_fornecedor.id_fornecedor = IF_FORNECEDOR;
 END $$
 DELIMITER ;
-;
+
+/*STORED PROCEDURE PARA MUDAR STATUS DA VENDA*/
+DELIMITER $$
+CREATE PROCEDURE mudarStatusVenda(IN idVenda INT, IN novoStatusProduto bool)
+BEGIN
+		UPDATE tb_venda
+		set tb_venda.venda_finalizada = novoStatusProduto
+		WHERE tb_venda.id_venda = idVenda;
+END$$
+DELIMITER ;
+
+/*STORED PROCEDURE PARA MUDAR STATUS DO PRODUTO*/
+DELIMITER $$
+CREATE PROCEDURE mudarStatusProduto(IN idProdutoSelecionado INT, IN novoStatusProduto bool)
+BEGIN
+		UPDATE tb_produto_selecionado
+		set tb_produto_selecionado.buscado_produto_selecionado = novoStatusProduto
+		WHERE tb_produto_selecionado.id_produtoUsado = idProdutoSelecionado;
+END$$
+DELIMITER ;
