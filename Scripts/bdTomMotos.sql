@@ -950,6 +950,7 @@ call criacaoVeiculo('xtz','yamaha','azul',null,null,'0000022',null,'11');
 
 /* fornecedor*/
 
+call criacaoFornecedor('Desconhecido','000000');
 call criacaoFornecedor('Jose silvio','222222');
 call criacaoEmail('samuca@gmail.com','9');
 call criacaoEndereco('006666655','rua cachoeira','santana de parnaiba','imperial','13','9');
@@ -974,11 +975,14 @@ call criacaoProduto('oleo','0','0','12','mobil',null);
 call mostrarFornecedores();
 call mostrarFornecedorPorID(3);
 
-/*call acrescentarQTDProduto(4, 15, 2);
+/*call acrescentarQTDProduto(4, 15, 2); 2 = fornecedor desconhecido
+call acrescentarQTDProduto(4, 15, 3); 3 = fornecedor real
 
-select tb_produto.descricao_produto, tb_produto.quantidade_produto, tb_produto.quantidade_virtual_produto, tb_fornecedor.nome_fornecedor, tb_log_fornecimento.qtd_produto_fornecido, tb_log_fornecimento.data_log_fornecimento
-from tb_fornecedor
+select tb_produto.descricao_produto AS 'NOME PRODUTO', tb_produto.quantidade_produto AS 'QUANTIDADE PRODUTO',
+tb_produto.quantidade_virtual_produto AS 'QUANTIDADE PRODUTO VIRTUAL', tb_fornecedor.nome_fornecedor AS 'NOME FORNECEDOR', 
+tb_log_fornecimento.qtd_produto_fornecido AS 'QUANTIDADE FORNECIDO', tb_log_fornecimento.data_log_fornecimento AS 'DATA DO FORNECIMENTO'
+from tb_produto
 inner join tb_log_fornecimento 
-on tb_log_fornecimento.fk_fornecedor_id = tb_fornecedor.id_fornecedor
-inner join tb_produto
-on tb_produto.id_produto = tb_log_fornecimento.fk_produto_id;*/
+on tb_log_fornecimento.fk_produto_id = tb_produto.id_produto
+inner join tb_fornecedor
+on tb_log_fornecimento.fk_fornecedor_id = tb_fornecedor.id_fornecedor;*/
