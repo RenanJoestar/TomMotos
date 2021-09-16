@@ -21,7 +21,7 @@ namespace TomMotos.Classes
 
         public void cadastrarEmail(EmailModel obj)
         {
-            int a = 1;
+          
             if (obj.nome == "")
             {
                 MessageBox.Show("Preencha todos valores Obrigatorio! = *");
@@ -39,22 +39,43 @@ namespace TomMotos.Classes
                     conexao.Open();
                     executacmdsql.ExecuteNonQuery();
                     conexao.Close();
+                    MessageBox.Show("Cadastrado com sucesso!");
                 }
                 catch (Exception erro)
                 {
-                    a = 2;
+                    MessageBox.Show("Cadastrado não Realizado!");
                     MessageBox.Show("Erro: " + erro);
                 }
-                if (a == 1)
-                {
-                    MessageBox.Show("Cadastrado com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Cadastrado não Realizado!");
-                }
+               
             }
         }
+        #endregion
+
+        #region METODO CADASTRAR SENHA USUARIO
+
+        public void cadastrarSenha(EmailModel obj)
+        {
+              try
+                {
+                    string update_usuario = @"Update tb_usuario set senha=@senha where id_usuario = @id";
+
+                    MySqlCommand executacmdsql = new MySqlCommand(update_usuario, conexao);                  
+                    executacmdsql.Parameters.AddWithValue("@senha", obj.senha_usuario);
+                    executacmdsql.Parameters.AddWithValue("@id", EmailModel.id_usuario);
+                  
+                     conexao.Open();
+                    executacmdsql.ExecuteNonQuery();
+                    conexao.Close();
+                    MessageBox.Show("Senha cadastrada e enviada com sucesso!");
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Cadastrado de Senha não Realizado!");
+                    MessageBox.Show("Erro: " + erro);
+                }
+            
+            }
+        
         #endregion
 
 

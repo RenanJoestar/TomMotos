@@ -228,6 +228,10 @@ namespace TomMotos.view
             // cbxBuscar
             // 
             this.cbxBuscar.FormattingEnabled = true;
+            this.cbxBuscar.Items.AddRange(new object[] {
+            "ID",
+            "NOME",
+            "CNPJ"});
             this.cbxBuscar.Location = new System.Drawing.Point(293, 25);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(81, 21);

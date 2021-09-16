@@ -42,12 +42,16 @@ namespace TomMotos.view
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmail)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txt_email);
             this.groupBox1.Controls.Add(this.txt_id);
             this.groupBox1.Controls.Add(this.label1);
@@ -168,6 +172,25 @@ namespace TomMotos.view
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(28, 168);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Gerar senha";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 141);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(227, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "PARA ACESSAR A WEB GERE UMA SENHA";
+            // 
             // Fmremail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,5 +232,7 @@ namespace TomMotos.view
         private System.Windows.Forms.ComboBox cbxBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
     }
 }

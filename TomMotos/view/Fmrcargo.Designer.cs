@@ -190,7 +190,6 @@ namespace TomMotos.view
             // 
             // cbxBuscar
             // 
-            this.cbxBuscar.Enabled = false;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID",
@@ -215,7 +214,7 @@ namespace TomMotos.view
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(873, 513);
+            this.ClientSize = new System.Drawing.Size(874, 513);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cbxBuscar);
             this.Controls.Add(this.txtFiltro);

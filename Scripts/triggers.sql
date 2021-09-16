@@ -13,6 +13,15 @@ tb_produto.quantidade_virtual_produto = tb_produto.quantidade_virtual_produto - 
 WHERE fk_produto_id = tb_produto.id_produto 
 AND fk_cliente_id = tb_cliente.id_cliente; END $$ DELIMITER ; 
 
+/*DELIMITER $$
+CREATE TRIGGER logfornecimentoQTDProduto after insert
+ON tb_log_fornecimento FOR EACH ROW BEGIN aumenta a qtd de produto fornecido  UPDATE tb_produto
+INNER JOIN tb_log_fornecimento
+ON tb_produto.id_produto = tb_log_fornecimento.fk_produto_id
+SET tb_produto.quantidade_produto = tb_produto.quantidade_produto + tb_log_fornecimento.qtd_produto_fornecido, 
+tb_produto.quantidade_virtual_produto = tb_produto.quantidade_virtual_produto + tb_log_fornecimento.qtd_produto_fornecido
+WHERE fk_produto_id = tb_produto.id_produto; END $$ DELIMITER;*/
+
 /*TRIGGER PARA DIMINUIÇÃO DE QUANTIDADE QUANDO PRODUTO FOR BUSCADO*/
 DELIMITER $$
 CREATE TRIGGER diminuicaoDeQTDqndProdutoBuscado after update

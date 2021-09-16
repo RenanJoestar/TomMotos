@@ -203,12 +203,10 @@ namespace TomMotos.view
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
-            {
-
-           
+            {           
             string campo = cbxBuscar.Text.ToString() + "_fornecedor";
-            FiltroModel.filtro = @"select * from tb_fornecedor where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%' and fk_usuario_id = " + txt_id.Text.ToString();
-            FiltroDAO dao = new FiltroDAO();
+                FiltroModel.filtro = @"select * from tb_fornecedor where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                FiltroDAO dao = new FiltroDAO();
             dg_fornecedor.DataSource = dao.buscaCargo(); 
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }

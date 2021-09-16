@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,7 +32,7 @@ namespace TomMotos.view
             {
                 EmailModel obj = new EmailModel();
                 EmailModel.id = txt_id.Text;
-                obj.nome = txt_email.Text.ToUpper();
+                obj.nome = txt_email.Text;
 
                 EmailDAO Cadastro = new EmailDAO();
 
@@ -118,6 +120,52 @@ namespace TomMotos.view
             dgEmail.DataSource = dao.buscaCargo(); 
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txt_email.Text != "")
+                {
+                    string chars = "abcdefghjkmnpqrstuvwxyz023456789";
+                    string pass = "";
+                    Random random = new Random();
+                    for (int f = 0; f < 6; f++)
+                    {
+                        pass = pass + chars.Substring(random.Next(0, chars.Length - 1), 1);
+                    }
+                    MessageBox.Show(pass);                   
+
+                    MailMessage mailMessage = new MailMessage("EMAIL REMETENTE", "EMAIL DESTINATARIO");
+
+                    mailMessage.Subject = "Login do Site TomMotos";
+                    mailMessage.IsBodyHtml = true;
+                    mailMessage.Body = "<p>Site: https//:tommostos.com.br</p> <br>"+ "<p> Email:" + txt_email.Text.ToString() + "</p><p> Senha:" + pass + " </p>";
+                    mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
+                    mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
+
+                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+                    smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials = new NetworkCredential("EMAIL REMETENTE", "SENHA DO EMAIL REMETENTE");
+                    smtpClient.EnableSsl = true;
+                    smtpClient.Send(mailMessage);
+                    EmailModel obj = new EmailModel();
+                    EmailModel.id_usuario = txt_id.Text;
+                    obj.senha_usuario = pass;
+                    EmailDAO Cadastrosenha = new EmailDAO();
+                    Cadastrosenha.cadastrarSenha(obj);
+                }
+                else MessageBox.Show("SELECIONE UM EMAIL QUE DESEJA ENVIAR A SENHA","ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch(Exception erro) {
+                MessageBox.Show("Erro"+ erro);
+            }
+
+
+
         }
     }
 }
