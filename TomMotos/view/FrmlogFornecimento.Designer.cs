@@ -38,12 +38,14 @@ namespace TomMotos.view
             this.dtp1 = new System.Windows.Forms.DateTimePicker();
             this.dtp2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cxbData = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_log_fornecimento)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(210, 80);
+            this.txtBuscar.Location = new System.Drawing.Point(197, 74);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(258, 20);
             this.txtBuscar.TabIndex = 37;
@@ -54,17 +56,15 @@ namespace TomMotos.view
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID DO LOG DE FORNECIMENTO",
             "NOME DO PRODUTO",
-            "NOME DO FORNECEDOR",
-            "DATA DO FORNECIMENTO"});
-            this.cbxBuscar.Location = new System.Drawing.Point(44, 80);
+            "NOME DO FORNECEDOR"});
+            this.cbxBuscar.Location = new System.Drawing.Point(31, 74);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(151, 21);
             this.cbxBuscar.TabIndex = 36;
-            this.cbxBuscar.SelectedIndexChanged += new System.EventHandler(this.cbxBuscar_SelectedIndexChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(490, 79);
+            this.button2.Location = new System.Drawing.Point(299, 110);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 35;
@@ -75,7 +75,7 @@ namespace TomMotos.view
             // dg_log_fornecimento
             // 
             this.dg_log_fornecimento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_log_fornecimento.Location = new System.Drawing.Point(44, 130);
+            this.dg_log_fornecimento.Location = new System.Drawing.Point(12, 193);
             this.dg_log_fornecimento.Name = "dg_log_fornecimento";
             this.dg_log_fornecimento.Size = new System.Drawing.Size(749, 288);
             this.dg_log_fornecimento.TabIndex = 31;
@@ -94,7 +94,7 @@ namespace TomMotos.view
             // 
             // btn_mostrar_tudo
             // 
-            this.btn_mostrar_tudo.Location = new System.Drawing.Point(571, 80);
+            this.btn_mostrar_tudo.Location = new System.Drawing.Point(380, 111);
             this.btn_mostrar_tudo.Name = "btn_mostrar_tudo";
             this.btn_mostrar_tudo.Size = new System.Drawing.Size(75, 23);
             this.btn_mostrar_tudo.TabIndex = 38;
@@ -104,14 +104,14 @@ namespace TomMotos.view
             // 
             // dtp1
             // 
-            this.dtp1.Location = new System.Drawing.Point(44, 54);
+            this.dtp1.Location = new System.Drawing.Point(43, 124);
             this.dtp1.Name = "dtp1";
             this.dtp1.Size = new System.Drawing.Size(200, 20);
             this.dtp1.TabIndex = 39;
             // 
             // dtp2
             // 
-            this.dtp2.Location = new System.Drawing.Point(266, 54);
+            this.dtp2.Location = new System.Drawing.Point(43, 150);
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(200, 20);
             this.dtp2.TabIndex = 40;
@@ -119,17 +119,38 @@ namespace TomMotos.view
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(250, 60);
+            this.label1.Location = new System.Drawing.Point(9, 130);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(10, 13);
+            this.label1.Size = new System.Drawing.Size(21, 13);
             this.label1.TabIndex = 41;
-            this.label1.Text = "-";
+            this.label1.Text = "De";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 156);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Até";
+            // 
+            // cxbData
+            // 
+            this.cxbData.AutoSize = true;
+            this.cxbData.Location = new System.Drawing.Point(12, 101);
+            this.cxbData.Name = "cxbData";
+            this.cxbData.Size = new System.Drawing.Size(163, 17);
+            this.cxbData.TabIndex = 44;
+            this.cxbData.Text = "DATA DO FORNECIMENTO";
+            this.cxbData.UseVisualStyleBackColor = true;
             // 
             // FrmlogFornecimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 509);
+            this.ClientSize = new System.Drawing.Size(782, 509);
+            this.Controls.Add(this.cxbData);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtp2);
             this.Controls.Add(this.dtp1);
@@ -159,5 +180,7 @@ namespace TomMotos.view
         private System.Windows.Forms.DateTimePicker dtp1;
         private System.Windows.Forms.DateTimePicker dtp2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox cxbData;
     }
 }
