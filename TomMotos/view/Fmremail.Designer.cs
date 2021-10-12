@@ -29,7 +29,10 @@ namespace TomMotos.view
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fmremail));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,10 +45,12 @@ namespace TomMotos.view
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmail)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -56,12 +61,31 @@ namespace TomMotos.view
             this.groupBox1.Controls.Add(this.txt_id);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 55);
+            this.groupBox1.Location = new System.Drawing.Point(23, 128);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(266, 324);
+            this.groupBox1.Size = new System.Drawing.Size(295, 281);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(227, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "PARA ACESSAR A WEB GERE UMA SENHA";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(16, 160);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(224, 31);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Gerar senha";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txt_email
             // 
@@ -83,9 +107,9 @@ namespace TomMotos.view
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Id Usuario";
+            this.label1.Text = "ID Usuario";
             // 
             // label2
             // 
@@ -99,26 +123,29 @@ namespace TomMotos.view
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(21, 26);
+            this.lblNome.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.ForeColor = System.Drawing.Color.White;
+            this.lblNome.Location = new System.Drawing.Point(133, 41);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(119, 13);
+            this.lblNome.Size = new System.Drawing.Size(252, 31);
             this.lblNome.TabIndex = 11;
             this.lblNome.Text = "CADASTRO DE EMAIL";
+            this.lblNome.Click += new System.EventHandler(this.lblNome_Click);
             // 
             // dgEmail
             // 
             this.dgEmail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgEmail.Location = new System.Drawing.Point(353, 55);
+            this.dgEmail.Location = new System.Drawing.Point(357, 154);
             this.dgEmail.Name = "dgEmail";
-            this.dgEmail.Size = new System.Drawing.Size(403, 191);
+            this.dgEmail.Size = new System.Drawing.Size(334, 191);
             this.dgEmail.TabIndex = 12;
             this.dgEmail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEmail_CellClick);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(368, 308);
+            this.btnCadastrar.Location = new System.Drawing.Point(357, 361);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(104, 37);
+            this.btnCadastrar.Size = new System.Drawing.Size(106, 37);
             this.btnCadastrar.TabIndex = 13;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -126,9 +153,9 @@ namespace TomMotos.view
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(515, 308);
+            this.button2.Location = new System.Drawing.Point(469, 361);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 37);
+            this.button2.Size = new System.Drawing.Size(103, 37);
             this.button2.TabIndex = 14;
             this.button2.Text = "ALTERAR";
             this.button2.UseVisualStyleBackColor = true;
@@ -136,9 +163,9 @@ namespace TomMotos.view
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(649, 308);
+            this.button3.Location = new System.Drawing.Point(578, 361);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 37);
+            this.button3.Size = new System.Drawing.Size(113, 37);
             this.button3.TabIndex = 15;
             this.button3.Text = "EXCLUIR";
             this.button3.UseVisualStyleBackColor = true;
@@ -150,21 +177,21 @@ namespace TomMotos.view
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID",
             "NOME"});
-            this.cbxBuscar.Location = new System.Drawing.Point(353, 12);
+            this.cbxBuscar.Location = new System.Drawing.Point(357, 128);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(73, 21);
             this.cbxBuscar.TabIndex = 16;
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(432, 12);
+            this.txtBuscar.Location = new System.Drawing.Point(436, 128);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(254, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(184, 20);
             this.txtBuscar.TabIndex = 17;
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(693, 13);
+            this.btnPesquisar.Location = new System.Drawing.Point(628, 128);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(63, 23);
             this.btnPesquisar.TabIndex = 18;
@@ -172,30 +199,32 @@ namespace TomMotos.view
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // button1
+            // panel1
             // 
-            this.button1.Location = new System.Drawing.Point(28, 168);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Gerar senha";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.lblNome);
+            this.panel1.Location = new System.Drawing.Point(-2, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(727, 113);
+            this.panel1.TabIndex = 19;
             // 
-            // label3
+            // pictureBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 141);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(227, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "PARA ACESSAR A WEB GERE UMA SENHA";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(25, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(102, 85);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Fmremail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(720, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.cbxBuscar);
@@ -203,7 +232,6 @@ namespace TomMotos.view
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.dgEmail);
-            this.Controls.Add(this.lblNome);
             this.Controls.Add(this.groupBox1);
             this.Name = "Fmremail";
             this.Text = "Fmremail";
@@ -212,6 +240,9 @@ namespace TomMotos.view
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmail)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +265,7 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

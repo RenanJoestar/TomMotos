@@ -167,5 +167,10 @@ namespace TomMotos.view
 
 
         }
+
+        private void lblNome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

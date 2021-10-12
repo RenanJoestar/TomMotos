@@ -225,6 +225,21 @@ namespace TomMotos.view
 
         }
 
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txt_cnpjs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         public void button4_Click(object sender, EventArgs e)
         {
             if (txt_id.Text != "")

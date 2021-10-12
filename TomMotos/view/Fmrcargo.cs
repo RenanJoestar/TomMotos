@@ -135,6 +135,20 @@ namespace TomMotos.view
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 
