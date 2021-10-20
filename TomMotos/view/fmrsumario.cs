@@ -79,5 +79,17 @@ namespace TomMotos
             
             Application.Exit();
         }
+
+        private void caixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnCaixa_Click(object sender, EventArgs e)
+        {
+            Fmrcaixa fmrcx = new Fmrcaixa();
+            fmrcx.Show();
+            this.Hide();
+        }
     }
 }

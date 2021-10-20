@@ -75,6 +75,7 @@
     <Compile Include="Classes\FornecedorDAO.cs" />
     <Compile Include="Classes\LogFornecimentoDAO.cs" />
     <Compile Include="Classes\FuncionarioDAO.cs" />
+    <Compile Include="Classes\NfcDao.cs" />
     <Compile Include="Classes\ProdutoDAO.cs" />
     <Compile Include="Classes\TelefoneDAO.cs" />
     <Compile Include="Classes\VeiculoDAO.cs" />
@@ -89,6 +90,12 @@
     <Compile Include="Model\ProdutoModel.cs" />
     <Compile Include="Model\TelefoneModel.cs" />
     <Compile Include="Model\VeiculoModel.cs" />
+    <Compile Include="view\Fmrcaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Fmrcaixa.Designer.cs">
+      <DependentUpon>Fmrcaixa.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Fmrcargo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +174,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="view\Fmrcaixa.resx">
+      <DependentUpon>Fmrcaixa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrcargo.resx">
       <DependentUpon>Fmrcargo.cs</DependentUpon>
     </EmbeddedResource>

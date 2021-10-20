@@ -51,6 +51,7 @@ namespace TomMotos
             this.btnCaixa.TabIndex = 0;
             this.btnCaixa.Text = "Caixa";
             this.btnCaixa.UseVisualStyleBackColor = true;
+            this.btnCaixa.Click += new System.EventHandler(this.btnCaixa_Click);
             // 
             // btnCadastro
             // 
@@ -74,7 +75,7 @@ namespace TomMotos
             this.veiculoToolStripMenuItem,
             this.logFornecimentoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 180);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(170, 158);
             // 
             // alowToolStripMenuItem
             // 
