@@ -31,7 +31,6 @@
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
             System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
-            this.txtsubitotal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdProduto = new System.Windows.Forms.TextBox();
@@ -45,12 +44,12 @@
             this.txtPt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDescServ = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAcServico = new System.Windows.Forms.Button();
             this.txt_pmo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAc = new System.Windows.Forms.Button();
+            this.btnAcProduto = new System.Windows.Forms.Button();
             this.rb_produto = new System.Windows.Forms.RadioButton();
             this.rb_servico = new System.Windows.Forms.RadioButton();
             this.ptb_imagem = new System.Windows.Forms.PictureBox();
@@ -64,31 +63,26 @@
             this.ch_qtd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ch_vU = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ch_vI = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView_mao_de_obra = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblSubitotal = new System.Windows.Forms.Label();
+            this.btnFinalizaVenda = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtsubitotal
-            // 
-            this.txtsubitotal.Location = new System.Drawing.Point(1090, 576);
-            this.txtsubitotal.Name = "txtsubitotal";
-            this.txtsubitotal.Size = new System.Drawing.Size(151, 20);
-            this.txtsubitotal.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1015, 579);
+            this.label1.Location = new System.Drawing.Point(1067, 499);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Subtotal";
+            this.label1.Text = "Subtotal: R$";
             // 
             // label2
             // 
@@ -173,7 +167,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtDescServ);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnAcServico);
             this.groupBox1.Controls.Add(this.txt_pmo);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
@@ -192,15 +186,15 @@
             this.txtDescServ.TabIndex = 21;
             this.txtDescServ.Text = "";
             // 
-            // button2
+            // btnAcServico
             // 
-            this.button2.Location = new System.Drawing.Point(115, 196);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.btnAcServico.Location = new System.Drawing.Point(115, 196);
+            this.btnAcServico.Name = "btnAcServico";
+            this.btnAcServico.Size = new System.Drawing.Size(75, 23);
+            this.btnAcServico.TabIndex = 15;
+            this.btnAcServico.Text = "button2";
+            this.btnAcServico.UseVisualStyleBackColor = true;
+            this.btnAcServico.Click += new System.EventHandler(this.btnAcServico_Click);
             // 
             // txt_pmo
             // 
@@ -229,7 +223,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnAc);
+            this.groupBox2.Controls.Add(this.btnAcProduto);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtIdProduto);
             this.groupBox2.Controls.Add(this.txtPt);
@@ -247,15 +241,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produto";
             // 
-            // btnAc
+            // btnAcProduto
             // 
-            this.btnAc.Location = new System.Drawing.Point(115, 210);
-            this.btnAc.Name = "btnAc";
-            this.btnAc.Size = new System.Drawing.Size(75, 23);
-            this.btnAc.TabIndex = 20;
-            this.btnAc.Text = "Acrescentar";
-            this.btnAc.UseVisualStyleBackColor = true;
-            this.btnAc.Click += new System.EventHandler(this.button2_Click);
+            this.btnAcProduto.Location = new System.Drawing.Point(115, 210);
+            this.btnAcProduto.Name = "btnAcProduto";
+            this.btnAcProduto.Size = new System.Drawing.Size(75, 23);
+            this.btnAcProduto.TabIndex = 20;
+            this.btnAcProduto.Text = "Acrescentar";
+            this.btnAcProduto.UseVisualStyleBackColor = true;
+            this.btnAcProduto.Click += new System.EventHandler(this.btnAcProduto_Click);
             // 
             // rb_produto
             // 
@@ -307,7 +301,6 @@
             this.btnIv.TabIndex = 19;
             this.btnIv.Text = "Iniciar venda";
             this.btnIv.UseVisualStyleBackColor = true;
-            this.btnIv.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnExcluir_item
             // 
@@ -317,7 +310,7 @@
             this.BtnExcluir_item.TabIndex = 20;
             this.BtnExcluir_item.Text = "Excluir item";
             this.BtnExcluir_item.UseVisualStyleBackColor = true;
-            this.BtnExcluir_item.Click += new System.EventHandler(this.button1_Click_1);
+            this.BtnExcluir_item.Click += new System.EventHandler(this.BtnExcluir_item_Click);
             // 
             // listView_venda
             // 
@@ -341,7 +334,6 @@
             this.listView_venda.TabIndex = 21;
             this.listView_venda.UseCompatibleStateImageBehavior = false;
             this.listView_venda.View = System.Windows.Forms.View.Details;
-            this.listView_venda.SelectedIndexChanged += new System.EventHandler(this.listView_venda_SelectedIndexChanged);
             // 
             // ch_item
             // 
@@ -376,21 +368,21 @@
             this.ch_vI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ch_vI.Width = 90;
             // 
-            // listView1
+            // listView_mao_de_obra
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView_mao_de_obra.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(849, 272);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(368, 179);
-            this.listView1.TabIndex = 22;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView_mao_de_obra.FullRowSelect = true;
+            this.listView_mao_de_obra.GridLines = true;
+            this.listView_mao_de_obra.HideSelection = false;
+            this.listView_mao_de_obra.Location = new System.Drawing.Point(849, 272);
+            this.listView_mao_de_obra.Name = "listView_mao_de_obra";
+            this.listView_mao_de_obra.Size = new System.Drawing.Size(368, 179);
+            this.listView_mao_de_obra.TabIndex = 22;
+            this.listView_mao_de_obra.UseCompatibleStateImageBehavior = false;
+            this.listView_mao_de_obra.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -409,12 +401,33 @@
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 70;
             // 
+            // lblSubitotal
+            // 
+            this.lblSubitotal.AutoSize = true;
+            this.lblSubitotal.Location = new System.Drawing.Point(1129, 499);
+            this.lblSubitotal.Name = "lblSubitotal";
+            this.lblSubitotal.Size = new System.Drawing.Size(28, 13);
+            this.lblSubitotal.TabIndex = 23;
+            this.lblSubitotal.Text = "0.00";
+            // 
+            // btnFinalizaVenda
+            // 
+            this.btnFinalizaVenda.Location = new System.Drawing.Point(1006, 515);
+            this.btnFinalizaVenda.Name = "btnFinalizaVenda";
+            this.btnFinalizaVenda.Size = new System.Drawing.Size(166, 56);
+            this.btnFinalizaVenda.TabIndex = 24;
+            this.btnFinalizaVenda.Text = "Finalizar venda";
+            this.btnFinalizaVenda.UseVisualStyleBackColor = true;
+            this.btnFinalizaVenda.Click += new System.EventHandler(this.btnFinalizaVenda_Click);
+            // 
             // Fmrcaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1547, 635);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.btnFinalizaVenda);
+            this.Controls.Add(this.lblSubitotal);
+            this.Controls.Add(this.listView_mao_de_obra);
             this.Controls.Add(this.listView_venda);
             this.Controls.Add(this.BtnExcluir_item);
             this.Controls.Add(this.btnIv);
@@ -424,7 +437,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtsubitotal);
             this.Name = "Fmrcaixa";
             this.Text = "Fmrcaixa";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrcaixa_FormClosed);
@@ -441,7 +453,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtsubitotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIdProduto;
@@ -463,9 +474,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnIv;
-        private System.Windows.Forms.Button btnAc;
+        private System.Windows.Forms.Button btnAcProduto;
         private System.Windows.Forms.Button BtnExcluir_item;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAcServico;
         private System.Windows.Forms.RichTextBox txtDescServ;
         private System.Windows.Forms.ListView listView_venda;
         private System.Windows.Forms.ColumnHeader ch_item;
@@ -474,9 +485,11 @@
         private System.Windows.Forms.ColumnHeader ch_qtd;
         private System.Windows.Forms.ColumnHeader ch_vU;
         private System.Windows.Forms.ColumnHeader ch_vI;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView_mao_de_obra;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Label lblSubitotal;
+        private System.Windows.Forms.Button btnFinalizaVenda;
     }
 }

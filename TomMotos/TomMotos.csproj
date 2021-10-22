@@ -67,6 +67,7 @@
     <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CaixaDAO.cs" />
     <Compile Include="Classes\CargoDAO.cs" />
     <Compile Include="Classes\ClienteDAO.cs" />
     <Compile Include="Classes\EmailDAO.cs" />
@@ -77,9 +78,11 @@
     <Compile Include="Classes\FuncionarioDAO.cs" />
     <Compile Include="Classes\NfcDao.cs" />
     <Compile Include="Classes\ProdutoDAO.cs" />
+    <Compile Include="Classes\ProdutoUsadoDAO.cs" />
     <Compile Include="Classes\TelefoneDAO.cs" />
     <Compile Include="Classes\VeiculoDAO.cs" />
     <Compile Include="Conexao\ConnectionFactory.cs" />
+    <Compile Include="Model\CaixaModel.cs" />
     <Compile Include="Model\CargoModel.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\EmailModel.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="Model\FiltroModel.cs" />
     <Compile Include="Model\FornecedorModel.cs" />
     <Compile Include="Model\FuncionarioModel.cs" />
+    <Compile Include="Model\ProdutoUsado.cs" />
     <Compile Include="Model\ProdutoModel.cs" />
     <Compile Include="Model\TelefoneModel.cs" />
     <Compile Include="Model\VeiculoModel.cs" />

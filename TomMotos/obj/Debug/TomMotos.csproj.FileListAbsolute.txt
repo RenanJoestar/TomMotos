@@ -130,3 +130,4 @@ C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.pdb
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.AssemblyReference.cache
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FrmlogFornecimento.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrcaixa.resources
+E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrcaixa.resources

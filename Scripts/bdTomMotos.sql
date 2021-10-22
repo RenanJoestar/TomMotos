@@ -358,6 +358,17 @@ END $$
 DELIMITER ;
 
 -- -----------------------------------------------------
+-- procedure CriacaoProdutoUsado
+-- -----------------------------------------------------
+DELIMITER $$
+CREATE PROCEDURE criacaoProdutoUsado (IN qtd_produto_usado INT, IN fk_produto_id INT, fk_venda_id INT, IN validade_da_garantia_produto DATE)
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+INSERT INTO tb_produto_usado(quantidade_produto_usado, fk_produto_id, fk_venda_id, validade_da_garantia_produto) values (qtd_produto_usado, fk_produto_id, fk_venda_id, validade_da_garantia_produto);
+END $$
+DELIMITER ;
+
+-- -----------------------------------------------------
 -- procedure criacaoCargo
 -- -----------------------------------------------------
 
@@ -685,7 +696,7 @@ call criacaoEndereco('0066655','rua touro','santana de parnaiba','parque santana
 call criacaoTelefone('1199999999',6);
 call criacaoTelefone('1199994444',7);
 call criacaoTelefone(null,8);
-call criacaoVeiculo('kawasaki','honda','preto',null,null,'00000001',null,'9');
+call criacaoVeiculo('null','null','null',null,null,null,null,null);
 call criacaoVeiculo('xt','yamaha','preto',null,null,'00000001',null,'10');
 call criacaoVeiculo('xtz','yamaha','azul',null,null,'0000022',null,'11');
 
@@ -710,6 +721,10 @@ call criacaoEndereco('00660000','rua indio','santana de parnaiba','baruru','12',
 call criacaoTelefone('119981114',11);
 
 /*CRIACAO PRODUTO*/
+call criacaoProduto('oleo preto','100','100','15','mobil',null);
+call criacaoProduto('oleo','100','100','12','mobil',null);
 
-call criacaoProduto('oleo preto','0','0','15','mobil',null);
-call criacaoProduto('oleo','0','0','12','mobil',null);
+select * from tb_venda;
+select * from tb_produto;
+select * from tb_produto_usado;
+select * from tb_veiculo;
