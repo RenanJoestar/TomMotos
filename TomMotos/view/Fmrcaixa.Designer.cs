@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdProduto = new System.Windows.Forms.TextBox();
@@ -50,29 +47,29 @@
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAcProduto = new System.Windows.Forms.Button();
-            this.rb_produto = new System.Windows.Forms.RadioButton();
-            this.rb_servico = new System.Windows.Forms.RadioButton();
             this.ptb_imagem = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnIv = new System.Windows.Forms.Button();
             this.BtnExcluir_item = new System.Windows.Forms.Button();
-            this.listView_venda = new System.Windows.Forms.ListView();
-            this.ch_item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ch_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ch_desc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ch_qtd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ch_vU = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ch_vI = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView_mao_de_obra = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblSubitotal = new System.Windows.Forms.Label();
             this.btnFinalizaVenda = new System.Windows.Forms.Button();
+            this.dgProdutos = new System.Windows.Forms.DataGridView();
+            this.ch_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vl_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgServicos = new System.Windows.Forms.DataGridView();
+            this.ch_itemServ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_vl_ser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEmail = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgServicos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -251,28 +248,6 @@
             this.btnAcProduto.UseVisualStyleBackColor = true;
             this.btnAcProduto.Click += new System.EventHandler(this.btnAcProduto_Click);
             // 
-            // rb_produto
-            // 
-            this.rb_produto.AutoSize = true;
-            this.rb_produto.Location = new System.Drawing.Point(281, 22);
-            this.rb_produto.Name = "rb_produto";
-            this.rb_produto.Size = new System.Drawing.Size(28, 17);
-            this.rb_produto.TabIndex = 16;
-            this.rb_produto.TabStop = true;
-            this.rb_produto.Text = " ";
-            this.rb_produto.UseVisualStyleBackColor = true;
-            // 
-            // rb_servico
-            // 
-            this.rb_servico.AutoSize = true;
-            this.rb_servico.Location = new System.Drawing.Point(815, 16);
-            this.rb_servico.Name = "rb_servico";
-            this.rb_servico.Size = new System.Drawing.Size(28, 17);
-            this.rb_servico.TabIndex = 17;
-            this.rb_servico.TabStop = true;
-            this.rb_servico.Text = " ";
-            this.rb_servico.UseVisualStyleBackColor = true;
-            // 
             // ptb_imagem
             // 
             this.ptb_imagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -293,15 +268,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "IMAGEM";
             // 
-            // btnIv
-            // 
-            this.btnIv.Location = new System.Drawing.Point(49, 232);
-            this.btnIv.Name = "btnIv";
-            this.btnIv.Size = new System.Drawing.Size(116, 23);
-            this.btnIv.TabIndex = 19;
-            this.btnIv.Text = "Iniciar venda";
-            this.btnIv.UseVisualStyleBackColor = true;
-            // 
             // BtnExcluir_item
             // 
             this.BtnExcluir_item.Location = new System.Drawing.Point(504, 457);
@@ -311,95 +277,6 @@
             this.BtnExcluir_item.Text = "Excluir item";
             this.BtnExcluir_item.UseVisualStyleBackColor = true;
             this.BtnExcluir_item.Click += new System.EventHandler(this.BtnExcluir_item_Click);
-            // 
-            // listView_venda
-            // 
-            this.listView_venda.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ch_item,
-            this.ch_id,
-            this.ch_desc,
-            this.ch_qtd,
-            this.ch_vU,
-            this.ch_vI});
-            this.listView_venda.FullRowSelect = true;
-            this.listView_venda.GridLines = true;
-            this.listView_venda.HideSelection = false;
-            this.listView_venda.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4,
-            listViewItem5,
-            listViewItem6});
-            this.listView_venda.Location = new System.Drawing.Point(315, 272);
-            this.listView_venda.Name = "listView_venda";
-            this.listView_venda.Size = new System.Drawing.Size(505, 179);
-            this.listView_venda.TabIndex = 21;
-            this.listView_venda.UseCompatibleStateImageBehavior = false;
-            this.listView_venda.View = System.Windows.Forms.View.Details;
-            // 
-            // ch_item
-            // 
-            this.ch_item.Text = "ITEM";
-            this.ch_item.Width = 40;
-            // 
-            // ch_id
-            // 
-            this.ch_id.Text = "CODIGO";
-            this.ch_id.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ch_desc
-            // 
-            this.ch_desc.Text = "DESCRIÇÃO";
-            this.ch_desc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ch_desc.Width = 160;
-            // 
-            // ch_qtd
-            // 
-            this.ch_qtd.Text = "QTD";
-            this.ch_qtd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ch_vU
-            // 
-            this.ch_vU.Text = "VL.UNIT.(R$)";
-            this.ch_vU.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ch_vU.Width = 90;
-            // 
-            // ch_vI
-            // 
-            this.ch_vI.Text = "VL.ITEM.(R$)";
-            this.ch_vI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ch_vI.Width = 90;
-            // 
-            // listView_mao_de_obra
-            // 
-            this.listView_mao_de_obra.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView_mao_de_obra.FullRowSelect = true;
-            this.listView_mao_de_obra.GridLines = true;
-            this.listView_mao_de_obra.HideSelection = false;
-            this.listView_mao_de_obra.Location = new System.Drawing.Point(849, 272);
-            this.listView_mao_de_obra.Name = "listView_mao_de_obra";
-            this.listView_mao_de_obra.Size = new System.Drawing.Size(368, 179);
-            this.listView_mao_de_obra.TabIndex = 22;
-            this.listView_mao_de_obra.UseCompatibleStateImageBehavior = false;
-            this.listView_mao_de_obra.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ITEM";
-            this.columnHeader1.Width = 40;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "DESCRIÇÃO";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 253;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "VALOR ";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 70;
             // 
             // lblSubitotal
             // 
@@ -420,20 +297,103 @@
             this.btnFinalizaVenda.UseVisualStyleBackColor = true;
             this.btnFinalizaVenda.Click += new System.EventHandler(this.btnFinalizaVenda_Click);
             // 
+            // dgProdutos
+            // 
+            this.dgProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ch_item,
+            this.ch_id,
+            this.ch_desc,
+            this.ch_qtd,
+            this.ch_unit,
+            this.vl_item});
+            this.dgProdutos.Location = new System.Drawing.Point(12, 272);
+            this.dgProdutos.Name = "dgProdutos";
+            this.dgProdutos.Size = new System.Drawing.Size(703, 150);
+            this.dgProdutos.TabIndex = 25;
+            // 
+            // ch_item
+            // 
+            this.ch_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ch_item.HeaderText = "ITEM";
+            this.ch_item.Name = "ch_item";
+            // 
+            // ch_id
+            // 
+            this.ch_id.HeaderText = "CODIGO";
+            this.ch_id.Name = "ch_id";
+            // 
+            // ch_desc
+            // 
+            this.ch_desc.HeaderText = "DESCRIÇÃO";
+            this.ch_desc.Name = "ch_desc";
+            // 
+            // ch_qtd
+            // 
+            this.ch_qtd.HeaderText = "QTD";
+            this.ch_qtd.Name = "ch_qtd";
+            // 
+            // ch_unit
+            // 
+            this.ch_unit.HeaderText = "VL.UNIT.(R$)";
+            this.ch_unit.Name = "ch_unit";
+            // 
+            // vl_item
+            // 
+            this.vl_item.HeaderText = "VL.ITEM.(R$)";
+            this.vl_item.Name = "vl_item";
+            // 
+            // dgServicos
+            // 
+            this.dgServicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ch_itemServ,
+            this.ch_des,
+            this.ch_vl_ser});
+            this.dgServicos.Location = new System.Drawing.Point(739, 272);
+            this.dgServicos.Name = "dgServicos";
+            this.dgServicos.Size = new System.Drawing.Size(455, 150);
+            this.dgServicos.TabIndex = 26;
+            // 
+            // ch_itemServ
+            // 
+            this.ch_itemServ.HeaderText = "ITEM";
+            this.ch_itemServ.Name = "ch_itemServ";
+            // 
+            // ch_des
+            // 
+            this.ch_des.HeaderText = "DESCRIÇÃO";
+            this.ch_des.Name = "ch_des";
+            // 
+            // ch_vl_ser
+            // 
+            this.ch_vl_ser.HeaderText = "VALOR(R$)";
+            this.ch_vl_ser.Name = "ch_vl_ser";
+            // 
+            // btnEmail
+            // 
+            this.btnEmail.Location = new System.Drawing.Point(103, 457);
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Size = new System.Drawing.Size(156, 32);
+            this.btnEmail.TabIndex = 27;
+            this.btnEmail.Text = "ENVIAR NOTA NO EMAIL";
+            this.btnEmail.UseVisualStyleBackColor = true;
+            this.btnEmail.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Fmrcaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1547, 635);
+            this.Controls.Add(this.btnEmail);
+            this.Controls.Add(this.dgServicos);
+            this.Controls.Add(this.dgProdutos);
             this.Controls.Add(this.btnFinalizaVenda);
             this.Controls.Add(this.lblSubitotal);
-            this.Controls.Add(this.listView_mao_de_obra);
-            this.Controls.Add(this.listView_venda);
             this.Controls.Add(this.BtnExcluir_item);
-            this.Controls.Add(this.btnIv);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.rb_servico);
-            this.Controls.Add(this.rb_produto);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -447,6 +407,8 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgServicos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,28 +430,26 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rb_produto;
-        private System.Windows.Forms.RadioButton rb_servico;
         private System.Windows.Forms.TextBox txt_pmo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnIv;
         private System.Windows.Forms.Button btnAcProduto;
         private System.Windows.Forms.Button BtnExcluir_item;
         private System.Windows.Forms.Button btnAcServico;
         private System.Windows.Forms.RichTextBox txtDescServ;
-        private System.Windows.Forms.ListView listView_venda;
-        private System.Windows.Forms.ColumnHeader ch_item;
-        private System.Windows.Forms.ColumnHeader ch_id;
-        private System.Windows.Forms.ColumnHeader ch_desc;
-        private System.Windows.Forms.ColumnHeader ch_qtd;
-        private System.Windows.Forms.ColumnHeader ch_vU;
-        private System.Windows.Forms.ColumnHeader ch_vI;
-        private System.Windows.Forms.ListView listView_mao_de_obra;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label lblSubitotal;
         private System.Windows.Forms.Button btnFinalizaVenda;
+        private System.Windows.Forms.DataGridView dgProdutos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_qtd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vl_item;
+        private System.Windows.Forms.DataGridView dgServicos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_itemServ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_des;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_vl_ser;
+        private System.Windows.Forms.Button btnEmail;
     }
 }

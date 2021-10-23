@@ -76,7 +76,6 @@
     <Compile Include="Classes\FornecedorDAO.cs" />
     <Compile Include="Classes\LogFornecimentoDAO.cs" />
     <Compile Include="Classes\FuncionarioDAO.cs" />
-    <Compile Include="Classes\NfcDao.cs" />
     <Compile Include="Classes\ProdutoDAO.cs" />
     <Compile Include="Classes\ProdutoUsadoDAO.cs" />
     <Compile Include="Classes\TelefoneDAO.cs" />

@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using TomMotos.Conexao;
 using TomMotos.Classes;
 using TomMotos.Model;
+using System.Net.Mail;
+using System.Net;
 
 namespace TomMotos.view
 {
@@ -34,9 +36,10 @@ namespace TomMotos.view
             fmrsumario.Show();
         }
         private void Fmrcaixa_Load(object sender, EventArgs e)
-        {
-            listView_venda.Items.Clear();
+        {            
             lblSubitotal.Text = 0.ToString();
+            dgProdutos.Columns[2].Width=200;
+            dgServicos.Columns[1].Width = 243;
         }
 
         private void btnFinalizaVenda_Click(object sender, EventArgs e)
@@ -50,10 +53,10 @@ namespace TomMotos.view
            
                 try
                 {
-                    for (int i = 0; i < listView_mao_de_obra.Items.Count; i++)
+                    for (int i = 0; i < dgServicos.Rows.Count -1; i++)
                     {
-                        descricao = descricao + " | " + listView_mao_de_obra.Items[i].SubItems[1].Text;
-                        valorMaoDeObra = valorMaoDeObra + int.Parse(listView_mao_de_obra.Items[i].SubItems[2].Text);
+                        descricao = descricao + " | " + dgServicos.Rows[i].Cells[1].Value.ToString();
+                    valorMaoDeObra = valorMaoDeObra + int.Parse(dgServicos.Rows[i].Cells[2].Value.ToString());
                     }
                 }
                 catch (Exception) { }
@@ -68,21 +71,137 @@ namespace TomMotos.view
                 idVenda = vendaDAO.listarUltimaVenda();
                 try
                     {
-                    for (int i = 0; i < listView_venda.Items.Count; i++)
+                    for (int i = 0; i < dgProdutos.Rows.Count -1; i++)
                     {
-                        objProduto.quantidade_produto_usado = double.Parse(listView_venda.Items[i].SubItems[3].Text);
-                        objProduto.fk_produto_id = int.Parse(listView_venda.Items[i].SubItems[1].Text);
+                   
+                        objProduto.quantidade_produto_usado = double.Parse(dgProdutos.Rows[i].Cells[3].Value.ToString());
+                        objProduto.fk_produto_id = int.Parse(dgProdutos.Rows[i].Cells[1].Value.ToString());
                         objProduto.fk_venda_id = int.Parse(idVenda);
                         objProduto.validade_da_garantia_produto = DateTime.Now;
 
                         produtoDAO.cadastrar(objProduto);
-                    }
+                   
+                }
                 }
                 catch (Exception) { }
 
                 objVenda.id_venda = idVenda;
                 vendaDAO.mudarStatusVenda(objVenda, true);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string htmlString = getHtml(dgProdutos,dgServicos);            
+            Email(htmlString);
+        }
+        public string getHtml(DataGridView grid, DataGridView grid2)
+        {
+            try
+            {                
+                string messageBody = "<font> SEU COMPROVANTE DE COMPRA NA TOMMOTOS: </font><br><br>", messageB = "";
+                if (grid.RowCount == 0 || grid2.RowCount == 0) return messageBody;
+               
+                string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\">";
+                string htmlTableEnd = "</table><br>";
+                
+
+                string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
+                string htmlHeaderRowEnd = "</tr>";
+
+                string htmlTrStart = "<tr style=\"color:#555555;\">";
+                string htmlTrEnd = "</tr>";
+
+                string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
+                string htmlTdEnd = "</td>";
+                messageBody += htmlTableStart;
+                messageBody += htmlHeaderRowStart;
+                messageBody += htmlTdStart + "ITEM" + htmlTdEnd;
+                messageBody += htmlTdStart + "CODIGO" + htmlTdEnd;
+                messageBody += htmlTdStart + "DESCRIÇÃO PRODUTO" + htmlTdEnd;
+                messageBody += htmlTdStart + "QUANTIDADE" + htmlTdEnd;
+                messageBody += htmlTdStart + "VL.UNIT.(R$)" + htmlTdEnd;
+                messageBody += htmlTdStart + "VL.ITEM.(R$)" + htmlTdEnd;
+                messageBody += htmlHeaderRowEnd;
+
+                messageB += htmlTableStart;
+                messageB += htmlHeaderRowStart;
+                messageB += htmlTdStart + "    " + htmlTdEnd;
+                messageB += htmlTdStart + "DESCRIÇÃO SERVIÇO" + htmlTdEnd;
+                messageB += htmlTdStart + "VALOR(R$)" + htmlTdEnd;
+                messageB += htmlHeaderRowEnd;
+
+                for (int i = 0; i <= grid.RowCount - 1; i++)
+                {
+                    messageBody = messageBody + htmlTrStart;
+                    messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[0].Value + htmlTdEnd;
+                    messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[1].Value + htmlTdEnd;
+                    messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[2].Value + htmlTdEnd;
+                    messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[3].Value + htmlTdEnd;
+                    messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[4].Value + htmlTdEnd;
+                    messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[5].Value + htmlTdEnd;
+                    messageBody = messageBody + htmlTrEnd;
+                 
+                }
+                for (int a = 0; a <= grid2.RowCount - 1; a++)
+                {
+                    messageB = messageB + htmlTrStart;
+                    messageB = messageB + htmlTdStart + grid2.Rows[a].Cells[0].Value + htmlTdEnd;
+                    messageB = messageB + htmlTdStart + grid2.Rows[a].Cells[1].Value + htmlTdEnd;
+                    messageB = messageB + htmlTdStart + grid2.Rows[a].Cells[2].Value + htmlTdEnd;
+                    messageB = messageB + htmlTrEnd;
+                }
+                string final;
+                if (dgServicos.Rows.Count > 1)
+                {
+                    final = messageBody + htmlTableEnd + messageB + htmlTableEnd;
+                    return final;
+                }
+                else final = messageBody + htmlTableEnd;{
+                    //messageB = messageB + htmlTableEnd; 
+                    return final;
+                }
+                
+
+
+            }
+            catch (Exception erro) {
+                return null;
+            }
+            
+
+        }
+  
+
+        public static void Email(string htmlString)
+        {
+            bool aa = false;
+            try
+            {
+                MailMessage message = new MailMessage();                
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                message.From = new MailAddress("EMAIL REMETENTE");
+                message.To.Add(new MailAddress("EMAIL DESTINATARIO"));
+                message.Subject = "Test";
+                message.IsBodyHtml = true;
+                message.Body = htmlString;                
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("EMAIL REMETENTE", "SENHA");
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+                aa = true;
+                if (aa)
+                {
+                    MessageBox.Show("Email enviado com sucesso", "Nota enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Test "+ erro);
+                MessageBox.Show("Erro de conexão, Email não enviado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
 
         private void btnAcProduto_Click(object sender, EventArgs e)
         {
@@ -124,7 +243,7 @@ namespace TomMotos.view
                 item[4] = valor_produto.ToString();
                 item[5] = valor_total.ToString();
 
-                listView_venda.Items.Add(new ListViewItem(item));
+                dgProdutos.Rows.Add((item));
             }
             else MessageBox.Show("PRODUTO NÃO ENCONTRADO!!");
         }
@@ -143,7 +262,7 @@ namespace TomMotos.view
                 SERVICO[2] = txt_pmo.Text.ToString();
 
                 SERVICO[0] = servicos.ToString();
-                listView_mao_de_obra.Items.Add(new ListViewItem(SERVICO));
+                dgServicos.Rows.Add((SERVICO));
                 pt += preco_servico;
                 lblSubitotal.Text = pt.ToString();
             }
@@ -152,28 +271,29 @@ namespace TomMotos.view
 
         private void BtnExcluir_item_Click(object sender, EventArgs e)
         {
-            if (listView_venda.SelectedItems.Count > 0)
-            {
-                try
-                {
-                    ListViewItem produto = listView_venda.SelectedItems[0];
-                    int subitotal = int.Parse(lblSubitotal.Text) - int.Parse(produto.SubItems[5].Text);
-                    listView_venda.Items.Remove(listView_venda.SelectedItems[0]);
+            if (dgProdutos.SelectedCells.Count > 0)
+             {
+                 try
+                 {
+                    int rowProduto = dgProdutos.CurrentCell.RowIndex; // MUDA O NOME DESSA PORRA DE DATAGRIDVIEW
+                    int rowPreco = int.Parse(dgProdutos.CurrentRow.Cells[5].Value.ToString());
+                    int subitotal = int.Parse(lblSubitotal.Text) - rowPreco;
+                    dgProdutos.Rows.RemoveAt(rowProduto);
                     lblSubitotal.Text = subitotal.ToString();
-                }
-                catch (Exception erro) { }
-            }
-            else
-            {
-                try
-                {
-                    ListViewItem maoDeObra = listView_mao_de_obra.SelectedItems[0];
-                    int subitotal = int.Parse(lblSubitotal.Text) - int.Parse(maoDeObra.SubItems[2].Text);
-                    listView_mao_de_obra.Items.Remove(listView_mao_de_obra.SelectedItems[0]);
-                    lblSubitotal.Text = subitotal.ToString();
-                }
-                catch (Exception erro) { }
-            }
+                 }
+                 catch (Exception erro) { MessageBox.Show(erro.ToString()); }
+             }
+             else
+             {
+                 try
+                 {
+                     DataGridViewRow maoDeObra = dgServicos.SelectedRows[0];
+                     int subitotal = int.Parse(lblSubitotal.Text) - int.Parse(maoDeObra.Cells[2].Value.ToString());
+                     dgServicos.Rows.Remove(dgServicos.SelectedRows[0]);
+                     lblSubitotal.Text = subitotal.ToString();
+                 }
+                 catch (Exception erro) { }
+             }
         }
     }
 }
