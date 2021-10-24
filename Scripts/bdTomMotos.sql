@@ -1,19 +1,3 @@
--- MySQL Workbench Forward Engineering
-
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
--- -----------------------------------------------------
--- Schema bd_tommotos
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema bd_tommotos
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `bd_tommotos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `bd_tommotos` ;
 
@@ -265,32 +249,6 @@ AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-
--- -----------------------------------------------------
--- Table `bd_tommotos`.`tb_produto_selecionado`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto_selecionado` (
-  `id_produto_selecionado` INT NOT NULL AUTO_INCREMENT,
-  `buscado_produto_selecionado` TINYINT(1) NOT NULL,
-  `data_produto_selecionado` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `qtd_produto_selecionado` INT NOT NULL,
-  `fk_produto_id` INT NULL DEFAULT NULL,
-  `fk_cliente_id` INT NULL DEFAULT NULL,
-  PRIMARY KEY (`id_produto_selecionado`),
-  INDEX `fk_produto_idx` (`fk_produto_id` ASC) VISIBLE,
-  INDEX `fk_cliente_id` (`fk_cliente_id` ASC) VISIBLE,
-  CONSTRAINT `tb_produto_selecionado_ibfk_1`
-    FOREIGN KEY (`fk_produto_id`)
-    REFERENCES `bd_tommotos`.`tb_produto` (`id_produto`)ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `tb_produto_selecionado_ibfk_2`
-    FOREIGN KEY (`fk_cliente_id`)
-    REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`)ON DELETE CASCADE ON UPDATE CASCADE)
-ENGINE = InnoDB
-AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_produto_usado`
 -- -----------------------------------------------------
@@ -335,9 +293,6 @@ COLLATE = utf8mb4_0900_ai_ci;
 USE `bd_tommotos` ;
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
 -- procedure CriacaoProduto
@@ -619,15 +574,6 @@ BEGIN
 END$$
 DELIMITER ;
 
-/*STORED PROCEDURE PARA MUDAR STATUS DO PRODUTO*/
-DELIMITER $$
-CREATE PROCEDURE mudarStatusProduto(IN idProdutoSelecionado INT, IN novoStatusProduto bool)
-BEGIN
-		UPDATE tb_produto_selecionado
-		set tb_produto_selecionado.buscado_produto_selecionado = novoStatusProduto
-		WHERE tb_produto_selecionado.id_produtoUsado = idProdutoSelecionado;
-END$$
-DELIMITER ; 
 
 /*STORED PROCEDURE PARA MUDAR A QUANTIDADE DO PRODUTO*/
 DELIMITER $$
@@ -667,7 +613,7 @@ WHERE tb_produto_usado.fk_venda_id = new.id_venda ;
 
 END IF; END $$ DELIMITER ; 
 
-/*TRIGGER PARA DIMINUIÇÃO DE QUANTIDADE QUANDO PRODUTO FOR BUSCADO*/
+/*TRIGGER PARA DIMINUIÇÃO DE QUANTIDADE QUANDO PRODUTO FOR BUSCADO
 DELIMITER $$
 CREATE TRIGGER diminuicaoDeQTDqndProdutoBuscado after update
 ON tb_produto_selecionado FOR EACH ROW BEGIN IF (new.buscado_produto_selecionado = true AND old.buscado_produto_selecionado = false) THEN UPDATE tb_produto
@@ -681,7 +627,7 @@ INNER JOIN tb_produto_selecionado
 ON tb_produto_selecionado.fk_produto_id = tb_produto.id_produto
 SET tb_produto.quantidade_produto = tb_produto.quantidade_produto + tb_produto_usado.quantidade_produto_usado
 WHERE tb_produto_usado.fk_venda_id = new.id_produto_selecionado ; 
-END IF; END $$ DELIMITER ; 
+END IF; END $$ DELIMITER ;*/
 
 call criacaoCliente('null','null', null, null, null);
 call criacaoCliente('samuel','santos','2002/04/22','99999999',null);
@@ -724,7 +670,35 @@ call criacaoTelefone('119981114',11);
 call criacaoProduto('oleo preto','100','100','15','mobil',null);
 call criacaoProduto('oleo','100','100','12','mobil',null);
 
-select * from tb_venda;
-select * from tb_produto;
-select * from tb_produto_usado;
-select * from tb_veiculo;
+/*INSERT TB_VENDA*/
+INSERT INTO `bd_tommotos`.`tb_venda` (`descricao_mao_de_obra`, `preco_mao_de_obra`, `validade_orcamento_servico`, `data_venda`, `venda_finalizada`, `e_orcamento`, `fk_veiculo_id`, `fk_cliente_id`) 
+VALUES ('Troca da Relação ', '50', '2022-05-25', '2021-03-25', '1', '0', '8', '11');
+INSERT INTO `bd_tommotos`.`tb_venda` (`descricao_mao_de_obra`, `preco_mao_de_obra`, `validade_orcamento_servico`, `data_venda`, `venda_finalizada`, `e_orcamento`, `fk_veiculo_id`, `fk_cliente_id`) 
+VALUES ('Troca de Oleo ', '20', '2022-05-25', '2021-03-25 00:00:00', '1', '0', '8', '12');
+
+/*INSERT PRODUTO USADO*/
+INSERT INTO `bd_tommotos`.`tb_produto_usado` (`quantidade_produto_usado`, `fk_produto_id`, `fk_venda_id`, `validade_da_garantia_produto`) 
+VALUES ('2', '4', '3', '2026/04/20');
+
+/*INSERT TB_LOG_FORNECIMENTO*/
+INSERT INTO `bd_tommotos`.`tb_log_fornecimento` (`data_log_fornecimento`, `qtd_produto_fornecido`, `fk_produto_id`, `fk_fornecedor_id`)
+VALUES ('2020/01/20', '5', '4', '3');
+
+/*INSERT TB_GRUPO_FUNCIONARIO*/
+INSERT INTO `bd_tommotos`.`tb_grupo_funcionarios` (`fk_venda_id`, `fk_funcionario_id`) VALUES ('3', '3');
+INSERT INTO `bd_tommotos`.`tb_grupo_funcionarios` (`fk_venda_id`, `fk_funcionario_id`) VALUES ('3', '4');
+
+select*from tb_cargo;
+select*from tb_cliente;
+select*from tb_email;
+select*from tb_endereco;
+select*from tb_fornecedor;
+select*from tb_funcionario;
+select*from tb_produto;
+select*from tb_telefone;
+select*from tb_usuario;
+select*from tb_veiculo;
+select*from tb_venda;
+select*from tb_produto_usado;
+select*from tb_log_fornecimento;
+select*from tb_grupo_funcionarios;
