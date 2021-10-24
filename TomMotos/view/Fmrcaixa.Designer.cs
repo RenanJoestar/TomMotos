@@ -312,6 +312,7 @@
             this.dgProdutos.Name = "dgProdutos";
             this.dgProdutos.Size = new System.Drawing.Size(703, 150);
             this.dgProdutos.TabIndex = 25;
+            this.dgProdutos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgProdutos_MouseDown);
             // 
             // ch_item
             // 
@@ -356,6 +357,7 @@
             this.dgServicos.Name = "dgServicos";
             this.dgServicos.Size = new System.Drawing.Size(455, 150);
             this.dgServicos.TabIndex = 26;
+            this.dgServicos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgServicos_MouseDown);
             // 
             // ch_itemServ
             // 
@@ -401,6 +403,7 @@
             this.Text = "Fmrcaixa";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrcaixa_FormClosed);
             this.Load += new System.EventHandler(this.Fmrcaixa_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Fmrcaixa_MouseClick);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -56,7 +56,6 @@ namespace TomMotos.Classes
         }
         #endregion
 
-
         #region METODO LISTAR
         public DataTable ListarEndereco()
         {

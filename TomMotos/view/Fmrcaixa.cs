@@ -160,18 +160,12 @@ namespace TomMotos.view
                     //messageB = messageB + htmlTableEnd; 
                     return final;
                 }
-                
-
-
             }
             catch (Exception erro) {
                 return null;
             }
-            
-
         }
   
-
         public static void Email(string htmlString)
         {
             bool aa = false;
@@ -201,7 +195,22 @@ namespace TomMotos.view
                 MessageBox.Show("Erro de conexão, Email não enviado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
+        private void dgServicos_MouseDown(object sender, MouseEventArgs e)
+        {
+            dgProdutos.ClearSelection();
+        }
+
+        private void dgProdutos_MouseDown(object sender, MouseEventArgs e)
+        {
+            dgServicos.ClearSelection();
+        }
+
+        private void Fmrcaixa_MouseClick(object sender, MouseEventArgs e)
+        {
+            dgProdutos.ClearSelection();
+            dgServicos.ClearSelection();
+        }
 
         private void btnAcProduto_Click(object sender, EventArgs e)
         {
@@ -271,27 +280,31 @@ namespace TomMotos.view
 
         private void BtnExcluir_item_Click(object sender, EventArgs e)
         {
+            int subitotal = int.Parse(lblSubitotal.Text);
             if (dgProdutos.SelectedCells.Count > 0)
              {
                  try
                  {
-                    int rowProduto = dgProdutos.CurrentCell.RowIndex; // MUDA O NOME DESSA PORRA DE DATAGRIDVIEW
+                    int rowProduto = dgProdutos.CurrentCell.RowIndex;
                     int rowPreco = int.Parse(dgProdutos.CurrentRow.Cells[5].Value.ToString());
-                    int subitotal = int.Parse(lblSubitotal.Text) - rowPreco;
+                    subitotal = int.Parse(lblSubitotal.Text) - rowPreco;
                     dgProdutos.Rows.RemoveAt(rowProduto);
                     lblSubitotal.Text = subitotal.ToString();
+                    dgProdutos.ClearSelection();
                  }
-                 catch (Exception erro) { MessageBox.Show(erro.ToString()); }
+                 catch (Exception erro) { }
              }
              else
              {
                  try
                  {
-                     DataGridViewRow maoDeObra = dgServicos.SelectedRows[0];
-                     int subitotal = int.Parse(lblSubitotal.Text) - int.Parse(maoDeObra.Cells[2].Value.ToString());
-                     dgServicos.Rows.Remove(dgServicos.SelectedRows[0]);
-                     lblSubitotal.Text = subitotal.ToString();
-                 }
+                    int rowProduto = dgServicos.CurrentCell.RowIndex;
+                    int rowPreco = int.Parse(dgServicos.CurrentRow.Cells[2].Value.ToString());
+                    subitotal = int.Parse(lblSubitotal.Text) - rowPreco;
+                    dgServicos.Rows.RemoveAt(rowProduto);
+                    lblSubitotal.Text = subitotal.ToString();
+                    dgServicos.ClearSelection();
+                }
                  catch (Exception erro) { }
              }
         }
