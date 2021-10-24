@@ -171,16 +171,17 @@ namespace TomMotos.view
             bool aa = false;
             try
             {
+                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = "matheusmoreira2004@live.com";
                 MailMessage message = new MailMessage();                
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                message.From = new MailAddress("EMAIL REMETENTE");
-                message.To.Add(new MailAddress("EMAIL DESTINATARIO"));
+                message.From = new MailAddress(emailRementente); // EMAIL REMETENTE
+                message.To.Add(new MailAddress(emailDestinatario)); // EMAIL DESTINATARIO
                 message.Subject = "Test";
                 message.IsBodyHtml = true;
                 message.Body = htmlString;                
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("EMAIL REMETENTE", "SENHA");
+                smtp.Credentials = new NetworkCredential(emailRementente, senhaRementente);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
                 aa = true;
