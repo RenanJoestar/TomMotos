@@ -98,7 +98,7 @@ namespace TomMotos.view
         {
             try
             {                
-                string messageBody = "<font> SEU COMPROVANTE DE COMPRA NA TOMMOTOS: </font><br><br>", messageB = "";
+                string messageBody = "<font> SEU COMPROVANTE DE COMPRA NA TOMMOTOS: </font><br><br>", messageB = "", total="";
                 if (grid.RowCount == 0 || grid2.RowCount == 0) return messageBody;
                
                 string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\">";
@@ -113,24 +113,42 @@ namespace TomMotos.view
 
                 string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
                 string htmlTdEnd = "</td>";
-                messageBody += htmlTableStart;
-                messageBody += htmlHeaderRowStart;
-                messageBody += htmlTdStart + "ITEM" + htmlTdEnd;
-                messageBody += htmlTdStart + "CODIGO" + htmlTdEnd;
-                messageBody += htmlTdStart + "DESCRIÇÃO PRODUTO" + htmlTdEnd;
-                messageBody += htmlTdStart + "QUANTIDADE" + htmlTdEnd;
-                messageBody += htmlTdStart + "VL.UNIT.(R$)" + htmlTdEnd;
-                messageBody += htmlTdStart + "VL.ITEM.(R$)" + htmlTdEnd;
-                messageBody += htmlHeaderRowEnd;
+                if (dgProdutos.Rows.Count > 1)
+                {
+                    messageBody += htmlTableStart;
+                    messageBody += htmlHeaderRowStart;
+                    messageBody += htmlTdStart + "ITEM" + htmlTdEnd;
+                    messageBody += htmlTdStart + "CODIGO" + htmlTdEnd;
+                    messageBody += htmlTdStart + "DESCRIÇÃO PRODUTO" + htmlTdEnd;
+                    messageBody += htmlTdStart + "QUANTIDADE" + htmlTdEnd;
+                    messageBody += htmlTdStart + "VL.UNIT.(R$)" + htmlTdEnd;
+                    messageBody += htmlTdStart + "VL.ITEM.(R$)" + htmlTdEnd;
+                    messageBody += htmlHeaderRowEnd;
+                }
 
-                messageB += htmlTableStart;
-                messageB += htmlHeaderRowStart;
-                messageB += htmlTdStart + "    " + htmlTdEnd;
-                messageB += htmlTdStart + "DESCRIÇÃO SERVIÇO" + htmlTdEnd;
-                messageB += htmlTdStart + "VALOR(R$)" + htmlTdEnd;
-                messageB += htmlHeaderRowEnd;
+                if (dgServicos.Rows.Count > 1 )
+                {
+                    messageB += htmlTableStart;
+                    messageB += htmlHeaderRowStart;
+                    messageB += htmlTdStart + "    " + htmlTdEnd;
+                    messageB += htmlTdStart + "DESCRIÇÃO SERVIÇO" + htmlTdEnd;
+                    messageB += htmlTdStart + "VALOR(R$)" + htmlTdEnd;
+                    messageB += htmlHeaderRowEnd;
+                }
+              
 
-                for (int i = 0; i <= grid.RowCount - 1; i++)
+                total += htmlTableStart;
+                total += htmlHeaderRowStart;
+                total += htmlTdStart + "DATA" + htmlTdEnd;
+                total += htmlTdStart + "TOTAL(R$)" + htmlTdEnd;
+                total += htmlHeaderRowEnd;
+
+                total = total + htmlTrStart;
+                total = total + htmlTdStart + DateTime.Now.ToString() + htmlTdEnd;
+                total = total + htmlTdStart + lblSubitotal.Text.ToString() + htmlTdEnd;
+                total = total + htmlTrEnd;
+
+                for (int i = 0; i <= grid.RowCount -2; i++)
                 {
                     messageBody = messageBody + htmlTrStart;
                     messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[0].Value + htmlTdEnd;
@@ -142,36 +160,33 @@ namespace TomMotos.view
                     messageBody = messageBody + htmlTrEnd;
                  
                 }
-                for (int a = 0; a <= grid2.RowCount - 1; a++)
+                for (int a = 0; a <= grid2.RowCount -2; a++)
                 {
                     messageB = messageB + htmlTrStart;
                     messageB = messageB + htmlTdStart + grid2.Rows[a].Cells[0].Value + htmlTdEnd;
                     messageB = messageB + htmlTdStart + grid2.Rows[a].Cells[1].Value + htmlTdEnd;
                     messageB = messageB + htmlTdStart + grid2.Rows[a].Cells[2].Value + htmlTdEnd;
                     messageB = messageB + htmlTrEnd;
+
                 }
-                string final;
-                if (dgServicos.Rows.Count > 1)
-                {
-                    final = messageBody + htmlTableEnd + messageB + htmlTableEnd;
-                    return final;
-                }
-                else final = messageBody + htmlTableEnd;{
-                    //messageB = messageB + htmlTableEnd; 
-                    return final;
-                }
+
+                string final = messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd;
+
+                return final;
             }
+
             catch (Exception erro) {
+                MessageBox.Show(" "+ erro);
                 return null;
             }
         }
   
         public static void Email(string htmlString)
         {
-            bool aa = false;
+            
             try
             {
-                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = "matheusmoreira2004@live.com";
+                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = "";
                 MailMessage message = new MailMessage();                
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 message.From = new MailAddress(emailRementente); // EMAIL REMETENTE
@@ -183,12 +198,9 @@ namespace TomMotos.view
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new NetworkCredential(emailRementente, senhaRementente);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp.Send(message);
-                aa = true;
-                if (aa)
-                {
-                    MessageBox.Show("Email enviado com sucesso", "Nota enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                smtp.Send(message);              
+                MessageBox.Show("Email enviado com sucesso", "Nota enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
             }
             catch (Exception erro)
             {
