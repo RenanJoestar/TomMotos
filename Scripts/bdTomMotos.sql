@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_venda` (
   `descricao_mao_de_obra` TEXT NOT NULL,
   `preco_mao_de_obra` DOUBLE NULL DEFAULT 0.00,
   `validade_orcamento_servico` DATE NULL DEFAULT NULL,
-  `desconto venda` DOUBLE NULL DEFAULT 0.00,
+  `desconto_venda` DOUBLE NULL DEFAULT 0.00,
   `total_venda` DOUBLE NULL DEFAULT 0.00,
   `data_venda` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `venda_finalizada` BOOL DEFAULT FALSE,
@@ -564,7 +564,7 @@ INSERT INTO tb_venda /*INSERE*/
 tb_venda.preco_mao_de_obra, tb_venda.desconto_venda, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id) 
 values 
 (DESCRICAO, VALIDADE_ORCAMENTO_SERVICO, 
-PRECO_MAO_DE_OBRA, FK_VEICULO_ID, FK_CLIENTE_ID); 
+PRECO_MAO_DE_OBRA, DESCONTO, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID); 
 END$$
 
 DELIMITER ;
