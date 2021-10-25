@@ -17,7 +17,7 @@ namespace TomMotos.view
     {
         double desconto;
         string[] SERVICO = new string[4];
-        string[] item = new string[6];
+        string[] item = new string[7];
         List<string> nota = new List<string>();
         string id_produto, nome_produto;
         int itens = 0, servicos = 0;
@@ -125,6 +125,7 @@ namespace TomMotos.view
                     messageBody += htmlTdStart + "DESCRIÇÃO PRODUTO" + htmlTdEnd;
                     messageBody += htmlTdStart + "QUANTIDADE" + htmlTdEnd;
                     messageBody += htmlTdStart + "VL.UNIT.(R$)" + htmlTdEnd;
+                    messageBody += htmlTdStart + "DESCONTO.(%)" + htmlTdEnd;
                     messageBody += htmlTdStart + "VL.ITEM.(R$)" + htmlTdEnd;
                     messageBody += htmlHeaderRowEnd;
                 }
@@ -143,11 +144,13 @@ namespace TomMotos.view
                 total += htmlTableStart;
                 total += htmlHeaderRowStart;
                 total += htmlTdStart + "DATA" + htmlTdEnd;
+                if(txtdesc.Text !="")total += htmlTdStart + "DESCONTO FINAL(%)" + htmlTdEnd;
                 total += htmlTdStart + "TOTAL(R$)" + htmlTdEnd;
                 total += htmlHeaderRowEnd;
 
                 total = total + htmlTrStart;
                 total = total + htmlTdStart + DateTime.Now.ToString() + htmlTdEnd;
+                if (txtdesc.Text != "") total = total + htmlTdStart + txtdesc.Text.ToString() + htmlTdEnd;
                 total = total + htmlTdStart + lblSubitotal.Text.ToString() + htmlTdEnd;
                 total = total + htmlTrEnd;
 
@@ -160,6 +163,7 @@ namespace TomMotos.view
                     messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[3].Value + htmlTdEnd;
                     messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[4].Value + htmlTdEnd;
                     messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[5].Value + htmlTdEnd;
+                    messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[6].Value + htmlTdEnd;
                     messageBody = messageBody + htmlTrEnd;
                  
                 }
@@ -189,7 +193,7 @@ namespace TomMotos.view
             
             try
             {
-                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = "";
+                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = "samucasylva139@gmail.com";
                 MailMessage message = new MailMessage();                
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 message.From = new MailAddress(emailRementente); // EMAIL REMETENTE
@@ -240,7 +244,7 @@ namespace TomMotos.view
 
         private void btnAcProduto_Click(object sender, EventArgs e)
         {
-            double valor_produto, valor_total, total;
+            double valor_produto, valor_total, total, desconto;
             if (lblSubitotal.Text == "") total = 0;
             else total = double.Parse(lblSubitotal.Text);
             string select = "select id_produto, descricao_produto, marca_produto quantidade_produto, valor_produto, imagem_produto  from tb_produto where id_produto = " + txtIdProduto.Text.ToString();
@@ -249,9 +253,10 @@ namespace TomMotos.view
             MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
 
             DataSet ds = new DataSet();
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
+            try
             {
+                da.Fill(ds);
+
                 if (Convert.IsDBNull(ds.Tables[0].Rows[0]["imagem_produto"]))
                 {
                     ptb_imagem.Image = null;
@@ -265,10 +270,26 @@ namespace TomMotos.view
                 nome_produto = ds.Tables[0].Rows[0]["descricao_produto"].ToString();
                 valor_produto = int.Parse(ds.Tables[0].Rows[0]["valor_produto"].ToString());
 
-                total = total + (valor_produto * int.Parse(txtqtd.Text));
-                lblSubitotal.Text = total.ToString();
-                valor_total = valor_produto * double.Parse(txtqtd.Text);
-              
+                if (txt_desconto_pro.Text != "")
+                {
+                    double desc;
+                    desc = (valor_produto * int.Parse(txtqtd.Text));
+                    desconto = desc * double.Parse(txt_desconto_pro.Text) / 100;
+                    desconto = desc - desconto;
+                    item[6] = desconto.ToString();
+                    lblSubitotal.Text = (double.Parse(lblSubitotal.Text) + desconto).ToString();
+
+                }
+                else
+                {
+                    txt_desconto_pro.Text = "0";
+                    total = total + (valor_produto * int.Parse(txtqtd.Text));
+                    lblSubitotal.Text = total.ToString();
+                    valor_total = valor_produto * double.Parse(txtqtd.Text);
+                    item[6] = valor_total.ToString();
+                }
+
+
                 if (itens == 0) itens = 1;
                 else itens += 1;
 
@@ -277,11 +298,17 @@ namespace TomMotos.view
                 item[2] = nome_produto;
                 item[3] = txtqtd.Text;
                 item[4] = valor_produto.ToString();
-                item[5] = valor_total.ToString();
-
+                item[5] = txt_desconto_pro.Text;
                 dgProdutos.Rows.Add((item));
+
+                txtIdProduto.Text = "";
+                txtqtd.Text = "1";
+                txt_desconto_pro.Text = "";
+
             }
-            else MessageBox.Show("PRODUTO NÃO ENCONTRADO!!");
+            catch (Exception erro) {
+                MessageBox.Show("PRODUTO NÃO ENCONTRADO!!");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -292,9 +319,9 @@ namespace TomMotos.view
 
         private void btnAcServico_Click(object sender, EventArgs e)
         {
-            int preco_servico = 0, pt;
+            double preco_servico = 0, pt;
             preco_servico = int.Parse(txt_pmo.Text);
-            pt = int.Parse(lblSubitotal.Text);
+            pt = double.Parse(lblSubitotal.Text);
             if (txt_pmo.Text != "" || txtDescServ.Text != "")
             {
                 if (servicos == 0) servicos = 1;

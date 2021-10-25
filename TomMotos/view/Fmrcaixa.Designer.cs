@@ -53,12 +53,6 @@
             this.lblSubitotal = new System.Windows.Forms.Label();
             this.btnFinalizaVenda = new System.Windows.Forms.Button();
             this.dgProdutos = new System.Windows.Forms.DataGridView();
-            this.ch_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ch_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ch_qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ch_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vl_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgServicos = new System.Windows.Forms.DataGridView();
             this.ch_itemServ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +60,15 @@
             this.btnEmail = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txt_desconto_pro = new System.Windows.Forms.TextBox();
+            this.ch_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vl_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).BeginInit();
@@ -120,7 +123,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 94);
+            this.label5.Location = new System.Drawing.Point(32, 133);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 13);
             this.label5.TabIndex = 8;
@@ -129,7 +132,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 133);
+            this.label6.Location = new System.Drawing.Point(32, 173);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 13);
             this.label6.TabIndex = 9;
@@ -141,6 +144,7 @@
             this.txtqtd.Name = "txtqtd";
             this.txtqtd.Size = new System.Drawing.Size(243, 20);
             this.txtqtd.TabIndex = 10;
+            this.txtqtd.Text = "1";
             // 
             // txtdesc
             // 
@@ -151,14 +155,14 @@
             // 
             // txtPrU
             // 
-            this.txtPrU.Location = new System.Drawing.Point(35, 110);
+            this.txtPrU.Location = new System.Drawing.Point(35, 149);
             this.txtPrU.Name = "txtPrU";
             this.txtPrU.Size = new System.Drawing.Size(243, 20);
             this.txtPrU.TabIndex = 12;
             // 
             // txtPt
             // 
-            this.txtPt.Location = new System.Drawing.Point(35, 153);
+            this.txtPt.Location = new System.Drawing.Point(35, 189);
             this.txtPt.Name = "txtPt";
             this.txtPt.Size = new System.Drawing.Size(243, 20);
             this.txtPt.TabIndex = 13;
@@ -222,6 +226,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txt_desconto_pro);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.btnAcProduto);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtIdProduto);
@@ -233,14 +239,14 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(315, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(321, 213);
+            this.groupBox2.Size = new System.Drawing.Size(321, 244);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produto";
             // 
             // btnAcProduto
             // 
-            this.btnAcProduto.Location = new System.Drawing.Point(116, 179);
+            this.btnAcProduto.Location = new System.Drawing.Point(120, 215);
             this.btnAcProduto.Name = "btnAcProduto";
             this.btnAcProduto.Size = new System.Drawing.Size(75, 23);
             this.btnAcProduto.TabIndex = 20;
@@ -307,43 +313,13 @@
             this.ch_desc,
             this.ch_qtd,
             this.ch_unit,
-            this.vl_item});
+            this.vl_item,
+            this.Column6});
             this.dgProdutos.Location = new System.Drawing.Point(12, 272);
             this.dgProdutos.Name = "dgProdutos";
             this.dgProdutos.Size = new System.Drawing.Size(703, 150);
             this.dgProdutos.TabIndex = 25;
             this.dgProdutos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgProdutos_MouseDown);
-            // 
-            // ch_item
-            // 
-            this.ch_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ch_item.HeaderText = "ITEM";
-            this.ch_item.Name = "ch_item";
-            // 
-            // ch_id
-            // 
-            this.ch_id.HeaderText = "CODIGO";
-            this.ch_id.Name = "ch_id";
-            // 
-            // ch_desc
-            // 
-            this.ch_desc.HeaderText = "DESCRIÇÃO";
-            this.ch_desc.Name = "ch_desc";
-            // 
-            // ch_qtd
-            // 
-            this.ch_qtd.HeaderText = "QTD";
-            this.ch_qtd.Name = "ch_qtd";
-            // 
-            // ch_unit
-            // 
-            this.ch_unit.HeaderText = "VL.UNIT.(R$)";
-            this.ch_unit.Name = "ch_unit";
-            // 
-            // vl_item
-            // 
-            this.vl_item.HeaderText = "VL.ITEM.(R$)";
-            this.vl_item.Name = "vl_item";
             // 
             // dgServicos
             // 
@@ -403,6 +379,58 @@
             this.button2.Text = "CANCELAR";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(32, 94);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "DESCONTO";
+            // 
+            // txt_desconto_pro
+            // 
+            this.txt_desconto_pro.Location = new System.Drawing.Point(35, 110);
+            this.txt_desconto_pro.Name = "txt_desconto_pro";
+            this.txt_desconto_pro.Size = new System.Drawing.Size(243, 20);
+            this.txt_desconto_pro.TabIndex = 22;
+            // 
+            // ch_item
+            // 
+            this.ch_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ch_item.HeaderText = "ITEM";
+            this.ch_item.Name = "ch_item";
+            // 
+            // ch_id
+            // 
+            this.ch_id.HeaderText = "CODIGO";
+            this.ch_id.Name = "ch_id";
+            // 
+            // ch_desc
+            // 
+            this.ch_desc.HeaderText = "DESCRIÇÃO";
+            this.ch_desc.Name = "ch_desc";
+            // 
+            // ch_qtd
+            // 
+            this.ch_qtd.HeaderText = "QTD";
+            this.ch_qtd.Name = "ch_qtd";
+            // 
+            // ch_unit
+            // 
+            this.ch_unit.HeaderText = "VL.UNIT.(R$)";
+            this.ch_unit.Name = "ch_unit";
+            // 
+            // vl_item
+            // 
+            this.vl_item.HeaderText = "DESCONTO(%)";
+            this.vl_item.Name = "vl_item";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "VL.ITEM.(R$)";
+            this.Column6.Name = "Column6";
             // 
             // Fmrcaixa
             // 
@@ -467,12 +495,6 @@
         private System.Windows.Forms.Label lblSubitotal;
         private System.Windows.Forms.Button btnFinalizaVenda;
         private System.Windows.Forms.DataGridView dgProdutos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ch_item;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ch_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ch_desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ch_qtd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ch_unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vl_item;
         private System.Windows.Forms.DataGridView dgServicos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_itemServ;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_des;
@@ -480,5 +502,14 @@
         private System.Windows.Forms.Button btnEmail;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txt_desconto_pro;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_qtd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vl_item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }
