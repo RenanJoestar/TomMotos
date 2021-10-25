@@ -162,11 +162,16 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_venda`
 -- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Table `bd_tommotos`.`tb_venda`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_venda` (
   `id_venda` INT NOT NULL AUTO_INCREMENT,
   `descricao_mao_de_obra` TEXT NOT NULL,
   `preco_mao_de_obra` DOUBLE NULL DEFAULT 0.00,
   `validade_orcamento_servico` DATE NULL DEFAULT NULL,
+  `desconto venda` DOUBLE NULL DEFAULT 0.00,
+  `total_venda` DOUBLE NULL DEFAULT 0.00,
   `data_venda` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `venda_finalizada` BOOL DEFAULT FALSE,
   `e_orcamento` BOOL DEFAULT FALSE,
@@ -552,11 +557,11 @@ DELIMITER ;
 
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN DESCRICAO TEXT, IN VALIDADE_ORCAMENTO_SERVICO date, PRECO_MAO_DE_OBRA double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN DESCRICAO TEXT, IN VALIDADE_ORCAMENTO_SERVICO date, PRECO_MAO_DE_OBRA double,DESCONTO double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
 BEGIN
 INSERT INTO tb_venda /*INSERE*/ 
 (tb_venda.descricao_mao_de_obra, tb_venda.validade_orcamento_servico, 
-tb_venda.preco_mao_de_obra, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id) 
+tb_venda.preco_mao_de_obra, tb_venda.desconto_venda, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id) 
 values 
 (DESCRICAO, VALIDADE_ORCAMENTO_SERVICO, 
 PRECO_MAO_DE_OBRA, FK_VEICULO_ID, FK_CLIENTE_ID); 

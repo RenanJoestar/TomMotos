@@ -183,6 +183,8 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_venda` (
   `descricao_mao_de_obra` TEXT NOT NULL,
   `preco_mao_de_obra` DOUBLE NULL DEFAULT 0.00,
   `validade_orcamento_servico` DATE NULL DEFAULT NULL,
+  `desconto venda` DOUBLE NULL DEFAULT 0.00,
+  `total_venda` DOUBLE NULL DEFAULT 0.00,
   `data_venda` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `venda_finalizada` BOOL DEFAULT FALSE,
   `e_orcamento` BOOL DEFAULT FALSE,
@@ -290,31 +292,6 @@ AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-
--- -----------------------------------------------------
--- Table `bd_tommotos`.`tb_produto_usado`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto_usado` (
-  `id_produto_usado` INT NOT NULL AUTO_INCREMENT,
-  `quantidade_produto_usado` INT NOT NULL,
-  `fk_produto_id` INT NULL DEFAULT NULL,
-  `fk_venda_id` INT NULL DEFAULT NULL,
-  `validade_da_garantia_produto` DATE NULL DEFAULT NULL,
-  PRIMARY KEY (`id_produto_usado`),
-  INDEX `fk_produto_idx` (`fk_produto_id` ASC) VISIBLE,
-  INDEX `fk_venda_id` (`fk_venda_id` ASC) VISIBLE,
-  CONSTRAINT `tb_prroduto_usado_ibfk_1`
-    FOREIGN KEY (`fk_produto_id`)
-    REFERENCES `bd_tommotos`.`tb_produto` (`id_produto`)ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `tb_prroduto_usado_ibfk_2`
-    FOREIGN KEY (`fk_venda_id`)
-    REFERENCES `bd_tommotos`.`tb_venda` (`id_venda`)ON DELETE CASCADE ON UPDATE CASCADE)
-ENGINE = InnoDB
-AUTO_INCREMENT = 5
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_telefone`
 -- -----------------------------------------------------
@@ -333,3 +310,5 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 USE `bd_tommotos` ;
+
+
