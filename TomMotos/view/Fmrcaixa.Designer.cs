@@ -64,6 +64,8 @@
             this.ch_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_vl_ser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEmail = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).BeginInit();
@@ -109,7 +111,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 94);
+            this.label4.Location = new System.Drawing.Point(997, 467);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 7;
@@ -118,7 +120,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 133);
+            this.label5.Location = new System.Drawing.Point(32, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 13);
             this.label5.TabIndex = 8;
@@ -127,7 +129,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 172);
+            this.label6.Location = new System.Drawing.Point(32, 133);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 13);
             this.label6.TabIndex = 9;
@@ -142,21 +144,21 @@
             // 
             // txtdesc
             // 
-            this.txtdesc.Location = new System.Drawing.Point(35, 110);
+            this.txtdesc.Location = new System.Drawing.Point(1070, 464);
             this.txtdesc.Name = "txtdesc";
-            this.txtdesc.Size = new System.Drawing.Size(243, 20);
+            this.txtdesc.Size = new System.Drawing.Size(102, 20);
             this.txtdesc.TabIndex = 11;
             // 
             // txtPrU
             // 
-            this.txtPrU.Location = new System.Drawing.Point(35, 149);
+            this.txtPrU.Location = new System.Drawing.Point(35, 110);
             this.txtPrU.Name = "txtPrU";
             this.txtPrU.Size = new System.Drawing.Size(243, 20);
             this.txtPrU.TabIndex = 12;
             // 
             // txtPt
             // 
-            this.txtPt.Location = new System.Drawing.Point(35, 184);
+            this.txtPt.Location = new System.Drawing.Point(35, 153);
             this.txtPt.Name = "txtPt";
             this.txtPt.Size = new System.Drawing.Size(243, 20);
             this.txtPt.TabIndex = 13;
@@ -226,21 +228,19 @@
             this.groupBox2.Controls.Add(this.txtPt);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtPrU);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtdesc);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtqtd);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(315, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(321, 238);
+            this.groupBox2.Size = new System.Drawing.Size(321, 213);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produto";
             // 
             // btnAcProduto
             // 
-            this.btnAcProduto.Location = new System.Drawing.Point(115, 210);
+            this.btnAcProduto.Location = new System.Drawing.Point(116, 179);
             this.btnAcProduto.Name = "btnAcProduto";
             this.btnAcProduto.Size = new System.Drawing.Size(75, 23);
             this.btnAcProduto.TabIndex = 20;
@@ -384,18 +384,42 @@
             this.btnEmail.UseVisualStyleBackColor = true;
             this.btnEmail.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1178, 462);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(78, 23);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "CALCULAR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1262, 462);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(57, 23);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "CANCELAR";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Fmrcaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1547, 635);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEmail);
             this.Controls.Add(this.dgServicos);
             this.Controls.Add(this.dgProdutos);
             this.Controls.Add(this.btnFinalizaVenda);
             this.Controls.Add(this.lblSubitotal);
             this.Controls.Add(this.BtnExcluir_item);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.txtdesc);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -454,5 +478,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_des;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_vl_ser;
         private System.Windows.Forms.Button btnEmail;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

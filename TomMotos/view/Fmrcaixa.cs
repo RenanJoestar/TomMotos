@@ -15,11 +15,12 @@ namespace TomMotos.view
 {
     public partial class Fmrcaixa : Form
     {
+        double desconto;
         string[] SERVICO = new string[4];
         string[] item = new string[6];
         List<string> nota = new List<string>();
         string id_produto, nome_produto;
-        int valor_total, itens = 0, servicos = 0;
+        int itens = 0, servicos = 0;
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrcaixa()
         {
@@ -61,9 +62,11 @@ namespace TomMotos.view
                 }
                 catch (Exception) { }
 
-                objVenda.descricao = descricao;
+                objVenda.descricao = descricao.ToUpper();
                 objVenda.validade_orcamento_servico = DateTime.Now;
                 objVenda.preco_mao_de_obra = valorMaoDeObra;
+                objVenda.desconto = double.Parse(txtdesc.Text);
+                objVenda.total = double.Parse(lblSubitotal.Text);
                 objVenda.fk_cliente_id = 9; // cliente null
                 objVenda.fk_veiculo_id = 8; // veiculo null
                 vendaDAO.cadastrar(objVenda);
@@ -225,11 +228,21 @@ namespace TomMotos.view
             dgServicos.ClearSelection();
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+            if (txtdesc.Text != "")
+            {
+                desconto = double.Parse(lblSubitotal.Text) * (double.Parse(txtdesc.Text) / 100);
+                lblSubitotal.Text = (double.Parse(lblSubitotal.Text) - desconto).ToString();
+            }
+        }
+
         private void btnAcProduto_Click(object sender, EventArgs e)
         {
-            int valor_produto, total;
+            double valor_produto, valor_total, total;
             if (lblSubitotal.Text == "") total = 0;
-            else total = int.Parse(lblSubitotal.Text);
+            else total = double.Parse(lblSubitotal.Text);
             string select = "select id_produto, descricao_produto, marca_produto quantidade_produto, valor_produto, imagem_produto  from tb_produto where id_produto = " + txtIdProduto.Text.ToString();
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
@@ -254,7 +267,8 @@ namespace TomMotos.view
 
                 total = total + (valor_produto * int.Parse(txtqtd.Text));
                 lblSubitotal.Text = total.ToString();
-                valor_total = valor_produto * int.Parse(txtqtd.Text);
+                valor_total = valor_produto * double.Parse(txtqtd.Text);
+              
                 if (itens == 0) itens = 1;
                 else itens += 1;
 
@@ -268,6 +282,12 @@ namespace TomMotos.view
                 dgProdutos.Rows.Add((item));
             }
             else MessageBox.Show("PRODUTO NÃO ENCONTRADO!!");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            lblSubitotal.Text = (double.Parse(lblSubitotal.Text) + desconto).ToString();
+            desconto = 0;
         }
 
         private void btnAcServico_Click(object sender, EventArgs e)
