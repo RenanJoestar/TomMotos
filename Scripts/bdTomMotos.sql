@@ -14,7 +14,6 @@ AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
-
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_cliente`
 -- -----------------------------------------------------
@@ -219,7 +218,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto` (
   `id_produto` INT NOT NULL AUTO_INCREMENT,
   `descricao_produto` VARCHAR(45) NOT NULL,
-  `quantidade_produto` INT NOT NULL,
+  `quantidade_produto` DOUBLE NOT NULL,
   `valor_produto` DOUBLE NOT NULL,
   `marca_produto` VARCHAR(30) NULL DEFAULT NULL,
   `quantidade_virtual_produto` INT NULL DEFAULT NULL,
@@ -229,7 +228,6 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
 
 -- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_log_fornecimento`
@@ -259,7 +257,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto_usado` (
   `id_produto_usado` INT NOT NULL AUTO_INCREMENT,
-  `quantidade_produto_usado` INT NOT NULL,
+  `quantidade_produto_usado` DOUBLE NOT NULL,
   `fk_produto_id` INT NULL DEFAULT NULL,
   `fk_venda_id` INT NULL DEFAULT NULL,
   `validade_da_garantia_produto` DATE NULL DEFAULT NULL,
