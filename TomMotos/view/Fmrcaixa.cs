@@ -10,6 +10,7 @@ using TomMotos.Classes;
 using TomMotos.Model;
 using System.Net.Mail;
 using System.Net;
+using IronPdf;
 
 namespace TomMotos.view
 {
@@ -19,7 +20,7 @@ namespace TomMotos.view
         string[] SERVICO = new string[4];
         string[] item = new string[7];
         List<string> nota = new List<string>();
-        string id_produto, nome_produto;
+        string id_produto, nome_produto,id_venda;
         int itens = 0, servicos = 0;
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrcaixa()
@@ -37,7 +38,8 @@ namespace TomMotos.view
             fmrsumario.Show();
         }
         private void Fmrcaixa_Load(object sender, EventArgs e)
-        {            
+        {
+           
             lblSubitotal.Text = 0.ToString();
             dgProdutos.Columns[2].Width=200;
             dgServicos.Columns[1].Width = 243;
@@ -101,7 +103,7 @@ namespace TomMotos.view
         {
             try
             {                
-                string messageBody = "<font> SEU COMPROVANTE DE COMPRA NA TOMMOTOS: </font><br><br>", messageB = "", total="";
+                string messageBody = "<p> SEU COMPROVANTE DA TOMMOTOS: </p><br><br>", messageB = "", total="";
                 if (grid.RowCount == 0 || grid2.RowCount == 0) return messageBody;
                
                 string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\">";
@@ -193,7 +195,7 @@ namespace TomMotos.view
             
             try
             {
-                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = "samucasylva139@gmail.com";
+                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = "";
                 MailMessage message = new MailMessage();                
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 message.From = new MailAddress(emailRementente); // EMAIL REMETENTE
@@ -234,109 +236,174 @@ namespace TomMotos.view
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
-            if (txtdesc.Text != "")
+            if (txtdesc.Text != "" && lblSubitotal.Text != "0")
             {
                 desconto = double.Parse(lblSubitotal.Text) * (double.Parse(txtdesc.Text) / 100);
-                lblSubitotal.Text = (double.Parse(lblSubitotal.Text) - desconto).ToString();
+                lblSubitotal.Text = (double.Parse(lblSubitotal.Text) - desconto).ToString();               
+                txtdesc.Enabled = false;
             }
         }
 
-        private void btnAcProduto_Click(object sender, EventArgs e)
-        {
-            double valor_produto, valor_total, total, desconto;
-            if (lblSubitotal.Text == "") total = 0;
-            else total = double.Parse(lblSubitotal.Text);
-            string select = "select id_produto, descricao_produto, marca_produto quantidade_produto, valor_produto, imagem_produto  from tb_produto where id_produto = " + txtIdProduto.Text.ToString();
-            MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-
-            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-            DataSet ds = new DataSet();
-            try
-            {
-                da.Fill(ds);
-
-                if (Convert.IsDBNull(ds.Tables[0].Rows[0]["imagem_produto"]))
-                {
-                    ptb_imagem.Image = null;
-                }
-                else
-                {
-                    MemoryStream ms = new MemoryStream((byte[])ds.Tables[0].Rows[0]["imagem_produto"]);
-                    ptb_imagem.Image = new Bitmap(ms);
-                }
-                id_produto = ds.Tables[0].Rows[0]["id_produto"].ToString();
-                nome_produto = ds.Tables[0].Rows[0]["descricao_produto"].ToString();
-                valor_produto = int.Parse(ds.Tables[0].Rows[0]["valor_produto"].ToString());
-
-                if (txt_desconto_pro.Text != "")
-                {
-                    double desc;
-                    desc = (valor_produto * int.Parse(txtqtd.Text));
-                    desconto = desc * double.Parse(txt_desconto_pro.Text) / 100;
-                    desconto = desc - desconto;
-                    item[6] = desconto.ToString();
-                    lblSubitotal.Text = (double.Parse(lblSubitotal.Text) + desconto).ToString();
-
-                }
-                else
-                {
-                    txt_desconto_pro.Text = "0";
-                    total = total + (valor_produto * int.Parse(txtqtd.Text));
-                    lblSubitotal.Text = total.ToString();
-                    valor_total = valor_produto * double.Parse(txtqtd.Text);
-                    item[6] = valor_total.ToString();
-                }
-
-
-                if (itens == 0) itens = 1;
-                else itens += 1;
-
-                item[0] = itens.ToString();
-                item[1] = id_produto;
-                item[2] = nome_produto;
-                item[3] = txtqtd.Text;
-                item[4] = valor_produto.ToString();
-                item[5] = txt_desconto_pro.Text;
-                dgProdutos.Rows.Add((item));
-
-                txtIdProduto.Text = "";
-                txtqtd.Text = "1";
-                txt_desconto_pro.Text = "";
-
-            }
-            catch (Exception erro) {
-                MessageBox.Show("PRODUTO NÃO ENCONTRADO!!");
-            }
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             lblSubitotal.Text = (double.Parse(lblSubitotal.Text) + desconto).ToString();
             desconto = 0;
+            txtdesc.Enabled = true;
+        }
+        public void getIdVenda() {
+            string select = "select id_venda from tb_venda order by id_venda desc ";
+            MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            id_venda = ds.Tables[0].Rows[0]["id_venda"].ToString();
         }
 
-        private void btnAcServico_Click(object sender, EventArgs e)
+        private void txtIdProduto_KeyDown(object sender, KeyEventArgs e)
         {
-            double preco_servico = 0, pt;
-            preco_servico = int.Parse(txt_pmo.Text);
-            pt = double.Parse(lblSubitotal.Text);
-            if (txt_pmo.Text != "" || txtDescServ.Text != "")
+            if (e.KeyValue == 117) txtqtd.Focus();
+            if (e.KeyValue == 13)
             {
-                if (servicos == 0) servicos = 1;
-                else servicos += 1;
+                double valor_produto, valor_total, total, desconto;
+                if (lblSubitotal.Text == "") total = 0;
+                else total = double.Parse(lblSubitotal.Text);
+                string select = "select id_produto, descricao_produto, marca_produto quantidade_produto, valor_produto, imagem_produto  from tb_produto where id_produto = " + txtIdProduto.Text.ToString();
+                MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
-                SERVICO[1] = txtDescServ.Text.ToString();
-                SERVICO[2] = txt_pmo.Text.ToString();
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
 
-                SERVICO[0] = servicos.ToString();
-                dgServicos.Rows.Add((SERVICO));
-                pt += preco_servico;
-                lblSubitotal.Text = pt.ToString();
+                DataSet ds = new DataSet();
+                try
+                {
+                    da.Fill(ds);
+
+                    if (Convert.IsDBNull(ds.Tables[0].Rows[0]["imagem_produto"]))
+                    {
+                        ptb_imagem.Image = null;
+                    }
+                    else
+                    {
+                        MemoryStream ms = new MemoryStream((byte[])ds.Tables[0].Rows[0]["imagem_produto"]);
+                        ptb_imagem.Image = new Bitmap(ms);
+                    }
+                    id_produto = ds.Tables[0].Rows[0]["id_produto"].ToString();
+                    nome_produto = ds.Tables[0].Rows[0]["descricao_produto"].ToString();
+                    valor_produto = int.Parse(ds.Tables[0].Rows[0]["valor_produto"].ToString());
+
+                    if (txt_desconto_pro.Text != "")
+                    {
+                        double desc;
+                        desc = (valor_produto * int.Parse(txtqtd.Text));
+                        desconto = desc * double.Parse(txt_desconto_pro.Text) / 100;
+                        desconto = desc - desconto;
+                        item[6] = desconto.ToString();
+                        lblSubitotal.Text = (double.Parse(lblSubitotal.Text) + desconto).ToString();
+
+                    }
+                    else
+                    {
+                        txt_desconto_pro.Text = "0";
+                        total = total + (valor_produto * int.Parse(txtqtd.Text));
+                        lblSubitotal.Text = total.ToString();
+                        valor_total = valor_produto * double.Parse(txtqtd.Text);
+                        item[6] = valor_total.ToString();
+                    }
+
+
+                    if (itens == 0) itens = 1;
+                    else itens += 1;
+
+                    item[0] = itens.ToString();
+                    item[1] = id_produto;
+                    item[2] = nome_produto;
+                    item[3] = txtqtd.Text;
+                    item[4] = valor_produto.ToString();
+                    item[5] = txt_desconto_pro.Text;
+                    dgProdutos.Rows.Add((item));
+
+                    txtIdProduto.Text = "";
+                    txtqtd.Text = "1";
+                    txt_desconto_pro.Text = "";
+
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("PRODUTO NÃO ENCONTRADO!!");
+                }
             }
-            else MessageBox.Show("VERIFIQUE SE EXISTE CAMPOS EM BRANCOS");
         }
+
+        private void Fmrcaixa_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("Test " + e.KeyValue.ToString());
+            //if (e.KeyValue == )
+        }
+
+        private void txtqtd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13) txtIdProduto.Focus();
+               //MessageBox.Show("Test " + e.KeyValue.ToString());
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Fmrcaixa_Shown(object sender, EventArgs e)
+        {
+            txtIdProduto.Focus();
+        }
+
+        private void txt_pmo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                double preco_servico = 0, pt;
+
+                if (txt_pmo.Text != "" || txtDescServ.Text != "")
+                {
+                    try
+                    {
+                        if (servicos == 0) servicos = 1;
+                        else servicos += 1;
+                        preco_servico = int.Parse(txt_pmo.Text);
+                        pt = double.Parse(lblSubitotal.Text);
+                        SERVICO[1] = txtDescServ.Text.ToString();
+                        SERVICO[2] = txt_pmo.Text.ToString();
+
+                        SERVICO[0] = servicos.ToString();
+                        dgServicos.Rows.Add((SERVICO));
+                        pt += preco_servico;
+                        lblSubitotal.Text = pt.ToString();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show(erro.ToString());
+                    }
+                }
+                else MessageBox.Show("VERIFIQUE SE EXISTE CAMPOS EM BRANCOS");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string html = getHtml(dgProdutos, dgServicos);
+                getIdVenda();
+                var htmlToPdf = new HtmlToPdf();
+                var pdfDocument = htmlToPdf.RenderHtmlAsPdf(html);
+                pdfDocument.SaveAs("E:\\Comprovante_id(" + id_venda + ").pdf");
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.ToString());
+            }
+            
+        }
+
 
         private void BtnExcluir_item_Click(object sender, EventArgs e)
         {

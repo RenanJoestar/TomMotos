@@ -13,6 +13,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +38,9 @@
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942" />
     <Reference Include="Google.Protobuf, Version=3.11.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL" />
+    <Reference Include="IronPdf, Version=2021.9.0.3737, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPdf.Slim.2021.9.3737\lib\net40\IronPdf.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL" />
     <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL" />
     <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL" />
@@ -50,10 +55,12 @@
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -123,6 +130,12 @@
     <Compile Include="view\Fmrendereco.Designer.cs">
       <DependentUpon>Fmrendereco.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\FmrFinalizar_venda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FmrFinalizar_venda.Designer.cs">
+      <DependentUpon>FmrFinalizar_venda.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Fmrfornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrendereco.resx">
       <DependentUpon>Fmrendereco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FmrFinalizar_venda.resx">
+      <DependentUpon>FmrFinalizar_venda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrfornecedor.resx">
       <DependentUpon>Fmrfornecedor.cs</DependentUpon>

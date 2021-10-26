@@ -48,7 +48,7 @@ namespace TomMotos.Classes
                 catch (Exception erro)
                 {
                   
-                    MessageBox.Show("Erro: " + erro);
+                    MessageBox.Show(erro.Message);
                     MessageBox.Show("Cadastrado não Realizado!");
                 }
              
@@ -112,7 +112,7 @@ namespace TomMotos.Classes
                 catch (Exception erro)
                 {
                    
-                    MessageBox.Show("Erro: " + erro);
+                    MessageBox.Show(erro.Message);
                     MessageBox.Show("Alteração não Realizado!");
                 }
            
@@ -151,7 +151,7 @@ namespace TomMotos.Classes
                     }
                     catch (Exception erro)
                     {
-                        MessageBox.Show("Aconteceu um Erro" + erro);
+                        MessageBox.Show(erro.Message);
                         MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

@@ -41,27 +41,18 @@
             this.txtPt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDescServ = new System.Windows.Forms.RichTextBox();
-            this.btnAcServico = new System.Windows.Forms.Button();
             this.txt_pmo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAcProduto = new System.Windows.Forms.Button();
-            this.ptb_imagem = new System.Windows.Forms.PictureBox();
+            this.txt_desconto_pro = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ptb_imagem = new System.Windows.Forms.PictureBox();
             this.BtnExcluir_item = new System.Windows.Forms.Button();
             this.lblSubitotal = new System.Windows.Forms.Label();
             this.btnFinalizaVenda = new System.Windows.Forms.Button();
             this.dgProdutos = new System.Windows.Forms.DataGridView();
-            this.dgServicos = new System.Windows.Forms.DataGridView();
-            this.ch_itemServ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ch_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ch_vl_ser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEmail = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txt_desconto_pro = new System.Windows.Forms.TextBox();
             this.ch_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,10 +60,20 @@
             this.ch_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vl_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgServicos = new System.Windows.Forms.DataGridView();
+            this.ch_itemServ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_vl_ser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEmail = new System.Windows.Forms.Button();
+            this.btndesconto = new System.Windows.Forms.Button();
+            this.btnCancelDesc = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgServicos)).BeginInit();
             this.SuspendLayout();
@@ -101,6 +102,7 @@
             this.txtIdProduto.Name = "txtIdProduto";
             this.txtIdProduto.Size = new System.Drawing.Size(243, 20);
             this.txtIdProduto.TabIndex = 4;
+            this.txtIdProduto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdProduto_KeyDown);
             // 
             // label3
             // 
@@ -145,6 +147,7 @@
             this.txtqtd.Size = new System.Drawing.Size(243, 20);
             this.txtqtd.TabIndex = 10;
             this.txtqtd.Text = "1";
+            this.txtqtd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtqtd_KeyDown);
             // 
             // txtdesc
             // 
@@ -170,13 +173,12 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtDescServ);
-            this.groupBox1.Controls.Add(this.btnAcServico);
             this.groupBox1.Controls.Add(this.txt_pmo);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(849, 16);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(345, 239);
+            this.groupBox1.Size = new System.Drawing.Size(345, 215);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Serviço";
@@ -189,22 +191,13 @@
             this.txtDescServ.TabIndex = 21;
             this.txtDescServ.Text = "";
             // 
-            // btnAcServico
-            // 
-            this.btnAcServico.Location = new System.Drawing.Point(115, 196);
-            this.btnAcServico.Name = "btnAcServico";
-            this.btnAcServico.Size = new System.Drawing.Size(75, 23);
-            this.btnAcServico.TabIndex = 15;
-            this.btnAcServico.Text = "button2";
-            this.btnAcServico.UseVisualStyleBackColor = true;
-            this.btnAcServico.Click += new System.EventHandler(this.btnAcServico_Click);
-            // 
             // txt_pmo
             // 
             this.txt_pmo.Location = new System.Drawing.Point(24, 155);
             this.txt_pmo.Name = "txt_pmo";
             this.txt_pmo.Size = new System.Drawing.Size(254, 20);
             this.txt_pmo.TabIndex = 13;
+            this.txt_pmo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_pmo_KeyDown);
             // 
             // label8
             // 
@@ -226,9 +219,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.txt_desconto_pro);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.btnAcProduto);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtIdProduto);
             this.groupBox2.Controls.Add(this.txtPt);
@@ -244,25 +237,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produto";
             // 
-            // btnAcProduto
+            // txt_desconto_pro
             // 
-            this.btnAcProduto.Location = new System.Drawing.Point(120, 215);
-            this.btnAcProduto.Name = "btnAcProduto";
-            this.btnAcProduto.Size = new System.Drawing.Size(75, 23);
-            this.btnAcProduto.TabIndex = 20;
-            this.btnAcProduto.Text = "Acrescentar";
-            this.btnAcProduto.UseVisualStyleBackColor = true;
-            this.btnAcProduto.Click += new System.EventHandler(this.btnAcProduto_Click);
+            this.txt_desconto_pro.Location = new System.Drawing.Point(35, 110);
+            this.txt_desconto_pro.Name = "txt_desconto_pro";
+            this.txt_desconto_pro.Size = new System.Drawing.Size(243, 20);
+            this.txt_desconto_pro.TabIndex = 22;
             // 
-            // ptb_imagem
+            // label9
             // 
-            this.ptb_imagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptb_imagem.Location = new System.Drawing.Point(8, 18);
-            this.ptb_imagem.Name = "ptb_imagem";
-            this.ptb_imagem.Size = new System.Drawing.Size(202, 173);
-            this.ptb_imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_imagem.TabIndex = 5;
-            this.ptb_imagem.TabStop = false;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(32, 94);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "DESCONTO";
             // 
             // groupBox3
             // 
@@ -274,9 +263,19 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "IMAGEM";
             // 
+            // ptb_imagem
+            // 
+            this.ptb_imagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptb_imagem.Location = new System.Drawing.Point(8, 18);
+            this.ptb_imagem.Name = "ptb_imagem";
+            this.ptb_imagem.Size = new System.Drawing.Size(202, 173);
+            this.ptb_imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_imagem.TabIndex = 5;
+            this.ptb_imagem.TabStop = false;
+            // 
             // BtnExcluir_item
             // 
-            this.BtnExcluir_item.Location = new System.Drawing.Point(504, 457);
+            this.BtnExcluir_item.Location = new System.Drawing.Point(371, 457);
             this.BtnExcluir_item.Name = "BtnExcluir_item";
             this.BtnExcluir_item.Size = new System.Drawing.Size(75, 23);
             this.BtnExcluir_item.TabIndex = 20;
@@ -317,84 +316,9 @@
             this.Column6});
             this.dgProdutos.Location = new System.Drawing.Point(12, 272);
             this.dgProdutos.Name = "dgProdutos";
-            this.dgProdutos.Size = new System.Drawing.Size(703, 150);
+            this.dgProdutos.Size = new System.Drawing.Size(734, 170);
             this.dgProdutos.TabIndex = 25;
             this.dgProdutos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgProdutos_MouseDown);
-            // 
-            // dgServicos
-            // 
-            this.dgServicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ch_itemServ,
-            this.ch_des,
-            this.ch_vl_ser});
-            this.dgServicos.Location = new System.Drawing.Point(739, 272);
-            this.dgServicos.Name = "dgServicos";
-            this.dgServicos.Size = new System.Drawing.Size(455, 150);
-            this.dgServicos.TabIndex = 26;
-            this.dgServicos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgServicos_MouseDown);
-            // 
-            // ch_itemServ
-            // 
-            this.ch_itemServ.HeaderText = "ITEM";
-            this.ch_itemServ.Name = "ch_itemServ";
-            // 
-            // ch_des
-            // 
-            this.ch_des.HeaderText = "DESCRIÇÃO";
-            this.ch_des.Name = "ch_des";
-            // 
-            // ch_vl_ser
-            // 
-            this.ch_vl_ser.HeaderText = "VALOR(R$)";
-            this.ch_vl_ser.Name = "ch_vl_ser";
-            // 
-            // btnEmail
-            // 
-            this.btnEmail.Location = new System.Drawing.Point(103, 457);
-            this.btnEmail.Name = "btnEmail";
-            this.btnEmail.Size = new System.Drawing.Size(156, 32);
-            this.btnEmail.TabIndex = 27;
-            this.btnEmail.Text = "ENVIAR NOTA NO EMAIL";
-            this.btnEmail.UseVisualStyleBackColor = true;
-            this.btnEmail.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1178, 462);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "CALCULAR";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1262, 462);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(57, 23);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "CANCELAR";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(32, 94);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 13);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "DESCONTO";
-            // 
-            // txt_desconto_pro
-            // 
-            this.txt_desconto_pro.Location = new System.Drawing.Point(35, 110);
-            this.txt_desconto_pro.Name = "txt_desconto_pro";
-            this.txt_desconto_pro.Size = new System.Drawing.Size(243, 20);
-            this.txt_desconto_pro.TabIndex = 22;
             // 
             // ch_item
             // 
@@ -432,13 +356,102 @@
             this.Column6.HeaderText = "VL.ITEM.(R$)";
             this.Column6.Name = "Column6";
             // 
+            // dgServicos
+            // 
+            this.dgServicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ch_itemServ,
+            this.ch_des,
+            this.ch_vl_ser});
+            this.dgServicos.Location = new System.Drawing.Point(801, 272);
+            this.dgServicos.Name = "dgServicos";
+            this.dgServicos.Size = new System.Drawing.Size(455, 170);
+            this.dgServicos.TabIndex = 26;
+            this.dgServicos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgServicos_MouseDown);
+            // 
+            // ch_itemServ
+            // 
+            this.ch_itemServ.HeaderText = "ITEM";
+            this.ch_itemServ.Name = "ch_itemServ";
+            // 
+            // ch_des
+            // 
+            this.ch_des.HeaderText = "DESCRIÇÃO";
+            this.ch_des.Name = "ch_des";
+            // 
+            // ch_vl_ser
+            // 
+            this.ch_vl_ser.HeaderText = "VALOR(R$)";
+            this.ch_vl_ser.Name = "ch_vl_ser";
+            // 
+            // btnEmail
+            // 
+            this.btnEmail.Location = new System.Drawing.Point(728, 510);
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Size = new System.Drawing.Size(156, 32);
+            this.btnEmail.TabIndex = 27;
+            this.btnEmail.Text = "ENVIAR NOTA NO EMAIL";
+            this.btnEmail.UseVisualStyleBackColor = true;
+            this.btnEmail.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btndesconto
+            // 
+            this.btndesconto.Location = new System.Drawing.Point(1178, 461);
+            this.btndesconto.Name = "btndesconto";
+            this.btndesconto.Size = new System.Drawing.Size(78, 23);
+            this.btndesconto.TabIndex = 28;
+            this.btndesconto.Text = "CALCULAR";
+            this.btndesconto.UseVisualStyleBackColor = true;
+            this.btndesconto.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnCancelDesc
+            // 
+            this.btnCancelDesc.Location = new System.Drawing.Point(1262, 461);
+            this.btnCancelDesc.Name = "btnCancelDesc";
+            this.btnCancelDesc.Size = new System.Drawing.Size(57, 23);
+            this.btnCancelDesc.TabIndex = 29;
+            this.btnCancelDesc.Text = "CANCELAR";
+            this.btnCancelDesc.UseVisualStyleBackColor = true;
+            this.btnCancelDesc.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(758, 548);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(90, 23);
+            this.btnSalvar.TabIndex = 30;
+            this.btnSalvar.Text = "SALVAR PDF";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(662, 100);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(167, 13);
+            this.label10.TabIndex = 31;
+            this.label10.Text = "PRESSIONE ENTER PARA ADD";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 74);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(19, 13);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "F6";
+            // 
             // Fmrcaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1547, 635);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.btnCancelDesc);
+            this.Controls.Add(this.btndesconto);
             this.Controls.Add(this.btnEmail);
             this.Controls.Add(this.dgServicos);
             this.Controls.Add(this.dgProdutos);
@@ -455,13 +468,15 @@
             this.Text = "Fmrcaixa";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrcaixa_FormClosed);
             this.Load += new System.EventHandler(this.Fmrcaixa_Load);
+            this.Shown += new System.EventHandler(this.Fmrcaixa_Shown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Fmrcaixa_KeyDown);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Fmrcaixa_MouseClick);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgServicos)).EndInit();
             this.ResumeLayout(false);
@@ -488,9 +503,7 @@
         private System.Windows.Forms.TextBox txt_pmo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnAcProduto;
         private System.Windows.Forms.Button BtnExcluir_item;
-        private System.Windows.Forms.Button btnAcServico;
         private System.Windows.Forms.RichTextBox txtDescServ;
         private System.Windows.Forms.Label lblSubitotal;
         private System.Windows.Forms.Button btnFinalizaVenda;
@@ -500,8 +513,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_des;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_vl_ser;
         private System.Windows.Forms.Button btnEmail;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btndesconto;
+        private System.Windows.Forms.Button btnCancelDesc;
         private System.Windows.Forms.TextBox txt_desconto_pro;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_item;
@@ -511,5 +524,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn vl_item;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
     }
 }
