@@ -47,7 +47,7 @@ namespace TomMotos.Classes
 
         #endregion
 
-        #region METODO PESQUISAR ULTIMA VENDA
+        #region METODO MUDAR STATUS DA VENDA
 
         public void mudarStatusVenda(CaixaModel objVenda, bool status)
         {
@@ -70,8 +70,8 @@ namespace TomMotos.Classes
 
         #endregion
 
-        #region METODO MUDAR STATUS DA VENDA
-        
+        #region METODO PESQUISAR ULTIMA VENDA 
+
         public string listarUltimaVenda()
         {
             string resultado = "";

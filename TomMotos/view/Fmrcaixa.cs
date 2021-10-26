@@ -21,6 +21,10 @@ namespace TomMotos.view
         List<string> nota = new List<string>();
         string id_produto, nome_produto,id_venda;
         int itens = 0, servicos = 0;
+        CaixaDAO vendaDAO = new CaixaDAO();
+        ProdutoUsadoDAO produtoDAO = new ProdutoUsadoDAO();
+        CaixaModel objVenda = new CaixaModel();
+        ProdutoUsadoModel objProduto = new ProdutoUsadoModel();
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrcaixa()
         {
@@ -48,10 +52,6 @@ namespace TomMotos.view
         {
                 string descricao = "", idVenda = "";
                 double valorMaoDeObra = 0;
-                CaixaDAO vendaDAO = new CaixaDAO();
-                ProdutoUsadoDAO produtoDAO = new ProdutoUsadoDAO();
-                CaixaModel objVenda = new CaixaModel();
-                ProdutoUsadoModel objProduto = new ProdutoUsadoModel();
            
                 try
                 {
@@ -250,15 +250,6 @@ namespace TomMotos.view
             desconto = 0;
             txtdesc.Enabled = true;
         }
-        public string getIdVenda() {
-            string select = "select id_venda from tb_venda order by id_venda desc "; //PEGA ID DA ULTIMA VENDA
-            MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            id_venda = ds.Tables[0].Rows[0]["id_venda"].ToString();
-            return id_venda;
-        }
 
         private void txtIdProduto_KeyDown(object sender, KeyEventArgs e)
         {
@@ -391,7 +382,7 @@ namespace TomMotos.view
             try
             {
                 string html = getHtml(dgProdutos, dgServicos);
-                string nomePDF = "venda" + getIdVenda() + ".pdf";
+                string nomePDF = "venda" + vendaDAO.listarUltimaVenda() + ".pdf";
 
                 criarPDF(html, nomePDF);
             }
