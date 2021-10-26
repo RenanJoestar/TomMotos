@@ -10,7 +10,6 @@ using TomMotos.Classes;
 using TomMotos.Model;
 using System.Net.Mail;
 using System.Net;
-using IronPdf;
 
 namespace TomMotos.view
 {
@@ -389,7 +388,7 @@ namespace TomMotos.view
 
         private void button3_Click(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 string html = getHtml(dgProdutos, dgServicos);
                 getIdVenda();
@@ -400,7 +399,7 @@ namespace TomMotos.view
             catch (Exception erro)
             {
                 MessageBox.Show(erro.ToString());
-            }
+            }*/
             
         }
 
