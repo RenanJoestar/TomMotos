@@ -32,7 +32,6 @@ F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj
 F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 F:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.AssemblyReference.cache
-E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe.config
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.Properties.Resources.resources
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrcargo.resources
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrcliente.resources
@@ -132,3 +131,6 @@ C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CoreCompileInputs.cache
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CopyComplete
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
+E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.dll
+E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.xml
+E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_venda.resources

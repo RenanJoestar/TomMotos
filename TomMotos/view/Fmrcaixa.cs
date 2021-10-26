@@ -102,7 +102,7 @@ namespace TomMotos.view
         {
             try
             {                
-                string messageBody = "<p> SEU COMPROVANTE DA TOMMOTOS: </p><br><br>", messageB = "", total="";
+                string messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DA TOMMOTOS: </p><br><br>", messageB = "", total="";
                 if (grid.RowCount == 0 || grid2.RowCount == 0) return messageBody;
                
                 string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\">";
@@ -250,13 +250,14 @@ namespace TomMotos.view
             desconto = 0;
             txtdesc.Enabled = true;
         }
-        public void getIdVenda() {
-            string select = "select id_venda from tb_venda order by id_venda desc ";
+        public string getIdVenda() {
+            string select = "select id_venda from tb_venda order by id_venda desc "; //PEGA ID DA ULTIMA VENDA
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
             MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
             DataSet ds = new DataSet();
             da.Fill(ds);
             id_venda = ds.Tables[0].Rows[0]["id_venda"].ToString();
+            return id_venda;
         }
 
         private void txtIdProduto_KeyDown(object sender, KeyEventArgs e)
@@ -385,22 +386,27 @@ namespace TomMotos.view
                 else MessageBox.Show("VERIFIQUE SE EXISTE CAMPOS EM BRANCOS");
             }
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
-           /* try
+            try
             {
                 string html = getHtml(dgProdutos, dgServicos);
-                getIdVenda();
-                var htmlToPdf = new HtmlToPdf();
-                var pdfDocument = htmlToPdf.RenderHtmlAsPdf(html);
-                pdfDocument.SaveAs("E:\\Comprovante_id(" + id_venda + ").pdf");
+                string nomePDF = "venda" + getIdVenda() + ".pdf";
+
+                criarPDF(html, nomePDF);
             }
             catch (Exception erro)
             {
                 MessageBox.Show(erro.ToString());
-            }*/
-            
+            }
+        }
+
+        private void criarPDF(string html, string nomePDF)
+        {
+            string caminhoPDF = "E:/" + nomePDF;
+            var conteudoHTML = String.Format(html, DateTime.Now);
+            var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
+            htmlToPdf.GeneratePdf(conteudoHTML, null, caminhoPDF);
         }
 
 
