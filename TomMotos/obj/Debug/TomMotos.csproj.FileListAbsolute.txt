@@ -128,9 +128,12 @@ C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrveiculo.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FrmlogFornecimento.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.GenerateResource.cache
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CoreCompileInputs.cache
-C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CopyComplete
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.dll
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.xml
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_venda.resources
+C:\TomMotos\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.dll
+C:\TomMotos\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.xml
+C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrVeiculo_Cliente.resources
+C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrListProdutos.resources

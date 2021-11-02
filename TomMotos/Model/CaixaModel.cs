@@ -14,7 +14,9 @@ namespace TomMotos.Model
         public double preco_mao_de_obra { get; set; }
         public double desconto { get; set; }
         public double total { get; set; }
-        public int fk_veiculo_id { get; set; }
-        public int fk_cliente_id { get; set; }
+        public static string fk_veiculo_id { get; set; }
+        public static string emailCliente { get; set; }
+        public static string fk_cliente_id { get; set; }
+        public static string valorPesquisa { get; set; }
     }
 }

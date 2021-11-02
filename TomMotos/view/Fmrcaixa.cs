@@ -1,4 +1,4 @@
-﻿using MySql.Data    .MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,9 +28,10 @@ namespace TomMotos.view
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrcaixa()
         {
-            InitializeComponent();
+            InitializeComponent();           
             
         }
+        
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -42,60 +43,67 @@ namespace TomMotos.view
         }
         private void Fmrcaixa_Load(object sender, EventArgs e)
         {
-           
-            lblSubitotal.Text = 0.ToString();
+            label12.BackColor = Color.Transparent;
+            lblSubitotal.Text = 0.ToString();            
             dgProdutos.Columns[2].Width=200;
             dgServicos.Columns[1].Width = 243;
         }
 
         private void btnFinalizaVenda_Click(object sender, EventArgs e)
         {
-                string descricao = "", idVenda = "";
-                double valorMaoDeObra = 0;
-           
-                try
-                {
-                    for (int i = 0; i < dgServicos.Rows.Count -1; i++)
-                    {
-                        descricao = descricao + " | " + dgServicos.Rows[i].Cells[1].Value.ToString();
-                    valorMaoDeObra = valorMaoDeObra + int.Parse(dgServicos.Rows[i].Cells[2].Value.ToString());
-                    }
-                }
-                catch (Exception) { }
-
-                objVenda.descricao = descricao.ToUpper();
-                objVenda.validade_orcamento_servico = DateTime.Now;
-                objVenda.preco_mao_de_obra = valorMaoDeObra;
-                objVenda.desconto = double.Parse(txtdesc.Text);
-                objVenda.total = double.Parse(lblSubitotal.Text);
-                objVenda.fk_cliente_id = 9; // cliente null
-                objVenda.fk_veiculo_id = 8; // veiculo null
-                vendaDAO.cadastrar(objVenda);
-                
-                idVenda = vendaDAO.listarUltimaVenda();
-                try
-                    {
-                    for (int i = 0; i < dgProdutos.Rows.Count -1; i++)
-                    {
-                   
-                        objProduto.quantidade_produto_usado = double.Parse(dgProdutos.Rows[i].Cells[3].Value.ToString());
-                        objProduto.fk_produto_id = int.Parse(dgProdutos.Rows[i].Cells[1].Value.ToString());
-                        objProduto.fk_venda_id = int.Parse(idVenda);
-                        objProduto.validade_da_garantia_produto = DateTime.Now;
-
-                        produtoDAO.cadastrar(objProduto);
-                   
-                }
-                }
-                catch (Exception) { }
-
-                objVenda.id_venda = idVenda;
-                vendaDAO.mudarStatusVenda(objVenda, true);
+            FinalizarVenda(); 
         }
+        public void FinalizarVenda() {
+            string descricao = "", idVenda = "";
+            double valorMaoDeObra = 0;
 
+            try
+            {
+                for (int i = 0; i < dgServicos.Rows.Count - 1; i++)
+                {
+                    descricao = descricao + " | " + dgServicos.Rows[i].Cells[1].Value.ToString();
+                    valorMaoDeObra = valorMaoDeObra + int.Parse(dgServicos.Rows[i].Cells[2].Value.ToString());
+                }
+            }
+            catch (Exception) { }
+
+            objVenda.descricao = descricao.ToUpper();
+            objVenda.validade_orcamento_servico = DateTime.Now;
+            objVenda.preco_mao_de_obra = valorMaoDeObra;
+            if (txtdesc.Text == "") objVenda.desconto = 0;
+            else objVenda.desconto = double.Parse(txtdesc.Text);
+            objVenda.total = double.Parse(lblSubitotal.Text);
+            if (lbl_buscarCliente.Text != "" && lbl_buscarCliente.Text != "(id)") CaixaModel.fk_cliente_id = lbl_buscarCliente.Text;
+            else CaixaModel.fk_cliente_id = null;// cliente null
+            if (lbl_BuscarVeiculo.Text != "" && lbl_BuscarVeiculo.Text != "(id)") CaixaModel.fk_veiculo_id = lbl_BuscarVeiculo.Text; // veiculo null
+            else CaixaModel.fk_veiculo_id = null; // veiculo null
+            vendaDAO.cadastrar(objVenda);
+
+            idVenda = vendaDAO.listarUltimaVenda();
+            try
+            {
+                for (int i = 0; i < dgProdutos.Rows.Count - 1; i++)
+                {
+
+                    objProduto.quantidade_produto_usado = double.Parse(dgProdutos.Rows[i].Cells[3].Value.ToString());
+                    objProduto.fk_produto_id = int.Parse(dgProdutos.Rows[i].Cells[1].Value.ToString());
+                    objProduto.fk_venda_id = int.Parse(idVenda);
+                    objProduto.validade_da_garantia_produto = DateTime.Now;
+
+                    produtoDAO.cadastrar(objProduto);
+
+                }
+            }
+            catch (Exception) { }
+
+            vendaDAO.mudarStatusVenda(idVenda, true);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            string htmlString = getHtml(dgProdutos,dgServicos);            
+            EnviarEmail();
+        }
+        public void EnviarEmail() {
+            string htmlString = getHtml(dgProdutos, dgServicos);
             Email(htmlString);
         }
         public string getHtml(DataGridView grid, DataGridView grid2)
@@ -194,7 +202,7 @@ namespace TomMotos.view
             
             try
             {
-                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = "";
+                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = CaixaModel.emailCliente;
                 MailMessage message = new MailMessage();                
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 message.From = new MailAddress(emailRementente); // EMAIL REMETENTE
@@ -212,7 +220,7 @@ namespace TomMotos.view
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Test "+ erro);
+                MessageBox.Show("Test "+ erro.Message);
                 MessageBox.Show("Erro de conexão, Email não enviado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -253,8 +261,17 @@ namespace TomMotos.view
 
         private void txtIdProduto_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == 117) txtqtd.Focus();
-            if (e.KeyValue == 13)
+            
+            if (e.KeyData == Keys.F2) {
+                PesquisarProduto();
+            }
+         
+            if (e.KeyData == Keys.F6) txtqtd.Focus();
+            if (e.KeyData == Keys.F5) {
+                IrParaFinalizar();
+            }
+
+            if (e.KeyData == Keys.Enter)
             {
                 double valor_produto, valor_total, total, desconto;
                 if (lblSubitotal.Text == "") total = 0;
@@ -327,14 +344,26 @@ namespace TomMotos.view
 
         private void Fmrcaixa_KeyDown(object sender, KeyEventArgs e)
         {
-            MessageBox.Show("Test " + e.KeyValue.ToString());
+            //MessageBox.Show("Test " + e.KeyValue.ToString());
             //if (e.KeyValue == )
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
         }
 
         private void txtqtd_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == 13) txtIdProduto.Focus();
-               //MessageBox.Show("Test " + e.KeyValue.ToString());
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
+            if (e.KeyData == Keys.Enter) txtIdProduto.Focus();
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+            //MessageBox.Show("Test " + e.KeyValue.ToString());
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -349,7 +378,15 @@ namespace TomMotos.view
 
         private void txt_pmo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == 13)
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+            if (e.KeyData == Keys.Enter)
             {
                 double preco_servico = 0, pt;
 
@@ -377,8 +414,163 @@ namespace TomMotos.view
                 else MessageBox.Show("VERIFIQUE SE EXISTE CAMPOS EM BRANCOS");
             }
         }
+
+        private void btn_buscarVeiculo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CaixaModel.valorPesquisa = "veiculo";
+                FmrVeiculo_Cliente fmrVC = new FmrVeiculo_Cliente( this);
+                fmrVC.Show();
+            }
+            catch (Exception erro) {
+                MessageBox.Show(" "+erro.Message);
+            }
+        }
+
+        private void btn_BuscarCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CaixaModel.valorPesquisa = "cliente";
+                FmrVeiculo_Cliente fmrVC = new FmrVeiculo_Cliente( this);
+                fmrVC.Show();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(" " + erro.Message);
+            }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            lbl_BuscarVeiculo.Text = CaixaModel.fk_veiculo_id.ToString();
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            IrParaFinalizar();
+        }
+        public void IrParaFinalizar() {
+            if (lblSubitotal.Text != "0")
+            {
+                FmrFinalizar_venda destino = new FmrFinalizar_venda(this, this);
+                destino.Show();
+            }
+
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
+            SalvarPdf();
+        }
+
+        private void txt_desconto_pro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+        }
+
+        private void txtPrU_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+        }
+
+        private void txtDescServ_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+        }
+
+        private void txtdesc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+        }
+
+        private void btn_buscarVeiculo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+        }
+
+        private void btn_BuscarCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+        }
+
+        private void btnPesquisarProduto_Click(object sender, EventArgs e)
+        {
+            PesquisarProduto();
+        }
+        public void PesquisarProduto() {
+            try
+            {
+                FmrListProdutos fmrLP = new FmrListProdutos(this);
+                fmrLP.Show();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(" " + erro.Message);
+            }
+        }
+
+        private void dgProdutos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+            if (e.KeyData == Keys.Delete) {
+                
+                Excluir_Produto();
+
+            }
+        }
+
+        public void SalvarPdf() {
             try
             {
                 string html = getHtml(dgProdutos, dgServicos);
@@ -392,6 +584,24 @@ namespace TomMotos.view
             }
         }
 
+        private void dgServicos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F2)
+            {
+                PesquisarProduto();
+            }
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+            if (e.KeyData == Keys.Delete)
+            {
+
+                Excluir_Produto();
+
+            }
+        }
+
         private void criarPDF(string html, string nomePDF)
         {
             string caminhoPDF = "E:/" + nomePDF;
@@ -400,36 +610,70 @@ namespace TomMotos.view
             htmlToPdf.GeneratePdf(conteudoHTML, null, caminhoPDF);
         }
 
-
-        private void BtnExcluir_item_Click(object sender, EventArgs e)
-        {
+        public void Excluir_Produto() {
             int subitotal = int.Parse(lblSubitotal.Text);
             if (dgProdutos.SelectedCells.Count > 0)
-             {
-                 try
-                 {
-                    int rowProduto = dgProdutos.CurrentCell.RowIndex;
-                    int rowPreco = int.Parse(dgProdutos.CurrentRow.Cells[5].Value.ToString());
-                    subitotal = int.Parse(lblSubitotal.Text) - rowPreco;
-                    dgProdutos.Rows.RemoveAt(rowProduto);
-                    lblSubitotal.Text = subitotal.ToString();
-                    dgProdutos.ClearSelection();
-                 }
-                 catch (Exception erro) { }
-             }
-             else
-             {
-                 try
-                 {
-                    int rowProduto = dgServicos.CurrentCell.RowIndex;
-                    int rowPreco = int.Parse(dgServicos.CurrentRow.Cells[2].Value.ToString());
-                    subitotal = int.Parse(lblSubitotal.Text) - rowPreco;
-                    dgServicos.Rows.RemoveAt(rowProduto);
-                    lblSubitotal.Text = subitotal.ToString();
-                    dgServicos.ClearSelection();
+            {
+                if (dgProdutos.CurrentRow.Cells[5].Value != null)
+                {
+                    try
+                    {
+                        var result = MessageBox.Show("Deseja deletar o Item "+ dgProdutos.CurrentRow.Cells[0].Value.ToString()+"?", "Deletar",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Information);
+                        if (result == DialogResult.Yes)
+                        {
+                            int rowProduto = dgProdutos.CurrentCell.RowIndex;
+                            int rowPreco = int.Parse(dgProdutos.CurrentRow.Cells[5].Value.ToString());
+                            subitotal = int.Parse(lblSubitotal.Text) - rowPreco;
+                            dgProdutos.Rows.RemoveAt(rowProduto);
+                            lblSubitotal.Text = subitotal.ToString();
+                            dgProdutos.ClearSelection();
+                        }
+                      
+                        
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("" + erro.Message);
+                    }
                 }
-                 catch (Exception erro) { }
-             }
+            }            
+
+        }
+        public void Excluir_Servico()
+        {
+            int subitotal = int.Parse(lblSubitotal.Text);
+            if (dgServicos.SelectedCells.Count > 0)
+            {
+                if (dgServicos.CurrentRow.Cells[5].Value != null)
+                {
+                    try
+                    {
+                        var result = MessageBox.Show("Deseja deletar o serviço " + dgServicos.CurrentRow.Cells[0].Value.ToString() + "?", "Deletar",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Information);
+                        if (result == DialogResult.Yes)
+                        {
+                            int rowProduto = dgServicos.CurrentCell.RowIndex;
+                            int rowPreco = int.Parse(dgServicos.CurrentRow.Cells[2].Value.ToString());
+                            subitotal = int.Parse(lblSubitotal.Text) - rowPreco;
+                            dgServicos.Rows.RemoveAt(rowProduto);
+                            lblSubitotal.Text = subitotal.ToString();
+                            dgServicos.ClearSelection();
+                        }
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("" + erro.Message);
+                    }
+                }
+            }
+           
+
+        }
+        private void BtnExcluir_item_Click(object sender, EventArgs e)
+        {
         }
     }
 }

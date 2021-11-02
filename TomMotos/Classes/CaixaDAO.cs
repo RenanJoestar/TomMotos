@@ -29,8 +29,8 @@ namespace TomMotos.Classes
                 executacmdsql.Parameters.AddWithValue("@preco_mao_de_obra", obj.preco_mao_de_obra);
                 executacmdsql.Parameters.AddWithValue("@desconto_venda", obj.desconto);
                 executacmdsql.Parameters.AddWithValue("@total_venda", obj.total);
-                executacmdsql.Parameters.AddWithValue("@fk_veiculo_id", obj.fk_veiculo_id);
-                executacmdsql.Parameters.AddWithValue("@fk_cliente_id", obj.fk_cliente_id);
+                executacmdsql.Parameters.AddWithValue("@fk_veiculo_id", CaixaModel.fk_veiculo_id);
+                executacmdsql.Parameters.AddWithValue("@fk_cliente_id", CaixaModel.fk_cliente_id);
 
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
@@ -49,14 +49,14 @@ namespace TomMotos.Classes
 
         #region METODO MUDAR STATUS DA VENDA
 
-        public void mudarStatusVenda(CaixaModel objVenda, bool status)
+        public void mudarStatusVenda(string objVenda, bool status)
         {
             try
             {
                 string update = @"CALL mudarStatusVenda(@id_venda, " + status + ");";
 
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
-                executacmdsql.Parameters.AddWithValue("@id_venda", objVenda.id_venda);
+                executacmdsql.Parameters.AddWithValue("@id_venda", objVenda);
 
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
@@ -104,5 +104,53 @@ namespace TomMotos.Classes
         {
         }
         #endregion
+
+        #region LISTAR TODOS VEICULOS
+        public DataTable ListarTodosVeiculo()
+        {
+
+            string sql = @"select * from tb_veiculo";
+
+            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
+
+            conexao.Open();
+            executacmdsql.ExecuteNonQuery();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataTable tabelaVeiculo = new DataTable();
+            da.Fill(tabelaVeiculo);
+
+            conexao.Close();
+
+            return tabelaVeiculo;
+        }
+        #endregion
+
+        #region LISTAR TODOS CLIENTES
+        public DataTable ListarTodosCliente()
+        {
+
+            string sql = @"select * from tb_cliente";
+
+            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
+
+            conexao.Open();
+            executacmdsql.ExecuteNonQuery();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataTable tabelaCliente = new DataTable();
+            da.Fill(tabelaCliente);
+
+            conexao.Close();
+
+            return tabelaCliente;            
+        }
+        #endregion
+
+
+
+
     }
 }
