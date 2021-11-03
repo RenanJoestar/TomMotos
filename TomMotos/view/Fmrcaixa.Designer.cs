@@ -33,7 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdProduto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtqtd = new System.Windows.Forms.TextBox();
@@ -41,15 +40,18 @@
             this.txtPrU = new System.Windows.Forms.TextBox();
             this.txtPt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.txtDescServ = new System.Windows.Forms.RichTextBox();
             this.txt_pmo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPesquisarProduto = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txt_desconto_pro = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ptb_imagem = new System.Windows.Forms.PictureBox();
             this.btnFinalizaVenda = new System.Windows.Forms.Button();
             this.dgProdutos = new System.Windows.Forms.DataGridView();
             this.ch_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,20 +78,20 @@
             this.lblSubitotal = new System.Windows.Forms.Label();
             this.btn_BuscarCliente = new System.Windows.Forms.Button();
             this.btn_buscarVeiculo = new System.Windows.Forms.Button();
-            this.ptb_imagem = new System.Windows.Forms.PictureBox();
-            this.btnPesquisarProduto = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgServicos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -117,6 +119,7 @@
             this.txtIdProduto.Size = new System.Drawing.Size(243, 20);
             this.txtIdProduto.TabIndex = 4;
             this.txtIdProduto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdProduto_KeyDown);
+            this.txtIdProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdProduto_KeyPress);
             // 
             // label3
             // 
@@ -126,15 +129,6 @@
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "QUANTIDADE";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(997, 467);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "DESCONTO";
             // 
             // label5
             // 
@@ -162,14 +156,17 @@
             this.txtqtd.TabIndex = 10;
             this.txtqtd.Text = "1";
             this.txtqtd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtqtd_KeyDown);
+            this.txtqtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtqtd_KeyPress);
+            this.txtqtd.Leave += new System.EventHandler(this.txtqtd_Leave);
             // 
             // txtdesc
             // 
-            this.txtdesc.Location = new System.Drawing.Point(1070, 464);
+            this.txtdesc.Location = new System.Drawing.Point(1066, 464);
             this.txtdesc.Name = "txtdesc";
             this.txtdesc.Size = new System.Drawing.Size(102, 20);
             this.txtdesc.TabIndex = 11;
             this.txtdesc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtdesc_KeyDown);
+            this.txtdesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdesc_KeyPress);
             // 
             // txtPrU
             // 
@@ -188,6 +185,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.txtDescServ);
             this.groupBox1.Controls.Add(this.txt_pmo);
             this.groupBox1.Controls.Add(this.label8);
@@ -198,6 +196,16 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Serviço";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Location = new System.Drawing.Point(2, 158);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(19, 13);
+            this.label21.TabIndex = 50;
+            this.label21.Text = "F6";
             // 
             // txtDescServ
             // 
@@ -215,6 +223,7 @@
             this.txt_pmo.Size = new System.Drawing.Size(254, 20);
             this.txt_pmo.TabIndex = 13;
             this.txt_pmo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_pmo_KeyDown);
+            this.txt_pmo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_pmo_KeyPress);
             // 
             // label8
             // 
@@ -255,6 +264,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produto";
             // 
+            // btnPesquisarProduto
+            // 
+            this.btnPesquisarProduto.BackColor = System.Drawing.Color.Transparent;
+            this.btnPesquisarProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesquisarProduto.BackgroundImage")));
+            this.btnPesquisarProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarProduto.Location = new System.Drawing.Point(284, 29);
+            this.btnPesquisarProduto.Name = "btnPesquisarProduto";
+            this.btnPesquisarProduto.Size = new System.Drawing.Size(41, 24);
+            this.btnPesquisarProduto.TabIndex = 44;
+            this.btnPesquisarProduto.UseVisualStyleBackColor = false;
+            this.btnPesquisarProduto.Click += new System.EventHandler(this.btnPesquisarProduto_Click);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -271,15 +292,17 @@
             this.txt_desconto_pro.Size = new System.Drawing.Size(243, 20);
             this.txt_desconto_pro.TabIndex = 22;
             this.txt_desconto_pro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_desconto_pro_KeyDown);
+            this.txt_desconto_pro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_desconto_pro_KeyPress);
+            this.txt_desconto_pro.Leave += new System.EventHandler(this.txt_desconto_pro_Leave);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(32, 94);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 13);
+            this.label9.Size = new System.Drawing.Size(84, 13);
             this.label9.TabIndex = 21;
-            this.label9.Text = "DESCONTO";
+            this.label9.Text = "DESCONTO (%)";
             // 
             // groupBox3
             // 
@@ -290,6 +313,16 @@
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "IMAGEM";
+            // 
+            // ptb_imagem
+            // 
+            this.ptb_imagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptb_imagem.Location = new System.Drawing.Point(8, 18);
+            this.ptb_imagem.Name = "ptb_imagem";
+            this.ptb_imagem.Size = new System.Drawing.Size(202, 173);
+            this.ptb_imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_imagem.TabIndex = 5;
+            this.ptb_imagem.TabStop = false;
             // 
             // btnFinalizaVenda
             // 
@@ -395,6 +428,7 @@
             this.btndesconto.Text = "CALCULAR";
             this.btndesconto.UseVisualStyleBackColor = true;
             this.btndesconto.Click += new System.EventHandler(this.button1_Click_1);
+            this.btndesconto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btndesconto_KeyDown);
             // 
             // btnCancelDesc
             // 
@@ -405,6 +439,7 @@
             this.btnCancelDesc.Text = "CANCELAR";
             this.btnCancelDesc.UseVisualStyleBackColor = true;
             this.btnCancelDesc.Click += new System.EventHandler(this.button2_Click);
+            this.btnCancelDesc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancelDesc_KeyDown);
             // 
             // label10
             // 
@@ -512,28 +547,6 @@
             this.btn_buscarVeiculo.Click += new System.EventHandler(this.btn_buscarVeiculo_Click);
             this.btn_buscarVeiculo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_buscarVeiculo_KeyDown);
             // 
-            // ptb_imagem
-            // 
-            this.ptb_imagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptb_imagem.Location = new System.Drawing.Point(8, 18);
-            this.ptb_imagem.Name = "ptb_imagem";
-            this.ptb_imagem.Size = new System.Drawing.Size(202, 173);
-            this.ptb_imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_imagem.TabIndex = 5;
-            this.ptb_imagem.TabStop = false;
-            // 
-            // btnPesquisarProduto
-            // 
-            this.btnPesquisarProduto.BackColor = System.Drawing.Color.Transparent;
-            this.btnPesquisarProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesquisarProduto.BackgroundImage")));
-            this.btnPesquisarProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarProduto.Location = new System.Drawing.Point(284, 29);
-            this.btnPesquisarProduto.Name = "btnPesquisarProduto";
-            this.btnPesquisarProduto.Size = new System.Drawing.Size(41, 24);
-            this.btnPesquisarProduto.TabIndex = 44;
-            this.btnPesquisarProduto.UseVisualStyleBackColor = false;
-            this.btnPesquisarProduto.Click += new System.EventHandler(this.btnPesquisarProduto_Click);
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -592,11 +605,32 @@
             this.label20.TabIndex = 49;
             this.label20.Text = "CTRL+C: PESQUISAR CLIENTE";
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Location = new System.Drawing.Point(1067, 596);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(101, 13);
+            this.label22.TabIndex = 50;
+            this.label22.Text = "CTRL+S: SERVIÇO";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(980, 467);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 13);
+            this.label4.TabIndex = 51;
+            this.label4.Text = "DESCONTO (%)";
+            // 
             // Fmrcaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1547, 635);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
@@ -619,7 +653,6 @@
             this.Controls.Add(this.dgServicos);
             this.Controls.Add(this.dgProdutos);
             this.Controls.Add(this.btnFinalizaVenda);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.txtdesc);
             this.Controls.Add(this.groupBox2);
@@ -636,9 +669,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgServicos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -649,7 +682,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox ptb_imagem;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtqtd;
@@ -700,5 +732,8 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -94,7 +94,7 @@ namespace TomMotos.view
 
                 }
             }
-            catch (Exception) { }
+            catch (Exception) { } 
 
             vendaDAO.mudarStatusVenda(idVenda, true);
         }
@@ -261,7 +261,6 @@ namespace TomMotos.view
 
         private void txtIdProduto_KeyDown(object sender, KeyEventArgs e)
         {
-            
             if (e.KeyData == Keys.F2) {
                 PesquisarProduto();
             }
@@ -499,6 +498,10 @@ namespace TomMotos.view
             {
                 IrParaFinalizar();
             }
+            if (e.KeyData == Keys.F6)
+            {
+                txt_pmo.Focus();
+            }
         }
 
         private void txtdesc_KeyDown(object sender, KeyEventArgs e)
@@ -604,10 +607,89 @@ namespace TomMotos.view
 
         private void criarPDF(string html, string nomePDF)
         {
-            string caminhoPDF = "E:/" + nomePDF;
+            string caminhoPDF = "D:/" + nomePDF;
             var conteudoHTML = String.Format(html, DateTime.Now);
             var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
             htmlToPdf.GeneratePdf(conteudoHTML, null, caminhoPDF);
+        }
+
+        private void btndesconto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+        }
+
+        private void btnCancelDesc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F5)
+            {
+                IrParaFinalizar();
+            }
+        }
+
+        private void txtqtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Se a tecla digitada não for número e nem backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void txtIdProduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Se a tecla digitada não for número e nem backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void txt_desconto_pro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Se a tecla digitada não for número e nem backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void txtqtd_Leave(object sender, EventArgs e)
+        {
+            if (txtqtd.Text == "") txtqtd.Text ="1";
+        }
+
+        private void txt_pmo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Se a tecla digitada não for número e nem backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void txtdesc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Se a tecla digitada não for número e nem backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void txt_desconto_pro_Leave(object sender, EventArgs e)
+        {
+            if (int.Parse(txt_desconto_pro.Text) > 100 || int.Parse(txt_desconto_pro.Text) < 0) {
+                MessageBox.Show("DESCONTO INVÁLIDO");
+                txt_desconto_pro.Text = "";
+            }
         }
 
         public void Excluir_Produto() {
