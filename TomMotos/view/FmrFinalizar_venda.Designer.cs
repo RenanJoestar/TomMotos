@@ -38,16 +38,16 @@ namespace TomMotos.view
             this.txt_credito = new System.Windows.Forms.TextBox();
             this.txtPix = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtFaltaPagar = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.txtTroco = new System.Windows.Forms.TextBox();
-            this.txtValorPago = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtTroco = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtValorPago = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtFaltaPagar = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnOk = new System.Windows.Forms.Button();
             this.cbxEmails = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -143,6 +143,23 @@ namespace TomMotos.view
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Troco";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "R$";
+            // 
+            // txtTroco
+            // 
+            this.txtTroco.Enabled = false;
+            this.txtTroco.Location = new System.Drawing.Point(36, 39);
+            this.txtTroco.Name = "txtTroco";
+            this.txtTroco.Size = new System.Drawing.Size(93, 20);
+            this.txtTroco.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label7);
@@ -153,6 +170,23 @@ namespace TomMotos.view
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Valor Pago";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 42);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "R$";
+            // 
+            // txtValorPago
+            // 
+            this.txtValorPago.Enabled = false;
+            this.txtValorPago.Location = new System.Drawing.Point(39, 39);
+            this.txtValorPago.Name = "txtValorPago";
+            this.txtValorPago.Size = new System.Drawing.Size(100, 20);
+            this.txtValorPago.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -165,6 +199,23 @@ namespace TomMotos.view
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Falta Pag:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 40);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(21, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "R$";
+            // 
+            // txtFaltaPagar
+            // 
+            this.txtFaltaPagar.Enabled = false;
+            this.txtFaltaPagar.Location = new System.Drawing.Point(36, 37);
+            this.txtFaltaPagar.Name = "txtFaltaPagar";
+            this.txtFaltaPagar.Size = new System.Drawing.Size(93, 20);
+            this.txtFaltaPagar.TabIndex = 0;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnOk);
@@ -175,23 +226,6 @@ namespace TomMotos.view
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Fechamento";
             // 
-            // txtFaltaPagar
-            // 
-            this.txtFaltaPagar.Enabled = false;
-            this.txtFaltaPagar.Location = new System.Drawing.Point(36, 37);
-            this.txtFaltaPagar.Name = "txtFaltaPagar";
-            this.txtFaltaPagar.Size = new System.Drawing.Size(93, 20);
-            this.txtFaltaPagar.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 40);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(21, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "R$";
-            // 
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(39, 37);
@@ -201,40 +235,6 @@ namespace TomMotos.view
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // txtTroco
-            // 
-            this.txtTroco.Enabled = false;
-            this.txtTroco.Location = new System.Drawing.Point(36, 39);
-            this.txtTroco.Name = "txtTroco";
-            this.txtTroco.Size = new System.Drawing.Size(93, 20);
-            this.txtTroco.TabIndex = 0;
-            // 
-            // txtValorPago
-            // 
-            this.txtValorPago.Enabled = false;
-            this.txtValorPago.Location = new System.Drawing.Point(39, 39);
-            this.txtValorPago.Name = "txtValorPago";
-            this.txtValorPago.Size = new System.Drawing.Size(100, 20);
-            this.txtValorPago.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 42);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "R$";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 42);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "R$";
             // 
             // cbxEmails
             // 

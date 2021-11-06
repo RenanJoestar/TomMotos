@@ -34,7 +34,6 @@ namespace TomMotos.Classes
 
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
-                MessageBox.Show("Cadastrado com sucesso!");
                 conexao.Close();
             }
             catch (Exception erro)

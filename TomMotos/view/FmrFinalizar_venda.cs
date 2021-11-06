@@ -15,16 +15,16 @@ namespace TomMotos.view
 {
     public partial class FmrFinalizar_venda : Form
     {
+        public static Form globalForm;
         MySqlConnection conexao = ConnectionFactory.getConnection();
         Fmrcaixa fp;
         Fmrcaixa fz;
-        
+
         public FmrFinalizar_venda(Fmrcaixa f, Fmrcaixa ff)
         {
             InitializeComponent();
             fp = f;
             fz = ff;
-            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -78,7 +78,6 @@ namespace TomMotos.view
         public void EnviarEmail()
         {
             fz.EnviarEmail();
-
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -86,45 +85,43 @@ namespace TomMotos.view
             CaixaModel.emailCliente = cbxEmails.Text;
             try
             {
-                if (txtTroco.Text != "")
+                if (txtTroco.Text == "")
                 {
-                    if (cbxEmails.Text == "")
+                    MessageBox.Show("Verifique o valor Pago ", "Aviso",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Exclamation);
+                    return;
+                }
+                
+                if (cbxEmails.Text == "")
+                {
+                    var result = MessageBox.Show("Deseja enviar Comprovante no email? ", "Comprovante",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
                     {
-                        var result = MessageBox.Show("Deseja enviar Comprovante no email? ", "Comprovante",
-                                                    MessageBoxButtons.YesNo,
-                                                    MessageBoxIcon.Information);
-                        if (result == DialogResult.Yes)
-                        {
-                            MessageBox.Show("Escolha o Email que deseja enviar!");
-                        }
-                        else if (result == DialogResult.No)
-                        {
-                            fz.FinalizarVenda();
-                            fz.SalvarPdf();
-                            this.Close();
-                        }
+                        MessageBox.Show("Escolha o Email que deseja enviar!");
+                        return;
                     }
                     else
                     {
                         fz.FinalizarVenda();
                         fz.SalvarPdf();
-                        fz.EnviarEmail();
-                        this.Close();
                     }
                 }
-
                 else
                 {
-                    MessageBox.Show("Verifique o valor Pago ", "Aviso",
-                                                MessageBoxButtons.OK,
-                                                MessageBoxIcon.Exclamation);
+                    fz.FinalizarVenda();
+                    fz.SalvarPdf();
+                    fz.EnviarEmail();
                 }
+                MessageBox.Show("Foi");
+                CaixaModel.vendaFinalizada = true;
+                this.Close();
             }
             catch (Exception erro) {
                 MessageBox.Show("Erro "+erro.Message);
             }
-
-            
         }
 
         private void txtDinheiro_KeyDown(object sender, KeyEventArgs e)

@@ -76,7 +76,6 @@ namespace TomMotos
 
         private void Fmrsumario_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
             Application.Exit();
         }
 
@@ -89,7 +88,6 @@ namespace TomMotos
         {
             Fmrcaixa fmrcx = new Fmrcaixa();
             fmrcx.Show();
-            this.Hide();
         }
     }
 }

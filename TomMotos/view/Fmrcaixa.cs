@@ -10,6 +10,7 @@ using TomMotos.Classes;
 using TomMotos.Model;
 using System.Net.Mail;
 using System.Net;
+using System.ComponentModel;
 
 namespace TomMotos.view
 {
@@ -19,7 +20,7 @@ namespace TomMotos.view
         string[] SERVICO = new string[4];
         string[] item = new string[7];
         List<string> nota = new List<string>();
-        string id_produto, nome_produto,id_venda;
+        string id_produto, nome_produto, id_venda;
         int itens = 0, servicos = 0;
         CaixaDAO vendaDAO = new CaixaDAO();
         ProdutoUsadoDAO produtoDAO = new ProdutoUsadoDAO();
@@ -29,17 +30,11 @@ namespace TomMotos.view
         public Fmrcaixa()
         {
             InitializeComponent();           
-            
         }
         
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-        private void Fmrcaixa_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Fmrsumario fmrsumario = new Fmrsumario();
-            fmrsumario.Show();
         }
         private void Fmrcaixa_Load(object sender, EventArgs e)
         {
@@ -48,10 +43,19 @@ namespace TomMotos.view
             dgProdutos.Columns[2].Width=200;
             dgServicos.Columns[1].Width = 243;
         }
+        private void FmrFinalizar_venda_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (CaixaModel.vendaFinalizada == true)
+            {
+                CaixaModel.vendaFinalizada = false; 
+                this.Controls.Clear(); 
+                this.InitializeComponent();
+            }
+        }
 
         private void btnFinalizaVenda_Click(object sender, EventArgs e)
         {
-            FinalizarVenda(); 
+            IrParaFinalizar();
         }
         public void FinalizarVenda() {
             string descricao = "", idVenda = "";
@@ -91,7 +95,6 @@ namespace TomMotos.view
                     objProduto.validade_da_garantia_produto = DateTime.Now;
 
                     produtoDAO.cadastrar(objProduto);
-
                 }
             }
             catch (Exception) { } 
@@ -203,7 +206,7 @@ namespace TomMotos.view
             try
             {
                 string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = CaixaModel.emailCliente;
-                MailMessage message = new MailMessage();                
+                MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 message.From = new MailAddress(emailRementente); // EMAIL REMETENTE
                 message.To.Add(new MailAddress(emailDestinatario)); // EMAIL DESTINATARIO
@@ -454,9 +457,9 @@ namespace TomMotos.view
             if (lblSubitotal.Text != "0")
             {
                 FmrFinalizar_venda destino = new FmrFinalizar_venda(this, this);
+                destino.FormClosed += new FormClosedEventHandler(FmrFinalizar_venda_FormClosed);
                 destino.Show();
             }
-
         }
 
         private void button3_Click(object sender, EventArgs e)

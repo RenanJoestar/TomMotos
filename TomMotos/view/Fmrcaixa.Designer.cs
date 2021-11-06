@@ -659,7 +659,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "Fmrcaixa";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrcaixa_FormClosed);
             this.Load += new System.EventHandler(this.Fmrcaixa_Load);
             this.Shown += new System.EventHandler(this.Fmrcaixa_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Fmrcaixa_KeyDown);

@@ -18,5 +18,6 @@ namespace TomMotos.Model
         public static string emailCliente { get; set; }
         public static string fk_cliente_id { get; set; }
         public static string valorPesquisa { get; set; }
+        public static bool vendaFinalizada { get; set; }
     }
 }

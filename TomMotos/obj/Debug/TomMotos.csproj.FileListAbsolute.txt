@@ -168,3 +168,5 @@ C:\Users\Lab2-01\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.GenerateRes
 C:\Users\Lab2-01\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CopyComplete
 C:\Users\Lab2-01\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 C:\Users\Lab2-01\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
+E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrListProdutos.resources
+E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrVeiculo_Cliente.resources
