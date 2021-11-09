@@ -163,24 +163,28 @@ namespace TomMotos.view
             // 
             // button6
             // 
-            this.button6.ForeColor = System.Drawing.Color.Black;
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Location = new System.Drawing.Point(228, 285);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(105, 40);
             this.button6.TabIndex = 26;
             this.button6.Text = "ENDERECO";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
-            this.button5.ForeColor = System.Drawing.Color.Black;
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.Location = new System.Drawing.Point(117, 285);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(105, 40);
             this.button5.TabIndex = 22;
             this.button5.Text = "EMAIL";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label3
@@ -197,13 +201,15 @@ namespace TomMotos.view
             // 
             // button4
             // 
-            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Location = new System.Drawing.Point(6, 285);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(105, 40);
             this.button4.TabIndex = 21;
             this.button4.Text = "TELEFONE";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label6
@@ -265,32 +271,41 @@ namespace TomMotos.view
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(396, 445);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(398, 446);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(188, 44);
             this.button1.TabIndex = 18;
             this.button1.Text = "CADASTRAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(590, 445);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(592, 446);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(223, 44);
             this.button2.TabIndex = 19;
             this.button2.Text = "ALTERAR";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(829, 445);
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(831, 446);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(208, 44);
             this.button3.TabIndex = 20;
             this.button3.Text = "EXCLUIR";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dg_cliente
@@ -305,13 +320,15 @@ namespace TomMotos.view
             // 
             // txtFiltrar
             // 
+            this.txtFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltrar.Location = new System.Drawing.Point(519, 137);
             this.txtFiltrar.Name = "txtFiltrar";
-            this.txtFiltrar.Size = new System.Drawing.Size(385, 20);
+            this.txtFiltrar.Size = new System.Drawing.Size(479, 26);
             this.txtFiltrar.TabIndex = 22;
             // 
             // cbxFiltrar
             // 
+            this.cbxFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxFiltrar.FormattingEnabled = true;
             this.cbxFiltrar.Items.AddRange(new object[] {
             "ID",
@@ -321,25 +338,26 @@ namespace TomMotos.view
             "CNPJ"});
             this.cbxFiltrar.Location = new System.Drawing.Point(396, 137);
             this.cbxFiltrar.Name = "cbxFiltrar";
-            this.cbxFiltrar.Size = new System.Drawing.Size(117, 21);
+            this.cbxFiltrar.Size = new System.Drawing.Size(117, 26);
             this.cbxFiltrar.TabIndex = 23;
             // 
             // BtnFiltro
             // 
-            this.BtnFiltro.Location = new System.Drawing.Point(922, 134);
+            this.BtnFiltro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFiltro.BackgroundImage")));
+            this.BtnFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnFiltro.Location = new System.Drawing.Point(1004, 137);
             this.BtnFiltro.Name = "BtnFiltro";
-            this.BtnFiltro.Size = new System.Drawing.Size(115, 23);
+            this.BtnFiltro.Size = new System.Drawing.Size(33, 26);
             this.BtnFiltro.TabIndex = 24;
-            this.BtnFiltro.Text = "Buscar";
             this.BtnFiltro.UseVisualStyleBackColor = true;
             this.BtnFiltro.Click += new System.EventHandler(this.BtnFiltro_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1228, 112);
             this.panel1.TabIndex = 25;
