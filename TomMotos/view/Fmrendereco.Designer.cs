@@ -39,7 +39,6 @@ namespace TomMotos.view
             this.txt_cidade = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_endereco = new System.Windows.Forms.TextBox();
-            this.txt_cep = new System.Windows.Forms.TextBox();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@ namespace TomMotos.view
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txt_cep = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEndereco)).BeginInit();
             this.panel1.SuspendLayout();
@@ -61,6 +61,7 @@ namespace TomMotos.view
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_cep);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -69,7 +70,6 @@ namespace TomMotos.view
             this.groupBox1.Controls.Add(this.txt_cidade);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txt_endereco);
-            this.groupBox1.Controls.Add(this.txt_cep);
             this.groupBox1.Controls.Add(this.txt_id);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
@@ -144,13 +144,6 @@ namespace TomMotos.view
             this.txt_endereco.Size = new System.Drawing.Size(170, 20);
             this.txt_endereco.TabIndex = 7;
             this.txt_endereco.MouseUp += new System.Windows.Forms.MouseEventHandler(this.txt_endereco_MouseUp);
-            // 
-            // txt_cep
-            // 
-            this.txt_cep.Location = new System.Drawing.Point(70, 78);
-            this.txt_cep.Name = "txt_cep";
-            this.txt_cep.Size = new System.Drawing.Size(170, 20);
-            this.txt_cep.TabIndex = 4;
             // 
             // txt_id
             // 
@@ -279,6 +272,14 @@ namespace TomMotos.view
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // txt_cep
+            // 
+            this.txt_cep.Location = new System.Drawing.Point(70, 78);
+            this.txt_cep.Mask = "00000-000";
+            this.txt_cep.Name = "txt_cep";
+            this.txt_cep.Size = new System.Drawing.Size(55, 20);
+            this.txt_cep.TabIndex = 21;
+            // 
             // Fmrendereco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,7 +312,6 @@ namespace TomMotos.view
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txt_cep;
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -333,5 +333,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.MaskedTextBox txt_cep;
     }
 }

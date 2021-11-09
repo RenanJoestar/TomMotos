@@ -38,7 +38,6 @@ namespace TomMotos.view
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.txt_cnpj = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dg_fornecedor = new System.Windows.Forms.DataGridView();
             this.btnCadastrar = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@ namespace TomMotos.view
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.txt_cnpj = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_fornecedor)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +56,7 @@ namespace TomMotos.view
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(67, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(22, 15);
@@ -65,11 +65,11 @@ namespace TomMotos.view
             // 
             // txt_id
             // 
-            this.txt_id.BackColor = System.Drawing.Color.DarkOrange;
+            this.txt_id.BackColor = System.Drawing.Color.White;
             this.txt_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_id.Enabled = false;
             this.txt_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_id.ForeColor = System.Drawing.Color.White;
+            this.txt_id.ForeColor = System.Drawing.Color.Black;
             this.txt_id.Location = new System.Drawing.Point(95, 37);
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(46, 21);
@@ -77,10 +77,10 @@ namespace TomMotos.view
             // 
             // txt_nome
             // 
-            this.txt_nome.BackColor = System.Drawing.Color.DarkOrange;
+            this.txt_nome.BackColor = System.Drawing.Color.White;
             this.txt_nome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_nome.ForeColor = System.Drawing.Color.White;
+            this.txt_nome.ForeColor = System.Drawing.Color.Black;
             this.txt_nome.Location = new System.Drawing.Point(95, 84);
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(133, 21);
@@ -91,7 +91,7 @@ namespace TomMotos.view
             this.label2.AutoSize = true;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(42, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 15);
@@ -100,11 +100,11 @@ namespace TomMotos.view
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_cnpj);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.txt_cnpj);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txt_id);
             this.groupBox1.Controls.Add(this.txt_nome);
@@ -120,6 +120,7 @@ namespace TomMotos.view
             // 
             // button6
             // 
+            this.button6.ForeColor = System.Drawing.Color.Black;
             this.button6.Location = new System.Drawing.Point(184, 192);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(85, 53);
@@ -130,6 +131,7 @@ namespace TomMotos.view
             // 
             // button5
             // 
+            this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(95, 192);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 54);
@@ -143,7 +145,7 @@ namespace TomMotos.view
             this.label3.AutoSize = true;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(48, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 15);
@@ -152,6 +154,7 @@ namespace TomMotos.view
             // 
             // button4
             // 
+            this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Location = new System.Drawing.Point(6, 193);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(83, 53);
@@ -159,13 +162,6 @@ namespace TomMotos.view
             this.button4.Text = "TELEFONE";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // txt_cnpj
-            // 
-            this.txt_cnpj.Location = new System.Drawing.Point(95, 124);
-            this.txt_cnpj.Name = "txt_cnpj";
-            this.txt_cnpj.Size = new System.Drawing.Size(133, 21);
-            this.txt_cnpj.TabIndex = 24;
             // 
             // label7
             // 
@@ -247,6 +243,16 @@ namespace TomMotos.view
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // txt_cnpj
+            // 
+            this.txt_cnpj.BackColor = System.Drawing.Color.White;
+            this.txt_cnpj.ForeColor = System.Drawing.Color.Black;
+            this.txt_cnpj.Location = new System.Drawing.Point(95, 123);
+            this.txt_cnpj.Mask = "00.000.000/0000-00";
+            this.txt_cnpj.Name = "txt_cnpj";
+            this.txt_cnpj.Size = new System.Drawing.Size(100, 21);
+            this.txt_cnpj.TabIndex = 30;
+            // 
             // Fmrfornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,7 +290,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox txt_cnpj;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dg_fornecedor;
         private System.Windows.Forms.Button btnCadastrar;
@@ -293,5 +298,6 @@ namespace TomMotos.view
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.ComboBox cbxBuscar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.MaskedTextBox txt_cnpj;
     }
 }

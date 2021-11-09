@@ -76,7 +76,6 @@ C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\bin\Debug\Zstandard.Ne
 C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\bin\Debug\Renci.SshNet.dll
 C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\bin\Debug\MySql.Data.xml
 C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.csprojAssemblyReference.cache
-C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.exe.config
 C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.Properties.Resources.resources
 C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.Fmrcargo.resources
 C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.Fmrcliente.resources
@@ -170,3 +169,9 @@ C:\Users\Lab2-01\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 C:\Users\Lab2-01\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrListProdutos.resources
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrVeiculo_Cliente.resources
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\bin\Debug\NReco.PdfGenerator.dll
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\bin\Debug\NReco.PdfGenerator.xml
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.Fmrcaixa.resources
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_venda.resources
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrListProdutos.resources
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrVeiculo_Cliente.resources

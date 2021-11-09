@@ -382,7 +382,7 @@ namespace TomMotos.view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1187, 615);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
@@ -393,6 +393,7 @@ namespace TomMotos.view
             this.Controls.Add(this.dg_veiculo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox2);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "Fmrveiculo";
             this.Text = "Fmrveiculo";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrveiculo_FormClosed);

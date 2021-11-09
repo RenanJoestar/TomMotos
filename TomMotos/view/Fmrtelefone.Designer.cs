@@ -32,7 +32,6 @@ namespace TomMotos.view
             this.txt_id = new System.Windows.Forms.TextBox();
             this.dgTelefone = new System.Windows.Forms.DataGridView();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.txt_telefone = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@ namespace TomMotos.view
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.txt_telefone = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgTelefone)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -72,13 +72,6 @@ namespace TomMotos.view
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
-            // 
-            // txt_telefone
-            // 
-            this.txt_telefone.Location = new System.Drawing.Point(70, 78);
-            this.txt_telefone.Name = "txt_telefone";
-            this.txt_telefone.Size = new System.Drawing.Size(170, 20);
-            this.txt_telefone.TabIndex = 4;
             // 
             // label1
             // 
@@ -165,10 +158,19 @@ namespace TomMotos.view
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // txt_telefone
+            // 
+            this.txt_telefone.Location = new System.Drawing.Point(70, 78);
+            this.txt_telefone.Mask = "(00) 00000-0000 ";
+            this.txt_telefone.Name = "txt_telefone";
+            this.txt_telefone.Size = new System.Drawing.Size(149, 20);
+            this.txt_telefone.TabIndex = 14;
+            // 
             // Fmrtelefone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
@@ -197,7 +199,6 @@ namespace TomMotos.view
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.DataGridView dgTelefone;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.TextBox txt_telefone;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
@@ -207,5 +208,6 @@ namespace TomMotos.view
         private System.Windows.Forms.ComboBox cbxBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.MaskedTextBox txt_telefone;
     }
 }
