@@ -15,9 +15,9 @@ namespace TomMotos.Classes
     {
         MySqlConnection conexao = ConnectionFactory.getConnection();
 
-        #region METODO CADASTRAR
+        #region METODO CADASTRAR VENDA
 
-        public void cadastrar(CaixaModel obj)
+        public void cadastrarVenda(CaixaModel obj)
         {
             try
             {
@@ -31,6 +31,38 @@ namespace TomMotos.Classes
                 executacmdsql.Parameters.AddWithValue("@total_venda", obj.total);
                 executacmdsql.Parameters.AddWithValue("@fk_veiculo_id", CaixaModel.fk_veiculo_id);
                 executacmdsql.Parameters.AddWithValue("@fk_cliente_id", CaixaModel.fk_cliente_id);
+
+                conexao.Open();
+                executacmdsql.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Cadastrado não Realizado!");
+            }
+        }
+
+
+        #endregion
+
+        #region METODO CADASTRAR ORÇAMENTO
+
+        public void cadastrarOrcamento(CaixaModel obj)
+        {
+            try
+            {
+                string insert = @"CALL criacaoOrcamento(@descricao, @validade_orcamento_servico, @preco_mao_de_obra,@desconto_venda,@total_venda, @fk_veiculo_id, @fk_cliente_id, @e_orcamento)";
+
+                MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
+                executacmdsql.Parameters.AddWithValue("@descricao", obj.descricao);
+                executacmdsql.Parameters.AddWithValue("@validade_orcamento_servico", obj.validade_orcamento_servico);
+                executacmdsql.Parameters.AddWithValue("@preco_mao_de_obra", obj.preco_mao_de_obra);
+                executacmdsql.Parameters.AddWithValue("@desconto_venda", obj.desconto);
+                executacmdsql.Parameters.AddWithValue("@total_venda", obj.total);
+                executacmdsql.Parameters.AddWithValue("@fk_veiculo_id", CaixaModel.fk_veiculo_id);
+                executacmdsql.Parameters.AddWithValue("@fk_cliente_id", CaixaModel.fk_cliente_id);
+                executacmdsql.Parameters.AddWithValue("@e_orcamento", true);
 
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();

@@ -577,6 +577,25 @@ BEGIN
 END$$
 DELIMITER ;
 
+-- -----------------------------------------------------
+-- procedure criacaoOrcamento
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoOrcamento`(IN DESCRICAO TEXT, IN VALIDADE_ORCAMENTO_SERVICO date, PRECO_MAO_DE_OBRA double, DESCONTO double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT, IN E_ORCAMENTO BOOL)
+BEGIN
+INSERT INTO tb_venda /*INSERE*/ 
+(tb_venda.descricao_mao_de_obra, tb_venda.validade_orcamento_servico, 
+tb_venda.preco_mao_de_obra, tb_venda.desconto_venda, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id, tb_venda.e_orcamento) 
+values 
+(DESCRICAO, VALIDADE_ORCAMENTO_SERVICO, 
+PRECO_MAO_DE_OBRA, DESCONTO, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID, E_ORCAMENTO); 
+END$$
+
+DELIMITER ;
+
+
 
 /*STORED PROCEDURE PARA MUDAR A QUANTIDADE DO PRODUTO*/
 DELIMITER $$

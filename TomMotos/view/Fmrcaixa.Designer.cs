@@ -86,6 +86,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.cBoxOrcamento = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -624,11 +625,22 @@
             this.label4.TabIndex = 51;
             this.label4.Text = "DESCONTO (%)";
             // 
+            // cBoxOrcamento
+            // 
+            this.cBoxOrcamento.AutoSize = true;
+            this.cBoxOrcamento.Location = new System.Drawing.Point(1200, 12);
+            this.cBoxOrcamento.Name = "cBoxOrcamento";
+            this.cBoxOrcamento.Size = new System.Drawing.Size(86, 17);
+            this.cBoxOrcamento.TabIndex = 52;
+            this.cBoxOrcamento.Text = "É orçamento";
+            this.cBoxOrcamento.UseVisualStyleBackColor = true;
+            // 
             // Fmrcaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1547, 635);
+            this.Controls.Add(this.cBoxOrcamento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label20);
@@ -734,5 +746,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox cBoxOrcamento;
     }
 }

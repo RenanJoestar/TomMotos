@@ -22,16 +22,16 @@ namespace TomMotos.view
         List<string> nota = new List<string>();
         string id_produto, nome_produto, id_venda;
         int itens = 0, servicos = 0;
-        CaixaDAO vendaDAO = new CaixaDAO();
+        CaixaDAO caixaDAO = new CaixaDAO();
         ProdutoUsadoDAO produtoDAO = new ProdutoUsadoDAO();
-        CaixaModel objVenda = new CaixaModel();
+        CaixaModel objCaixa = new CaixaModel();
         ProdutoUsadoModel objProduto = new ProdutoUsadoModel();
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrcaixa()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
-        
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -39,26 +39,27 @@ namespace TomMotos.view
         private void Fmrcaixa_Load(object sender, EventArgs e)
         {
             label12.BackColor = Color.Transparent;
-            lblSubitotal.Text = 0.ToString();            
-            dgProdutos.Columns[2].Width=200;
+            lblSubitotal.Text = 0.ToString();
+            dgProdutos.Columns[2].Width = 200;
             dgServicos.Columns[1].Width = 243;
         }
         private void FmrFinalizar_venda_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (CaixaModel.vendaFinalizada == true)
             {
-                CaixaModel.vendaFinalizada = false; 
-                this.Controls.Clear(); 
+                CaixaModel.vendaFinalizada = false;
+                this.Controls.Clear();
                 this.InitializeComponent();
             }
         }
 
         private void btnFinalizaVenda_Click(object sender, EventArgs e)
         {
-            IrParaFinalizar();
+            verificarFinalVenda();
         }
-        public void FinalizarVenda() {
-            string descricao = "", idVenda = "";
+        public void inserirVariaveisObjCaixa()
+        {
+            string descricao = "";
             double valorMaoDeObra = 0;
 
             try
@@ -71,19 +72,39 @@ namespace TomMotos.view
             }
             catch (Exception) { }
 
-            objVenda.descricao = descricao.ToUpper();
-            objVenda.validade_orcamento_servico = DateTime.Now;
-            objVenda.preco_mao_de_obra = valorMaoDeObra;
-            if (txtdesc.Text == "") objVenda.desconto = 0;
-            else objVenda.desconto = double.Parse(txtdesc.Text);
-            objVenda.total = double.Parse(lblSubitotal.Text);
+            objCaixa.descricao = descricao.ToUpper();
+            objCaixa.validade_orcamento_servico = DateTime.Now;
+            objCaixa.preco_mao_de_obra = valorMaoDeObra;
+            if (txtdesc.Text == "") objCaixa.desconto = 0;
+            else objCaixa.desconto = double.Parse(txtdesc.Text);
+            objCaixa.total = double.Parse(lblSubitotal.Text);
             if (lbl_buscarCliente.Text != "" && lbl_buscarCliente.Text != "(id)") CaixaModel.fk_cliente_id = lbl_buscarCliente.Text;
-            else CaixaModel.fk_cliente_id = null;// cliente null
+            else CaixaModel.fk_cliente_id = null; // cliente null
             if (lbl_BuscarVeiculo.Text != "" && lbl_BuscarVeiculo.Text != "(id)") CaixaModel.fk_veiculo_id = lbl_BuscarVeiculo.Text; // veiculo null
             else CaixaModel.fk_veiculo_id = null; // veiculo null
-            vendaDAO.cadastrar(objVenda);
+        }
+        public void finalizarOrcamento()
+        {
+            try
+            {
+                inserirVariaveisObjCaixa();
+                caixaDAO.cadastrarOrcamento(objCaixa);
+                MessageBox.Show("Orçamento bem salvo.");
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro - " + erro.ToString());
+            }
+        }
+        public void verificarFinalVenda(){
+            if (cBoxOrcamento.Checked) finalizarOrcamento(); 
+            else IrParaFinalizar();
+        }
+        public void FinalizarVenda() {
+            inserirVariaveisObjCaixa();
+            caixaDAO.cadastrarVenda(objCaixa);
 
-            idVenda = vendaDAO.listarUltimaVenda();
+            string idVenda = caixaDAO.listarUltimaVenda();
             try
             {
                 for (int i = 0; i < dgProdutos.Rows.Count - 1; i++)
@@ -99,7 +120,7 @@ namespace TomMotos.view
             }
             catch (Exception) { } 
 
-            vendaDAO.mudarStatusVenda(idVenda, true);
+            caixaDAO.mudarStatusVenda(idVenda, true);
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -270,7 +291,7 @@ namespace TomMotos.view
          
             if (e.KeyData == Keys.F6) txtqtd.Focus();
             if (e.KeyData == Keys.F5) {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
 
             if (e.KeyData == Keys.Enter)
@@ -363,7 +384,7 @@ namespace TomMotos.view
             if (e.KeyData == Keys.Enter) txtIdProduto.Focus();
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
             //MessageBox.Show("Test " + e.KeyValue.ToString());
         }
@@ -386,7 +407,7 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
             if (e.KeyData == Keys.Enter)
             {
@@ -475,7 +496,7 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
         }
 
@@ -487,7 +508,7 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
         }
 
@@ -499,7 +520,7 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
             if (e.KeyData == Keys.F6)
             {
@@ -515,7 +536,7 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
         }
 
@@ -527,7 +548,7 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
         }
 
@@ -539,7 +560,7 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
         }
 
@@ -567,7 +588,7 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
             if (e.KeyData == Keys.Delete) {
                 
@@ -580,7 +601,7 @@ namespace TomMotos.view
             try
             {
                 string html = getHtml(dgProdutos, dgServicos);
-                string nomePDF = "venda" + vendaDAO.listarUltimaVenda() + ".pdf";
+                string nomePDF = "venda" + caixaDAO.listarUltimaVenda() + ".pdf";
 
                 criarPDF(html, nomePDF);
             }
@@ -598,7 +619,7 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
             if (e.KeyData == Keys.Delete)
             {
@@ -620,7 +641,7 @@ namespace TomMotos.view
         {
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
         }
 
@@ -628,7 +649,7 @@ namespace TomMotos.view
         {
             if (e.KeyData == Keys.F5)
             {
-                IrParaFinalizar();
+                verificarFinalVenda();
             }
         }
 
