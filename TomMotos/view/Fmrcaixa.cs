@@ -48,6 +48,9 @@ namespace TomMotos.view
             if (CaixaModel.vendaFinalizada == true)
             {
                 CaixaModel.vendaFinalizada = false;
+                CaixaModel.fk_cliente_id = null;
+                CaixaModel.fk_veiculo_id = null;
+                CaixaModel.emailCliente = null;
                 this.Controls.Clear();
                 this.InitializeComponent();
             }

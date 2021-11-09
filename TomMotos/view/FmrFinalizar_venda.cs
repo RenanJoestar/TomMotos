@@ -39,21 +39,27 @@ namespace TomMotos.view
         }
         private void carregarEmails()
         {
-            if (CaixaModel.fk_cliente_id != null)
+            try
             {
-                MySqlConnection cn = new MySqlConnection();
-                cn = conexao;
-                cn.Open();
-                MySqlCommand com = new MySqlCommand();
-                com.Connection = cn;
-                com.CommandText = "select nome_email, id_usuario from tb_usuario inner join tb_email on tb_usuario.id_usuario = tb_email.id_email where fk_cliente_id = " + CaixaModel.fk_cliente_id;
-                MySqlDataReader dr = com.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Load(dr);
-                cbxEmails.DisplayMember = "nome_email";
-                cbxEmails.DataSource = dt;
-                cbxEmails.Text = null;
+                if (CaixaModel.fk_cliente_id != null)
+                {
+                    MySqlConnection cn = new MySqlConnection();
+                    cn = conexao;
+                    cn.Open();
+                    MySqlCommand com = new MySqlCommand();
+                    com.Connection = cn;
+                    com.CommandText = "select nome_email from tb_usuario inner join tb_email on tb_usuario.id_usuario = tb_email.fk_usuario_id inner join tb_cliente on tb_cliente.id_cliente = tb_usuario.fk_cliente_id where fk_cliente_id = " + CaixaModel.fk_cliente_id;
+                    MySqlDataReader dr = com.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(dr);
+                    cbxEmails.DisplayMember = "nome_email";
+                    cbxEmails.DataSource = dt;
+                    cbxEmails.Text = null;
+                }
             }
+            catch(Exception erro)
+            { MessageBox.Show(""+erro.Message); }
+        
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,22 +68,14 @@ namespace TomMotos.view
         }
         public void CalcularTroco() {
 
-            txtTroco.Text = (int.Parse(txtDinheiro.Text) + int.Parse(txtDebito.Text) + int.Parse(txt_credito.Text) + int.Parse(txtPix.Text) - int.Parse(lblsubtotal.Text)).ToString();
+            txtTroco.Text = (double.Parse(txtDinheiro.Text.Replace(".",",")) + double.Parse(txtDebito.Text.Replace(".", ",")) + double.Parse(txt_credito.Text.Replace(".", ",")) + double.Parse(txtPix.Text.Replace(".", ",")) - double.Parse(lblsubtotal.Text)).ToString();
             txtFaltaPagar.Text = "";
-            if (int.Parse(txtTroco.Text) < 0)
+            if (double.Parse(txtTroco.Text) < 0)
             {
                 txtFaltaPagar.Text = txtTroco.Text;
                 txtTroco.Text = "";
             }
-            txtValorPago.Text = (int.Parse(txtDinheiro.Text) + int.Parse(txtDebito.Text) + int.Parse(txt_credito.Text) + int.Parse(txtPix.Text)).ToString();
-        }
-        public void SalvarPdf() {
-            fz.SalvarPdf();
-                     
-        }
-        public void EnviarEmail()
-        {
-            fz.EnviarEmail();
+            txtValorPago.Text = (double.Parse(txtDinheiro.Text.Replace(".", ",")) + double.Parse(txtDebito.Text.Replace(".", ",")) + double.Parse(txt_credito.Text.Replace(".", ",")) + double.Parse(txtPix.Text.Replace(".", ","))).ToString();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
