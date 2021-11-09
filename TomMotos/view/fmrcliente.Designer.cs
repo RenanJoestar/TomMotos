@@ -56,6 +56,7 @@ namespace TomMotos.view
             this.BtnFiltro = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
             this.panel1.SuspendLayout();
@@ -81,7 +82,7 @@ namespace TomMotos.view
             this.txt_id.Enabled = false;
             this.txt_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.ForeColor = System.Drawing.Color.White;
-            this.txt_id.Location = new System.Drawing.Point(95, 37);
+            this.txt_id.Location = new System.Drawing.Point(97, 37);
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(46, 21);
             this.txt_id.TabIndex = 0;
@@ -92,7 +93,7 @@ namespace TomMotos.view
             this.txt_nome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nome.ForeColor = System.Drawing.Color.Black;
-            this.txt_nome.Location = new System.Drawing.Point(95, 84);
+            this.txt_nome.Location = new System.Drawing.Point(97, 84);
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(172, 21);
             this.txt_nome.TabIndex = 1;
@@ -103,14 +104,15 @@ namespace TomMotos.view
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(35, 86);
+            this.label2.Location = new System.Drawing.Point(40, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 15);
+            this.label2.Size = new System.Drawing.Size(50, 15);
             this.label2.TabIndex = 7;
-            this.label2.Text = "* NOME:";
+            this.label2.Text = " NOME:";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txt_nascimento);
             this.groupBox1.Controls.Add(this.txt_cpf);
             this.groupBox1.Controls.Add(this.txt_cnpj);
@@ -146,7 +148,7 @@ namespace TomMotos.view
             // 
             // txt_cpf
             // 
-            this.txt_cpf.Location = new System.Drawing.Point(96, 202);
+            this.txt_cpf.Location = new System.Drawing.Point(97, 202);
             this.txt_cpf.Mask = "000.000.000-00";
             this.txt_cpf.Name = "txt_cpf";
             this.txt_cpf.Size = new System.Drawing.Size(101, 21);
@@ -154,7 +156,7 @@ namespace TomMotos.view
             // 
             // txt_cnpj
             // 
-            this.txt_cnpj.Location = new System.Drawing.Point(95, 239);
+            this.txt_cnpj.Location = new System.Drawing.Point(97, 239);
             this.txt_cnpj.Mask = "00.000.000/0000-00";
             this.txt_cnpj.Name = "txt_cnpj";
             this.txt_cnpj.Size = new System.Drawing.Size(127, 21);
@@ -251,7 +253,7 @@ namespace TomMotos.view
             // txt_sobrenome
             // 
             this.txt_sobrenome.BackColor = System.Drawing.Color.White;
-            this.txt_sobrenome.Location = new System.Drawing.Point(95, 123);
+            this.txt_sobrenome.Location = new System.Drawing.Point(97, 123);
             this.txt_sobrenome.Name = "txt_sobrenome";
             this.txt_sobrenome.Size = new System.Drawing.Size(172, 21);
             this.txt_sobrenome.TabIndex = 9;
@@ -264,9 +266,9 @@ namespace TomMotos.view
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(350, 33);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(396, 46);
+            this.label7.Size = new System.Drawing.Size(436, 46);
             this.label7.TabIndex = 17;
-            this.label7.Text = "Cadastro de Clientes";
+            this.label7.Text = "CADASTRO DE CLIENTES";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // button1
@@ -287,7 +289,7 @@ namespace TomMotos.view
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(592, 446);
+            this.button2.Location = new System.Drawing.Point(602, 446);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(223, 44);
             this.button2.TabIndex = 19;
@@ -300,9 +302,9 @@ namespace TomMotos.view
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(831, 446);
+            this.button3.Location = new System.Drawing.Point(842, 446);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(208, 44);
+            this.button3.Size = new System.Drawing.Size(197, 44);
             this.button3.TabIndex = 20;
             this.button3.Text = "EXCLUIR";
             this.button3.UseVisualStyleBackColor = false;
@@ -345,9 +347,9 @@ namespace TomMotos.view
             // 
             this.BtnFiltro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFiltro.BackgroundImage")));
             this.BtnFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnFiltro.Location = new System.Drawing.Point(1004, 137);
+            this.BtnFiltro.Location = new System.Drawing.Point(1004, 136);
             this.BtnFiltro.Name = "BtnFiltro";
-            this.BtnFiltro.Size = new System.Drawing.Size(33, 26);
+            this.BtnFiltro.Size = new System.Drawing.Size(35, 28);
             this.BtnFiltro.TabIndex = 24;
             this.BtnFiltro.UseVisualStyleBackColor = true;
             this.BtnFiltro.Click += new System.EventHandler(this.BtnFiltro_Click);
@@ -371,6 +373,18 @@ namespace TomMotos.view
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label8.Location = new System.Drawing.Point(31, 86);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(13, 17);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "*";
             // 
             // Fmrcliente
             // 
@@ -431,5 +445,6 @@ namespace TomMotos.view
         private System.Windows.Forms.MaskedTextBox txt_cnpj;
         private System.Windows.Forms.MaskedTextBox txt_cpf;
         private System.Windows.Forms.MaskedTextBox txt_nascimento;
+        private System.Windows.Forms.Label label8;
     }
 }

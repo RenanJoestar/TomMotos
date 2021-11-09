@@ -47,6 +47,7 @@ namespace TomMotos.view
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmail)).BeginInit();
             this.panel1.SuspendLayout();
@@ -55,6 +56,7 @@ namespace TomMotos.view
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txt_email);
@@ -71,7 +73,9 @@ namespace TomMotos.view
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 125);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(30, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(227, 13);
             this.label3.TabIndex = 8;
@@ -79,17 +83,20 @@ namespace TomMotos.view
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 160);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Snow;
+            this.button1.Location = new System.Drawing.Point(16, 167);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(224, 31);
+            this.button1.Size = new System.Drawing.Size(255, 36);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Gerar senha";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "GERAR SENHA";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txt_email
             // 
-            this.txt_email.Location = new System.Drawing.Point(70, 78);
+            this.txt_email.Location = new System.Drawing.Point(89, 78);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(170, 20);
             this.txt_email.TabIndex = 4;
@@ -97,7 +104,7 @@ namespace TomMotos.view
             // txt_id
             // 
             this.txt_id.Enabled = false;
-            this.txt_id.Location = new System.Drawing.Point(70, 41);
+            this.txt_id.Location = new System.Drawing.Point(89, 41);
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(41, 20);
             this.txt_id.TabIndex = 0;
@@ -105,29 +112,29 @@ namespace TomMotos.view
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 44);
+            this.label1.Location = new System.Drawing.Point(13, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "ID Usuario";
+            this.label1.Text = "ID USUÁRIO";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 81);
+            this.label2.Location = new System.Drawing.Point(40, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "* Email";
+            this.label2.Text = "EMAIL";
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.Font = new System.Drawing.Font("Century Gothic", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.lblNome.ForeColor = System.Drawing.Color.White;
-            this.lblNome.Location = new System.Drawing.Point(133, 41);
+            this.lblNome.Location = new System.Drawing.Point(207, 36);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(252, 31);
+            this.lblNome.Size = new System.Drawing.Size(386, 46);
             this.lblNome.TabIndex = 11;
             this.lblNome.Text = "CADASTRO DE EMAIL";
             this.lblNome.Click += new System.EventHandler(this.lblNome_Click);
@@ -143,32 +150,41 @@ namespace TomMotos.view
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.ForeColor = System.Drawing.Color.Snow;
             this.btnCadastrar.Location = new System.Drawing.Point(357, 361);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(106, 37);
             this.btnCadastrar.TabIndex = 13;
             this.btnCadastrar.Text = "CADASTRAR";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Snow;
             this.button2.Location = new System.Drawing.Point(469, 361);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 37);
             this.button2.TabIndex = 14;
             this.button2.Text = "ALTERAR";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Snow;
             this.button3.Location = new System.Drawing.Point(578, 361);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(113, 37);
             this.button3.TabIndex = 15;
             this.button3.Text = "EXCLUIR";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // cbxBuscar
@@ -201,7 +217,7 @@ namespace TomMotos.view
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblNome);
             this.panel1.Location = new System.Drawing.Point(-2, -1);
@@ -212,12 +228,24 @@ namespace TomMotos.view
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(25, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(41, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(102, 85);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label8.Location = new System.Drawing.Point(30, 79);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(13, 17);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "*";
             // 
             // Fmremail
             // 
@@ -267,5 +295,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label8;
     }
 }
