@@ -32,7 +32,7 @@
             this.btn_mostrar_tudo = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgOrcamento)).BeginInit();
             this.SuspendLayout();
@@ -75,14 +75,14 @@
             this.cbxBuscar.Size = new System.Drawing.Size(151, 21);
             this.cbxBuscar.TabIndex = 47;
             // 
-            // button2
+            // btnPesquisar
             // 
-            this.button2.Location = new System.Drawing.Point(302, 87);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 46;
-            this.button2.Text = "Pesquisar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Location = new System.Drawing.Point(302, 87);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.TabIndex = 46;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -103,7 +103,7 @@
             this.Controls.Add(this.btn_mostrar_tudo);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.cbxBuscar);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dgOrcamento);
             this.Name = "FmrOrcamento";
@@ -121,7 +121,7 @@
         private System.Windows.Forms.Button btn_mostrar_tudo;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.ComboBox cbxBuscar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label8;
     }
 }

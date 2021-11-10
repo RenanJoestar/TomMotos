@@ -31,7 +31,7 @@ namespace TomMotos.view
         {
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btPesquisar = new System.Windows.Forms.Button();
             this.dg_log_fornecimento = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_mostrar_tudo = new System.Windows.Forms.Button();
@@ -62,15 +62,15 @@ namespace TomMotos.view
             this.cbxBuscar.Size = new System.Drawing.Size(151, 21);
             this.cbxBuscar.TabIndex = 36;
             // 
-            // button2
+            // btPesquisar
             // 
-            this.button2.Location = new System.Drawing.Point(299, 110);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "Pesquisar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btPesquisar.Location = new System.Drawing.Point(299, 110);
+            this.btPesquisar.Name = "btPesquisar";
+            this.btPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btPesquisar.TabIndex = 35;
+            this.btPesquisar.Text = "Pesquisar";
+            this.btPesquisar.UseVisualStyleBackColor = true;
+            this.btPesquisar.Click += new System.EventHandler(this.button2_Click);
             // 
             // dg_log_fornecimento
             // 
@@ -157,7 +157,7 @@ namespace TomMotos.view
             this.Controls.Add(this.btn_mostrar_tudo);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.cbxBuscar);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btPesquisar);
             this.Controls.Add(this.dg_log_fornecimento);
             this.Controls.Add(this.label8);
             this.Name = "FrmlogFornecimento";
@@ -173,7 +173,7 @@ namespace TomMotos.view
         #endregion
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.ComboBox cbxBuscar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btPesquisar;
         private System.Windows.Forms.DataGridView dg_log_fornecimento;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_mostrar_tudo;
