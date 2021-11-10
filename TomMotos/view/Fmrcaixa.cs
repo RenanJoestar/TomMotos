@@ -22,7 +22,7 @@ namespace TomMotos.view
         List<string> nota = new List<string>();
         string id_produto, nome_produto, id_venda;
         int itens = 0, servicos = 0;
-        CaixaDAO caixaDAO = new CaixaDAO();
+        VendaDAO caixaDAO = new VendaDAO();
         ProdutoUsadoDAO produtoDAO = new ProdutoUsadoDAO();
         CaixaModel objCaixa = new CaixaModel();
         ProdutoUsadoModel objProduto = new ProdutoUsadoModel();
@@ -86,12 +86,32 @@ namespace TomMotos.view
             if (lbl_BuscarVeiculo.Text != "" && lbl_BuscarVeiculo.Text != "(id)") CaixaModel.fk_veiculo_id = lbl_BuscarVeiculo.Text; // veiculo null
             else CaixaModel.fk_veiculo_id = null; // veiculo null
         }
+
+        public void inserirVariaveisObjProdutoUsado()
+        {
+            try
+            {
+                string idVenda = caixaDAO.listarUltimaVenda();
+                for (int i = 0; i < dgProdutos.Rows.Count - 1; i++)
+                {
+                    objProduto.fk_produto_id = int.Parse(dgProdutos.Rows[i].Cells[1].Value.ToString());
+                    objProduto.quantidade_produto_usado = double.Parse(dgProdutos.Rows[i].Cells[3].Value.ToString());
+                    objProduto.desconto_produto_usado = double.Parse(dgProdutos.Rows[i].Cells[5].Value.ToString());
+                    objProduto.fk_venda_id = int.Parse(idVenda);
+                    objProduto.validade_da_garantia_produto = DateTime.Now;
+
+                    produtoDAO.cadastrar(objProduto);
+                }
+            }
+            catch (Exception) { }
+        }
         public void finalizarOrcamento()
         {
             try
             {
                 inserirVariaveisObjCaixa();
                 caixaDAO.cadastrarOrcamento(objCaixa);
+                inserirVariaveisObjProdutoUsado();
                 MessageBox.Show("Orçamento bem salvo.");
             }
             catch (Exception erro)
@@ -106,23 +126,9 @@ namespace TomMotos.view
         public void FinalizarVenda() {
             inserirVariaveisObjCaixa();
             caixaDAO.cadastrarVenda(objCaixa);
-
             string idVenda = caixaDAO.listarUltimaVenda();
-            try
-            {
-                for (int i = 0; i < dgProdutos.Rows.Count - 1; i++)
-                {
-
-                    objProduto.quantidade_produto_usado = double.Parse(dgProdutos.Rows[i].Cells[3].Value.ToString());
-                    objProduto.fk_produto_id = int.Parse(dgProdutos.Rows[i].Cells[1].Value.ToString());
-                    objProduto.fk_venda_id = int.Parse(idVenda);
-                    objProduto.validade_da_garantia_produto = DateTime.Now;
-
-                    produtoDAO.cadastrar(objProduto);
-                }
-            }
-            catch (Exception) { } 
-
+            inserirVariaveisObjProdutoUsado();
+            
             caixaDAO.mudarStatusVenda(idVenda, true);
         }
         private void button1_Click(object sender, EventArgs e)

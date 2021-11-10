@@ -28,7 +28,7 @@ namespace TomMotos.view
         private void FmrVeiculo_Cliente_Load(object sender, EventArgs e)
         {
             conexao.Open();
-            CaixaDAO Cadastro = new CaixaDAO();
+            VendaDAO Cadastro = new VendaDAO();
             if (CaixaModel.valorPesquisa == "veiculo") {
                 Cadastro.ListarTodosVeiculo();
                 dg_listarVeiculoOuCliente.DataSource = Cadastro.ListarTodosVeiculo(); }

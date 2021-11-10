@@ -74,7 +74,7 @@
     <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\CaixaDAO.cs" />
+    <Compile Include="Classes\VendaDAO.cs" />
     <Compile Include="Classes\CargoDAO.cs" />
     <Compile Include="Classes\ClienteDAO.cs" />
     <Compile Include="Classes\EmailDAO.cs" />
@@ -102,6 +102,12 @@
     <Compile Include="Model\ProdutoModel.cs" />
     <Compile Include="Model\TelefoneModel.cs" />
     <Compile Include="Model\VeiculoModel.cs" />
+    <Compile Include="view\FmrOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FmrOrcamento.Designer.cs">
+      <DependentUpon>FmrOrcamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Fmrcaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="view\FmrOrcamento.resx">
+      <DependentUpon>FmrOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrcaixa.resx">
       <DependentUpon>Fmrcaixa.cs</DependentUpon>
     </EmbeddedResource>

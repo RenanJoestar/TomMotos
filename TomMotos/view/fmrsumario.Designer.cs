@@ -40,6 +40,7 @@ namespace TomMotos
             this.produtoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.veiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logFornecimentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orçamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,9 +74,10 @@ namespace TomMotos
             this.funcionarioToolStripMenuItem,
             this.produtoToolStripMenuItem,
             this.veiculoToolStripMenuItem,
-            this.logFornecimentoToolStripMenuItem});
+            this.logFornecimentoToolStripMenuItem,
+            this.orçamentoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(170, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 202);
             // 
             // alowToolStripMenuItem
             // 
@@ -126,6 +128,13 @@ namespace TomMotos
             this.logFornecimentoToolStripMenuItem.Text = "Log fornecimento";
             this.logFornecimentoToolStripMenuItem.Click += new System.EventHandler(this.logFornecimentoToolStripMenuItem_Click);
             // 
+            // orçamentoToolStripMenuItem
+            // 
+            this.orçamentoToolStripMenuItem.Name = "orçamentoToolStripMenuItem";
+            this.orçamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.orçamentoToolStripMenuItem.Text = "Orçamento";
+            this.orçamentoToolStripMenuItem.Click += new System.EventHandler(this.orçamentoToolStripMenuItem_Click);
+            // 
             // Fmrsumario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +162,7 @@ namespace TomMotos
         private System.Windows.Forms.ToolStripMenuItem produtoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem veiculoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logFornecimentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orçamentoToolStripMenuItem;
     }
 }
 

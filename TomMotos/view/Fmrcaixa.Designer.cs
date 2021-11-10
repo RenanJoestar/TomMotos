@@ -398,7 +398,7 @@
             this.ch_itemServ,
             this.ch_des,
             this.ch_vl_ser});
-            this.dgServicos.Location = new System.Drawing.Point(801, 272);
+            this.dgServicos.Location = new System.Drawing.Point(801, 274);
             this.dgServicos.Name = "dgServicos";
             this.dgServicos.Size = new System.Drawing.Size(455, 170);
             this.dgServicos.TabIndex = 26;
@@ -707,8 +707,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox txtDescServ;
         private System.Windows.Forms.Button btnFinalizaVenda;
-        private System.Windows.Forms.DataGridView dgProdutos;
-        private System.Windows.Forms.DataGridView dgServicos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_itemServ;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_des;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_vl_ser;
@@ -747,5 +745,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox cBoxOrcamento;
+        public System.Windows.Forms.DataGridView dgProdutos;
+        public System.Windows.Forms.DataGridView dgServicos;
     }
 }

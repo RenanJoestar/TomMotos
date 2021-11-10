@@ -20,7 +20,6 @@ namespace TomMotos
       
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-           
             contextMenuStrip1.Show(PointToScreen(btnCadastro.Location));
           //Fmrsumariocadastro fmrsumariocadastro = new Fmrsumariocadastro();
           //fmrsumariocadastro.Show();
@@ -88,6 +87,12 @@ namespace TomMotos
         {
             Fmrcaixa fmrcx = new Fmrcaixa();
             fmrcx.Show();
+        }
+
+        private void orçamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FmrOrcamento fmrOrc = new FmrOrcamento(null);
+            fmrOrc.Show();
         }
     }
 }

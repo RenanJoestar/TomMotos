@@ -36,13 +36,11 @@ namespace TomMotos.view
 
         }
 
-        private void dgListProdutos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgListProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             lp.txtIdProduto.Text = dgListProdutos.CurrentRow.Cells[0].Value.ToString();
             lp.txtIdProduto.Focus();
             this.Close();
-
-
         }
     }
 }

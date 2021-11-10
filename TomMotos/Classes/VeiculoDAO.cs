@@ -40,8 +40,7 @@ namespace TomMotos.Classes
             return tabelaVeiculo;
         }
         #endregion
-
-
+        
         #region METODO LISTAR CLIENTE
         public DataTable ListarTodosClientes()
         {
@@ -62,8 +61,7 @@ namespace TomMotos.Classes
             return tabelaCliente;
         }
         #endregion
-
-
+        
         #region METODO CADASTRAR
 
         public void cadastrar(VeiculoModel obj)

@@ -41,8 +41,7 @@ namespace TomMotos.view
             this.dgListProdutos.Name = "dgListProdutos";
             this.dgListProdutos.Size = new System.Drawing.Size(800, 450);
             this.dgListProdutos.TabIndex = 0;
-            this.dgListProdutos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListProdutos_CellContentDoubleClick);
-            
+            this.dgListProdutos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListProdutos_CellDoubleClick);
             // 
             // FmrListProdutos
             // 

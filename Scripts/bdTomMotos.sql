@@ -258,6 +258,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto_usado` (
   `id_produto_usado` INT NOT NULL AUTO_INCREMENT,
   `quantidade_produto_usado` DOUBLE NOT NULL,
+  `desconto_produto_usado` DOUBLE NULL DEFAULT NULL,
   `fk_produto_id` INT NULL DEFAULT NULL,
   `fk_venda_id` INT NULL DEFAULT NULL,
   `validade_da_garantia_produto` DATE NULL DEFAULT NULL,
@@ -319,10 +320,10 @@ DELIMITER ;
 -- procedure CriacaoProdutoUsado
 -- -----------------------------------------------------
 DELIMITER $$
-CREATE PROCEDURE criacaoProdutoUsado (IN qtd_produto_usado INT, IN fk_produto_id INT, fk_venda_id INT, IN validade_da_garantia_produto DATE)
+CREATE PROCEDURE criacaoProdutoUsado (IN qtd_produto_usado INT, IN fk_produto_id INT, fk_venda_id INT, IN validade_da_garantia_produto DATE, IN desconto_produto_usado DOUBLE)
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
-INSERT INTO tb_produto_usado(quantidade_produto_usado, fk_produto_id, fk_venda_id, validade_da_garantia_produto) values (qtd_produto_usado, fk_produto_id, fk_venda_id, validade_da_garantia_produto);
+INSERT INTO tb_produto_usado(quantidade_produto_usado, fk_produto_id, fk_venda_id, validade_da_garantia_produto, desconto_produto_usado) values (qtd_produto_usado, fk_produto_id, fk_venda_id, validade_da_garantia_produto, desconto_produto_usado);
 END $$
 DELIMITER ;
 

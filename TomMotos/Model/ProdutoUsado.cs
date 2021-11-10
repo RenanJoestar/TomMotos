@@ -9,6 +9,7 @@ namespace TomMotos.Model
     class ProdutoUsadoModel
     {
         public double quantidade_produto_usado { get; set; }
+        public double desconto_produto_usado { get; set; }
         public int fk_produto_id { get; set; }
         public int fk_venda_id { get; set; }
         public DateTime validade_da_garantia_produto { get; set; }
