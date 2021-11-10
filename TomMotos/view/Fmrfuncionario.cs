@@ -275,6 +275,16 @@ namespace TomMotos.view
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
 
+        private void dg_funcionario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cbxBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void button7_Click(object sender, EventArgs e)
         {
             if(txt_id.Text != "")
@@ -306,7 +316,7 @@ namespace TomMotos.view
             }
             else
             {
-                MessageBox.Show("Escolha um Funcionario que deseja cadastrar o email", "Erro",
+                MessageBox.Show("Escolha um Funcionario que deseja cadastrar o telefone", "Erro",
              MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

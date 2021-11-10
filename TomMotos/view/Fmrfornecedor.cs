@@ -239,7 +239,7 @@ namespace TomMotos.view
             }
             else
             {
-                MessageBox.Show("Escolha um Fornecedor que deseja cadastrar o email", "Erro",
+                MessageBox.Show("Escolha um Fornecedor que deseja cadastrar o telefone", "Erro",
              MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

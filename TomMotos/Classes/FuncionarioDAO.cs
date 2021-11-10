@@ -25,7 +25,7 @@ namespace TomMotos.Classes
         #region METODO LISTAR
         public DataTable ListarTodosFuncionario()
         {
-            string sql = @"select * from tb_funcionario";
+            string sql = @"select*from tb_funcionario";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 

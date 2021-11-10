@@ -35,6 +35,7 @@ namespace TomMotos.view
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txt_nascimento = new System.Windows.Forms.MaskedTextBox();
             this.txt_cpf = new System.Windows.Forms.MaskedTextBox();
             this.txt_cnpj = new System.Windows.Forms.MaskedTextBox();
@@ -56,7 +57,6 @@ namespace TomMotos.view
             this.BtnFiltro = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
             this.panel1.SuspendLayout();
@@ -136,6 +136,18 @@ namespace TomMotos.view
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label8.Location = new System.Drawing.Point(31, 86);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(13, 17);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "*";
             // 
             // txt_nascimento
             // 
@@ -322,15 +334,15 @@ namespace TomMotos.view
             // 
             // txtFiltrar
             // 
-            this.txtFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltrar.Location = new System.Drawing.Point(519, 137);
             this.txtFiltrar.Name = "txtFiltrar";
-            this.txtFiltrar.Size = new System.Drawing.Size(479, 26);
+            this.txtFiltrar.Size = new System.Drawing.Size(479, 21);
             this.txtFiltrar.TabIndex = 22;
             // 
             // cbxFiltrar
             // 
-            this.cbxFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxFiltrar.FormattingEnabled = true;
             this.cbxFiltrar.Items.AddRange(new object[] {
             "ID",
@@ -340,7 +352,7 @@ namespace TomMotos.view
             "CNPJ"});
             this.cbxFiltrar.Location = new System.Drawing.Point(396, 137);
             this.cbxFiltrar.Name = "cbxFiltrar";
-            this.cbxFiltrar.Size = new System.Drawing.Size(117, 26);
+            this.cbxFiltrar.Size = new System.Drawing.Size(117, 21);
             this.cbxFiltrar.TabIndex = 23;
             // 
             // BtnFiltro
@@ -349,7 +361,7 @@ namespace TomMotos.view
             this.BtnFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnFiltro.Location = new System.Drawing.Point(1004, 136);
             this.BtnFiltro.Name = "BtnFiltro";
-            this.BtnFiltro.Size = new System.Drawing.Size(35, 28);
+            this.BtnFiltro.Size = new System.Drawing.Size(33, 22);
             this.BtnFiltro.TabIndex = 24;
             this.BtnFiltro.UseVisualStyleBackColor = true;
             this.BtnFiltro.Click += new System.EventHandler(this.BtnFiltro_Click);
@@ -373,18 +385,6 @@ namespace TomMotos.view
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label8.Location = new System.Drawing.Point(31, 86);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 17);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "*";
             // 
             // Fmrcliente
             // 

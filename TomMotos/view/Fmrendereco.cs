@@ -235,5 +235,10 @@ namespace TomMotos.view
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
+
+        private void cbxBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
