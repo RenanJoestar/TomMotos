@@ -13,7 +13,10 @@ namespace TomMotos.view
 {
     public partial class FmrOrcamento : Form
     {
+        string[] item = new string[7];
         Fmrcaixa lp;
+        string id_orc;
+        
         public FmrOrcamento(Fmrcaixa lpp)
         {
             InitializeComponent();
@@ -28,10 +31,21 @@ namespace TomMotos.view
 
         private void dgOrcamento_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*lp.dgProdutos.Text = dgOrcamento.CurrentRow.Cells.Value[0].ToString();
-            lp.txtIdProduto.Focus();
-            Fmrcaixa fmrCx = new Fmrcaixa();
-            fmrCx.Show();*/
+            try
+            {
+                Fmrcaixa fmrCx = new Fmrcaixa();
+                fmrCx.Show();
+                item[0] = "2";//dgOrcamento.CurrentRow.Cells[0].Value.ToString();
+                item[1] = "2";
+                item[2] = "2";
+                item[3] = "2";
+                item[4] = "2";
+                item[5] = "2";
+                lp.dgProdutos.Rows.Add((item));
+                lp.txtIdProduto.Text = "2";
+                
+            }
+            catch (Exception erro) { MessageBox.Show("Test "+erro);}
         }
 
         private void dgOrcamento_CellContentClick(object sender, DataGridViewCellEventArgs e)

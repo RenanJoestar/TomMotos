@@ -247,3 +247,4 @@ E:\Coisas para salvar\coisas\Desktop\t\TomMotos\TomMotos\obj\Debug\TomMotos.cspr
 E:\Coisas para salvar\coisas\Desktop\t\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CopyComplete
 E:\Coisas para salvar\coisas\Desktop\t\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 E:\Coisas para salvar\coisas\Desktop\t\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
+C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrOrcamento.resources
