@@ -52,9 +52,9 @@ namespace TomMotos.view
             this.btnExcluir = new System.Windows.Forms.Button();
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEndereco)).BeginInit();
             this.panel1.SuspendLayout();
@@ -211,7 +211,7 @@ namespace TomMotos.view
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Century Gothic", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.lblNome.ForeColor = System.Drawing.Color.White;
-            this.lblNome.Location = new System.Drawing.Point(332, 34);
+            this.lblNome.Location = new System.Drawing.Point(421, 29);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(472, 46);
             this.lblNome.TabIndex = 12;
@@ -282,21 +282,10 @@ namespace TomMotos.view
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(445, 139);
+            this.txtBuscar.Location = new System.Drawing.Point(445, 138);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(505, 20);
             this.txtBuscar.TabIndex = 18;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
-            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(956, 138);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(101, 23);
-            this.btnBuscar.TabIndex = 19;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -311,12 +300,23 @@ namespace TomMotos.view
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(24, 11);
+            this.pictureBox1.Location = new System.Drawing.Point(95, 11);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(125, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscar.Location = new System.Drawing.Point(956, 138);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(101, 23);
+            this.btnBuscar.TabIndex = 19;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
             // 
             // Fmrendereco
             // 
