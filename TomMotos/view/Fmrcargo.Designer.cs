@@ -238,7 +238,7 @@ namespace TomMotos.view
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(388, 121);
+            this.txtFiltro.Location = new System.Drawing.Point(388, 122);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(204, 20);
             this.txtFiltro.TabIndex = 24;
@@ -256,7 +256,7 @@ namespace TomMotos.view
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(598, 121);
+            this.btnBuscar.Location = new System.Drawing.Point(598, 122);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(72, 22);
             this.btnBuscar.TabIndex = 26;

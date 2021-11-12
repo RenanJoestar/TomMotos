@@ -122,51 +122,7 @@ namespace TomMotos.view
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txt_email.Text != "")
-                {
-                    string chars = "abcdefghjkmnpqrstuvwxyz023456789";
-                    string pass = "";
-                    Random random = new Random();
-                    for (int f = 0; f < 6; f++)
-                    {
-                        pass = pass + chars.Substring(random.Next(0, chars.Length - 1), 1);
-                    }
-                    MessageBox.Show(pass);                   
-
-                    MailMessage mailMessage = new MailMessage("EMAIL REMETENTE", "EMAIL DESTINATARIO");
-
-                    mailMessage.Subject = "Login do Site TomMotos";
-                    mailMessage.IsBodyHtml = true;
-                    mailMessage.Body = "<p>Site: https//:tommostos.com.br</p> <br>"+ "<p> Email:" + txt_email.Text.ToString() + "</p><p> Senha:" + pass + " </p>";
-                    mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
-                    mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
-
-                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-
-                    smtpClient.UseDefaultCredentials = false;
-                    smtpClient.Credentials = new NetworkCredential("EMAIL REMETENTE", "SENHA DO EMAIL REMETENTE");
-                    smtpClient.EnableSsl = true;
-                    smtpClient.Send(mailMessage);
-                    EmailModel obj = new EmailModel();
-                    EmailModel.id_usuario = txt_id.Text;
-                    obj.senha_usuario = pass;
-                    EmailDAO Cadastrosenha = new EmailDAO();
-                    Cadastrosenha.cadastrarSenha(obj);
-                }
-                else MessageBox.Show("SELECIONE UM EMAIL QUE DESEJA ENVIAR A SENHA","ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-            catch(Exception erro) {
-                MessageBox.Show("Erro"+ erro);
-            }
-
-
-
-        }
+       
 
         private void lblNome_Click(object sender, EventArgs e)
         {
