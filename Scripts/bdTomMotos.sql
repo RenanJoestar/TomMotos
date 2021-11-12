@@ -725,5 +725,3 @@ select*from tb_venda;
 select*from tb_produto_usado;
 select*from tb_log_fornecimento;
 select*from tb_grupo_funcionarios;
-
-select tb_produto_usado.id_produto_usado from tb_produto_usado inner join tb_venda on tb_produto_usado.fk_venda_id = tb_venda.id_venda where tb_venda.id_venda = 5;
