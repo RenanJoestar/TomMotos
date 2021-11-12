@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq; 
@@ -206,7 +207,31 @@ namespace TomMotos.Classes
 
             conexao.Close();
 
-            return tabelaCliente;            
+            return tabelaCliente;
+        }
+        #endregion
+
+
+        #region LISTAR SERVIÇOS PRESTADOS
+        public string listarServiçosPrestados(int idVenda)
+        {
+            string resultado = null;
+            try
+            {
+                string select = @"select tb_venda.descricao_mao_de_obra, tb_venda.preco_mao_de_obra 
+                                  from tb_venda where tb_venda.id_venda " + idVenda + ";";
+
+                MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+
+                conexao.Open();
+                MySqlDataReader reader = executacmdsql.ExecuteReader();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro: " + erro);
+            }
+            return resultado;
         }
         #endregion
     }

@@ -107,7 +107,6 @@ namespace TomMotos.Classes
         }
         #endregion
 
-
         #region METODO EXCLUIR
         public void Excluir(CargoModel obj)
         {
@@ -133,9 +132,5 @@ namespace TomMotos.Classes
 
         }
         #endregion
-
-       
-       
-
     }
 }

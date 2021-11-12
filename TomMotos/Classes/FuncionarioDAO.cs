@@ -20,8 +20,6 @@ namespace TomMotos.Classes
         {
         }
 
-
-
         #region METODO LISTAR
         public DataTable ListarTodosFuncionario()
         {
@@ -166,7 +164,5 @@ data_contratacao_funcionario=@data_contratacao, sexo_funcionario=@sexo, fk_cargo
 
         }
         #endregion
-
-
     }
 }

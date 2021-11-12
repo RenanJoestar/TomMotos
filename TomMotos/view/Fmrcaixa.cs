@@ -45,7 +45,11 @@ namespace TomMotos.view
         }
         private void FmrFinalizar_venda_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (CaixaModel.vendaFinalizada == true)
+            finalizarFormCaixa(false);
+        }
+        private void finalizarFormCaixa(bool orcamento)
+        {
+            if (CaixaModel.vendaFinalizada == true || orcamento)
             {
                 CaixaModel.vendaFinalizada = false;
                 CaixaModel.fk_cliente_id = null;
@@ -113,6 +117,7 @@ namespace TomMotos.view
                 caixaDAO.cadastrarOrcamento(objCaixa);
                 inserirVariaveisObjProdutoUsado();
                 MessageBox.Show("Orçamento bem salvo.");
+                finalizarFormCaixa(true);
             }
             catch (Exception erro)
             {

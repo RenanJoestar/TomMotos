@@ -41,7 +41,6 @@ namespace TomMotos.Classes
         }
         #endregion
 
-
         #region METODO CADASTRAR
 
         public void cadastrar(ClienteModel obj)

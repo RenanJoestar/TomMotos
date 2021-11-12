@@ -44,7 +44,6 @@ namespace TomMotos.Classes
         }
         #endregion
 
-
         #region METODO CADASTRAR
 
         public void cadastrarFornecedor(FornecedorModel obj)
@@ -85,7 +84,6 @@ namespace TomMotos.Classes
         }
         #endregion
 
-
         #region METODO ALTERAR
         public void alterar(FornecedorModel obj)
         {
@@ -109,7 +107,6 @@ namespace TomMotos.Classes
 
         }
         #endregion
-
 
         #region METODO EXCLUIR
         public void Excluir(FornecedorModel obj)
@@ -137,7 +134,6 @@ namespace TomMotos.Classes
 
         }
         #endregion
-
     }
 }
 

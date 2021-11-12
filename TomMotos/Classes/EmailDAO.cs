@@ -15,8 +15,6 @@ namespace TomMotos.Classes
     {
         MySqlConnection conexao = ConnectionFactory.getConnection();
 
-
-
         #region METODO CADASTRAR
 
         public void cadastrarEmail(EmailModel obj)
