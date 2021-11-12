@@ -15,7 +15,6 @@ namespace TomMotos.Classes
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public DataTable buscaCargo()
         {
-
             string sql = FiltroModel.filtro;
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);

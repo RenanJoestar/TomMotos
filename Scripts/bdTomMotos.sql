@@ -166,8 +166,6 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_venda` (
   `id_venda` INT NOT NULL AUTO_INCREMENT,
-  `descricao_mao_de_obra` TEXT NOT NULL,
-  `preco_mao_de_obra` DOUBLE NULL DEFAULT 0.00,
   `validade_orcamento_servico` DATE NULL DEFAULT NULL,
   `desconto_venda` DOUBLE NULL DEFAULT 0.00,
   `total_venda` DOUBLE NULL DEFAULT 0.00,
@@ -278,6 +276,24 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
+-- Table `bd_tommotos`.`tb_servico_prestado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_servico_prestado` (
+  `id_servico_prestado` INT NOT NULL AUTO_INCREMENT,
+  `descricao_servico_prestado` VARCHAR(100) NOT NULL,
+  `valor_servico_prestado` DOUBLE NULL DEFAULT 0.00,
+  `fk_venda_id` INT NULL DEFAULT NULL,
+  PRIMARY KEY (`id_servico_prestado`),
+  INDEX `fk_venda_id` (`fk_venda_id` ASC) VISIBLE,
+  CONSTRAINT `tb_servico_prestrado_ibfk_1`
+    FOREIGN KEY (`fk_venda_id`)
+    REFERENCES `bd_tommotos`.`tb_venda` (`id_venda`)ON DELETE CASCADE ON UPDATE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+-- -----------------------------------------------------
 -- Table `bd_tommotos`.`tb_telefone`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_telefone` (
@@ -327,6 +343,17 @@ INSERT INTO tb_produto_usado(quantidade_produto_usado, fk_produto_id, fk_venda_i
 END $$
 DELIMITER ;
 
+-- -----------------------------------------------------
+-- procedure CriacaoServicoPrestado
+-- -----------------------------------------------------
+DELIMITER $$
+CREATE PROCEDURE criacaoServicoPrestado (IN DESCRICAO varchar(100), IN VALOR INT, FK_VENDA_ID INT)
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+INSERT INTO tb_servico_prestado(descricao_servico_prestado, valor_servico_prestado, fk_venda_id) 
+			values (DESCRICAO, VALOR, FK_VENDA_ID);
+END $$
+DELIMITER ;
 -- -----------------------------------------------------
 -- procedure criacaoCargo
 -- -----------------------------------------------------
@@ -556,14 +583,14 @@ DELIMITER ;
 
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN DESCRICAO TEXT, IN VALIDADE_ORCAMENTO_SERVICO date, PRECO_MAO_DE_OBRA double,DESCONTO double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN VALIDADE_ORCAMENTO_SERVICO date, DESCONTO double, TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
 BEGIN
 INSERT INTO tb_venda /*INSERE*/ 
-(tb_venda.descricao_mao_de_obra, tb_venda.validade_orcamento_servico, 
-tb_venda.preco_mao_de_obra, tb_venda.desconto_venda, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id) 
+(tb_venda.validade_orcamento_servico, 
+tb_venda.desconto_venda, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id) 
 values 
-(DESCRICAO, VALIDADE_ORCAMENTO_SERVICO, 
-PRECO_MAO_DE_OBRA, DESCONTO, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID); 
+(VALIDADE_ORCAMENTO_SERVICO, 
+DESCONTO, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID); 
 END$$
 
 DELIMITER ;
@@ -584,14 +611,14 @@ DELIMITER ;
 
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoOrcamento`(IN DESCRICAO TEXT, IN VALIDADE_ORCAMENTO_SERVICO date, PRECO_MAO_DE_OBRA double, DESCONTO double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT, IN E_ORCAMENTO BOOL)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoOrcamento`(IN VALIDADE_ORCAMENTO_SERVICO date, DESCONTO double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT, IN E_ORCAMENTO BOOL)
 BEGIN
 INSERT INTO tb_venda /*INSERE*/ 
-(tb_venda.descricao_mao_de_obra, tb_venda.validade_orcamento_servico, 
-tb_venda.preco_mao_de_obra, tb_venda.desconto_venda, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id, tb_venda.e_orcamento) 
+(tb_venda.validade_orcamento_servico, 
+tb_venda.desconto_venda, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id, tb_venda.e_orcamento) 
 values 
-(DESCRICAO, VALIDADE_ORCAMENTO_SERVICO, 
-PRECO_MAO_DE_OBRA, DESCONTO, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID, E_ORCAMENTO); 
+(VALIDADE_ORCAMENTO_SERVICO, 
+DESCONTO, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID, E_ORCAMENTO); 
 END$$
 
 DELIMITER ;
@@ -694,10 +721,10 @@ call criacaoProduto('oleo preto','100','100','15','mobil',null);
 call criacaoProduto('oleo','100','100','12','mobil',null);
 
 /*INSERT TB_VENDA*/
-INSERT INTO `bd_tommotos`.`tb_venda` (`descricao_mao_de_obra`, `preco_mao_de_obra`, `validade_orcamento_servico`, `data_venda`, `venda_finalizada`, `e_orcamento`, `fk_veiculo_id`, `fk_cliente_id`) 
-VALUES ('Troca da Relação ', '50', '2022-05-25', '2021-03-25', '1', '0', '8', '11');
-INSERT INTO `bd_tommotos`.`tb_venda` (`descricao_mao_de_obra`, `preco_mao_de_obra`, `validade_orcamento_servico`, `data_venda`, `venda_finalizada`, `e_orcamento`, `fk_veiculo_id`, `fk_cliente_id`) 
-VALUES ('Troca de Oleo ', '20', '2022-05-25', '2021-03-25 00:00:00', '1', '0', '8', '12');
+INSERT INTO `bd_tommotos`.`tb_venda` (`validade_orcamento_servico`, `data_venda`, `venda_finalizada`, `e_orcamento`, `fk_veiculo_id`, `fk_cliente_id`) 
+VALUES ('2022-05-25', '2021-03-25', '1', '0', '8', '11');
+INSERT INTO `bd_tommotos`.`tb_venda` (`validade_orcamento_servico`, `data_venda`, `venda_finalizada`, `e_orcamento`, `fk_veiculo_id`, `fk_cliente_id`) 
+VALUES ('2022-05-25', '2021-03-25 00:00:00', '1', '0', '8', '12');
 
 /*INSERT PRODUTO USADO*/
 INSERT INTO `bd_tommotos`.`tb_produto_usado` (`quantidade_produto_usado`, `fk_produto_id`, `fk_venda_id`, `validade_da_garantia_produto`) 
@@ -722,6 +749,7 @@ select*from tb_telefone;
 select*from tb_usuario;
 select*from tb_veiculo;
 select*from tb_venda;
+select*from tb_servico_prestado;
 select*from tb_produto_usado;
 select*from tb_log_fornecimento;
 select*from tb_grupo_funcionarios;

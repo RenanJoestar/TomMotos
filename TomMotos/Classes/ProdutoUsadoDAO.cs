@@ -37,7 +37,7 @@ namespace TomMotos.Classes
         }
         #endregion
 
-        #region METODO LISTAR 
+    #region METODO LISTAR POR ID
 
         public ArrayList listarPorVenda(int idVenda)
         {

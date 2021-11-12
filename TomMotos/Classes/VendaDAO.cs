@@ -22,12 +22,10 @@ namespace TomMotos.Classes
         {
             try
             {
-                string insert = @"CALL criacaoVenda(@descricao, @validade_orcamento_servico, @preco_mao_de_obra,@desconto_venda,@total_venda, @fk_veiculo_id, @fk_cliente_id)";
+                string insert = @"CALL criacaoVenda(@validade_orcamento_servico, @desconto_venda, @total_venda, @fk_veiculo_id, @fk_cliente_id)";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
-                executacmdsql.Parameters.AddWithValue("@descricao", obj.descricao);
                 executacmdsql.Parameters.AddWithValue("@validade_orcamento_servico", obj.validade_orcamento_servico);
-                executacmdsql.Parameters.AddWithValue("@preco_mao_de_obra", obj.preco_mao_de_obra);
                 executacmdsql.Parameters.AddWithValue("@desconto_venda", obj.desconto);
                 executacmdsql.Parameters.AddWithValue("@total_venda", obj.total);
                 executacmdsql.Parameters.AddWithValue("@fk_veiculo_id", CaixaModel.fk_veiculo_id);
@@ -47,34 +45,30 @@ namespace TomMotos.Classes
 
         #endregion
 
-        #region METODO LISTAR ORÇAMENTO
+        #region METODO LISTAR TOTAL ORÇAMENTO POR ID
 
-        public DataTable listarOrcamento()
+        public string listarTotalVendaPorId(int idVenda)
         {
+            string totalVenda = null;
             try
             {
-                string select = @"select * from tb_venda where e_orcamento = true;";
+                string select = @"select tb_venda.total_venda from tb_venda where tb_venda.id_venda = " + idVenda + ";";
 
                 MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
                 conexao.Open();
-                executacmdsql.ExecuteNonQuery();
-
-                MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-                DataTable tabelaOrcamento = new DataTable();
-                da.Fill(tabelaOrcamento);
-
+                totalVenda = executacmdsql.ExecuteScalar().ToString();
                 conexao.Close();
-
-                return tabelaOrcamento;
             }
             catch (Exception erro)
             {
                 MessageBox.Show("Erro: " + erro);
-                return null;
+                MessageBox.Show("Cadastrado não Realizado!");
             }
+            return totalVenda;
         }
+
+
         #endregion
 
         #region METODO CADASTRAR ORÇAMENTO
@@ -83,12 +77,10 @@ namespace TomMotos.Classes
         {
             try
             {
-                string insert = @"CALL criacaoOrcamento(@descricao, @validade_orcamento_servico, @preco_mao_de_obra,@desconto_venda,@total_venda, @fk_veiculo_id, @fk_cliente_id, @e_orcamento)";
+                string insert = @"CALL criacaoOrcamento(@validade_orcamento_servico, @desconto_venda, @total_venda, @fk_veiculo_id, @fk_cliente_id, @e_orcamento)";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
-                executacmdsql.Parameters.AddWithValue("@descricao", obj.descricao);
                 executacmdsql.Parameters.AddWithValue("@validade_orcamento_servico", obj.validade_orcamento_servico);
-                executacmdsql.Parameters.AddWithValue("@preco_mao_de_obra", obj.preco_mao_de_obra);
                 executacmdsql.Parameters.AddWithValue("@desconto_venda", obj.desconto);
                 executacmdsql.Parameters.AddWithValue("@total_venda", obj.total);
                 executacmdsql.Parameters.AddWithValue("@fk_veiculo_id", CaixaModel.fk_veiculo_id);
@@ -211,7 +203,6 @@ namespace TomMotos.Classes
         }
         #endregion
 
-
         #region LISTAR SERVIÇOS PRESTADOS
         public string listarServiçosPrestados(int idVenda)
         {
@@ -232,6 +223,61 @@ namespace TomMotos.Classes
                 MessageBox.Show("Erro: " + erro);
             }
             return resultado;
+        }
+        #endregion
+
+        #region LISTAR TODAS ORÇAMENTOS
+        public DataTable listarTodosOrcamentos()
+        {
+            string sql = @"select tb_venda.id_venda AS 'ID DO ORÇAMENTO', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
+                tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', 
+		        tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', 
+		        tb_venda.data_venda AS 'DATA DA VENDA', tb_venda.data_venda AS 'DATA DO FORNECIMENTO'
+		        from tb_venda
+		        inner join tb_cliente
+		        on tb_venda.fk_cliente_id = tb_cliente.id_cliente
+                where tb_venda.e_orcamento = true order by tb_venda.id_venda;";
+
+            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
+
+            conexao.Open();
+            executacmdsql.ExecuteNonQuery();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataTable tabelaProduto = new DataTable();
+            da.Fill(tabelaProduto);
+
+            conexao.Close();
+
+            return tabelaProduto;
+        }
+        #endregion
+
+        #region LISTAR VENDAS POR FILTRO
+        public DataTable listarVendaPor(string finalSQL)
+        {
+            string select = @"select tb_venda.id_venda AS 'ID DO ORÇAMENTO', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
+                tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', 
+		        tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', 
+		        tb_venda.data_venda AS 'DATA DA VENDA', tb_venda.data_venda AS 'DATA DO FORNECIMENTO'
+		        from tb_venda
+		        inner join tb_cliente
+		        on tb_venda.fk_cliente_id = tb_cliente.id_cliente
+                where tb_venda.e_orcamento = true " + finalSQL + " order by tb_venda.id_venda";
+
+            MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+
+            conexao.Open();
+            executacmdsql.ExecuteNonQuery();
+            conexao.Close();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataTable tabelaProduto = new DataTable();
+            da.Fill(tabelaProduto);
+
+            return tabelaProduto;
         }
         #endregion
     }

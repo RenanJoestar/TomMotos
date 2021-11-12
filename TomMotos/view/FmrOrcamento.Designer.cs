@@ -60,6 +60,7 @@
             this.btn_mostrar_tudo.TabIndex = 49;
             this.btn_mostrar_tudo.Text = "Mostrar tudo";
             this.btn_mostrar_tudo.UseVisualStyleBackColor = true;
+            this.btn_mostrar_tudo.Click += new System.EventHandler(this.btn_mostrar_tudo_Click);
             // 
             // txtBuscar
             // 
@@ -87,6 +88,7 @@
             this.btnPesquisar.TabIndex = 46;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // label8
             // 
