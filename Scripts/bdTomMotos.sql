@@ -168,6 +168,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_venda` (
   `id_venda` INT NOT NULL AUTO_INCREMENT,
   `validade_orcamento_servico` DATE NULL DEFAULT NULL,
   `desconto_venda` DOUBLE NULL DEFAULT 0.00,
+  `valor_pago` DOUBLE NULL DEFAULT 0.00,
   `total_venda` DOUBLE NULL DEFAULT 0.00,
   `data_venda` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `venda_finalizada` BOOL DEFAULT FALSE,
@@ -583,14 +584,14 @@ DELIMITER ;
 
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN VALIDADE_ORCAMENTO_SERVICO date, DESCONTO double, TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN VALIDADE_ORCAMENTO_SERVICO date, DESCONTO double,valor_pago double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
 BEGIN
 INSERT INTO tb_venda /*INSERE*/ 
 (tb_venda.validade_orcamento_servico, 
-tb_venda.desconto_venda, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id) 
+tb_venda.desconto_venda,tb_venda.valor_pago, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id) 
 values 
 (VALIDADE_ORCAMENTO_SERVICO, 
-DESCONTO, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID); 
+DESCONTO,TOTAL, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID); 
 END$$
 
 DELIMITER ;
@@ -611,14 +612,14 @@ DELIMITER ;
 
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoOrcamento`(IN VALIDADE_ORCAMENTO_SERVICO date, DESCONTO double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT, IN E_ORCAMENTO BOOL)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoOrcamento`(IN VALIDADE_ORCAMENTO_SERVICO date, DESCONTO double,VALOR_PAGO double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT, IN E_ORCAMENTO BOOL)
 BEGIN
 INSERT INTO tb_venda /*INSERE*/ 
 (tb_venda.validade_orcamento_servico, 
-tb_venda.desconto_venda, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id, tb_venda.e_orcamento) 
+tb_venda.desconto_venda,tb_venda.valor_pago, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id, tb_venda.e_orcamento) 
 values 
 (VALIDADE_ORCAMENTO_SERVICO, 
-DESCONTO, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID, E_ORCAMENTO); 
+DESCONTO,VALOR_PAGO, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID, E_ORCAMENTO); 
 END$$
 
 DELIMITER ;
@@ -753,3 +754,8 @@ select*from tb_servico_prestado;
 select*from tb_produto_usado;
 select*from tb_log_fornecimento;
 select*from tb_grupo_funcionarios;
+select tb_produto.id_produto, tb_produto.descricao_produto, tb_produto_usado.quantidade_produto_usado, 
+                                tb_produto.valor_produto, tb_produto_usado.desconto_produto_usado, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id from tb_produto_usado 
+                                inner join tb_venda on tb_produto_usado.fk_venda_id = tb_venda.id_venda inner join
+                                tb_produto on tb_produto.id_produto = tb_produto_usado.fk_produto_id
+                                where tb_venda.id_venda = 5;

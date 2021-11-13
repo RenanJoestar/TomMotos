@@ -318,5 +318,7 @@ namespace TomMotos.view
 
             dg_produto.DataSource = Cadastro.ListarTodosProdutos();
         }
+
+     
     }
 }

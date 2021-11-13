@@ -49,7 +49,7 @@ namespace TomMotos.view
         {
             finalizarFormCaixa(false);
         }
-        private void finalizarFormCaixa(bool orcamento)
+        public void finalizarFormCaixa(bool orcamento)
         {
             if (CaixaModel.vendaFinalizada == true || orcamento)
             {
@@ -123,15 +123,22 @@ namespace TomMotos.view
                 inserirVariaveisObjServicoPrestado(idVenda);
 
                 MessageBox.Show("Orçamento bem salvo.");
-                finalizarFormCaixa(true);
+               
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro - " + erro.ToString());
+                MessageBox.Show("Erro - " + erro.Message);
             }
         }
         public void verificarFinalVenda(){
-            if (cBoxOrcamento.Checked) finalizarOrcamento(); 
+            if (cBoxOrcamento.Checked)
+            {
+                
+                FmrFinalizar_Orcamento FmO = new FmrFinalizar_Orcamento(this);
+                FmO.Show();
+                 
+            }
+            
             else IrParaFinalizar();
         }
         public void FinalizarVenda()
@@ -156,14 +163,12 @@ namespace TomMotos.view
         }
         public string getHtml(DataGridView grid, DataGridView grid2)
         {
+            
             try
-            {                
-                string messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DA TOMMOTOS: </p><br><br>", messageB = "", total="";
-                if (grid.RowCount == 0 || grid2.RowCount == 0) return messageBody;
-               
+            {
                 string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\">";
                 string htmlTableEnd = "</table><br>";
-                
+
 
                 string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
                 string htmlHeaderRowEnd = "</tr>";
@@ -173,6 +178,16 @@ namespace TomMotos.view
 
                 string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
                 string htmlTdEnd = "</td>";
+                string messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE VENDA TOMMOTOS: </p><br><br>", messageB = "", total = "";
+                if (CaixaModel.eOrcamento == true)
+                {
+                    htmlTdStart = "<td style=\" border-color:#d2a06f; border-style:solid; border-width:thin; padding: 5px;\">";
+                    messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE ORÇAMENTO TOMMOTOS: </p><br><br>";
+                    htmlHeaderRowStart = "<tr style=\"background-color:#d2a06f; color:#ffffff;\">";
+                }
+                if (grid.RowCount == 0 || grid2.RowCount == 0) return messageBody;
+               
+               
                 if (dgProdutos.Rows.Count > 1)
                 {
                     messageBody += htmlTableStart;
@@ -268,7 +283,7 @@ namespace TomMotos.view
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Test "+ erro.Message);
+                MessageBox.Show("Test "+ erro);
                 MessageBox.Show("Erro de conexão, Email não enviado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -653,7 +668,7 @@ namespace TomMotos.view
 
         private void criarPDF(string html, string nomePDF)
         {
-            string caminhoPDF = "D:/" + nomePDF;
+            string caminhoPDF = "E:/" + nomePDF;
             var conteudoHTML = String.Format(html, DateTime.Now);
             var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
             htmlToPdf.GeneratePdf(conteudoHTML, null, caminhoPDF);

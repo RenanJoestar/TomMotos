@@ -48,6 +48,7 @@ namespace TomMotos.view
             this.label1 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.txt_descricao_produto = new System.Windows.Forms.TextBox();
+            this.ptb_perfil = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dg_produto = new System.Windows.Forms.DataGridView();
@@ -57,11 +58,10 @@ namespace TomMotos.view
             this.button2 = new System.Windows.Forms.Button();
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.ptb_perfil = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.np_quantidade)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_produto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_produto)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPesquisar
@@ -116,6 +116,7 @@ namespace TomMotos.view
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
+            
             // 
             // btnAdd
             // 
@@ -269,6 +270,17 @@ namespace TomMotos.view
             this.txt_descricao_produto.Size = new System.Drawing.Size(160, 21);
             this.txt_descricao_produto.TabIndex = 1;
             // 
+            // ptb_perfil
+            // 
+            this.ptb_perfil.BackColor = System.Drawing.SystemColors.Menu;
+            this.ptb_perfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptb_perfil.Location = new System.Drawing.Point(107, 176);
+            this.ptb_perfil.Name = "ptb_perfil";
+            this.ptb_perfil.Size = new System.Drawing.Size(100, 107);
+            this.ptb_perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_perfil.TabIndex = 0;
+            this.ptb_perfil.TabStop = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -361,17 +373,6 @@ namespace TomMotos.view
             this.txtBuscar.Size = new System.Drawing.Size(258, 20);
             this.txtBuscar.TabIndex = 26;
             // 
-            // ptb_perfil
-            // 
-            this.ptb_perfil.BackColor = System.Drawing.SystemColors.Menu;
-            this.ptb_perfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptb_perfil.Location = new System.Drawing.Point(107, 176);
-            this.ptb_perfil.Name = "ptb_perfil";
-            this.ptb_perfil.Size = new System.Drawing.Size(100, 107);
-            this.ptb_perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_perfil.TabIndex = 0;
-            this.ptb_perfil.TabStop = false;
-            // 
             // Fmrproduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,8 +395,8 @@ namespace TomMotos.view
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.np_quantidade)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_produto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_produto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

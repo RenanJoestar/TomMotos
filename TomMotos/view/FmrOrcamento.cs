@@ -37,6 +37,10 @@ namespace TomMotos.view
         {
             fmrCx.Show();
             carregarVenda(int.Parse(dgOrcamento.CurrentRow.Cells[0].Value.ToString())); // ID VENDA
+            fmrCx.lbl_buscarCliente.Text = ClienteModel.fk_cliente;
+            fmrCx.lbl_BuscarVeiculo.Text = VeiculoModel.fk_veiculo;
+            DesabilitarComponentes();
+
             this.Close();
         }
 
@@ -52,13 +56,19 @@ namespace TomMotos.view
             string totalVenda = VendaDAO.listarTotalVendaPorId(idVenda);
             fmrCx.lblSubitotal.Text = totalVenda;
         }
-        
+        public void DesabilitarComponentes() {
+
+            fmrCx.btn_BuscarCliente.Enabled = false;
+            fmrCx.btn_buscarVeiculo.Enabled = false;
+            fmrCx.cBoxOrcamento.Enabled = false;
+        }
         public void carregarServicosFeitos(int idVenda)
         {
             try
             {
                 int ITEM = 1;
                 ArrayList resultado = ServicoPrestadoDAO.listarPorVenda(idVenda);
+                if(resultado.Count > 0)
                 for (int i = -1; i < resultado.Count; ITEM++)
                 {
                     if (ITEM == 1) i++;
@@ -80,24 +90,26 @@ namespace TomMotos.view
             {
                 int ITEM = 1;
                 ArrayList resultado = ProdutoUsadoDAO.listarPorVenda(idVenda);
-                for (int i = -1; i < resultado.Count; ITEM++)
-                {
-                    if (ITEM == 1) i++;
-                    string CODIGO = resultado[i].ToString(); i++;
-                    string DESCRICAO = resultado[i].ToString(); i++;
-                    string QTD = resultado[i].ToString(); i++;
-                    string VLUNIT = resultado[i].ToString(); i++;
-                    string DESCONTO = resultado[i].ToString(); i++;
+                if(resultado.Count > 0) {
+                    for (int i = -1; i < resultado.Count; ITEM++)
+                    {
+                        if (ITEM == 1) i++;
+                        string CODIGO = resultado[i].ToString(); i++;
+                        string DESCRICAO = resultado[i].ToString(); i++;
+                        string QTD = resultado[i].ToString(); i++;
+                        string VLUNIT = resultado[i].ToString(); i++;
+                        string DESCONTO = resultado[i].ToString(); i++;
 
-                    item[0] = ITEM.ToString();
-                    item[1] = CODIGO;
-                    item[2] = DESCRICAO;
-                    item[3] = QTD;
-                    item[4] = VLUNIT;
-                    item[5] = DESCONTO;
-                    item[6] = (double.Parse(QTD) * double.Parse(VLUNIT) - double.Parse(QTD) * double.Parse(VLUNIT) * double.Parse(DESCONTO) / 100).ToString();
+                        item[0] = ITEM.ToString();
+                        item[1] = CODIGO;
+                        item[2] = DESCRICAO;
+                        item[3] = QTD;
+                        item[4] = VLUNIT;
+                        item[5] = DESCONTO;
+                        item[6] = (double.Parse(QTD) * double.Parse(VLUNIT) - double.Parse(QTD) * double.Parse(VLUNIT) * double.Parse(DESCONTO) / 100).ToString();
 
-                    fmrCx.dgProdutos.Rows.Add(item);
+                        fmrCx.dgProdutos.Rows.Add(item);
+                    }
                 }
             }
             catch (Exception erro) { MessageBox.Show("Test " + erro); }

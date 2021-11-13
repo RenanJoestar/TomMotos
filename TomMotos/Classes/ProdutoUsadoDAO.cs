@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Collections;
+using System.Data;
 
 namespace TomMotos.Classes
 {
@@ -48,7 +49,7 @@ namespace TomMotos.Classes
             {
                 string select = @"
                                 select tb_produto.id_produto, tb_produto.descricao_produto, tb_produto_usado.quantidade_produto_usado, 
-                                tb_produto.valor_produto, tb_produto_usado.desconto_produto_usado from tb_produto_usado 
+                                tb_produto.valor_produto, tb_produto_usado.desconto_produto_usado, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id from tb_produto_usado 
                                 inner join tb_venda on tb_produto_usado.fk_venda_id = tb_venda.id_venda inner join
                                 tb_produto on tb_produto.id_produto = tb_produto_usado.fk_produto_id
                                 where tb_venda.id_venda = " + idVenda + ";";
@@ -56,17 +57,28 @@ namespace TomMotos.Classes
                 MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
                 conexao.Open();
-                MySqlDataReader reader = executacmdsql.ExecuteReader();
-
-                while (reader.Read())
+                
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    resultado.Add(Convert.ToInt32(reader[0].ToString()));
-                    resultado.Add(Convert.ToString(reader[1].ToString()));
-                    resultado.Add(Convert.ToDouble(reader[2].ToString()));
-                    resultado.Add(Convert.ToDouble(reader[3].ToString()));
-                    resultado.Add(Convert.ToDouble(reader[4].ToString()));
+                    ClienteModel.fk_cliente = ds.Tables[0].Rows[0]["fk_cliente_id"].ToString();
+                    VeiculoModel.fk_veiculo =  ds.Tables[0].Rows[0]["fk_veiculo_id"].ToString();                    
                 }
-                conexao.Close();
+                MySqlDataReader reader = executacmdsql.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        resultado.Add(Convert.ToInt32(reader[0].ToString()));
+                        resultado.Add(Convert.ToString(reader[1].ToString()));
+                        resultado.Add(Convert.ToDouble(reader[2].ToString()));
+                        resultado.Add(Convert.ToDouble(reader[3].ToString()));
+                        resultado.Add(Convert.ToDouble(reader[4].ToString()));
+                    }
+                    conexao.Close();
+                }
             }
             catch (Exception erro)
             {

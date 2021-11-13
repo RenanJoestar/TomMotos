@@ -728,8 +728,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lbl_id_veiculo;
         private System.Windows.Forms.Label lbl_fk_cliente;
-        private System.Windows.Forms.Button btn_buscarVeiculo;
-        private System.Windows.Forms.Button btn_BuscarCliente;
         public System.Windows.Forms.Label lbl_BuscarVeiculo;
         public System.Windows.Forms.Label lbl_buscarCliente;
         public System.Windows.Forms.Label lblSubitotal;
@@ -744,8 +742,10 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox cBoxOrcamento;
         public System.Windows.Forms.DataGridView dgProdutos;
         public System.Windows.Forms.DataGridView dgServicos;
+        public System.Windows.Forms.Button btn_buscarVeiculo;
+        public System.Windows.Forms.Button btn_BuscarCliente;
+        public System.Windows.Forms.CheckBox cBoxOrcamento;
     }
 }

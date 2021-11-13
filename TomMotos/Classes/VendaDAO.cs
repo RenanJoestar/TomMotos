@@ -77,11 +77,12 @@ namespace TomMotos.Classes
         {
             try
             {
-                string insert = @"CALL criacaoOrcamento(@validade_orcamento_servico, @desconto_venda, @total_venda, @fk_veiculo_id, @fk_cliente_id, @e_orcamento)";
+                string insert = @"CALL criacaoOrcamento(@validade_orcamento_servico, @desconto_venda,@valor_pago, @total_venda, @fk_veiculo_id, @fk_cliente_id, @e_orcamento)";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
                 executacmdsql.Parameters.AddWithValue("@validade_orcamento_servico", obj.validade_orcamento_servico);
                 executacmdsql.Parameters.AddWithValue("@desconto_venda", obj.desconto);
+                executacmdsql.Parameters.AddWithValue("@valor_pago", CaixaModel.valor_pago);
                 executacmdsql.Parameters.AddWithValue("@total_venda", obj.total);
                 executacmdsql.Parameters.AddWithValue("@fk_veiculo_id", CaixaModel.fk_veiculo_id);
                 executacmdsql.Parameters.AddWithValue("@fk_cliente_id", CaixaModel.fk_cliente_id);

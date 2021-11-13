@@ -56,21 +56,34 @@ namespace TomMotos.Classes
             try
             {
                 string select = @"
-                                select tb_servico_prestado.descricao_servico_prestado, tb_servico_prestado.valor_servico_prestado from tb_servico_prestado
+                                select tb_servico_prestado.descricao_servico_prestado, tb_servico_prestado.valor_servico_prestado, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id from tb_servico_prestado
                                 inner join tb_venda on tb_servico_prestado.fk_venda_id = tb_venda.id_venda 
                                 where tb_venda.id_venda = " + idVenda + ";";
 
                 MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
                 conexao.Open();
-                MySqlDataReader reader = executacmdsql.ExecuteReader();
-
-                while (reader.Read())
+               
+               
+                    MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    resultado.Add(Convert.ToString(reader[0].ToString()));
-                    resultado.Add(Convert.ToDouble(reader[1].ToString()));
+                    ClienteModel.fk_cliente = ds.Tables[0].Rows[0]["fk_cliente_id"].ToString();
+                    VeiculoModel.fk_veiculo = ds.Tables[0].Rows[0]["fk_veiculo_id"].ToString();
                 }
-                conexao.Close();
+
+                MySqlDataReader reader = executacmdsql.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        resultado.Add(Convert.ToString(reader[0].ToString()));
+                        resultado.Add(Convert.ToDouble(reader[1].ToString()));
+                    }
+                    conexao.Close();
+                }
             }
             catch (Exception erro)
             {
