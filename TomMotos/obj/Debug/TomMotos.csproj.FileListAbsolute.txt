@@ -281,3 +281,5 @@ C:\Users\Lab2-01\Desktop\TomMotos-main\TomMotos\obj\Debug\TomMotos.csproj.CopyCo
 C:\Users\Lab2-01\Desktop\TomMotos-main\TomMotos\obj\Debug\TomMotos.exe
 C:\Users\Lab2-01\Desktop\TomMotos-main\TomMotos\obj\Debug\TomMotos.pdb
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_Orcamento.resources
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_Orcamento.resources
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrOrcamento.resources

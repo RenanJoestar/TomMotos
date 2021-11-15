@@ -285,6 +285,11 @@ namespace TomMotos.view
 
         }
 
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button7_Click(object sender, EventArgs e)
         {
             if(txt_id.Text != "")

@@ -48,11 +48,9 @@ namespace TomMotos.view
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCargo)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -176,7 +174,7 @@ namespace TomMotos.view
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(234, 23);
+            this.label7.Location = new System.Drawing.Point(239, 21);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(420, 46);
             this.label7.TabIndex = 19;
@@ -188,7 +186,7 @@ namespace TomMotos.view
             this.dgCargo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCargo.Location = new System.Drawing.Point(324, 148);
             this.dgCargo.Name = "dgCargo";
-            this.dgCargo.Size = new System.Drawing.Size(346, 260);
+            this.dgCargo.Size = new System.Drawing.Size(582, 260);
             this.dgCargo.TabIndex = 20;
             this.dgCargo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCargo_CellClick);
             // 
@@ -200,9 +198,9 @@ namespace TomMotos.view
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(324, 424);
+            this.btnCadastrar.Location = new System.Drawing.Point(324, 414);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(105, 43);
+            this.btnCadastrar.Size = new System.Drawing.Size(180, 43);
             this.btnCadastrar.TabIndex = 21;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
@@ -214,9 +212,9 @@ namespace TomMotos.view
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(435, 424);
+            this.btnAlterar.Location = new System.Drawing.Point(510, 414);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(130, 43);
+            this.btnAlterar.Size = new System.Drawing.Size(218, 43);
             this.btnAlterar.TabIndex = 22;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
@@ -228,9 +226,9 @@ namespace TomMotos.view
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(571, 424);
+            this.btnExcluir.Location = new System.Drawing.Point(734, 414);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(99, 43);
+            this.btnExcluir.Size = new System.Drawing.Size(172, 43);
             this.btnExcluir.TabIndex = 23;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
@@ -238,9 +236,9 @@ namespace TomMotos.view
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(388, 122);
+            this.txtFiltro.Location = new System.Drawing.Point(388, 121);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(204, 20);
+            this.txtFiltro.Size = new System.Drawing.Size(483, 20);
             this.txtFiltro.TabIndex = 24;
             // 
             // cbxBuscar
@@ -256,41 +254,32 @@ namespace TomMotos.view
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(598, 122);
+            this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscar.Location = new System.Drawing.Point(877, 120);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(72, 22);
+            this.btnBuscar.Size = new System.Drawing.Size(29, 22);
             this.btnBuscar.TabIndex = 26;
-            this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(707, 94);
+            this.panel1.Size = new System.Drawing.Size(939, 94);
             this.panel1.TabIndex = 27;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(25, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(141, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 28;
-            this.pictureBox1.TabStop = false;
             // 
             // Fmrcargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(703, 490);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(939, 488);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cbxBuscar);
@@ -300,6 +289,7 @@ namespace TomMotos.view
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.dgCargo);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Fmrcargo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -311,7 +301,6 @@ namespace TomMotos.view
             ((System.ComponentModel.ISupportInitialize)(this.dgCargo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,7 +324,6 @@ namespace TomMotos.view
         private System.Windows.Forms.ComboBox cbxBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
     }

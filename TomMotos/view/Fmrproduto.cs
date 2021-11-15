@@ -291,8 +291,13 @@ namespace TomMotos.view
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+  
+        }
+
+        private void btnAdd_Click_1(object sender, EventArgs e)
+        {
             ProdutoModel obj = new ProdutoModel();
-            
+
             string select = "select id_fornecedor from tb_fornecedor where nome_fornecedor = " + "'" + cbxFornecedor.Text.ToString() + "'";
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
@@ -309,7 +314,7 @@ namespace TomMotos.view
             obj.id = int.Parse(txt_id.Text);
             if (np_quantidade.ToString() == "" || np_quantidade.ToString() == "0") MessageBox.Show("DIGITE UMA QUANTIDADE VALIDA");
             else obj.quantidade = int.Parse(np_quantidade.Text);
-            MessageBox.Show("idFor "+id_fornecedor);
+            MessageBox.Show("idFor " + id_fornecedor);
             MessageBox.Show("Qtd" + np_quantidade.Text.ToString());
             MessageBox.Show("Test " + obj.id);
 
@@ -318,7 +323,5 @@ namespace TomMotos.view
 
             dg_produto.DataSource = Cadastro.ListarTodosProdutos();
         }
-
-     
     }
 }

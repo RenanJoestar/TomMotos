@@ -221,5 +221,15 @@ namespace TomMotos.view
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dg_veiculo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

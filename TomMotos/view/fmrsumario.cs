@@ -17,60 +17,87 @@ namespace TomMotos
         {
             InitializeComponent();
         }
-      
+        public void AbrirFormNoPanel<Forms>() where Forms : Form, new()
+        {
+            Form formulario;
+            formulario = Panel.Controls.OfType<Forms>().FirstOrDefault();
+            Panel.Controls.Clear();
+            if (formulario == null)
+            {
+                Panel.Controls.Clear();
+                formulario = new Forms();
+                formulario.TopLevel = false;
+                Panel.Controls.Add(formulario);
+                formulario.Show();
+                formulario.BringToFront();
+
+            }
+            else
+            {
+               
+                if (formulario.WindowState == FormWindowState.Minimized)
+                {
+                    formulario.WindowState = FormWindowState.Normal;
+                    formulario.BringToFront();
+                }
+
+            }
+
+        }
+
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-            contextMenuStrip1.Show(PointToScreen(btnCadastro.Location));
+         
           //Fmrsumariocadastro fmrsumariocadastro = new Fmrsumariocadastro();
           //fmrsumariocadastro.Show();
         }
 
         private void alowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Fmrcliente Fmrcliente = new Fmrcliente();
-            Fmrcliente.Show();
-            this.Hide();
+            // Fmrcliente Fmrcliente = new Fmrcliente();
+            // Fmrcliente.Show();
+           // this.Hide();
 
         }
         private void cargoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fmrcargo fmrcargo = new Fmrcargo();
             fmrcargo.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void fornecedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fmrfornecedor fmrfornecedor = new Fmrfornecedor();
             fmrfornecedor.Show();
-            this.Hide();
+           // this.Hide();
         }
 
         private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fmrfuncionario fmrfuncionario = new Fmrfuncionario();
             fmrfuncionario.Show();
-            this.Hide();
+           // this.Hide();
         }
 
         private void produtoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fmrproduto fmrproduto = new Fmrproduto();
             fmrproduto.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void veiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fmrveiculo fmrveiculo = new Fmrveiculo();
             fmrveiculo.Show();
-            this.Hide();
+           // this.Hide();
         }
         private void logFornecimentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmlogFornecimento frmlogFornecimento = new FrmlogFornecimento();
             frmlogFornecimento.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void Fmrsumario_FormClosed(object sender, FormClosedEventArgs e)
@@ -91,8 +118,54 @@ namespace TomMotos
 
         private void orçamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //FmrOrcamento fmrOrc = new FmrOrcamento(null);
+         //   fmrOrc.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPanel<Fmrcliente>();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPanel<Fmrveiculo>();
+        }
+
+        private void Fmrsumario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BT_CARGO_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPanel<Fmrcargo>();
+        }
+
+        private void BT_FUNCIONARIO_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPanel<Fmrfuncionario>();
+        }
+
+        private void BT_FORNECEDOR_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPanel<Fmrfornecedor>();
+        }
+
+        private void BT_PRODUTO_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPanel<Fmrproduto>();
+        }
+
+        private void BT_ORCAMENTO_Click(object sender, EventArgs e)
+        {
             FmrOrcamento fmrOrc = new FmrOrcamento(null);
             fmrOrc.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Panel.Controls.Clear();
         }
     }
 }
