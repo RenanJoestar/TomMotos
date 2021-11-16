@@ -30,7 +30,7 @@ namespace TomMotos.view
 
         private void FmOrcamento_Load(object sender, EventArgs e)
         {
-            dgOrcamento.DataSource = VendaDAO.listarTodosOrcamentos();
+            dgOrcamento.DataSource = VendaDAO.listarTodos(true); //Puxa todos os orçamentos
         }
 
         private void dgOrcamento_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -130,11 +130,11 @@ namespace TomMotos.view
             try
             {
                 string campo = cbxBuscar.Text.ToString();
-                string finalSQL = "";
+                string finalSQL = "tb_venda.e_orcamento = true";
                 if (campo == "ID DO ORÇAMENTO") campo = "tb_venda.id_venda";
                 if (campo == "NOME DO CLIENTE") campo = "tb_cliente.nome_cliente";
                 if (campo == "CPF DO CLIENTE") campo = "tb_cliente.cpf_cliente";
-                if (campo != "") finalSQL = "AND " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                if (campo != "") finalSQL += " AND " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
                 if (cxbData.Checked)
                 {
                     finalSQL = finalSQL + " AND tb_venda.data_venda BETWEEN ' " + dtp1.Value.ToString("yyyy/MM/dd") + " 00:00:00' AND ' " + dtp2.Value.ToString("yyyy/MM/dd") + " " + "23:59:59'";
@@ -147,7 +147,7 @@ namespace TomMotos.view
 
         private void btn_mostrar_tudo_Click(object sender, EventArgs e)
         {
-            dgOrcamento.DataSource = VendaDAO.listarTodosOrcamentos();
+            dgOrcamento.DataSource = VendaDAO.listarTodos(true); //Puxa todos os orçamentos
             txtBuscar.Text = "";
             cbxBuscar.Text = "";
             cxbData.Checked = false;

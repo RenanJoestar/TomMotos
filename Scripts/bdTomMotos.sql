@@ -581,7 +581,6 @@ DELIMITER ;
 -- -----------------------------------------------------
 -- procedure criacaoVenda
 -- -----------------------------------------------------
-
 DELIMITER $$
 USE `bd_tommotos`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN VALIDADE_ORCAMENTO_SERVICO date, DESCONTO double,valor_pago double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
@@ -754,8 +753,3 @@ select*from tb_servico_prestado;
 select*from tb_produto_usado;
 select*from tb_log_fornecimento;
 select*from tb_grupo_funcionarios;
-select tb_produto.id_produto, tb_produto.descricao_produto, tb_produto_usado.quantidade_produto_usado, 
-                                tb_produto.valor_produto, tb_produto_usado.desconto_produto_usado, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id from tb_produto_usado 
-                                inner join tb_venda on tb_produto_usado.fk_venda_id = tb_venda.id_venda inner join
-                                tb_produto on tb_produto.id_produto = tb_produto_usado.fk_produto_id
-                                where tb_venda.id_venda = 5;

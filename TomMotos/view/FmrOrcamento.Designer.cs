@@ -94,10 +94,10 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(42, 16);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(199, 19);
+            this.label8.Size = new System.Drawing.Size(174, 20);
             this.label8.TabIndex = 45;
             this.label8.Text = "Consulta de orçamento";
             this.label8.Click += new System.EventHandler(this.label8_Click);

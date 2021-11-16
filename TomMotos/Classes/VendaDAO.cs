@@ -227,17 +227,17 @@ namespace TomMotos.Classes
         }
         #endregion
 
-        #region LISTAR TODAS ORÇAMENTOS
-        public DataTable listarTodosOrcamentos()
+        #region LISTAR TODOS ORÇAMENTOS/VENDAS
+        public DataTable listarTodos(bool orcamento)
         {
-            string sql = @"select tb_venda.id_venda AS 'ID DO ORÇAMENTO', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
+            string sql = @"select tb_venda.id_venda AS 'ID DA CONSULTA', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
                 tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', 
 		        tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', 
 		        tb_venda.data_venda AS 'DATA DA VENDA', tb_venda.data_venda AS 'DATA DO FORNECIMENTO'
 		        from tb_venda
 		        inner join tb_cliente
 		        on tb_venda.fk_cliente_id = tb_cliente.id_cliente
-                where tb_venda.e_orcamento = true order by tb_venda.id_venda;";
+                where tb_venda.e_orcamento = " + orcamento + ";";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 
@@ -258,14 +258,14 @@ namespace TomMotos.Classes
         #region LISTAR VENDAS POR FILTRO
         public DataTable listarVendaPor(string finalSQL)
         {
-            string select = @"select tb_venda.id_venda AS 'ID DO ORÇAMENTO', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
-                tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', 
-		        tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', 
-		        tb_venda.data_venda AS 'DATA DA VENDA', tb_venda.data_venda AS 'DATA DO FORNECIMENTO'
-		        from tb_venda
+
+            string select = @"select tb_venda.id_venda AS 'ID DA CONSULTA', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
+                tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', 
+                tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', tb_venda.data_venda AS 'DATA DA VENDA', 
+                tb_venda.data_venda AS 'DATA DO FORNECIMENTO' from tb_venda
 		        inner join tb_cliente
 		        on tb_venda.fk_cliente_id = tb_cliente.id_cliente
-                where tb_venda.e_orcamento = true " + finalSQL + " order by tb_venda.id_venda";
+                where " + finalSQL;
 
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 

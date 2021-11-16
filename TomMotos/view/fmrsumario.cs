@@ -167,5 +167,17 @@ namespace TomMotos
         {
             Panel.Controls.Clear();
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            FmrVenda frmVenda = new FmrVenda();
+            frmVenda.Show();
+        }
+
+        private void BT_LOG_FORNECIMENTO_Click(object sender, EventArgs e)
+        {
+            FmrOrcamento fmrOrc = new FmrOrcamento(null);
+            fmrOrc.Show();
+        }
     }
 }
