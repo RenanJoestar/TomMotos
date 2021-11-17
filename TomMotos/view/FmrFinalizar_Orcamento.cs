@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TomMotos.Classes;
 using TomMotos.Conexao;
 using TomMotos.Model;
 
@@ -24,14 +25,28 @@ namespace TomMotos.view
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            txtFaltaPagar.Text = "";
-            txtValorPago.Text = (double.Parse(txtDinheiro.Text.Replace(".", ",")) + double.Parse(txtDebito.Text.Replace(".", ",")) + double.Parse(txt_credito.Text.Replace(".", ",")) + double.Parse(txtPix.Text.Replace(".", ","))).ToString();
-            if (double.Parse(txtValorPago.Text) >= double.Parse(lblsubtotal.Text))
-            {
-                txtValorPago.Text = "";
-                MessageBox.Show("ADIANTAMENTO NÃO PODE SER MAIOR QUE O TOTAL EM ORÇAMENTO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else txtFaltaPagar.Text = (double.Parse(lblsubtotal.Text) - double.Parse(txtValorPago.Text)).ToString();
+           try
+           {
+                txtFaltaPagar.Text = "";
+                txtValorPago.Text = string.Format("{0:#,##0.00}", double.Parse(txtDinheiro.Text) + double.Parse(txtDebito.Text) + double.Parse(txt_credito.Text) + double.Parse(txtPix.Text));
+               
+                    if (double.Parse(txtValorPago.Text) >= double.Parse(lblsubtotal.Text))
+                    {
+                        txtValorPago.Text = "";
+                        MessageBox.Show("ADIANTAMENTO NÃO PODE SER MAIOR QUE O TOTAL EM ORÇAMENTO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        txtFaltaPagar.Text = string.Format("{0:#,##0.00}", double.Parse(lblsubtotal.Text) - double.Parse(txtValorPago.Text));
+                        txtDebito.Text = "0,00";
+                        txtDinheiro.Text = "0,00";
+                        txtPix.Text = "0,00";
+                        txt_credito.Text = "0,00";
+                    }
+                
+           }
+            catch (Exception erro)
+            { MessageBox.Show(erro.Message);}
         }
         private void carregarEmails()
         {
@@ -81,6 +96,7 @@ namespace TomMotos.view
                         Fno.finalizarOrcamento();                        
                         Fno.SalvarPdf();
                         Fno.finalizarFormCaixa(true);
+                        this.Close();
                     }
                 }
                 else
@@ -91,8 +107,9 @@ namespace TomMotos.view
                     Fno.SalvarPdf();
                     Fno.EnviarEmail();
                     Fno.finalizarFormCaixa(true);
+                    this.Close();
                 }
-                this.Close();
+                
             }
             catch (Exception erro)
             {
@@ -105,6 +122,26 @@ namespace TomMotos.view
         {
             lblsubtotal.Text = Fno.lblSubitotal.Text;
             carregarEmails();
+        }
+
+        private void txtDinheiro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacaoTxtDAO.FormatarValores(sender, e);
+        }
+
+        private void txtDebito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacaoTxtDAO.FormatarValores(sender, e);
+        }
+
+        private void txt_credito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacaoTxtDAO.FormatarValores(sender, e);
+        }
+
+        private void txtPix_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacaoTxtDAO.FormatarValores(sender, e);
         }
     }
 }

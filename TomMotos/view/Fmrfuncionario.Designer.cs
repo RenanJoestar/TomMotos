@@ -45,7 +45,6 @@ namespace TomMotos.view
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.txt_contratacao = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@ namespace TomMotos.view
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.txt_contratacao = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_funcionario)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -79,6 +79,7 @@ namespace TomMotos.view
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txt_contratacao);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label3);
@@ -92,7 +93,6 @@ namespace TomMotos.view
             this.groupBox2.Controls.Add(this.button8);
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.txt_contratacao);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label15);
@@ -147,7 +147,7 @@ namespace TomMotos.view
             // 
             this.txt_nascimento.ForeColor = System.Drawing.Color.Black;
             this.txt_nascimento.Location = new System.Drawing.Point(104, 112);
-            this.txt_nascimento.Mask = "0000/00/00";
+            this.txt_nascimento.Mask = "00/00/0000";
             this.txt_nascimento.Name = "txt_nascimento";
             this.txt_nascimento.Size = new System.Drawing.Size(75, 21);
             this.txt_nascimento.TabIndex = 32;
@@ -257,14 +257,6 @@ namespace TomMotos.view
             this.label12.Size = new System.Drawing.Size(97, 15);
             this.label12.TabIndex = 25;
             this.label12.Text = "CONTRATAÇÃO:";
-            // 
-            // txt_contratacao
-            // 
-            this.txt_contratacao.ForeColor = System.Drawing.Color.Black;
-            this.txt_contratacao.Location = new System.Drawing.Point(104, 166);
-            this.txt_contratacao.Name = "txt_contratacao";
-            this.txt_contratacao.Size = new System.Drawing.Size(133, 21);
-            this.txt_contratacao.TabIndex = 24;
             // 
             // label13
             // 
@@ -451,6 +443,15 @@ namespace TomMotos.view
             this.label4.TabIndex = 19;
             this.label4.Text = "CADASTRO DE FUNCIONÁRIO";
             // 
+            // txt_contratacao
+            // 
+            this.txt_contratacao.ForeColor = System.Drawing.Color.Black;
+            this.txt_contratacao.Location = new System.Drawing.Point(104, 166);
+            this.txt_contratacao.Mask = "00/00/0000";
+            this.txt_contratacao.Name = "txt_contratacao";
+            this.txt_contratacao.Size = new System.Drawing.Size(75, 21);
+            this.txt_contratacao.TabIndex = 36;
+            // 
             // Fmrfuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,7 +492,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txt_contratacao;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -514,5 +514,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MaskedTextBox txt_contratacao;
     }
 }

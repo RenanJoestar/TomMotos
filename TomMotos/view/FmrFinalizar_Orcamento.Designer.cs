@@ -186,7 +186,8 @@ namespace TomMotos.view
             this.txtPix.Name = "txtPix";
             this.txtPix.Size = new System.Drawing.Size(100, 20);
             this.txtPix.TabIndex = 24;
-            this.txtPix.Text = "0";
+            this.txtPix.Text = "0,00";
+            this.txtPix.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPix_KeyPress);
             // 
             // txt_credito
             // 
@@ -194,7 +195,8 @@ namespace TomMotos.view
             this.txt_credito.Name = "txt_credito";
             this.txt_credito.Size = new System.Drawing.Size(100, 20);
             this.txt_credito.TabIndex = 23;
-            this.txt_credito.Text = "0";
+            this.txt_credito.Text = "0,00";
+            this.txt_credito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_credito_KeyPress);
             // 
             // txtDebito
             // 
@@ -202,7 +204,8 @@ namespace TomMotos.view
             this.txtDebito.Name = "txtDebito";
             this.txtDebito.Size = new System.Drawing.Size(100, 20);
             this.txtDebito.TabIndex = 22;
-            this.txtDebito.Text = "0";
+            this.txtDebito.Text = "0,00";
+            this.txtDebito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDebito_KeyPress);
             // 
             // txtDinheiro
             // 
@@ -210,7 +213,8 @@ namespace TomMotos.view
             this.txtDinheiro.Name = "txtDinheiro";
             this.txtDinheiro.Size = new System.Drawing.Size(100, 20);
             this.txtDinheiro.TabIndex = 21;
-            this.txtDinheiro.Text = "0";
+            this.txtDinheiro.Text = "0,00";
+            this.txtDinheiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDinheiro_KeyPress);
             // 
             // label4
             // 

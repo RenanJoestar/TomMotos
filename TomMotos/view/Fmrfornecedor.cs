@@ -14,9 +14,11 @@ using TomMotos.Model;
 
 namespace TomMotos.view
 {
+
     public partial class Fmrfornecedor : Form
     {
         string idUser,nome;
+        bool CNPJ;
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrfornecedor()
         {
@@ -28,20 +30,24 @@ namespace TomMotos.view
             try
             {
                 FornecedorModel obj = new FornecedorModel();
-
+                CNPJ = true;
                 obj.nome = txt_nome.Text.ToUpper();
-                if (txt_cnpj.Text == "") obj.cnpj = null;
-                else obj.cnpj = txt_cnpj.Text.ToUpper();
+                if (txt_cnpj.Text == "  ,   ,   /    -") FornecedorModel.cnpj = null;  // É interessante perceber que isso não deve ser usado para alguns ints, por exemplo de quantidade tendo em vista
+                else validarCNPJ();
+                if (CNPJ == true)
+                {
 
-                FornecedorDAO Cadastro = new FornecedorDAO();
+                    FornecedorDAO Cadastro = new FornecedorDAO();
 
-                Cadastro.cadastrarFornecedor(obj);
-                
-                dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
+                    Cadastro.cadastrarFornecedor(obj);
+
+                    dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
+                }
+
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Erro: " + erro.Message);
             }
         }
 
@@ -58,16 +64,21 @@ namespace TomMotos.view
             
             try
             {
+                 CNPJ = true;
                 FornecedorModel obj = new FornecedorModel();
                 obj.id = int.Parse(txt_id.Text);
                 obj.nome = txt_nome.Text.ToUpper();
-                if (txt_cnpj.Text == "") obj.cnpj = null;
-                else obj.cnpj = txt_cnpj.Text.ToUpper();
+                if (txt_cnpj.Text == "  ,   ,   /    -") FornecedorModel.cnpj = null;  // É interessante perceber que isso não deve ser usado para alguns ints, por exemplo de quantidade tendo em vista
+                else validarCNPJ();
+                    if (CNPJ == true)
+                    {
+                        FornecedorDAO dao = new FornecedorDAO();
+                        dao.alterar(obj);
+                        dg_fornecedor.DataSource = dao.ListarTodosFornecedores();
+                        MessageBox.Show("Alterado com Sucesso!");
+                    }
 
-                FornecedorDAO dao = new FornecedorDAO();
-                dao.alterar(obj);
-                dg_fornecedor.DataSource = dao.ListarTodosFornecedores();
-                MessageBox.Show("Alterado com Sucesso!");
+                
             }
             catch (Exception erro)
             {
@@ -199,13 +210,29 @@ namespace TomMotos.view
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
-            {           
-                string campo = cbxBuscar.Text.ToString() + "_fornecedor";
-                FiltroModel.filtro = @"select * from tb_fornecedor where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-                FiltroDAO dao = new FiltroDAO();
-                dg_fornecedor.DataSource = dao.buscaCargo(); 
+            {
+                if (cbxBuscar.Text != "")
+                {
+                    string campo = cbxBuscar.Text.ToString() + "_fornecedor";
+                    FiltroModel.filtro = @"select * from tb_fornecedor where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    FiltroDAO dao = new FiltroDAO();
+                    dg_fornecedor.DataSource = dao.buscaCargo();
+                }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
+        private void validarCNPJ()
+        {
+            //verificação de cnpj
+            txt_cnpj.TextMaskFormat = MaskFormat.IncludeLiterals;
+            string cnpj = txt_cnpj.Text;
+            bool verFal = validacaoTxtDAO.validarCnpj(cnpj);
+
+            if (verFal)
+            {
+                FornecedorModel.cnpj = txt_cnpj.Text;
+            }
+            else { MessageBox.Show("CNPJ INVÁLIDO"); CNPJ = false; }
         }
 
         private void button4_Click(object sender, EventArgs e)

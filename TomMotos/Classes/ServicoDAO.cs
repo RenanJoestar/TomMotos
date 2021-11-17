@@ -24,8 +24,7 @@ namespace TomMotos.Classes
 
         public void cadastrarServicoPrestado(ServicoModel obj)
         {
-            try
-            {
+            
                 string insert = @"CALL criacaoServicoPrestado(@descricao_servico_prestado, @valor_servico_prestado, @fk_venda_id)";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
@@ -36,11 +35,8 @@ namespace TomMotos.Classes
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro: " + erro);
-            }
+            
+           
         }
 
 

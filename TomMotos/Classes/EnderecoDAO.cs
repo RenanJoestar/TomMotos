@@ -45,9 +45,7 @@ namespace TomMotos.Classes
                 }
                 catch (Exception erro)
                 {
-                  
-                    MessageBox.Show(erro.Message);
-                    MessageBox.Show("Cadastrado não Realizado!");
+                    MessageBox.Show("Cadastrado não Realizado! "+ erro.Message);
                 }
              
             }
@@ -109,9 +107,7 @@ namespace TomMotos.Classes
                 }
                 catch (Exception erro)
                 {
-                   
-                    MessageBox.Show(erro.Message);
-                    MessageBox.Show("Alteração não Realizado!");
+                    MessageBox.Show("Alteração não Realizado! " + erro.Message);
                 }
            
             }

@@ -21,7 +21,7 @@ namespace TomMotos.view
         Fmrcaixa fp;
         public FmrVeiculo_Cliente(Fmrcaixa f)
         {           
-            InitializeComponent();            
+            InitializeComponent();
             fp = f;             
         }
 
@@ -29,10 +29,13 @@ namespace TomMotos.view
         {
             conexao.Open();
             VendaDAO Cadastro = new VendaDAO();
-            if (CaixaModel.valorPesquisa == "veiculo") {
+            if (CaixaModel.valorPesquisa == "veiculo") {                
+                
+                cbxBuscar.Items.AddRange(new object[] { "ID","MODELO","MARCA","COR","ANO","KM","PLACA","OBS"});
                 Cadastro.ListarTodosVeiculo();
                 dg_listarVeiculoOuCliente.DataSource = Cadastro.ListarTodosVeiculo(); }
             else {
+                cbxBuscar.Items.AddRange(new object[] { "ID", "NOME", "SOBRENOME", "CPF", "CNPJ"});
                 Cadastro.ListarTodosCliente();
                 dg_listarVeiculoOuCliente.DataSource = Cadastro.ListarTodosCliente();
             }
@@ -73,8 +76,25 @@ namespace TomMotos.view
 
         private void FmrVeiculo_Cliente_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //vp.lbl_BuscarVeiculo.Text = CaixaModel.fk_veiculo_id;
+            cbxBuscar.Items.Clear();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbxBuscar.Text != "")
+                {
+                    string campo = cbxBuscar.Text.ToString() + "_veiculo";
+                    if(CaixaModel.valorPesquisa == "veiculo") FiltroModel.filtro = @"select * from tb_veiculo where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    else FiltroModel.filtro = @"select * from tb_cliente where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    // MessageBox.Show("Test " + FiltroModel.filtro);
+                    FiltroDAO dao = new FiltroDAO();
+                    dg_listarVeiculoOuCliente.DataSource = dao.buscaCargo();
+                }
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }
     }
 }

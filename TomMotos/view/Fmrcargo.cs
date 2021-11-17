@@ -127,11 +127,14 @@ namespace TomMotos.view
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try {
-                string campo = cbxBuscar.Text.ToString() + "_cargo";
-                FiltroModel.filtro = @"select * from tb_cargo where " + campo.ToLower() + " like " + "'%" + txtFiltro.Text.ToString() + "%'";
-                // MessageBox.Show("Test " + FiltroModel.filtro);
-                FiltroDAO dao = new FiltroDAO();
-                dgCargo.DataSource = dao.buscaCargo();
+                if (cbxBuscar.Text != "")
+                {
+                    string campo = cbxBuscar.Text.ToString() + "_cargo";
+                    FiltroModel.filtro = @"select * from tb_cargo where " + campo.ToLower() + " like " + "'%" + txtFiltro.Text.ToString() + "%'";
+                    // MessageBox.Show("Test " + FiltroModel.filtro);
+                    FiltroDAO dao = new FiltroDAO();
+                    dgCargo.DataSource = dao.buscaCargo();
+                }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }

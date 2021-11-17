@@ -228,12 +228,13 @@ namespace TomMotos.view
         {
             try
             {
-
-           
-            string campo = cbxBuscar.Text.ToString() + "_endereco";
-            FiltroModel.filtro = @"select * from tb_endereco where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%' and fk_usuario_id = " + txt_id.Text.ToString();
-            FiltroDAO dao = new FiltroDAO();
-            dgEndereco.DataSource = dao.buscaCargo(); 
+                if (cbxBuscar.Text != "")
+                {
+                    string campo = cbxBuscar.Text.ToString() + "_endereco";
+                    FiltroModel.filtro = @"select * from tb_endereco where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%' and fk_usuario_id = " + txt_id.Text.ToString();
+                    FiltroDAO dao = new FiltroDAO();
+                    dgEndereco.DataSource = dao.buscaCargo();
+                }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
@@ -241,6 +242,15 @@ namespace TomMotos.view
         private void cbxBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_numero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
         }
     }
 }

@@ -102,8 +102,9 @@ namespace TomMotos.view
             this.txtDinheiro.Name = "txtDinheiro";
             this.txtDinheiro.Size = new System.Drawing.Size(100, 20);
             this.txtDinheiro.TabIndex = 4;
-            this.txtDinheiro.Text = "0";
+            this.txtDinheiro.Text = "0,00";
             this.txtDinheiro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDinheiro_KeyDown);
+            this.txtDinheiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDinheiro_KeyPress);
             // 
             // txtDebito
             // 
@@ -111,8 +112,9 @@ namespace TomMotos.view
             this.txtDebito.Name = "txtDebito";
             this.txtDebito.Size = new System.Drawing.Size(100, 20);
             this.txtDebito.TabIndex = 5;
-            this.txtDebito.Text = "0";
+            this.txtDebito.Text = "0,00";
             this.txtDebito.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDebito_KeyDown);
+            this.txtDebito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDebito_KeyPress);
             // 
             // txt_credito
             // 
@@ -120,8 +122,9 @@ namespace TomMotos.view
             this.txt_credito.Name = "txt_credito";
             this.txt_credito.Size = new System.Drawing.Size(100, 20);
             this.txt_credito.TabIndex = 6;
-            this.txt_credito.Text = "0";
+            this.txt_credito.Text = "0,00";
             this.txt_credito.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_credito_KeyDown);
+            this.txt_credito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_credito_KeyPress);
             // 
             // txtPix
             // 
@@ -129,8 +132,9 @@ namespace TomMotos.view
             this.txtPix.Name = "txtPix";
             this.txtPix.Size = new System.Drawing.Size(100, 20);
             this.txtPix.TabIndex = 7;
-            this.txtPix.Text = "0";
+            this.txtPix.Text = "0,00";
             this.txtPix.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPix_KeyDown);
+            this.txtPix.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPix_KeyPress);
             // 
             // groupBox1
             // 

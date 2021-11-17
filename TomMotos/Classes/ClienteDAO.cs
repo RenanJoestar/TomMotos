@@ -59,8 +59,8 @@ namespace TomMotos.Classes
                 executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
                 executacmdsql.Parameters.AddWithValue("@sobrenome", obj.sobrenome);
                 executacmdsql.Parameters.AddWithValue("@data_nasc", obj.data_nasc);
-                executacmdsql.Parameters.AddWithValue("@cpf", obj.cpf);
-                executacmdsql.Parameters.AddWithValue("@cnpj", obj.cnpj);
+                executacmdsql.Parameters.AddWithValue("@cpf", ClienteModel.cpf);
+                executacmdsql.Parameters.AddWithValue("@cnpj", ClienteModel.cnpj);
 
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
@@ -69,8 +69,8 @@ namespace TomMotos.Classes
                 }
             catch (Exception erro)
                 {
-                    MessageBox.Show("Cadastrado não Realizado!");
-                MessageBox.Show("Erro: " + erro);
+                    MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
+               
             }
             }
         }
@@ -88,15 +88,15 @@ namespace TomMotos.Classes
                 executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
                 executacmdsql.Parameters.AddWithValue("@sobrenome", obj.sobrenome);
                 executacmdsql.Parameters.AddWithValue("@data_nasc", obj.data_nasc);
-                executacmdsql.Parameters.AddWithValue("@cpf", obj.cpf);
-                executacmdsql.Parameters.AddWithValue("@cnpj", obj.cnpj);
+                executacmdsql.Parameters.AddWithValue("@cpf", ClienteModel.cpf);
+                executacmdsql.Parameters.AddWithValue("@cnpj", ClienteModel.cnpj);
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Aconteceu um Erro" + erro);
+                MessageBox.Show("Aconteceu um Erro" + erro.Message);
             }
 
 

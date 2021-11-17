@@ -66,9 +66,8 @@ namespace TomMotos.Classes
                 conexao.Close();
                 }
                 catch (Exception erro)
-                {                   
-                    MessageBox.Show("Erro: " + erro);
-                MessageBox.Show("Cadastrado não Realizado!");
+                {
+                   MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
             }
           
             }
@@ -129,7 +128,7 @@ marca_produto=@marca,quantidade_virtual_produto=@quantidade_virtual, imagem_prod
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Aconteceu um Erro" + erro);
+                MessageBox.Show("Aconteceu um Erro" + erro.Message);
             }
 
 

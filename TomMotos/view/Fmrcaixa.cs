@@ -90,14 +90,16 @@ namespace TomMotos.view
                 {
                     objProduto.fk_produto_id = int.Parse(dgProdutos.Rows[i].Cells[1].Value.ToString());
                     objProduto.quantidade_produto_usado = double.Parse(dgProdutos.Rows[i].Cells[3].Value.ToString());
-                    objProduto.desconto_produto_usado = double.Parse(dgProdutos.Rows[i].Cells[5].Value.ToString());
+                    objProduto.desconto_produto_usado = double.Parse(dgProdutos.Rows[i].Cells[5].Value.ToString().Replace("%",""));
                     objProduto.fk_venda_id = int.Parse(idVenda);
                     objProduto.validade_da_garantia_produto = DateTime.Now;
 
                     produtoDAO.cadastrar(objProduto);
                 }
             }
-            catch (Exception) { }
+            catch (Exception erro) {
+                MessageBox.Show(erro.Message);
+            }
         }
         public void inserirVariaveisObjServicoPrestado(string idVenda)
         {

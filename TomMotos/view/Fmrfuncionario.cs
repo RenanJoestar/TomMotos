@@ -17,6 +17,7 @@ namespace TomMotos.view
     public partial class Fmrfuncionario : Form
     {
         static string nome, idUser, id_cargo;
+        bool CPF = true;
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrfuncionario()
         {
@@ -28,6 +29,11 @@ namespace TomMotos.view
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            Cadastrar();
+        }
+        public void Cadastrar() 
+        {
+            CPF = true;
             try
             {
                 FuncionarioModel obj = new FuncionarioModel();
@@ -35,16 +41,18 @@ namespace TomMotos.view
                 obj.id = int.Parse(txt_id.Text);
                 if (txt_nome.Text == "") obj.nome = null;
                 else obj.nome = txt_nome.Text.ToUpper();
-                if (txt_sobrenome.Text == "") obj.sobrenome = null; 
+                if (txt_sobrenome.Text == "") obj.sobrenome = null;
                 else obj.sobrenome = txt_sobrenome.Text.ToUpper();
-                obj.data_nasc = txt_nascimento.Text.ToUpper();
-                obj.cpf = txt_cpf.Text.ToUpper();
+                if (txt_nascimento.Text == "  /  /") obj.data_nasc = null; // Verifica se a data de nascimento é null
+                else obj.data_nasc = txt_nascimento.Text.ToUpper();
+                if (txt_cpf.Text == "   ,   ,   -") FuncionarioModel.cpf = null;
+                else ValidarCPF();
                 obj.sexo = cbx_sexo.Text.ToUpper();
                 string select = "select id_cargo from tb_cargo where nome_cargo = " + "'" + cbxCargos.Text.ToString() + "'";
                 MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-                
+
                 MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-                
+
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 if (ds.Tables[0].Rows.Count > 0)
@@ -53,21 +61,37 @@ namespace TomMotos.view
 
                     obj.cargo_fk = id_cargo;
                 }
-               
-                obj.data_contratacao = txt_contratacao.Text.ToUpper();
 
-                FuncionarioDAO Cadastro = new FuncionarioDAO();
+                if (txt_contratacao.Text == "  /  /") obj.data_contratacao = null; // Verifica se a data de nascimento é null
+                else obj.data_contratacao = txt_contratacao.Text.ToUpper();
+                if (CPF == true)
+                {
+                    FuncionarioDAO Cadastro = new FuncionarioDAO();
 
-                Cadastro.cadastrarFuncionario(obj);
-               
-                dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
+                    Cadastro.cadastrarFuncionario(obj);
+
+                    dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
+                }
+
+                
             }
             catch (Exception erro)
             {
                 MessageBox.Show("Erro: " + erro);
             }
         }
+        private void ValidarCPF()
+        {
+            txt_cpf.TextMaskFormat = MaskFormat.IncludeLiterals;
+            string cpf = txt_cpf.Text;
+            bool verFal = validacaoTxtDAO.ValidarCPF(cpf);
 
+            if (verFal)
+            {
+                ClienteModel.cpf = txt_cpf.Text;
+            }
+            else { MessageBox.Show("CPF INVÁLIDO"); CPF = false; }
+        }
         private void Fmrfuncionario_Load(object sender, EventArgs e)
         {
             FuncionarioDAO Cadastro = new FuncionarioDAO();
@@ -81,19 +105,28 @@ namespace TomMotos.view
        
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            Alterar();
+        }
+
+        private void Alterar() 
+        {
             if (txt_id.Text != "")
             {
-             try
-            {
-                FuncionarioModel obj = new FuncionarioModel();
-                obj.id = int.Parse(txt_id.Text);                
-                if (txt_nome.Text == "") obj.nome = null;
-                else obj.nome = txt_nome.Text.ToUpper();
-                if (txt_sobrenome.Text == "") obj.sobrenome = null;
-                else obj.sobrenome = txt_sobrenome.Text.ToUpper();
-                obj.data_nasc = txt_nascimento.Text.ToUpper();
-                obj.cpf = txt_cpf.Text.ToUpper();
-                obj.sexo = cbx_sexo.Text.ToUpper(); 
+                try
+                {
+                    CPF = true;
+                    FuncionarioModel obj = new FuncionarioModel();
+
+                    obj.id = int.Parse(txt_id.Text);
+                    if (txt_nome.Text == "") obj.nome = null;
+                    else obj.nome = txt_nome.Text.ToUpper();
+                    if (txt_sobrenome.Text == "") obj.sobrenome = null;
+                    else obj.sobrenome = txt_sobrenome.Text.ToUpper();
+                    if (txt_nascimento.Text == "  /  /") obj.data_nasc = null; // Verifica se a data de nascimento é null
+                    else obj.data_nasc = txt_nascimento.Text.ToUpper();
+                    if (txt_cpf.Text == "   ,   ,   -") FuncionarioModel.cpf = null;
+                    else ValidarCPF();
+                    obj.sexo = cbx_sexo.Text.ToUpper();
                     string select = "select id_cargo from tb_cargo where nome_cargo = " + "'" + cbxCargos.Text.ToString() + "'";
                     MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
@@ -107,17 +140,20 @@ namespace TomMotos.view
 
                         obj.cargo_fk = id_cargo;
                     }
-                    obj.data_contratacao = txt_contratacao.Text.ToUpper();
-
-                FuncionarioDAO dao = new FuncionarioDAO();
-                dao.alterar(obj);
-                dg_funcionario.DataSource = dao.ListarTodosFuncionario();
-                MessageBox.Show("Alterado com Sucesso!");
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Aconteceu algum erro" + erro);
-            }
+                    if (txt_contratacao.Text == "  /  /") obj.data_contratacao = null; // Verifica se a data de nascimento é null
+                    else obj.data_contratacao = txt_contratacao.Text.ToUpper();
+                    if (CPF == true)
+                    {
+                        FuncionarioDAO dao = new FuncionarioDAO();
+                        dao.alterar(obj);
+                        dg_funcionario.DataSource = dao.ListarTodosFuncionario();
+                        MessageBox.Show("Alterado com Sucesso!");
+                    }
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Aconteceu algum erro" + erro);
+                }
             }
             else MessageBox.Show("Escolha um id que deseja Alterar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -265,14 +301,17 @@ namespace TomMotos.view
         {
             try
             {
-                string campo = cbxBuscar.Text.ToString()+"_funcionario" ;
-                FiltroModel.filtro = @"select * from tb_funcionario where " + campo.ToLower()+ " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-                //MessageBox.Show("Test "+ FiltroModel.filtro);
-                FiltroDAO dao = new FiltroDAO();
-                dg_funcionario.DataSource = dao.buscaCargo();               
+                if (cbxBuscar.Text != "")
+                {
+                    string campo = cbxBuscar.Text.ToString() + "_funcionario";
+                    FiltroModel.filtro = @"select * from tb_funcionario where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    //MessageBox.Show("Test "+ FiltroModel.filtro);
+                    FiltroDAO dao = new FiltroDAO();
+                    dg_funcionario.DataSource = dao.buscaCargo();
+                }
              
             }
-            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }
 
         private void dg_funcionario_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -21,7 +21,7 @@ namespace TomMotos.Classes
 
         public void cadastrarTelefone(TelefoneModel obj)
         {
-            int a = 1;
+            
             if (obj.nome == "")
             {
                 MessageBox.Show("Preencha todos valores Obrigatorio! = *");
@@ -39,20 +39,13 @@ namespace TomMotos.Classes
                     conexao.Open();
                     executacmdsql.ExecuteNonQuery();
                     conexao.Close();
+                    MessageBox.Show("Cadastrado com sucesso!");
                 }
                 catch (Exception erro)
                 {
-                    a = 2;
-                    MessageBox.Show("Erro: " + erro);
+                    MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
                 }
-                if (a == 1)
-                {
-                    MessageBox.Show("Cadastrado com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Cadastrado não Realizado!");
-                }
+                
             }
         }
         #endregion
@@ -111,8 +104,7 @@ namespace TomMotos.Classes
                 }
                 catch (Exception erro)
                 {
-                    MessageBox.Show("Erro: " + erro);
-                    MessageBox.Show("Alteração não Realizado!");
+                    MessageBox.Show("Alteração não Realizada! " + erro.Message);
                 }
              
             }
@@ -146,7 +138,7 @@ namespace TomMotos.Classes
                     }
                     catch (Exception erro)
                     {
-                        MessageBox.Show("Aconteceu um Erro" + erro);
+                        MessageBox.Show("Aconteceu um Erro" + erro.Message);
                         MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 

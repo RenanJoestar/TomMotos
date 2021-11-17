@@ -41,8 +41,7 @@ namespace TomMotos.Classes
                 }
                 catch (Exception erro)
                 {
-                    MessageBox.Show("Cadastrado não Realizado!");
-                    MessageBox.Show("Erro: " + erro);
+                    MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
                 }
                
             }
@@ -119,14 +118,13 @@ namespace TomMotos.Classes
 
                     conexao.Open();
                     executacmdsql.ExecuteNonQuery();
-                    MessageBox.Show("Cadastrado com sucesso!");
+                    MessageBox.Show("Alterado com sucesso!");
                     conexao.Close();
                 }
                 catch (Exception erro)
                 {
 
-                    MessageBox.Show("Erro: " + erro);
-                    MessageBox.Show("Cadastrado não Realizado!");
+                    MessageBox.Show("Alteração não Realizada! " + erro.Message);
                 }
 
             }
@@ -161,7 +159,7 @@ namespace TomMotos.Classes
                     }
                     catch (Exception erro)
                     {
-                        MessageBox.Show("Aconteceu um Erro" + erro);
+                        MessageBox.Show("Aconteceu um Erro" + erro.Message);
                         MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

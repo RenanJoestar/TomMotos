@@ -64,8 +64,9 @@ namespace TomMotos.view
             {
                 TelefoneModel obj = new TelefoneModel();
                 TelefoneModel.id = txt_id.Text;
-                obj.nome = txt_telefone.Text.ToUpper();
-                         
+                if (txt_telefone.Text != "(  )      -     ")
+                    obj.nome = txt_telefone.Text.ToUpper();
+                else return;         
                 TelefoneDAO Cadastro = new TelefoneDAO();
 
                 Cadastro.cadastrarTelefone(obj);
@@ -133,13 +134,16 @@ namespace TomMotos.view
         {
             try
             {
+                if(cbxBuscar.Text != "") 
+                {
                 string campo = cbxBuscar.Text.ToString() + "_telefone";
                 FiltroModel.filtro = @"select * from tb_telefone where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
                 // MessageBox.Show("Test " + FiltroModel.filtro);
                 FiltroDAO dao = new FiltroDAO();
                 dgTelefone.DataSource = dao.buscaCargo();
+                }
             }
-            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }
 
         private void lblNome_Click(object sender, EventArgs e)

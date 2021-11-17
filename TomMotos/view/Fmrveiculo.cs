@@ -136,7 +136,7 @@ namespace TomMotos.view
                 }
                 catch (Exception erro)
                 {
-                    MessageBox.Show("Aconteceu algum erro" + erro);
+                    MessageBox.Show("Aconteceu algum erro" + erro.Message);
                 }
             }
             else MessageBox.Show("Erro","Escolha um id que deseja Alterar",MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -213,23 +213,36 @@ namespace TomMotos.view
         {
             try
             {
-                string campo = cbxBuscar.Text.ToString() + "_veiculo";
-                FiltroModel.filtro = @"select * from tb_veiculo where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-                // MessageBox.Show("Test " + FiltroModel.filtro);
-                FiltroDAO dao = new FiltroDAO();
-                dg_veiculo.DataSource = dao.buscaCargo();
+                if (cbxBuscar.Text != "")
+                {
+                    string campo = cbxBuscar.Text.ToString() + "_veiculo";
+                    FiltroModel.filtro = @"select * from tb_veiculo where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    // MessageBox.Show("Test " + FiltroModel.filtro);
+                    FiltroDAO dao = new FiltroDAO();
+                    dg_veiculo.DataSource = dao.buscaCargo();
+                }
             }
-            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void txt_ano_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            //Se a tecla digitada não for número e nem backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
         }
 
-        private void dg_veiculo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void txt_km_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            //Se a tecla digitada não for número e nem backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
         }
     }
 }

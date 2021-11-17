@@ -71,8 +71,7 @@ namespace TomMotos.Classes
                 }
                 catch (Exception erro)
                 {
-                    MessageBox.Show("Erro: " + erro);
-                    MessageBox.Show("Cadastrado não Realizado!");
+                    MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
 
                 }
 
@@ -126,7 +125,7 @@ namespace TomMotos.Classes
             {
                 if(erro.ToString().Contains("Cannot delete or update"))
                 MessageBox.Show("O cargo está em uso");
-                else MessageBox.Show("erro "+erro);
+                else MessageBox.Show("erro "+erro.Message);
             }
 
 

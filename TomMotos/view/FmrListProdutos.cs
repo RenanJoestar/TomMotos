@@ -42,5 +42,21 @@ namespace TomMotos.view
             lp.txtIdProduto.Focus();
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbxBuscar.Text != "")
+                {
+                    string campo = cbxBuscar.Text.ToString() + "_produto";
+                    FiltroModel.filtro = @"select * from tb_produto where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    // MessageBox.Show("Test " + FiltroModel.filtro);
+                    FiltroDAO dao = new FiltroDAO();
+                    dgListProdutos.DataSource = dao.buscaCargo();
+                }
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
     }
 }

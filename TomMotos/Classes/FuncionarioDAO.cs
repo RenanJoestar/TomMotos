@@ -66,8 +66,7 @@ namespace TomMotos.Classes
 
         public void cadastrarFuncionario(FuncionarioModel obj)
         {
-            int a =1;
-            if (obj.nome == "" || obj.cpf == ""|| obj.cargo_fk == "")
+            if (obj.nome == "" || FuncionarioModel.cpf == ""|| obj.cargo_fk == "")
             {
                 MessageBox.Show("Preencha todos os campos obrigatórios");
             }
@@ -79,30 +78,21 @@ namespace TomMotos.Classes
                     MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
                     executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
                     executacmdsql.Parameters.AddWithValue("@sobrenome", obj.sobrenome);
-                    executacmdsql.Parameters.AddWithValue("@cpf", obj.cpf);
+                    executacmdsql.Parameters.AddWithValue("@cpf", FuncionarioModel.cpf);
                     executacmdsql.Parameters.AddWithValue("@data_nasc", obj.data_nasc);
                     executacmdsql.Parameters.AddWithValue("@data_contratacao", obj.data_contratacao);
                     executacmdsql.Parameters.AddWithValue("@sexo", obj.sexo);
                     executacmdsql.Parameters.AddWithValue("@cargo_fk", obj.cargo_fk);
-
-
                     conexao.Open();
                     executacmdsql.ExecuteNonQuery();
                     conexao.Close();
+                    MessageBox.Show("Cadastrado Realizado com sucesso! ");
                 }
                 catch (Exception erro)
                 {
-                    a = 2;
-                    MessageBox.Show("Erro: " + erro);
+                    MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
                 }
-                if (a==1)
-                {
-                    MessageBox.Show("Cadastrado com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Cadastrado não Realizado!");
-                }
+                
             }
         }
 
@@ -120,7 +110,7 @@ data_contratacao_funcionario=@data_contratacao, sexo_funcionario=@sexo, fk_cargo
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
                 executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
                 executacmdsql.Parameters.AddWithValue("@sobrenome", obj.sobrenome);
-                executacmdsql.Parameters.AddWithValue("@cpf", obj.cpf);
+                executacmdsql.Parameters.AddWithValue("@cpf", FuncionarioModel.cpf);
                 executacmdsql.Parameters.AddWithValue("@data_nasc", obj.data_nasc);
                 executacmdsql.Parameters.AddWithValue("@data_contratacao", obj.data_contratacao);
                 executacmdsql.Parameters.AddWithValue("@sexo", obj.sexo);
@@ -131,7 +121,7 @@ data_contratacao_funcionario=@data_contratacao, sexo_funcionario=@sexo, fk_cargo
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Aconteceu um Erro" + erro);
+                MessageBox.Show("Aconteceu um Erro" + erro.Message);
             }
 
 

@@ -148,6 +148,7 @@ namespace TomMotos.view
             this.txt_numero.Name = "txt_numero";
             this.txt_numero.Size = new System.Drawing.Size(170, 20);
             this.txt_numero.TabIndex = 11;
+            this.txt_numero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_numero_KeyPress);
             // 
             // txt_bairro
             // 

@@ -144,7 +144,7 @@ namespace TomMotos.view
             txt_id.Text = dg_produto.CurrentRow.Cells[0].Value.ToString();
             txt_descricao_produto.Text = dg_produto.CurrentRow.Cells[1].Value.ToString();
             np_quantidade.Text = dg_produto.CurrentRow.Cells[2].Value.ToString();            
-            txt_valor_produto.Text = dg_produto.CurrentRow.Cells[3].Value.ToString();
+            txt_valor_produto.Text = string.Format("{0:#,##0.00}", double.Parse(dg_produto.CurrentRow.Cells[3].Value.ToString()));
             txt_marca_produto.Text = dg_produto.CurrentRow.Cells[4].Value.ToString();
             
             Base64ToImage();
@@ -234,11 +234,14 @@ namespace TomMotos.view
         {
             try
             {
-            string campo = cbxBuscar.Text.ToString() + "_produto";
-            FiltroModel.filtro = @"select * from tb_produto where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-            // MessageBox.Show("Test " + FiltroModel.filtro);
-            FiltroDAO dao = new FiltroDAO();
-            dg_produto.DataSource = dao.buscaCargo();
+                if (cbxBuscar.Text != "")
+                {
+                    string campo = cbxBuscar.Text.ToString() + "_produto";
+                    FiltroModel.filtro = @"select * from tb_produto where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    // MessageBox.Show("Test " + FiltroModel.filtro);
+                    FiltroDAO dao = new FiltroDAO();
+                    dg_produto.DataSource = dao.buscaCargo();
+                }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
@@ -322,6 +325,11 @@ namespace TomMotos.view
             Add.adicionarQtd(obj);
 
             dg_produto.DataSource = Cadastro.ListarTodosProdutos();
+        }
+
+        private void txt_valor_produto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacaoTxtDAO.FormatarValores(sender, e);
         }
     }
 }

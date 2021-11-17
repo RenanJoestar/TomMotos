@@ -48,7 +48,7 @@ namespace TomMotos.Classes
 
         public void cadastrarFornecedor(FornecedorModel obj)
         {
-            int a = 1;
+            
             if (obj.nome == "")
             {
                 MessageBox.Show("Preencha todos valores Obrigatorio! = *");
@@ -61,25 +61,18 @@ namespace TomMotos.Classes
 
                     MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
                     executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
-                    executacmdsql.Parameters.AddWithValue("@cnpj", obj.cnpj);
+                    executacmdsql.Parameters.AddWithValue("@cnpj", FornecedorModel.cnpj);
 
                     conexao.Open();
                     executacmdsql.ExecuteNonQuery();
                     conexao.Close();
+                    MessageBox.Show("Cadastrado com sucesso!");
                 }
                 catch (Exception erro)
                 {
-                    a = 2;
-                    MessageBox.Show("Erro: " + erro);
+                    MessageBox.Show("Cadastrado não Realizado!" + erro.Message);
                 }
-                if (a == 1)
-                {
-                    MessageBox.Show("Cadastrado com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Cadastrado não Realizado!");
-                }
+              
             }
         }
         #endregion
@@ -94,14 +87,14 @@ namespace TomMotos.Classes
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
                 executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
-                executacmdsql.Parameters.AddWithValue("@cnpj", obj.cnpj);
+                executacmdsql.Parameters.AddWithValue("@cnpj", FornecedorModel.cnpj);
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Aconteceu um Erro" + erro);
+                MessageBox.Show("Aconteceu um Erro" + erro.Message);
             }
 
 

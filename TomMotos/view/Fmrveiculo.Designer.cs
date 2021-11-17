@@ -209,6 +209,7 @@ namespace TomMotos.view
             this.txt_ano.Name = "txt_ano";
             this.txt_ano.Size = new System.Drawing.Size(132, 21);
             this.txt_ano.TabIndex = 23;
+            this.txt_ano.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ano_KeyPress);
             // 
             // label13
             // 
@@ -254,6 +255,7 @@ namespace TomMotos.view
             this.txt_km.Name = "txt_km";
             this.txt_km.Size = new System.Drawing.Size(133, 21);
             this.txt_km.TabIndex = 11;
+            this.txt_km.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_km_KeyPress);
             // 
             // txt_cor
             // 
@@ -348,6 +350,7 @@ namespace TomMotos.view
             // 
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
+            "ID",
             "MODELO",
             "MARCA",
             "COR",
@@ -389,7 +392,6 @@ namespace TomMotos.view
             this.label3.Size = new System.Drawing.Size(322, 33);
             this.label3.TabIndex = 40;
             this.label3.Text = "CADASTRO DE VEÍCULO";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel1
             // 

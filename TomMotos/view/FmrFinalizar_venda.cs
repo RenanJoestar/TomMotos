@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TomMotos.Classes;
 using TomMotos.Conexao;
 using TomMotos.Model;
 
@@ -67,15 +68,25 @@ namespace TomMotos.view
             CalcularTroco();
         }
         public void CalcularTroco() {
-
-            txtTroco.Text = (double.Parse(txtDinheiro.Text.Replace(".",",")) + double.Parse(txtDebito.Text.Replace(".", ",")) + double.Parse(txt_credito.Text.Replace(".", ",")) + double.Parse(txtPix.Text.Replace(".", ",")) - double.Parse(lblsubtotal.Text)).ToString();
-            txtFaltaPagar.Text = "";
-            if (double.Parse(txtTroco.Text) < 0)
+            try
             {
-                txtFaltaPagar.Text = txtTroco.Text;
-                txtTroco.Text = "";
+                txtTroco.Text = string.Format("{0:#,##0.00}", double.Parse(txtDinheiro.Text) + double.Parse(txtDebito.Text) + double.Parse(txt_credito.Text) + double.Parse(txtPix.Text) - double.Parse(lblsubtotal.Text));
+                txtFaltaPagar.Text = "";
+                if (double.Parse(txtTroco.Text) < 0)
+                {
+                    txtFaltaPagar.Text = string.Format("{0:#,##0.00}", double.Parse(txtTroco.Text));
+                    txtTroco.Text = "";
+                }
+                txtValorPago.Text = string.Format("{0:#,##0.00}", double.Parse(txtDinheiro.Text) + double.Parse(txtDebito.Text) + double.Parse(txt_credito.Text) + double.Parse(txtPix.Text));
+                txtDebito.Text = "0,00";
+                txtDinheiro.Text = "0,00";
+                txtPix.Text = "0,00";
+                txt_credito.Text = "0,00";
             }
-            txtValorPago.Text = (double.Parse(txtDinheiro.Text.Replace(".", ",")) + double.Parse(txtDebito.Text.Replace(".", ",")) + double.Parse(txt_credito.Text.Replace(".", ",")) + double.Parse(txtPix.Text.Replace(".", ","))).ToString();
+            catch (Exception erro) 
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -158,6 +169,26 @@ namespace TomMotos.view
                 CalcularTroco();
                 btnOk.Focus();
             }
+        }
+
+        private void txtDinheiro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacaoTxtDAO.FormatarValores(sender, e);
+        }
+
+        private void txtDebito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacaoTxtDAO.FormatarValores(sender, e);
+        }
+
+        private void txt_credito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacaoTxtDAO.FormatarValores(sender, e);
+        }
+
+        private void txtPix_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacaoTxtDAO.FormatarValores(sender, e);
         }
     }
 }

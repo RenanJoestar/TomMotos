@@ -37,8 +37,7 @@ namespace TomMotos.Classes
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro.Message);
-                MessageBox.Show("Cadastrado não Realizado!");
+                MessageBox.Show("Cadastrado não Realizado! " + erro.Message);               
                 
             }
         }
@@ -98,12 +97,11 @@ namespace TomMotos.Classes
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
-                MessageBox.Show("Orçamento bem salvo.");
+                MessageBox.Show("Orçamento salvo!");
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro.Message);
-                MessageBox.Show("Cadastrado não Realizado!");
+                MessageBox.Show("Orçamento não Cadastrado! " + erro.Message);
             }
         }
 
@@ -149,7 +147,7 @@ namespace TomMotos.Classes
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Erro: " + erro.Message);
             }
             return resultado;
         }

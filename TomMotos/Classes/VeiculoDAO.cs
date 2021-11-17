@@ -66,11 +66,6 @@ namespace TomMotos.Classes
 
         public void cadastrar(VeiculoModel obj)
         {
-
-            int a=1;
-           
-
-
                 try
                 {
 
@@ -90,21 +85,12 @@ namespace TomMotos.Classes
                 conexao.Open();
                     executacmdsql.ExecuteNonQuery();
                     conexao.Close();
+                MessageBox.Show("Cadastrado com sucesso!");
                 }
 
                 catch (Exception erro)
                 {
-                    a = 2;
-                    MessageBox.Show("Erro: " + erro);
-                }
-
-                if (a == 1)
-                {
-                    MessageBox.Show("Cadastrado com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Cadastrado não Realizado!");
+                    MessageBox.Show("Cadastrado não Realizado!" + erro.Message);
                 }
             }
 
@@ -135,8 +121,8 @@ km_veiculo=@km, placa_veiculo=@placa, obs_veiculo=@obs, fk_cliente_id=@fk_client
             }
             catch (Exception erro)
             {
-                MessageBox.Show("erro " + erro);
-                
+                MessageBox.Show("Alteração não Realizada!" + erro.Message);
+
             }
 
 

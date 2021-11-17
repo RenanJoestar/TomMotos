@@ -143,7 +143,7 @@ namespace TomMotos.view
 
                 dgOrcamento.DataSource = VendaDAO.listarVendaPor(finalSQL);
             }
-            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }
 
         private void btn_mostrar_tudo_Click(object sender, EventArgs e)

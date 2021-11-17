@@ -84,7 +84,7 @@ namespace TomMotos.view
             // lblCaminho
             // 
             this.lblCaminho.AutoSize = true;
-            this.lblCaminho.Location = new System.Drawing.Point(28, 242);
+            this.lblCaminho.Location = new System.Drawing.Point(6, 244);
             this.lblCaminho.Name = "lblCaminho";
             this.lblCaminho.Size = new System.Drawing.Size(41, 15);
             this.lblCaminho.TabIndex = 2;
@@ -176,6 +176,8 @@ namespace TomMotos.view
             this.txt_valor_produto.Name = "txt_valor_produto";
             this.txt_valor_produto.Size = new System.Drawing.Size(110, 21);
             this.txt_valor_produto.TabIndex = 34;
+            this.txt_valor_produto.Text = "0,00";
+            this.txt_valor_produto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_valor_produto_KeyPress);
             // 
             // np_quantidade
             // 

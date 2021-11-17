@@ -11,8 +11,8 @@ namespace TomMotos.Model
         public int id { get; set; }
         public string nome { get; set; }
         public string sobrenome { get; set; }
-        public string cpf { get; set; }
-        public string data_nasc { get; set; }
+        public static string cpf { get; set; }
+        public  string data_nasc { get; set; }
         public string data_contratacao { get; set; }
         public string sexo { get; set; }
         public string cargo_fk { get; set; }

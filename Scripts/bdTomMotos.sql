@@ -476,7 +476,7 @@ DELIMITER ;
 
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoFuncionario`(IN NOME VARCHAR(50), IN SOBRENOME varchar(100), CPF varchar(16), DATA_NASC date, DATA_CONT date, SEXO char, FK_CARGO_ID INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoFuncionario`(IN NOME VARCHAR(50), IN SOBRENOME varchar(100), CPF varchar(16), DATA_NASC varchar(15), DATA_CONT varchar(15), SEXO char, FK_CARGO_ID INT)
 BEGIN DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000'; IF NOT EXISTS (
 
 select * from tb_funcionario where tb_funcionario.cpf_funcionario = CPF) THEN BEGIN 

@@ -33,7 +33,7 @@ namespace TomMotos.Classes
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Erro: " + erro.Message);
             }
         }
         #endregion
@@ -82,7 +82,7 @@ namespace TomMotos.Classes
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Erro: " + erro.Message);
             }
             return resultado;
         }
