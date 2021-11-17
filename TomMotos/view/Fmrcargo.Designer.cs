@@ -82,7 +82,7 @@ namespace TomMotos.view
             this.label4.Size = new System.Drawing.Size(15, 20);
             this.label4.TabIndex = 29;
             this.label4.Text = "*";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            
             // 
             // label3
             // 
@@ -94,7 +94,7 @@ namespace TomMotos.view
             this.label3.Size = new System.Drawing.Size(15, 20);
             this.label3.TabIndex = 28;
             this.label3.Text = "*";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // lbl
             // 
@@ -107,7 +107,7 @@ namespace TomMotos.view
             this.lbl.Size = new System.Drawing.Size(60, 15);
             this.lbl.TabIndex = 25;
             this.lbl.Text = "SALARIO:";
-            this.lbl.Click += new System.EventHandler(this.lbl_Click);
+            
             // 
             // txt_salario
             // 
@@ -117,7 +117,7 @@ namespace TomMotos.view
             this.txt_salario.Name = "txt_salario";
             this.txt_salario.Size = new System.Drawing.Size(133, 21);
             this.txt_salario.TabIndex = 24;
-            this.txt_salario.TextChanged += new System.EventHandler(this.txt_salario_TextChanged);
+            this.txt_salario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_salario_KeyPress);
             // 
             // label1
             // 
@@ -153,7 +153,6 @@ namespace TomMotos.view
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(133, 21);
             this.txt_nome.TabIndex = 1;
-            this.txt_nome.TextChanged += new System.EventHandler(this.txt_nome_TextChanged);
             // 
             // label2
             // 
@@ -166,7 +165,6 @@ namespace TomMotos.view
             this.label2.Size = new System.Drawing.Size(47, 15);
             this.label2.TabIndex = 7;
             this.label2.Text = "NOME:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label7
             // 
@@ -179,7 +177,6 @@ namespace TomMotos.view
             this.label7.Size = new System.Drawing.Size(420, 46);
             this.label7.TabIndex = 19;
             this.label7.Text = "CADASTRO DE CARGO";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // dgCargo
             // 
@@ -272,7 +269,6 @@ namespace TomMotos.view
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(939, 94);
             this.panel1.TabIndex = 27;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Fmrcargo
             // 

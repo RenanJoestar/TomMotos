@@ -105,6 +105,9 @@ namespace TomMotos.view
                     {
                         fz.FinalizarVenda();
                         fz.SalvarPdf();
+
+                        CaixaModel.vendaFinalizada = true;
+                        this.Close();
                     }
                 }
                 else
@@ -112,10 +115,10 @@ namespace TomMotos.view
                     fz.FinalizarVenda();
                     fz.SalvarPdf();
                     fz.EnviarEmail();
+
+                    CaixaModel.vendaFinalizada = true;
+                    this.Close();
                 }
-                MessageBox.Show("Foi");
-                CaixaModel.vendaFinalizada = true;
-                this.Close();
             }
             catch (Exception erro) {
                 MessageBox.Show("Erro "+erro.Message);

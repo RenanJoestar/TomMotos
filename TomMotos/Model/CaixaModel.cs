@@ -19,5 +19,7 @@ namespace TomMotos.Model
         public static string valorPesquisa { get; set; }
         public static bool eOrcamento { get; set; }
         public static bool vendaFinalizada { get; set; }
+        public static string totalVenda_orcamento { get; set; }
+
     }
 }

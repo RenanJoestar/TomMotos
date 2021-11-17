@@ -39,6 +39,7 @@ namespace TomMotos.view
             carregarVenda(int.Parse(dgOrcamento.CurrentRow.Cells[0].Value.ToString())); // ID VENDA
             fmrCx.lbl_buscarCliente.Text = ClienteModel.fk_cliente;
             fmrCx.lbl_BuscarVeiculo.Text = VeiculoModel.fk_veiculo;
+            fmrCx.lblSubitotal.Text = string.Format("{0:#,##0.00}",double.Parse(CaixaModel.totalVenda_orcamento));
             DesabilitarComponentes();
 
             this.Close();
@@ -77,9 +78,9 @@ namespace TomMotos.view
 
                     item[0] = ITEM.ToString();
                     item[1] = DESCRICAO; 
-                    item[2] = VALOR;
+                    item[2] = string.Format("{0:#,##0.00}", double.Parse(VALOR));
 
-                    fmrCx.dgServicos.Rows.Add(item);
+                        fmrCx.dgServicos.Rows.Add(item);
                 }
             }
             catch (Exception erro) { MessageBox.Show("Test " + erro); }
@@ -104,9 +105,9 @@ namespace TomMotos.view
                         item[1] = CODIGO;
                         item[2] = DESCRICAO;
                         item[3] = QTD;
-                        item[4] = VLUNIT;
-                        item[5] = DESCONTO;
-                        item[6] = (double.Parse(QTD) * double.Parse(VLUNIT) - double.Parse(QTD) * double.Parse(VLUNIT) * double.Parse(DESCONTO) / 100).ToString();
+                        item[4] = string.Format("{0:#,##0.00}", double.Parse(VLUNIT));
+                        item[5] = string.Format("{0:P}", double.Parse(DESCONTO)/100);
+                        item[6] = string.Format("{0:#,##0.00}", double.Parse(QTD) * double.Parse(VLUNIT) - double.Parse(QTD) * double.Parse(VLUNIT) * double.Parse(DESCONTO) / 100);
 
                         fmrCx.dgProdutos.Rows.Add(item);
                     }

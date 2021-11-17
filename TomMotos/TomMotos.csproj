@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ServicoDAO.cs" />
+    <Compile Include="Classes\validacaoTxtDAO.cs" />
     <Compile Include="Classes\VendaDAO.cs" />
     <Compile Include="Classes\CargoDAO.cs" />
     <Compile Include="Classes\ClienteDAO.cs" />

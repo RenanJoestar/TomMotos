@@ -281,7 +281,7 @@ namespace TomMotos
             this.Name = "Fmrsumario";
             this.Text = "Sumário";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrsumario_FormClosed);
-            this.Load += new System.EventHandler(this.Fmrsumario_Load);
+            
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -10,7 +10,7 @@ namespace TomMotos.Model
     {
         public int id { get; set; }
         public string nome { get; set; }
-        public string salario { get; set; }
+        public double salario { get; set; }
         
     }
 }

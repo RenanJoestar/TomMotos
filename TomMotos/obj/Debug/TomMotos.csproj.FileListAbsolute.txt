@@ -313,3 +313,4 @@ C:\Users\Math\Documents\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrVeiculo_Cli
 C:\Users\Math\Documents\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrVenda.resources
 C:\Users\Math\Documents\TomMotos\TomMotos\obj\Debug\TomMotos.view.FrmlogFornecimento.resources
 C:\Users\Math\Documents\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.GenerateResource.Cache
+C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrVenda.resources

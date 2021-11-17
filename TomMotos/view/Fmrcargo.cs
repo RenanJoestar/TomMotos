@@ -33,8 +33,8 @@ namespace TomMotos.view
 
                 if (txt_nome.Text == "") obj.nome = null;
                 else obj.nome = txt_nome.Text.ToUpper();
-                if (txt_salario.Text == "") obj.salario = null;
-                else obj.salario = txt_salario.Text.ToUpper();
+                if (txt_salario.Text == "0,00") obj.salario = 0;
+                else obj.salario = double.Parse(txt_salario.Text);
 
                 Cadastro.cadastrarCargo(obj);
 
@@ -54,6 +54,7 @@ namespace TomMotos.view
         {
             CargoDAO Cadastro = new CargoDAO();
             dgCargo.DataSource = Cadastro.ListarTodosCargos();
+            txt_salario.Text = "0,00";
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -65,7 +66,7 @@ namespace TomMotos.view
                 CargoModel obj = new CargoModel();
 
                 obj.nome = txt_nome.Text.ToUpper();
-                obj.salario = txt_salario.Text.ToUpper();
+                obj.salario = double.Parse(txt_salario.Text);
                  obj.id = int.Parse(txt_id.Text.ToUpper());
 
                 CargoDAO dao = new CargoDAO();
@@ -85,7 +86,7 @@ namespace TomMotos.view
         {
             txt_id.Text = dgCargo.CurrentRow.Cells[0].Value.ToString();
             txt_nome.Text = dgCargo.CurrentRow.Cells[1].Value.ToString();
-            txt_salario.Text = dgCargo.CurrentRow.Cells[2].Value.ToString();
+            txt_salario.Text = string.Format("{0:#,##0.00}", double.Parse(dgCargo.CurrentRow.Cells[2].Value.ToString()));
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -135,49 +136,9 @@ namespace TomMotos.view
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void txt_salario_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txt_nome_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_salario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            validacaoTxtDAO.FormatarValores(sender,e);
         }
     }
 }

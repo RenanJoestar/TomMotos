@@ -40,6 +40,7 @@
             this.txtPrU = new System.Windows.Forms.TextBox();
             this.txtPt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.txtDescServ = new System.Windows.Forms.RichTextBox();
             this.txt_pmo = new System.Windows.Forms.TextBox();
@@ -61,10 +62,6 @@
             this.ch_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vl_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgServicos = new System.Windows.Forms.DataGridView();
-            this.ch_itemServ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ch_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ch_vl_ser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btndesconto = new System.Windows.Forms.Button();
             this.btnCancelDesc = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -87,6 +84,10 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cBoxOrcamento = new System.Windows.Forms.CheckBox();
+            this.ch_vl_ser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ch_itemServ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgServicos = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -186,6 +187,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.txtDescServ);
             this.groupBox1.Controls.Add(this.txt_pmo);
@@ -198,11 +200,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Serviço";
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(0, 158);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(21, 13);
+            this.label24.TabIndex = 51;
+            this.label24.Text = "R$";
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Location = new System.Drawing.Point(2, 158);
+            this.label21.Location = new System.Drawing.Point(284, 158);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(19, 13);
             this.label21.TabIndex = 50;
@@ -280,7 +291,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 74);
+            this.label11.Location = new System.Drawing.Point(284, 74);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(19, 13);
             this.label11.TabIndex = 23;
@@ -389,36 +400,6 @@
             // 
             this.Column6.HeaderText = "VL.ITEM.(R$)";
             this.Column6.Name = "Column6";
-            // 
-            // dgServicos
-            // 
-            this.dgServicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ch_itemServ,
-            this.ch_des,
-            this.ch_vl_ser});
-            this.dgServicos.Location = new System.Drawing.Point(801, 274);
-            this.dgServicos.Name = "dgServicos";
-            this.dgServicos.Size = new System.Drawing.Size(455, 170);
-            this.dgServicos.TabIndex = 26;
-            this.dgServicos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgServicos_KeyDown);
-            this.dgServicos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgServicos_MouseDown);
-            // 
-            // ch_itemServ
-            // 
-            this.ch_itemServ.HeaderText = "ITEM";
-            this.ch_itemServ.Name = "ch_itemServ";
-            // 
-            // ch_des
-            // 
-            this.ch_des.HeaderText = "DESCRIÇÃO";
-            this.ch_des.Name = "ch_des";
-            // 
-            // ch_vl_ser
-            // 
-            this.ch_vl_ser.HeaderText = "VALOR(R$)";
-            this.ch_vl_ser.Name = "ch_vl_ser";
             // 
             // btndesconto
             // 
@@ -635,6 +616,36 @@
             this.cBoxOrcamento.Text = "É orçamento";
             this.cBoxOrcamento.UseVisualStyleBackColor = true;
             // 
+            // ch_vl_ser
+            // 
+            this.ch_vl_ser.HeaderText = "VALOR(R$)";
+            this.ch_vl_ser.Name = "ch_vl_ser";
+            // 
+            // ch_des
+            // 
+            this.ch_des.HeaderText = "DESCRIÇÃO";
+            this.ch_des.Name = "ch_des";
+            // 
+            // ch_itemServ
+            // 
+            this.ch_itemServ.HeaderText = "ITEM";
+            this.ch_itemServ.Name = "ch_itemServ";
+            // 
+            // dgServicos
+            // 
+            this.dgServicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ch_itemServ,
+            this.ch_des,
+            this.ch_vl_ser});
+            this.dgServicos.Location = new System.Drawing.Point(801, 274);
+            this.dgServicos.Name = "dgServicos";
+            this.dgServicos.Size = new System.Drawing.Size(455, 170);
+            this.dgServicos.TabIndex = 26;
+            this.dgServicos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgServicos_KeyDown);
+            this.dgServicos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgServicos_MouseDown);
+            // 
             // Fmrcaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -707,9 +718,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox txtDescServ;
         private System.Windows.Forms.Button btnFinalizaVenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ch_itemServ;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ch_des;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ch_vl_ser;
         private System.Windows.Forms.Button btndesconto;
         private System.Windows.Forms.Button btnCancelDesc;
         private System.Windows.Forms.TextBox txt_desconto_pro;
@@ -743,9 +751,13 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.DataGridView dgProdutos;
-        public System.Windows.Forms.DataGridView dgServicos;
         public System.Windows.Forms.Button btn_buscarVeiculo;
         public System.Windows.Forms.Button btn_BuscarCliente;
         public System.Windows.Forms.CheckBox cBoxOrcamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_vl_ser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_des;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_itemServ;
+        public System.Windows.Forms.DataGridView dgServicos;
+        private System.Windows.Forms.Label label24;
     }
 }

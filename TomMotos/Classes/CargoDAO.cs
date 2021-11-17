@@ -46,7 +46,7 @@ namespace TomMotos.Classes
         public void cadastrarCargo(CargoModel obj)
         {
          
-            if (obj.nome == "" || obj.salario == "")
+            if (obj.nome == "" || obj.salario == 0.00)
             {
                 MessageBox.Show("Preencha todos valores Obrigatorio! = *");
 

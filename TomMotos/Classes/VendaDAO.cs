@@ -22,7 +22,7 @@ namespace TomMotos.Classes
         {
             try
             {
-                string insert = @"CALL criacaoVenda(@validade_orcamento_servico, @desconto_venda, @total_venda, @fk_veiculo_id, @fk_cliente_id)";
+                string insert = @"CALL criacaoVenda(@validade_orcamento_servico, @desconto_venda,@total_venda, @total_venda, @fk_veiculo_id, @fk_cliente_id)";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
                 executacmdsql.Parameters.AddWithValue("@validade_orcamento_servico", obj.validade_orcamento_servico);
@@ -37,8 +37,9 @@ namespace TomMotos.Classes
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Erro: " + erro.Message);
                 MessageBox.Show("Cadastrado não Realizado!");
+                
             }
         }
 
@@ -49,23 +50,29 @@ namespace TomMotos.Classes
 
         public string listarTotalVendaPorId(int idVenda)
         {
-            string totalVenda = null;
+            CaixaModel.totalVenda_orcamento = null;
             try
             {
-                string select = @"select tb_venda.total_venda from tb_venda where tb_venda.id_venda = " + idVenda + ";";
+                string select = @"select tb_venda.total_venda, tb_venda.valor_pago from tb_venda where tb_venda.id_venda = " + idVenda + ";";
 
                 MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
                 conexao.Open();
-                totalVenda = executacmdsql.ExecuteScalar().ToString();
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                CaixaModel.totalVenda_orcamento = (double.Parse(ds.Tables[0].Rows[0]["total_venda"].ToString())-double.Parse(ds.Tables[0].Rows[0]["valor_pago"].ToString())).ToString();
+             
+
                 conexao.Close();
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Erro: " + erro.Message);
                 MessageBox.Show("Cadastrado não Realizado!");
             }
-            return totalVenda;
+            return CaixaModel.totalVenda_orcamento;
         }
 
 
@@ -91,10 +98,11 @@ namespace TomMotos.Classes
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
+                MessageBox.Show("Orçamento bem salvo.");
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Erro: " + erro.Message);
                 MessageBox.Show("Cadastrado não Realizado!");
             }
         }
@@ -233,7 +241,7 @@ namespace TomMotos.Classes
             string sql = @"select tb_venda.id_venda AS 'ID DA CONSULTA', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
                 tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', 
 		        tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', 
-		        tb_venda.data_venda AS 'DATA DA VENDA', tb_venda.data_venda AS 'DATA DO FORNECIMENTO'
+		        tb_venda.data_venda AS 'DATA DA VENDA', tb_venda.data_venda AS 'DATA DO FORNECIMENTO', tb_venda.total_venda AS 'TOTAL DA VENDA',tb_venda.valor_pago AS 'VALOR ADIANTADO'
 		        from tb_venda
 		        inner join tb_cliente
 		        on tb_venda.fk_cliente_id = tb_cliente.id_cliente

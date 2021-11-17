@@ -125,7 +125,8 @@ namespace TomMotos.view
             {
                 EnderecoModel obj = new EnderecoModel();
                 EnderecoModel.id = txt_id.Text;
-                obj.cep = txt_cep.Text.ToUpper();
+                if (txt_cep.Text == "     -") obj.cep = null;
+                else obj.cep = txt_cep.Text.ToUpper();
                 obj.endereco = txt_endereco.Text.ToUpper();
                 obj.bairro = txt_bairro.Text.ToUpper();
                 obj.numero = txt_numero.Text.ToUpper();
@@ -160,7 +161,8 @@ namespace TomMotos.view
             try
             {
                 EnderecoModel obj = new EnderecoModel();
-                obj.cep = txt_cep.Text.ToUpper();
+                if (txt_cep.Text == "     -") obj.cep = null;
+                else obj.cep = txt_cep.Text.ToUpper();
                 obj.endereco = txt_endereco.Text.ToUpper();
                 obj.bairro = txt_bairro.Text.ToUpper();
                 obj.numero = txt_numero.Text.ToUpper();

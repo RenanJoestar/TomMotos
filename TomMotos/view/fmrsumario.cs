@@ -102,7 +102,6 @@ namespace TomMotos
 
         private void Fmrsumario_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
         }
 
         private void caixaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,11 +131,7 @@ namespace TomMotos
             AbrirFormNoPanel<Fmrveiculo>();
         }
 
-        private void Fmrsumario_Load(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void BT_CARGO_Click(object sender, EventArgs e)
         {
             AbrirFormNoPanel<Fmrcargo>();

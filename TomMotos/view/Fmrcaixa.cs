@@ -11,6 +11,7 @@ using TomMotos.Model;
 using System.Net.Mail;
 using System.Net;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 
 namespace TomMotos.view
 {
@@ -44,6 +45,9 @@ namespace TomMotos.view
             lblSubitotal.Text = 0.ToString();
             dgProdutos.Columns[2].Width = 200;
             dgServicos.Columns[1].Width = 243;
+            txt_pmo.Text = "0,00";
+            txt_desconto_pro.Text = "0,00";
+            txtdesc.Text = "0,00";
         }
         private void FmrFinalizar_venda_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -69,7 +73,7 @@ namespace TomMotos.view
         public void inserirVariaveisObjCaixa()
         {
             objCaixa.validade_orcamento_servico = DateTime.Now;
-            if (txtdesc.Text == "") objCaixa.desconto = 0;
+            if (txtdesc.Text == "0,00") objCaixa.desconto = 0;
             else objCaixa.desconto = double.Parse(txtdesc.Text);
             objCaixa.total = double.Parse(lblSubitotal.Text);
             if (lbl_buscarCliente.Text != "" && lbl_buscarCliente.Text != "(id)") CaixaModel.fk_cliente_id = lbl_buscarCliente.Text;
@@ -122,7 +126,7 @@ namespace TomMotos.view
                 inserirVariaveisObjProdutoUsado(idVenda);
                 inserirVariaveisObjServicoPrestado(idVenda);
 
-                MessageBox.Show("Orçamento bem salvo.");
+                
                
             }
             catch (Exception erro)
@@ -222,7 +226,7 @@ namespace TomMotos.view
 
                 total = total + htmlTrStart;
                 total = total + htmlTdStart + DateTime.Now.ToString() + htmlTdEnd;
-                if (txtdesc.Text != "") total = total + htmlTdStart + txtdesc.Text.ToString() + htmlTdEnd;
+                if (txtdesc.Text != ""&& txtdesc.Text != "0") total = total + htmlTdStart + string.Format("{0:P}", double.Parse(txtdesc.Text)/100) + htmlTdEnd;
                 total = total + htmlTdStart + lblSubitotal.Text.ToString() + htmlTdEnd;
                 total = total + htmlTrEnd;
 
@@ -306,12 +310,13 @@ namespace TomMotos.view
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (txtdesc.Text != "" && lblSubitotal.Text != "0")
+            if (txtdesc.Text != "" && lblSubitotal.Text != "0" && double.Parse(lblSubitotal.Text.Replace(".","").Replace(",",".")) <= 100)
             {
                 desconto = double.Parse(lblSubitotal.Text) * (double.Parse(txtdesc.Text) / 100);
                 lblSubitotal.Text = (double.Parse(lblSubitotal.Text) - desconto).ToString();               
                 txtdesc.Enabled = false;
             }
+            else { MessageBox.Show("DESCONTO INVÁLIDO"); txtdesc.Text = "0,00"; }
         }
 
 
@@ -319,6 +324,7 @@ namespace TomMotos.view
         {
             lblSubitotal.Text = (double.Parse(lblSubitotal.Text) + desconto).ToString();
             desconto = 0;
+            txtdesc.Text = "";
             txtdesc.Enabled = true;
         }
 
@@ -367,17 +373,17 @@ namespace TomMotos.view
                         desc = (valor_produto * int.Parse(txtqtd.Text));
                         desconto = desc * double.Parse(txt_desconto_pro.Text) / 100;
                         desconto = desc - desconto;
-                        item[6] = desconto.ToString();
-                        lblSubitotal.Text = (double.Parse(lblSubitotal.Text) + desconto).ToString();
+                        item[6] = string.Format("{0:#,##0.00}", desconto);
+                        lblSubitotal.Text = string.Format("{0:#,##0.00}", double.Parse(lblSubitotal.Text) + desconto);
 
                     }
                     else
                     {
                         txt_desconto_pro.Text = "0";
-                        total = total + (valor_produto * int.Parse(txtqtd.Text));
-                        lblSubitotal.Text = total.ToString();
+                        total = total + (valor_produto * int.Parse(txtqtd.Text));                        
+                        lblSubitotal.Text = string.Format("{0:#,##0.00}", total);
                         valor_total = valor_produto * double.Parse(txtqtd.Text);
-                        item[6] = valor_total.ToString();
+                        item[6] = string.Format("{0:#,##0.00}", valor_total);
                     }
 
                     if (itens == 0) itens = 1;
@@ -387,13 +393,13 @@ namespace TomMotos.view
                     item[1] = id_produto;
                     item[2] = nome_produto;
                     item[3] = txtqtd.Text;
-                    item[4] = valor_produto.ToString();
-                    item[5] = txt_desconto_pro.Text;
+                    item[4] = string.Format("{0:#,##0.00}", valor_produto);
+                    item[5] = string.Format("{0:P}", double.Parse(txt_desconto_pro.Text)/100);
                     dgProdutos.Rows.Add((item));
 
                     txtIdProduto.Text = "";
                     txtqtd.Text = "1";
-                    txt_desconto_pro.Text = "";
+                    txt_desconto_pro.Text = "0,00";
                 }
                 catch (Exception erro)
                 {
@@ -450,29 +456,37 @@ namespace TomMotos.view
             {
                 double preco_servico = 0, pt;
 
-                if (txt_pmo.Text != "" || txtDescServ.Text != "")
+                if (txt_pmo.Text != "0,00" || txtDescServ.Text != "")
                 {
+                    string pmo = txt_pmo.Text;
+                    replacepontoevirgula(pmo);
+
                     try
                     {
                         if (servicos == 0) servicos = 1;
                         else servicos += 1;
-                        preco_servico = int.Parse(txt_pmo.Text);
+                        preco_servico = double.Parse(pmo);
                         pt = double.Parse(lblSubitotal.Text);
                         SERVICO[1] = txtDescServ.Text.ToString();
-                        SERVICO[2] = txt_pmo.Text.ToString();
+                        SERVICO[2] = pmo.ToString();
 
                         SERVICO[0] = servicos.ToString();
                         dgServicos.Rows.Add((SERVICO));
                         pt += preco_servico;
-                        lblSubitotal.Text = pt.ToString();
+                        lblSubitotal.Text = string.Format("{0:#,##0.00}", pt);
+                        txt_pmo.Text = "0,00";
                     }
                     catch (Exception erro)
                     {
-                        MessageBox.Show(erro.ToString());
+                        MessageBox.Show(erro.Message.ToString());
                     }
                 }
                 else MessageBox.Show("VERIFIQUE SE EXISTE CAMPOS EM BRANCOS");
             }
+        }
+
+        public void replacepontoevirgula(string a) {          
+            a = a.Replace(".", "").Replace(",", ".");        
         }
 
         private void btn_buscarVeiculo_Click(object sender, EventArgs e)
@@ -535,6 +549,10 @@ namespace TomMotos.view
             {
                 verificarFinalVenda();
             }
+            if (e.KeyData == Keys.Enter)
+            {
+                txtIdProduto.Focus();
+            }
         }
 
         private void txtPrU_KeyDown(object sender, KeyEventArgs e)
@@ -565,8 +583,10 @@ namespace TomMotos.view
             }
         }
 
+       
         private void txtdesc_KeyDown(object sender, KeyEventArgs e)
         {
+           
             if (e.KeyData == Keys.F2)
             {
                 PesquisarProduto();
@@ -630,6 +650,7 @@ namespace TomMotos.view
             if (e.KeyData == Keys.Delete) {
                 
                 Excluir_Produto();
+               
 
             }
         }
@@ -661,7 +682,7 @@ namespace TomMotos.view
             if (e.KeyData == Keys.Delete)
             {
 
-                Excluir_Produto();
+                Excluir_Servico();
 
             }
         }
@@ -712,12 +733,7 @@ namespace TomMotos.view
 
         private void txt_desconto_pro_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Se a tecla digitada não for número e nem backspace
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
-            {
-                //Atribui True no Handled para cancelar o evento
-                e.Handled = true;
-            }
+            validacaoTxtDAO.FormatarPorcentagem(sender, e);
         }
 
         private void txtqtd_Leave(object sender, EventArgs e)
@@ -727,34 +743,34 @@ namespace TomMotos.view
 
         private void txt_pmo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Se a tecla digitada não for número e nem backspace
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
-            {
-                //Atribui True no Handled para cancelar o evento
-                e.Handled = true;
-            }
+            validacaoTxtDAO.FormatarValores(sender, e);
         }
 
         private void txtdesc_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Se a tecla digitada não for número e nem backspace
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
-            {
-                //Atribui True no Handled para cancelar o evento
-                e.Handled = true;
-            }
+            validacaoTxtDAO.FormatarPorcentagem(sender, e);
+
         }
+       
+       
+
 
         private void txt_desconto_pro_Leave(object sender, EventArgs e)
         {
-            if (int.Parse(txt_desconto_pro.Text) > 100 || int.Parse(txt_desconto_pro.Text) < 0) {
-                MessageBox.Show("DESCONTO INVÁLIDO");
-                txt_desconto_pro.Text = "";
+            if (txt_desconto_pro.Text != "")
+            {
+                if (double.Parse(txt_desconto_pro.Text) > 100 || double.Parse(txt_desconto_pro.Text) < 0)
+                {
+                    MessageBox.Show("DESCONTO INVÁLIDO");
+                    txt_desconto_pro.Text = "";
+                }
             }
         }
 
+  
+
         public void Excluir_Produto() {
-            int subitotal = int.Parse(lblSubitotal.Text);
+            double subitotal = double.Parse(lblSubitotal.Text);
             if (dgProdutos.SelectedCells.Count > 0)
             {
                 if (dgProdutos.CurrentRow.Cells[5].Value != null)
@@ -767,10 +783,10 @@ namespace TomMotos.view
                         if (result == DialogResult.Yes)
                         {
                             int rowProduto = dgProdutos.CurrentCell.RowIndex;
-                            int rowPreco = int.Parse(dgProdutos.CurrentRow.Cells[5].Value.ToString());
-                            subitotal = int.Parse(lblSubitotal.Text) - rowPreco;
+                            double rowPreco = double.Parse(dgProdutos.CurrentRow.Cells[6].Value.ToString());
+                            subitotal = subitotal - rowPreco;
                             dgProdutos.Rows.RemoveAt(rowProduto);
-                            lblSubitotal.Text = subitotal.ToString();
+                            lblSubitotal.Text = string.Format("{0:#,##0.00}", subitotal);
                             dgProdutos.ClearSelection();
                         }
                       
@@ -778,7 +794,7 @@ namespace TomMotos.view
                     }
                     catch (Exception erro)
                     {
-                        MessageBox.Show("" + erro.Message);
+                        MessageBox.Show("Erro " + erro.Message);
                     }
                 }
             }            
@@ -786,10 +802,12 @@ namespace TomMotos.view
         }
         public void Excluir_Servico()
         {
-            int subitotal = int.Parse(lblSubitotal.Text);
+            double subitotal = double.Parse(lblSubitotal.Text);
+            
+            MessageBox.Show("Test "+subitotal);
             if (dgServicos.SelectedCells.Count > 0)
             {
-                if (dgServicos.CurrentRow.Cells[5].Value != null)
+                if (dgServicos.CurrentRow.Cells[2].Value != null)
                 {
                     try
                     {
@@ -799,10 +817,10 @@ namespace TomMotos.view
                         if (result == DialogResult.Yes)
                         {
                             int rowProduto = dgServicos.CurrentCell.RowIndex;
-                            int rowPreco = int.Parse(dgServicos.CurrentRow.Cells[2].Value.ToString());
-                            subitotal = int.Parse(lblSubitotal.Text) - rowPreco;
+                            double rowPreco = double.Parse(dgServicos.CurrentRow.Cells[2].Value.ToString());
+                            subitotal = subitotal - rowPreco;
                             dgServicos.Rows.RemoveAt(rowProduto);
-                            lblSubitotal.Text = subitotal.ToString();
+                            lblSubitotal.Text = string.Format("{0:#,##0.00}", subitotal);
                             dgServicos.ClearSelection();
                         }
                     }
