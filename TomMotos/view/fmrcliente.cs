@@ -173,7 +173,7 @@ namespace TomMotos.view
             try
             {
                 ClienteModel obj = new ClienteModel();
-
+                CPF = true; CNPJ = true;
                 obj.nome = txt_nome.Text.ToUpper();
                 obj.sobrenome = txt_sobrenome.Text.ToUpper();
 
@@ -185,7 +185,7 @@ namespace TomMotos.view
 
                 if (txt_cnpj.Text == "  ,   ,   /    -") ClienteModel.cnpj = null;  // É interessante perceber que isso não deve ser usado para alguns ints, por exemplo de quantidade tendo em vista
                 else validarCNPJ();
-                if (CPF == false && CNPJ == false)
+                if (CPF == true && CNPJ == true)
                 {
                     ClienteDAO Cadastro = new ClienteDAO();
                     Cadastro.cadastrar(obj);
@@ -205,7 +205,7 @@ namespace TomMotos.view
             {
                 CPF = true; CNPJ = true;
                 ClienteModel obj = new ClienteModel();
-
+                obj.id = int.Parse(txt_id.Text);
                 obj.nome = txt_nome.Text.ToUpper();
                 obj.sobrenome = txt_sobrenome.Text.ToUpper();
 
@@ -217,11 +217,12 @@ namespace TomMotos.view
 
                 if (txt_cnpj.Text == "  ,   ,   /    -") ClienteModel.cnpj = null;  // É interessante perceber que isso não deve ser usado para alguns ints, por exemplo de quantidade tendo em vista
                 else validarCNPJ();
-                if (CPF == false&& CNPJ ==false)
+                if (CPF == true && CNPJ ==true)
                 {
                     ClienteDAO Alterar = new ClienteDAO();
                     Alterar.alterar(obj);
                     dg_cliente.DataSource = Alterar.ListarTodosClientes();
+                    MessageBox.Show("Alterado com sucesso");
                 }
             }
             catch (Exception erro)

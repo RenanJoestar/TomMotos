@@ -17,7 +17,7 @@ namespace TomMotos.view
     public partial class Fmrfuncionario : Form
     {
         static string nome, idUser, id_cargo;
-        bool CPF = true;
+        bool CPF;
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrfuncionario()
         {
@@ -88,7 +88,7 @@ namespace TomMotos.view
 
             if (verFal)
             {
-                ClienteModel.cpf = txt_cpf.Text;
+                FuncionarioModel.cpf = txt_cpf.Text;
             }
             else { MessageBox.Show("CPF INVÁLIDO"); CPF = false; }
         }
