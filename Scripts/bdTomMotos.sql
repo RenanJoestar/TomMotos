@@ -348,7 +348,7 @@ DELIMITER ;
 -- procedure CriacaoServicoPrestado
 -- -----------------------------------------------------
 DELIMITER $$
-CREATE PROCEDURE criacaoServicoPrestado (IN DESCRICAO varchar(100), IN VALOR INT, FK_VENDA_ID INT)
+CREATE PROCEDURE criacaoServicoPrestado (IN DESCRICAO varchar(100), IN VALOR double, FK_VENDA_ID INT)
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
 INSERT INTO tb_servico_prestado(descricao_servico_prestado, valor_servico_prestado, fk_venda_id) 
@@ -381,7 +381,7 @@ DELIMITER ;
 
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoCliente`(IN NOME varchar(15), IN SOBRENOME varchar(40), IN DATA_NASC DATE, CPF varchar(15), CNPJ varchar(45))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoCliente`(IN NOME varchar(15), IN SOBRENOME varchar(40), IN DATA_NASC varchar(15), CPF varchar(15), CNPJ varchar(45))
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
  IF EXISTS(SELECT*FROM tb_cliente where tb_cliente.cpf_cliente = CPF)THEN
@@ -577,7 +577,6 @@ END IF;
 END$$
 
 DELIMITER ;
-
 -- -----------------------------------------------------
 -- procedure criacaoVenda
 -- -----------------------------------------------------
