@@ -167,6 +167,7 @@
             this.txtdesc.Name = "txtdesc";
             this.txtdesc.Size = new System.Drawing.Size(102, 20);
             this.txtdesc.TabIndex = 11;
+            this.txtdesc.Text = "0,00";
             this.txtdesc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtdesc_KeyDown);
             this.txtdesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdesc_KeyPress);
             // 
@@ -234,6 +235,7 @@
             this.txt_pmo.Name = "txt_pmo";
             this.txt_pmo.Size = new System.Drawing.Size(254, 20);
             this.txt_pmo.TabIndex = 13;
+            this.txt_pmo.Text = "0,00";
             this.txt_pmo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_pmo_KeyDown);
             this.txt_pmo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_pmo_KeyPress);
             // 
@@ -303,6 +305,7 @@
             this.txt_desconto_pro.Name = "txt_desconto_pro";
             this.txt_desconto_pro.Size = new System.Drawing.Size(243, 20);
             this.txt_desconto_pro.TabIndex = 22;
+            this.txt_desconto_pro.Text = "0,00";
             this.txt_desconto_pro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_desconto_pro_KeyDown);
             this.txt_desconto_pro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_desconto_pro_KeyPress);
             this.txt_desconto_pro.Leave += new System.EventHandler(this.txt_desconto_pro_Leave);
@@ -615,6 +618,7 @@
             this.cBoxOrcamento.TabIndex = 52;
             this.cBoxOrcamento.Text = "É orçamento";
             this.cBoxOrcamento.UseVisualStyleBackColor = true;
+            this.cBoxOrcamento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cBoxOrcamento_KeyDown);
             // 
             // ch_vl_ser
             // 

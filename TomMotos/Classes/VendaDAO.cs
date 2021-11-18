@@ -136,19 +136,14 @@ namespace TomMotos.Classes
         public string listarUltimaVenda()
         {
             string resultado = "";
-            try
-            {
-                string select = @"SELECT MAX(id_venda) FROM tb_venda;";
+               string select = @"SELECT MAX(id_venda) FROM tb_venda;";
 
                 MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
                 conexao.Open();
                 resultado = executacmdsql.ExecuteScalar().ToString();
                 conexao.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro: " + erro.Message);
-            }
+           
+          
             return resultado;
         }
 

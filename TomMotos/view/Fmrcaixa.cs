@@ -45,9 +45,7 @@ namespace TomMotos.view
             lblSubitotal.Text = 0.ToString();
             dgProdutos.Columns[2].Width = 200;
             dgServicos.Columns[1].Width = 243;
-            txt_pmo.Text = "0,00";
-            txt_desconto_pro.Text = "0,00";
-            txtdesc.Text = "0,00";
+            
         }
         private void FmrFinalizar_venda_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -57,7 +55,14 @@ namespace TomMotos.view
         {
             if (CaixaModel.vendaFinalizada == true || orcamento)
             {
+                CaixaModel obj = new CaixaModel();
+                obj.desconto = 0;
+                CaixaModel.valor_pago = 0;
+                obj.total = 0;
+                CaixaModel.valorPesquisa = null;
+                CaixaModel.totalVenda_orcamento = null;
                 CaixaModel.vendaFinalizada = false;
+                CaixaModel.eOrcamento = false;
                 CaixaModel.fk_cliente_id = null;
                 CaixaModel.fk_veiculo_id = null;
                 CaixaModel.emailCliente = null;
@@ -127,7 +132,6 @@ namespace TomMotos.view
                 string idVenda = caixaDAO.listarUltimaVenda();
                 inserirVariaveisObjProdutoUsado(idVenda);
                 inserirVariaveisObjServicoPrestado(idVenda);
-
                 
                
             }
@@ -217,19 +221,25 @@ namespace TomMotos.view
                     messageB += htmlTdStart + "VALOR(R$)" + htmlTdEnd;
                     messageB += htmlHeaderRowEnd;
                 }
-              
 
                 total += htmlTableStart;
                 total += htmlHeaderRowStart;
                 total += htmlTdStart + "DATA" + htmlTdEnd;
-                if(txtdesc.Text !="")total += htmlTdStart + "DESCONTO FINAL(%)" + htmlTdEnd;
+                if(txtdesc.Text !="0,00"&& txtdesc.Text != "")total += htmlTdStart + "DESCONTO FINAL(%)" + htmlTdEnd;
+                if (CaixaModel.eOrcamento==false) total += htmlTdStart + "VALOR PAGO(R$)" + htmlTdEnd;
+                else total += htmlTdStart + "VALOR ADIANTADO(R$)" + htmlTdEnd;
                 total += htmlTdStart + "TOTAL(R$)" + htmlTdEnd;
+                if (CaixaModel.eOrcamento == false) total += htmlTdStart + "TROCO(R$)" + htmlTdEnd;
+                if (CaixaModel.eOrcamento == true && CaixaModel.valor_pago !=0)total += htmlTdStart + "FALTA PAGAR(R$)" + htmlTdEnd;
                 total += htmlHeaderRowEnd;
 
                 total = total + htmlTrStart;
                 total = total + htmlTdStart + DateTime.Now.ToString() + htmlTdEnd;
-                if (txtdesc.Text != ""&& txtdesc.Text != "0") total = total + htmlTdStart + string.Format("{0:P}", double.Parse(txtdesc.Text)/100) + htmlTdEnd;
-                total = total + htmlTdStart + lblSubitotal.Text.ToString() + htmlTdEnd;
+                if (txtdesc.Text != ""&& txtdesc.Text != "0,00") total = total + htmlTdStart + string.Format("{0:P}", double.Parse(txtdesc.Text)/100) + htmlTdEnd; 
+                total = total + htmlTdStart + string.Format("{0:#,##0.00}",CaixaModel.valor_pago) + htmlTdEnd;
+                total = total+ htmlTdStart + lblSubitotal.Text.ToString() + htmlTdEnd;
+                if (CaixaModel.eOrcamento == false) total = total + htmlTdStart + string.Format("{0:#,##0.00}", CaixaModel.valor_pago - double.Parse(lblSubitotal.Text)) + htmlTdEnd;
+                if (CaixaModel.eOrcamento == true && CaixaModel.valor_pago != 0) total = total + htmlTdStart + string.Format("{0:#,##0.00}", CaixaModel.valor_pago - double.Parse(lblSubitotal.Text)) + htmlTdEnd;
                 total = total + htmlTrEnd;
 
                 for (int i = 0; i <= grid.RowCount -2; i++)
@@ -289,7 +299,7 @@ namespace TomMotos.view
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Test "+ erro);
+                MessageBox.Show(erro.Message);
                 MessageBox.Show("Erro de conexão, Email não enviado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -326,7 +336,7 @@ namespace TomMotos.view
         {
             lblSubitotal.Text = (double.Parse(lblSubitotal.Text) + desconto).ToString();
             desconto = 0;
-            txtdesc.Text = "";
+            txtdesc.Text = "0,00";
             txtdesc.Enabled = true;
         }
 
@@ -769,7 +779,15 @@ namespace TomMotos.view
             }
         }
 
-  
+        private void cBoxOrcamento_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F5)
+            {
+                verificarFinalVenda();
+            }
+
+        }
+
 
         public void Excluir_Produto() {
             double subitotal = double.Parse(lblSubitotal.Text);
@@ -835,8 +853,6 @@ namespace TomMotos.view
            
 
         }
-        private void BtnExcluir_item_Click(object sender, EventArgs e)
-        {
-        }
+
     }
 }

@@ -76,7 +76,6 @@ namespace TomMotos.view
         private void btnOk_Click(object sender, EventArgs e)
         {
             CaixaModel.emailCliente = cbxEmails.Text;
-            MessageBox.Show("Test "+ cbxEmails.Text);
             try
             {
                 if (cbxEmails.Text == "")
@@ -113,7 +112,7 @@ namespace TomMotos.view
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro " + erro.Message);
+                MessageBox.Show("Erro " + erro);
             }
 
         }
