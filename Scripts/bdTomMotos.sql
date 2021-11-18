@@ -582,14 +582,14 @@ DELIMITER ;
 -- -----------------------------------------------------
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN VALIDADE_ORCAMENTO_SERVICO date, DESCONTO double,valor_pago double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVenda`(IN VALIDADE_ORCAMENTO_SERVICO date, DESCONTO double, VALOR_PAGO double,TOTAL double, IN FK_VEICULO_ID INT, IN FK_CLIENTE_ID INT)
 BEGIN
 INSERT INTO tb_venda /*INSERE*/ 
 (tb_venda.validade_orcamento_servico, 
 tb_venda.desconto_venda,tb_venda.valor_pago, tb_venda.total_venda, tb_venda.fk_veiculo_id, tb_venda.fk_cliente_id) 
 values 
 (VALIDADE_ORCAMENTO_SERVICO, 
-DESCONTO,TOTAL, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID); 
+DESCONTO, VALOR_PAGO, TOTAL, FK_VEICULO_ID, FK_CLIENTE_ID); 
 END$$
 
 DELIMITER ;
@@ -752,3 +752,14 @@ select*from tb_servico_prestado;
 select*from tb_produto_usado;
 select*from tb_log_fornecimento;
 select*from tb_grupo_funcionarios;
+
+select tb_cliente.nome_cliente AS 'NOME CLIENTE', tb_cliente.sobrenome_cliente AS 'SOBRENOME CLIENTE', tb_cliente.cpf_cliente AS 'CPF CLIENTE',
+tb_cliente.cnpj_cliente AS 'CNPJ CLIENTE', tb_venda.total_venda AS 'TOTAL VENDA', 
+tb_venda.valor_pago AS 'VALOR PAGO', tb_venda.total_venda - tb_venda.valor_pago AS 'VALOR FALTANDO'
+from tb_cliente
+inner join tb_venda
+on tb_cliente.id_cliente = tb_venda.fk_cliente_id
+where tb_venda.total_venda - tb_venda.valor_pago != 0;
+
+call criacaoVenda(null, 0, 50, 100, 8, 11);
+call criacaoVenda(null, 0, 100, 100, 8, 11);

@@ -49,7 +49,6 @@
             this.dgOrcamento.Name = "dgOrcamento";
             this.dgOrcamento.Size = new System.Drawing.Size(1154, 470);
             this.dgOrcamento.TabIndex = 0;
-            this.dgOrcamento.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOrcamento_CellContentClick);
             this.dgOrcamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOrcamento_CellDoubleClick);
             // 
             // btn_mostrar_tudo
@@ -100,7 +99,6 @@
             this.label8.Size = new System.Drawing.Size(174, 20);
             this.label8.TabIndex = 45;
             this.label8.Text = "Consulta de orçamento";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // cxbData
             // 

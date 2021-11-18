@@ -116,16 +116,6 @@ namespace TomMotos.view
             catch (Exception erro) { MessageBox.Show("Test " + erro); }
         }
 
-        private void dgOrcamento_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             try
