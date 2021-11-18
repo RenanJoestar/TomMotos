@@ -99,9 +99,7 @@ namespace TomMotos.view
             FuncionarioDAO Showcargo = new FuncionarioDAO();
             
             carregarCargo();
-
         } 
-
        
         private void btnAlterar_Click(object sender, EventArgs e)
         {

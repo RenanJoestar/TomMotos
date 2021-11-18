@@ -594,6 +594,10 @@ END$$
 
 DELIMITER ;
 
+call criacaoVenda(null, 0, 50, 100, 8, 11);
+call criacaoVenda(null, 0, 80, 120, 8, 11);
+call criacaoVenda(null, 0, 60, 200, 8, 11);
+
 /*STORED PROCEDURE PARA MUDAR STATUS DA VENDA*/
 DELIMITER $$
 CREATE PROCEDURE mudarStatusVenda(IN idVenda INT, IN novoStatusProduto bool)
@@ -752,14 +756,3 @@ select*from tb_servico_prestado;
 select*from tb_produto_usado;
 select*from tb_log_fornecimento;
 select*from tb_grupo_funcionarios;
-
-select tb_cliente.nome_cliente AS 'NOME CLIENTE', tb_cliente.sobrenome_cliente AS 'SOBRENOME CLIENTE', tb_cliente.cpf_cliente AS 'CPF CLIENTE',
-tb_cliente.cnpj_cliente AS 'CNPJ CLIENTE', tb_venda.total_venda AS 'TOTAL VENDA', 
-tb_venda.valor_pago AS 'VALOR PAGO', tb_venda.total_venda - tb_venda.valor_pago AS 'VALOR FALTANDO'
-from tb_cliente
-inner join tb_venda
-on tb_cliente.id_cliente = tb_venda.fk_cliente_id
-where tb_venda.total_venda - tb_venda.valor_pago != 0;
-
-call criacaoVenda(null, 0, 50, 100, 8, 11);
-call criacaoVenda(null, 0, 100, 100, 8, 11);

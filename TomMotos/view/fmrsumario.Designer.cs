@@ -30,8 +30,10 @@ namespace TomMotos
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fmrsumario));
-            this.btnCaixa = new System.Windows.Forms.Button();
+            this.btnDevedores = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCaixa = new System.Windows.Forms.Button();
+            this.btnVendas = new System.Windows.Forms.Button();
             this.panelForm = new System.Windows.Forms.Panel();
             this.BT_VEICULO = new System.Windows.Forms.Button();
             this.BT_CLIENTE = new System.Windows.Forms.Button();
@@ -44,36 +46,35 @@ namespace TomMotos
             this.BT_PRODUTO = new System.Windows.Forms.Button();
             this.Panel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnCaixa
+            // btnDevedores
             // 
-            this.btnCaixa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
-            this.btnCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCaixa.ForeColor = System.Drawing.Color.White;
-            this.btnCaixa.Image = ((System.Drawing.Image)(resources.GetObject("btnCaixa.Image")));
-            this.btnCaixa.Location = new System.Drawing.Point(27, 553);
-            this.btnCaixa.Name = "btnCaixa";
-            this.btnCaixa.Size = new System.Drawing.Size(150, 43);
-            this.btnCaixa.TabIndex = 0;
-            this.btnCaixa.Text = "CAIXA";
-            this.btnCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCaixa.UseVisualStyleBackColor = false;
-            this.btnCaixa.Click += new System.EventHandler(this.btnCaixa_Click);
+            this.btnDevedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btnDevedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDevedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDevedores.ForeColor = System.Drawing.Color.White;
+            this.btnDevedores.Location = new System.Drawing.Point(27, 553);
+            this.btnDevedores.Name = "btnDevedores";
+            this.btnDevedores.Size = new System.Drawing.Size(150, 43);
+            this.btnDevedores.TabIndex = 0;
+            this.btnDevedores.Text = "DEVEDORES";
+            this.btnDevedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDevedores.UseVisualStyleBackColor = false;
+            this.btnDevedores.Click += new System.EventHandler(this.btnDevedores_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(70)))));
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnCaixa);
+            this.panel2.Controls.Add(this.btnVendas);
             this.panel2.Controls.Add(this.panelForm);
             this.panel2.Controls.Add(this.BT_VEICULO);
             this.panel2.Controls.Add(this.BT_CLIENTE);
             this.panel2.Controls.Add(this.BT_CARGO);
-            this.panel2.Controls.Add(this.btnCaixa);
+            this.panel2.Controls.Add(this.btnDevedores);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.BT_LOG_FORNECIMENTO);
             this.panel2.Controls.Add(this.BT_FORNECEDOR);
@@ -83,8 +84,39 @@ namespace TomMotos
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 607);
+            this.panel2.Size = new System.Drawing.Size(200, 669);
             this.panel2.TabIndex = 29;
+            // 
+            // btnCaixa
+            // 
+            this.btnCaixa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btnCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaixa.ForeColor = System.Drawing.Color.White;
+            this.btnCaixa.Image = ((System.Drawing.Image)(resources.GetObject("btnCaixa.Image")));
+            this.btnCaixa.Location = new System.Drawing.Point(27, 602);
+            this.btnCaixa.Name = "btnCaixa";
+            this.btnCaixa.Size = new System.Drawing.Size(150, 43);
+            this.btnCaixa.TabIndex = 39;
+            this.btnCaixa.Text = "CAIXA";
+            this.btnCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCaixa.UseVisualStyleBackColor = false;
+            this.btnCaixa.Click += new System.EventHandler(this.btnCaixa_Click);
+            // 
+            // btnVendas
+            // 
+            this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVendas.ForeColor = System.Drawing.Color.White;
+            this.btnVendas.Location = new System.Drawing.Point(27, 504);
+            this.btnVendas.Name = "btnVendas";
+            this.btnVendas.Size = new System.Drawing.Size(150, 43);
+            this.btnVendas.TabIndex = 38;
+            this.btnVendas.Text = "VENDAS";
+            this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVendas.UseVisualStyleBackColor = false;
+            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
             // 
             // panelForm
             // 
@@ -252,26 +284,11 @@ namespace TomMotos
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(27, 504);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 43);
-            this.button2.TabIndex = 38;
-            this.button2.Text = "VENDAS";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
             // Fmrsumario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 607);
+            this.ClientSize = new System.Drawing.Size(1142, 669);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Panel);
             this.Controls.Add(this.panel2);
@@ -281,7 +298,6 @@ namespace TomMotos
             this.Name = "Fmrsumario";
             this.Text = "Sumário";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrsumario_FormClosed);
-            
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -290,7 +306,7 @@ namespace TomMotos
 
         #endregion
 
-        private System.Windows.Forms.Button btnCaixa;
+        private System.Windows.Forms.Button btnDevedores;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button BT_VEICULO;
         private System.Windows.Forms.Button BT_CLIENTE;
@@ -304,7 +320,8 @@ namespace TomMotos
         private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnVendas;
+        private System.Windows.Forms.Button btnCaixa;
     }
 }
 

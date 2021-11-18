@@ -109,12 +109,6 @@ namespace TomMotos
             
         }
 
-        private void btnCaixa_Click(object sender, EventArgs e)
-        {
-            Fmrcaixa fmrcx = new Fmrcaixa();
-            fmrcx.Show();
-        }
-
         private void orçamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //FmrOrcamento fmrOrc = new FmrOrcamento(null);
@@ -163,16 +157,28 @@ namespace TomMotos
             Panel.Controls.Clear();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void BT_LOG_FORNECIMENTO_Click(object sender, EventArgs e)
+        {
+            FmrOrcamento fmrOrc = new FmrOrcamento(null);
+            fmrOrc.Show();
+        }
+
+        private void btnVendas_Click(object sender, EventArgs e)
         {
             FmrVenda frmVenda = new FmrVenda();
             frmVenda.Show();
         }
 
-        private void BT_LOG_FORNECIMENTO_Click(object sender, EventArgs e)
+        private void btnDevedores_Click(object sender, EventArgs e)
         {
-            FmrOrcamento fmrOrc = new FmrOrcamento(null);
-            fmrOrc.Show();
+            FmrDevedores frmDev = new FmrDevedores();
+            frmDev.Show();
+        }
+
+        private void btnCaixa_Click(object sender, EventArgs e)
+        {
+            Fmrcaixa fmrcx = new Fmrcaixa();
+            fmrcx.Show();
         }
     }
 }

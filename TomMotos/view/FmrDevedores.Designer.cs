@@ -38,12 +38,14 @@
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.dgOrcamento = new System.Windows.Forms.DataGridView();
+            this.dgDevedores = new System.Windows.Forms.DataGridView();
             this.txtIdVenda = new System.Windows.Forms.TextBox();
             this.txtValorPago = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgOrcamento)).BeginInit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDevedores)).BeginInit();
             this.SuspendLayout();
             // 
             // cxbData
@@ -96,6 +98,7 @@
             this.btn_mostrar_tudo.TabIndex = 60;
             this.btn_mostrar_tudo.Text = "Mostrar tudo";
             this.btn_mostrar_tudo.UseVisualStyleBackColor = true;
+            this.btn_mostrar_tudo.Click += new System.EventHandler(this.btn_mostrar_tudo_Click);
             // 
             // txtBuscar
             // 
@@ -108,8 +111,9 @@
             // 
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
-            "ID DO ORÇAMENTO",
-            "NOME DO CLIENTE"});
+            "ID DA VENDA",
+            "NOME DO CLIENTE",
+            "CPF DO CLIENTE"});
             this.cbxBuscar.Location = new System.Drawing.Point(35, 41);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(151, 21);
@@ -123,6 +127,7 @@
             this.btnPesquisar.TabIndex = 57;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // label8
             // 
@@ -135,13 +140,14 @@
             this.label8.TabIndex = 56;
             this.label8.Text = "Consulta de devedores";
             // 
-            // dgOrcamento
+            // dgDevedores
             // 
-            this.dgOrcamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgOrcamento.Location = new System.Drawing.Point(3, 169);
-            this.dgOrcamento.Name = "dgOrcamento";
-            this.dgOrcamento.Size = new System.Drawing.Size(905, 279);
-            this.dgOrcamento.TabIndex = 55;
+            this.dgDevedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDevedores.Location = new System.Drawing.Point(3, 169);
+            this.dgDevedores.Name = "dgDevedores";
+            this.dgDevedores.Size = new System.Drawing.Size(928, 279);
+            this.dgDevedores.TabIndex = 55;
+            this.dgDevedores.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgDevedores_CellMouseClick);
             // 
             // txtIdVenda
             // 
@@ -164,8 +170,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 68;
-            this.button1.Text = "Pesquisar";
+            this.button1.Text = "Alterar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnAlterar);
             // 
             // label3
             // 
@@ -178,11 +185,31 @@
             this.label3.TabIndex = 69;
             this.label3.Text = "Update de devedores";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(577, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 13);
+            this.label4.TabIndex = 70;
+            this.label4.Text = "Quanto ele pagou:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(582, 45);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.TabIndex = 71;
+            this.label5.Text = "Id da venda:";
+            // 
             // FmrDevedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 448);
+            this.ClientSize = new System.Drawing.Size(930, 448);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtValorPago);
@@ -197,11 +224,11 @@
             this.Controls.Add(this.cbxBuscar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dgOrcamento);
+            this.Controls.Add(this.dgDevedores);
             this.Name = "FmrDevedores";
             this.Text = "FmrDevedores";
             this.Load += new System.EventHandler(this.FmrDevedores_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgOrcamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDevedores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,10 +246,12 @@
         private System.Windows.Forms.ComboBox cbxBuscar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dgOrcamento;
+        private System.Windows.Forms.DataGridView dgDevedores;
         private System.Windows.Forms.TextBox txtIdVenda;
         private System.Windows.Forms.TextBox txtValorPago;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

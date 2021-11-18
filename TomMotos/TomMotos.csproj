@@ -91,6 +91,7 @@
     <Compile Include="Classes\TelefoneDAO.cs" />
     <Compile Include="Classes\VeiculoDAO.cs" />
     <Compile Include="Conexao\ConnectionFactory.cs" />
+    <Compile Include="Model\DevedorModel.cs" />
     <Compile Include="Model\ServicoModel.cs" />
     <Compile Include="Model\CaixaModel.cs" />
     <Compile Include="Model\CargoModel.cs" />
