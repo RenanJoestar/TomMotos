@@ -336,6 +336,7 @@ namespace TomMotos.view
             this.Name = "Fmrendereco";
             this.Text = "Fmrendereco";
             this.Activated += new System.EventHandler(this.Fmrendereco_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmrendereco_FormClosed);
             this.Load += new System.EventHandler(this.Fmrendereco_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -35,6 +35,7 @@ namespace TomMotos.Classes
             {
                 MessageBox.Show("Erro: " + erro.Message);
             }
+            conexao.Close();
         }
         #endregion
 

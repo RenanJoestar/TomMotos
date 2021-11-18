@@ -131,5 +131,11 @@ namespace TomMotos.view
         {
 
         }
+
+        private void Fmremail_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            EmailModel.id_email = null;
+            EmailModel.id = null;
+        }
     }
 }

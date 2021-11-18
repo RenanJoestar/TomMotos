@@ -236,6 +236,7 @@ namespace TomMotos.view
             this.Name = "Fmremail";
             this.Text = "Fmremail";
             this.Activated += new System.EventHandler(this.Fmremail_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Fmremail_FormClosed);
             this.Load += new System.EventHandler(this.Fmremail_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

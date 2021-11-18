@@ -69,8 +69,8 @@ namespace TomMotos.Classes
                 {
                    MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
             }
-          
-            }
+            conexao.Close();
+        }
 
         #endregion
 
@@ -98,10 +98,10 @@ namespace TomMotos.Classes
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Erro: " + erro.Message);
                 MessageBox.Show("Adicão não Realizado!");
             }
-
+            conexao.Close();
         }
 
         #endregion
@@ -130,7 +130,7 @@ marca_produto=@marca,quantidade_virtual_produto=@quantidade_virtual, imagem_prod
             {
                 MessageBox.Show("Aconteceu um Erro" + erro.Message);
             }
-
+            conexao.Close();
 
         }
         #endregion
@@ -151,9 +151,9 @@ marca_produto=@marca,quantidade_virtual_produto=@quantidade_virtual, imagem_prod
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Aconteceu um Erro" + erro);
+                MessageBox.Show("Aconteceu um Erro" + erro.Message);
             }
-
+            conexao.Close();
 
         }
         #endregion

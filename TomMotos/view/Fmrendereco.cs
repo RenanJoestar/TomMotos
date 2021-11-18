@@ -252,5 +252,11 @@ namespace TomMotos.view
                 e.Handled = true;
             }
         }
+
+        private void Fmrendereco_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            EnderecoModel.id_endereco = null;
+            EnderecoModel.id = null;
+        }
     }
 }

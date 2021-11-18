@@ -92,7 +92,8 @@ namespace TomMotos.Classes
                 {
                     MessageBox.Show("Cadastrado não Realizado!" + erro.Message);
                 }
-            }
+            conexao.Close();
+        }
 
 
         #endregion
@@ -124,7 +125,7 @@ km_veiculo=@km, placa_veiculo=@placa, obs_veiculo=@obs, fk_cliente_id=@fk_client
                 MessageBox.Show("Alteração não Realizada!" + erro.Message);
 
             }
-
+            conexao.Close();
 
         }
         #endregion
@@ -149,7 +150,7 @@ km_veiculo=@km, placa_veiculo=@placa, obs_veiculo=@obs, fk_cliente_id=@fk_client
                     MessageBox.Show("O veiculo está em uso");
                 else MessageBox.Show("erro " + erro);
             }
-
+            conexao.Close();
 
         }
         #endregion

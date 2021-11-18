@@ -49,6 +49,7 @@ namespace TomMotos.view
         {
             //MessageBox.Show("Test");
             TelefoneModel.id = null;
+            TelefoneModel.id_telefone = null;
         }
 
         private void Fmrtelefone_Activated(object sender, EventArgs e)

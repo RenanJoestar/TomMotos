@@ -40,6 +40,7 @@ namespace TomMotos.Classes
                 MessageBox.Show("Cadastrado não Realizado! " + erro.Message);               
                 
             }
+            conexao.Close();
         }
 
 
@@ -71,6 +72,7 @@ namespace TomMotos.Classes
                 MessageBox.Show("Erro: " + erro.Message);
                 MessageBox.Show("Cadastrado não Realizado!");
             }
+            conexao.Close();
             return CaixaModel.totalVenda_orcamento;
         }
 
@@ -103,6 +105,7 @@ namespace TomMotos.Classes
             {
                 MessageBox.Show("Orçamento não Cadastrado! " + erro.Message);
             }
+            conexao.Close();
         }
 
 
@@ -127,6 +130,7 @@ namespace TomMotos.Classes
             {
                 MessageBox.Show("Erro: " + erro);
             }
+            conexao.Close();
         }
 
         #endregion
@@ -222,8 +226,9 @@ namespace TomMotos.Classes
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + erro);
+                MessageBox.Show("Erro: " + erro.Message);
             }
+            conexao.Close();
             return resultado;
         }
         #endregion

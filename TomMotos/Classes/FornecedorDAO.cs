@@ -74,6 +74,7 @@ namespace TomMotos.Classes
                 }
               
             }
+            conexao.Close();
         }
         #endregion
 
@@ -96,7 +97,7 @@ namespace TomMotos.Classes
             {
                 MessageBox.Show("Aconteceu um Erro" + erro.Message);
             }
-
+            conexao.Close();
 
         }
         #endregion
@@ -123,7 +124,7 @@ namespace TomMotos.Classes
             {
                 MessageBox.Show("Aconteceu um Erro" + erro);
             }
-
+            conexao.Close();
 
         }
         #endregion

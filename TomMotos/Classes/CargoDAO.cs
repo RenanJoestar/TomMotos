@@ -74,7 +74,7 @@ namespace TomMotos.Classes
                     MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
 
                 }
-
+                conexao.Close();
             }
         }
 
@@ -87,7 +87,7 @@ namespace TomMotos.Classes
             try
             {
 
-                string update = @"Update  tb_cargo set  nome_cargo=@nome, salario_cargo=@salario where id_cargo=@id";
+                string update = @"CALL UpdateCargo(@nome, @salario, @id)";
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
 
                 executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
@@ -96,12 +96,14 @@ namespace TomMotos.Classes
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
+                MessageBox.Show("Alterado com Sucesso!");
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Aconteceu um Erro" + erro);
+                MessageBox.Show("Aconteceu um Erro" + erro.Message);
             }
 
+            conexao.Close();
 
         }
         #endregion
@@ -127,7 +129,7 @@ namespace TomMotos.Classes
                 MessageBox.Show("O cargo está em uso");
                 else MessageBox.Show("erro "+erro.Message);
             }
-
+            conexao.Close();
 
         }
         #endregion

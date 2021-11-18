@@ -44,9 +44,9 @@ namespace TomMotos.Classes
                 catch (Exception erro)
                 {
                     MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
-                }
-                
+                }                
             }
+            conexao.Close();
         }
         #endregion
 
@@ -108,7 +108,7 @@ namespace TomMotos.Classes
                 }
              
             }
-
+            conexao.Close();
         }
         #endregion
 
@@ -144,6 +144,7 @@ namespace TomMotos.Classes
 
                 }
             }
+            conexao.Close();
         }
 
 

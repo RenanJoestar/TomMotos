@@ -43,7 +43,7 @@ namespace TomMotos.Classes
                 {
                     MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
                 }
-               
+                conexao.Close();
             }
         }
         #endregion
@@ -68,10 +68,10 @@ namespace TomMotos.Classes
                 catch (Exception erro)
                 {
                     MessageBox.Show("Cadastrado de Senha não Realizado!");
-                    MessageBox.Show("Erro: " + erro);
+                    MessageBox.Show("Erro: " + erro.Message);
                 }
-            
-            }
+            conexao.Close();
+        }
         
         #endregion
 
@@ -110,7 +110,7 @@ namespace TomMotos.Classes
             {
                 try
                 {
-                    string update = @"Update tb_email set nome_email=@nome where id_email = @id";
+                    string update = @"CALL UpdateEmail(@nome, @id)";
 
                     MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                     executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
@@ -128,7 +128,7 @@ namespace TomMotos.Classes
                 }
 
             }
-
+            conexao.Close();
         }
         #endregion
 
@@ -164,7 +164,7 @@ namespace TomMotos.Classes
                     }
                 }
             }
-
+            conexao.Close();
         }
 
 

@@ -150,7 +150,7 @@ namespace TomMotos.Classes
                     }
                 }
             }
-            
+            conexao.Close();
         }
         #endregion
 

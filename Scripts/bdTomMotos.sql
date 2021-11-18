@@ -376,6 +376,25 @@ SET MESSAGE_TEXT = 'ERRO, CARGO JA EXISTE'; END IF; END$$
 DELIMITER ;
 
 -- -----------------------------------------------------
+-- procedure Updatecargo
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateCargo`(IN NOME VARCHAR(50), IN SALARIO DOUBLE, in ID INT)
+BEGIN DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000'; 
+IF NOT EXISTS (
+select * from tb_cargo where tb_cargo.nome_cargo = NOME AND tb_cargo.salario_cargo = SALARIO) THEN BEGIN 
+
+update tb_cargo set nome_cargo = NOME , salario_cargo = SALARIO where tb_cargo.id_cargo = ID;
+ END; 
+ ELSE SIGNAL CUSTOM_EXCEPTION
+
+SET MESSAGE_TEXT = 'ERRO, CARGO JA EXISTE'; END IF; END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
 -- procedure criacaoCliente
 -- -----------------------------------------------------
 
@@ -406,6 +425,36 @@ END$$
 DELIMITER ;
 
 -- -----------------------------------------------------
+-- procedure UpdateCliente
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateCliente`(IN NOME varchar(15), IN SOBRENOME varchar(40), IN DATA_NASC varchar(15), CPF varchar(15), CNPJ varchar(45), IN ID INT)
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+ IF EXISTS(SELECT*FROM tb_cliente where cpf_cliente = CPF and id_cliente != ID)THEN
+    BEGIN
+     SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, CPF JA EXISTE';
+      END;
+     
+     ELSEIF EXISTS(SELECT*FROM tb_cliente where cnpj_cliente = CNPJ and id_cliente != ID)THEN
+    BEGIN
+     SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, CNPJ JA EXISTE';
+      END;
+	    
+	ELSE  
+		update tb_cliente set tb_cliente.nome_cliente = NOME, tb_cliente.sobrenome_cliente = SOBRENOME, tb_cliente.data_nascimento_cliente = DATA_NASC, tb_cliente.cpf_cliente = CPF, tb_cliente.cnpj_cliente =CNPJ where tb_cliente.id_cliente = ID;
+
+  END IF;
+END$$
+
+DELIMITER ;
+
+
+-- -----------------------------------------------------
 -- procedure criacaoEmail
 -- -----------------------------------------------------
 
@@ -414,10 +463,29 @@ USE `bd_tommotos`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoEmail`(IN EMAIL VARCHAR(50), IN FK_USUARIO INT)
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
-IF NOT EXISTS (select tb_email.fk_usuario_id, tb_email.nome_email from tb_email
-inner join tb_usuario on tb_email.fk_usuario_id = tb_usuario.id_usuario where tb_email.nome_email = EMAIL and tb_email.fk_usuario_id = FK_USUARIO) THEN
+IF NOT EXISTS (select tb_email.nome_email from tb_email where tb_email.nome_email = EMAIL) THEN
 BEGIN
 INSERT INTO tb_email(nome_email ,fk_usuario_id) VALUES(EMAIL ,FK_USUARIO);
+END;
+ELSE 
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, EMAIL JA EXISTE';
+END IF;
+END$$
+
+DELIMITER ;
+-- -----------------------------------------------------
+-- procedure UpdateEmail
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateEmail`(IN EMAIL VARCHAR(50), in ID INT)
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+IF NOT EXISTS (select tb_email.nome_email from tb_email where tb_email.nome_email = EMAIL ) THEN
+BEGIN
+update tb_email set nome_email = EMAIL where tb_email.id_email = ID;
 END;
 ELSE 
  SIGNAL CUSTOM_EXCEPTION
@@ -594,9 +662,6 @@ END$$
 
 DELIMITER ;
 
-call criacaoVenda(null, 0, 50, 100, 8, 11);
-call criacaoVenda(null, 0, 80, 120, 8, 11);
-call criacaoVenda(null, 0, 60, 200, 8, 11);
 
 /*STORED PROCEDURE PARA MUDAR STATUS DA VENDA*/
 DELIMITER $$
@@ -729,6 +794,9 @@ VALUES ('2022-05-25', '2021-03-25', '1', '0', '8', '11');
 INSERT INTO `bd_tommotos`.`tb_venda` (`validade_orcamento_servico`, `data_venda`, `venda_finalizada`, `e_orcamento`, `fk_veiculo_id`, `fk_cliente_id`) 
 VALUES ('2022-05-25', '2021-03-25 00:00:00', '1', '0', '8', '12');
 
+call criacaoVenda(null, 0, 50, 100, 8, 11);
+call criacaoVenda(null, 0, 80, 120, 8, 11);
+call criacaoVenda(null, 0, 60, 200, 8, 11);
 /*INSERT PRODUTO USADO*/
 INSERT INTO `bd_tommotos`.`tb_produto_usado` (`quantidade_produto_usado`, `fk_produto_id`, `fk_venda_id`, `validade_da_garantia_produto`) 
 VALUES ('2', '4', '3', '2026/04/20');

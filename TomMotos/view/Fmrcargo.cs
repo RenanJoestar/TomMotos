@@ -72,7 +72,6 @@ namespace TomMotos.view
                 CargoDAO dao = new CargoDAO();
                 dao.alterar(obj);
                 dgCargo.DataSource = dao.ListarTodosCargos();
-                MessageBox.Show("Alterado com Sucesso!");
             }
             catch (Exception erro)
             {

@@ -94,6 +94,7 @@ namespace TomMotos.Classes
                 }
                 
             }
+            conexao.Close();
         }
 
         #endregion
@@ -124,7 +125,7 @@ data_contratacao_funcionario=@data_contratacao, sexo_funcionario=@sexo, fk_cargo
                 MessageBox.Show("Aconteceu um Erro" + erro.Message);
             }
 
-
+            conexao.Close();
         }
         #endregion
 
@@ -150,7 +151,7 @@ data_contratacao_funcionario=@data_contratacao, sexo_funcionario=@sexo, fk_cargo
             {
                 MessageBox.Show("Aconteceu um Erro" + erro);
             }
-
+            conexao.Close();
 
         }
         #endregion
