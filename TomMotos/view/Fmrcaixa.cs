@@ -221,7 +221,6 @@ namespace TomMotos.view
                     messageB += htmlTdStart + "VALOR(R$)" + htmlTdEnd;
                     messageB += htmlHeaderRowEnd;
                 }
-
                 total += htmlTableStart;
                 total += htmlHeaderRowStart;
                 total += htmlTdStart + "DATA" + htmlTdEnd;
@@ -322,10 +321,10 @@ namespace TomMotos.view
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (txtdesc.Text != "" && lblSubitotal.Text != "0" && double.Parse(lblSubitotal.Text.Replace(".","").Replace(",",".")) <= 100)
+            if (txtdesc.Text != "" && lblSubitotal.Text != "0" && double.Parse(lblSubitotal.Text) <= 100)
             {
                 desconto = double.Parse(lblSubitotal.Text) * (double.Parse(txtdesc.Text) / 100);
-                lblSubitotal.Text = (double.Parse(lblSubitotal.Text) - desconto).ToString();               
+                lblSubitotal.Text = string.Format("{0:#,##0.00}", double.Parse(lblSubitotal.Text) - desconto);               
                 txtdesc.Enabled = false;
             }
             else { MessageBox.Show("DESCONTO INVÁLIDO"); txtdesc.Text = "0,00"; }
@@ -334,7 +333,7 @@ namespace TomMotos.view
 
         private void button2_Click(object sender, EventArgs e)
         {
-            lblSubitotal.Text = (double.Parse(lblSubitotal.Text) + desconto).ToString();
+            lblSubitotal.Text = string.Format("{0:#,##0.00}", double.Parse(lblSubitotal.Text) + desconto);
             desconto = 0;
             txtdesc.Text = "0,00";
             txtdesc.Enabled = true;

@@ -123,6 +123,7 @@ namespace TomMotos.view
                 }
                 else
                 {
+                    CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
                     fz.FinalizarVenda();
                     fz.SalvarPdf();
                     fz.EnviarEmail();
