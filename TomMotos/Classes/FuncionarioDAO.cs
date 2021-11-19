@@ -105,8 +105,7 @@ namespace TomMotos.Classes
             try
             {
 
-                string update = @"Update  tb_funcionario set  nome_funcionario=@nome, sobrenome_funcionario=@sobrenome,cpf_funcionario=@cpf,data_nascimento_funcionario=@data_nasc,
-data_contratacao_funcionario=@data_contratacao, sexo_funcionario=@sexo, fk_cargo_id=@cargo_fk where id_funcionario=@id";
+                string update = @" CALL UpdateFuncionario (@nome, @sobrenome, @cpf, @data_nasc,@data_contratacao,@sexo,@cargo_fk,@id)";
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
                 executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
@@ -119,6 +118,7 @@ data_contratacao_funcionario=@data_contratacao, sexo_funcionario=@sexo, fk_cargo
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
+                MessageBox.Show("Alterado com Sucesso!");
             }
             catch (Exception erro)
             {

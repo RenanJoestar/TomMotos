@@ -47,8 +47,9 @@ namespace TomMotos.Classes
                 {
                     MessageBox.Show("Cadastrado não Realizado! "+ erro.Message);
                 }
-             
+                            
             }
+            conexao.Close();
         }
         #endregion
 
@@ -90,10 +91,11 @@ namespace TomMotos.Classes
             {
                 try
                 {
-                    string update = @"Update tb_endereco set nome_email=@nome where id_endereco = @id";
+                    string update = @"CALL UpdateEndereco (@cep,@rua,@cidade,@bairro,@numero,@fk,@id)";
 
                     MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                     executacmdsql.Parameters.AddWithValue("@id", EnderecoModel.id_endereco);
+                    executacmdsql.Parameters.AddWithValue("@fk", EnderecoModel.id);
                     executacmdsql.Parameters.AddWithValue("@cep", obj.cep);
                     executacmdsql.Parameters.AddWithValue("@rua", obj.endereco);
                     executacmdsql.Parameters.AddWithValue("@cidade", obj.cidade);
@@ -109,9 +111,9 @@ namespace TomMotos.Classes
                 {
                     MessageBox.Show("Alteração não Realizado! " + erro.Message);
                 }
-           
+                
             }
-
+            conexao.Close();
         }
         #endregion
 

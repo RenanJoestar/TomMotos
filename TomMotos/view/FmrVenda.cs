@@ -21,10 +21,16 @@ namespace TomMotos.view
 
         private void FmrVendacs_Load(object sender, EventArgs e)
         {
-            dgVenda.DataSource = VendaDAO.listarTodos(false); //Puxa todas as vendas
+            cxbData.Checked = true;
+            dtp1.Value = dtp1.Value.AddDays(-14);
+            pesquisarVendaComFiltro(); //Puxa todos os orçamentos de 2 semanas para cá
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            pesquisarVendaComFiltro();
+        }
+        private void pesquisarVendaComFiltro()
         {
             try
             {
@@ -38,12 +44,11 @@ namespace TomMotos.view
                 {
                     finalSQL = finalSQL + " AND tb_venda.data_venda BETWEEN ' " + dtp1.Value.ToString("yyyy/MM/dd") + " 00:00:00' AND ' " + dtp2.Value.ToString("yyyy/MM/dd") + " " + "23:59:59'";
                 }
-                
+
                 dgVenda.DataSource = VendaDAO.listarVendaPor(finalSQL);
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
-
         private void btn_mostrar_tudo_Click(object sender, EventArgs e)
         {
             dgVenda.DataSource = VendaDAO.listarTodos(false); //Puxa todas as vendas

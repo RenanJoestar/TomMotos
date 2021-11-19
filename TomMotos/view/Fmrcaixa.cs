@@ -376,7 +376,7 @@ namespace TomMotos.view
                     }
                     id_produto = ds.Tables[0].Rows[0]["id_produto"].ToString();
                     nome_produto = ds.Tables[0].Rows[0]["descricao_produto"].ToString();
-                    valor_produto = int.Parse(ds.Tables[0].Rows[0]["valor_produto"].ToString());
+                    valor_produto = double.Parse(ds.Tables[0].Rows[0]["valor_produto"].ToString());
 
                     if (txt_desconto_pro.Text != "")
                     {
@@ -414,7 +414,7 @@ namespace TomMotos.view
                 }
                 catch (Exception erro)
                 {
-                    MessageBox.Show("PRODUTO NÃO ENCONTRADO!!");
+                    MessageBox.Show("PRODUTO NÃO ENCONTRADO!! "+erro.Message);
                 }
             }
         }

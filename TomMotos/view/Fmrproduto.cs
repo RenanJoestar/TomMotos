@@ -129,7 +129,6 @@ namespace TomMotos.view
                 ProdutoDAO dao = new ProdutoDAO();
                 dao.alterar(obj);
                 dg_produto.DataSource = dao.ListarTodosProdutos();
-                MessageBox.Show("Alterado com Sucesso!");
             }
             catch (Exception erro)
             {

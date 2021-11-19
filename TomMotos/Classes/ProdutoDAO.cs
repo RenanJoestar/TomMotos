@@ -112,8 +112,7 @@ namespace TomMotos.Classes
             try
             {
 
-                string update = @"Update  tb_produto set descricao_produto=@descricao,quantidade_produto=@quantidade,valor_produto=@valor,
-marca_produto=@marca,quantidade_virtual_produto=@quantidade_virtual, imagem_produto=@imagem where id_produto=@id";
+                string update = @"CALL UpdateProduto (@descricao, @quantidade,@quantidade_virtual,@valor,@marca,@imagem,@id)";
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
                 executacmdsql.Parameters.AddWithValue("@descricao", obj.descricao);
@@ -125,6 +124,7 @@ marca_produto=@marca,quantidade_virtual_produto=@quantidade_virtual, imagem_prod
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
+                MessageBox.Show("Alterado com Sucesso!");
             }
             catch (Exception erro)
             {

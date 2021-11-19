@@ -12,6 +12,7 @@ namespace TomMotos.Model
         public DateTime validade_orcamento_servico { get; set; }
         public double desconto { get; set; }
         public static double valor_pago { get; set; }
+        public static string id_orcamento { get; set; }
         public double total { get; set; }
         public static string fk_veiculo_id { get; set; }
         public static string emailCliente { get; set; }

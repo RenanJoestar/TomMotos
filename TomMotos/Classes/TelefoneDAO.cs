@@ -91,7 +91,7 @@ namespace TomMotos.Classes
             {
                 try
                 {
-                    string update = @"Update tb_telefone set numero_telefone=@nome where id_telefone = @id";
+                    string update = @"call UpdateTelefone (@nome,@id)";
 
                     MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                     executacmdsql.Parameters.AddWithValue("@nome", obj.nome);

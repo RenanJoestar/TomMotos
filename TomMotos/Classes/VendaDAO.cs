@@ -239,11 +239,11 @@ namespace TomMotos.Classes
             string sql = @"select tb_venda.id_venda AS 'ID DA CONSULTA', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
                 tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', 
 		        tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', 
-		        tb_venda.data_venda AS 'DATA DA VENDA', tb_venda.data_venda AS 'DATA DO FORNECIMENTO', tb_venda.total_venda AS 'TOTAL DA VENDA',tb_venda.valor_pago AS 'VALOR ADIANTADO'
+		        tb_venda.data_venda AS 'DATA DA VENDA', tb_venda.data_venda AS 'DATA DO FORNECIMENTO', tb_venda.total_venda AS 'TOTAL DA VENDA',tb_venda.valor_pago AS 'VALOR PAGO'
 		        from tb_venda
 		        inner join tb_cliente
 		        on tb_venda.fk_cliente_id = tb_cliente.id_cliente
-                where tb_venda.e_orcamento = " + orcamento + ";";
+                where tb_venda.e_orcamento = " + orcamento + " order by tb_venda.data_venda desc";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 
@@ -268,10 +268,10 @@ namespace TomMotos.Classes
             string select = @"select tb_venda.id_venda AS 'ID DA CONSULTA', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
                 tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', 
                 tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', tb_venda.data_venda AS 'DATA DA VENDA', 
-                tb_venda.data_venda AS 'DATA DO FORNECIMENTO' from tb_venda
+                tb_venda.data_venda AS 'DATA DA VENDA' from tb_venda
 		        inner join tb_cliente
 		        on tb_venda.fk_cliente_id = tb_cliente.id_cliente
-                where " + finalSQL;
+                where " + finalSQL + " order by tb_venda.data_venda desc";
 
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 

@@ -75,7 +75,6 @@ namespace TomMotos.view
                         FornecedorDAO dao = new FornecedorDAO();
                         dao.alterar(obj);
                         dg_fornecedor.DataSource = dao.ListarTodosFornecedores();
-                        MessageBox.Show("Alterado com Sucesso!");
                     }
 
                 

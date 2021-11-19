@@ -22,8 +22,7 @@ namespace TomMotos.Classes
         #region METODO LISTAR
         public DataTable ListarTodosVeiculos()
         {
-            string sql = @"select  tb_veiculo.id_veiculo, tb_cliente.nome_cliente, marca_veiculo, modelo_veiculo, cor_veiculo, ano_veiculo, km_veiculo, placa_veiculo, obs_veiculo,fk_cliente_id as 'ID DO CLIENTE' from tb_veiculo
-                          inner join tb_cliente on tb_veiculo.fk_cliente_id = tb_cliente.id_cliente";
+            string sql = @"select  tb_veiculo.id_veiculo as 'ID VEICULO', marca_veiculo AS 'MARCA', modelo_veiculo AS 'MODELO', cor_veiculo AS 'COR', ano_veiculo AS 'ANO', km_veiculo AS 'KM RODADO', placa_veiculo AS 'PLACA', obs_veiculo AS 'OBSERVAÇÃO',fk_cliente_id as 'ID DO CLIENTE' from tb_veiculo";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 
@@ -104,10 +103,10 @@ namespace TomMotos.Classes
             try
             {
 
-                string update = @"Update  tb_veiculo set  marca_veiculo=@marca, modelo_veiculo=@modelo, cor_veiculo=@cor ,ano_veiculo=@ano,
-km_veiculo=@km, placa_veiculo=@placa, obs_veiculo=@obs, fk_cliente_id=@fk_cliente_id where id_veiculo=@id";
+                string update = @"call UpdateVeiculo(@marca,@modelo,@cor ,@ano,@km,@placa,@obs,@fk,@id)";
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
+                executacmdsql.Parameters.AddWithValue("@fk", VeiculoModel.fk_veiculo);
                 executacmdsql.Parameters.AddWithValue("@marca", obj.marca);
                 executacmdsql.Parameters.AddWithValue("@modelo", obj.modelo);
                 executacmdsql.Parameters.AddWithValue("@cor", obj.cor_veiculo);
@@ -119,6 +118,8 @@ km_veiculo=@km, placa_veiculo=@placa, obs_veiculo=@obs, fk_cliente_id=@fk_client
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
+
+                MessageBox.Show("Alterado com Sucesso!");
             }
             catch (Exception erro)
             {

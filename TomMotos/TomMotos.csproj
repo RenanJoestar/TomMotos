@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\DevedoresDAO.cs" />
+    <Compile Include="Classes\FiltroDAO.cs" />
     <Compile Include="Classes\ServicoDAO.cs" />
     <Compile Include="Classes\validacaoTxtDAO.cs" />
     <Compile Include="Classes\VendaDAO.cs" />
@@ -82,7 +83,6 @@
     <Compile Include="Classes\ClienteDAO.cs" />
     <Compile Include="Classes\EmailDAO.cs" />
     <Compile Include="Classes\EnderecoDAO.cs" />
-    <Compile Include="Classes\FiltroDAO.cs" />
     <Compile Include="Classes\FornecedorDAO.cs" />
     <Compile Include="Classes\LogFornecimentoDAO.cs" />
     <Compile Include="Classes\FuncionarioDAO.cs" />

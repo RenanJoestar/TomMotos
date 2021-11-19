@@ -63,7 +63,7 @@ namespace TomMotos.view
                 {
                     VeiculoModel obj = new VeiculoModel();
 
-                    obj.id = int.Parse(txt_id.Text);
+                    
                     obj.modelo = txt_modelo.Text.ToUpper();
                     obj.marca = txt_marca.Text.ToUpper();
                     obj.cor_veiculo = txt_cor.Text.ToUpper();
@@ -106,7 +106,6 @@ namespace TomMotos.view
             VeiculoDAO Cliente = new VeiculoDAO();
             dgv_cliente.DataSource = Cliente.ListarTodosClientes();
 
-
         }
 
 
@@ -132,7 +131,6 @@ namespace TomMotos.view
                     VeiculoDAO dao = new VeiculoDAO();
                     dao.alterar(obj);
                     dg_veiculo.DataSource = dao.ListarTodosVeiculos();
-                    MessageBox.Show("Alterado com Sucesso!");
                 }
                 catch (Exception erro)
                 {
@@ -142,24 +140,6 @@ namespace TomMotos.view
             else MessageBox.Show("Erro","Escolha um id que deseja Alterar",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
         }
-
-        private void dg_veiculo_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_id.Text = dg_veiculo.CurrentRow.Cells[0].Value.ToString();
-            txt_modelo.Text = dg_veiculo.CurrentRow.Cells[3].Value.ToString();
-            txt_marca.Text = dg_veiculo.CurrentRow.Cells[2].Value.ToString();
-            txt_cor.Text = dg_veiculo.CurrentRow.Cells[4].Value.ToString();
-            txt_ano.Text = dg_veiculo.CurrentRow.Cells[5].Value.ToString();
-            txt_km.Text = dg_veiculo.CurrentRow.Cells[6].Value.ToString();
-            txt_obs.Text = dg_veiculo.CurrentRow.Cells[8].Value.ToString();
-            txt_placa.Text = dg_veiculo.CurrentRow.Cells[7].Value.ToString();
-            txt_cliente.Text = dg_veiculo.CurrentRow.Cells[9].Value.ToString();
-
-            
-        }
-
-
-
 
 
         private void txt_placa_Leave(object sender, EventArgs e)
@@ -216,7 +196,10 @@ namespace TomMotos.view
                 if (cbxBuscar.Text != "")
                 {
                     string campo = cbxBuscar.Text.ToString() + "_veiculo";
-                    FiltroModel.filtro = @"select * from tb_veiculo where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    FiltroModel.filtro = @"select tb_veiculo.id_veiculo as 'ID VEICULO', marca_veiculo AS 'MARCA',
+                     modelo_veiculo AS 'MODELO', cor_veiculo AS 'COR', ano_veiculo AS 'ANO', km_veiculo AS 'KM RODADO',
+                     placa_veiculo AS 'PLACA', obs_veiculo AS 'OBSERVAÇÃO',fk_cliente_id as 'ID DO CLIENTE'
+                     from tb_veiculo where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
                     // MessageBox.Show("Test " + FiltroModel.filtro);
                     FiltroDAO dao = new FiltroDAO();
                     dg_veiculo.DataSource = dao.buscaCargo();
@@ -243,6 +226,19 @@ namespace TomMotos.view
                 //Atribui True no Handled para cancelar o evento
                 e.Handled = true;
             }
+        }
+
+        private void dg_veiculo_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id.Text = dg_veiculo.CurrentRow.Cells[0].Value.ToString();
+            txt_modelo.Text = dg_veiculo.CurrentRow.Cells[2].Value.ToString();
+            txt_marca.Text = dg_veiculo.CurrentRow.Cells[1].Value.ToString();
+            txt_cor.Text = dg_veiculo.CurrentRow.Cells[3].Value.ToString();
+            txt_ano.Text = dg_veiculo.CurrentRow.Cells[4].Value.ToString();
+            txt_km.Text = dg_veiculo.CurrentRow.Cells[5].Value.ToString();
+            txt_obs.Text = dg_veiculo.CurrentRow.Cells[7].Value.ToString();
+            txt_placa.Text = dg_veiculo.CurrentRow.Cells[6].Value.ToString();
+            txt_cliente.Text = dg_veiculo.CurrentRow.Cells[8].Value.ToString();
         }
     }
 }

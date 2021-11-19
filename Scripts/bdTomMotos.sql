@@ -325,10 +325,25 @@ DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
 IF EXISTS(SELECT*FROM tb_produto where tb_produto.descricao_produto = DESCRICAO AND tb_produto.valor_produto = VALOR_PRODUTO) THEN
 BEGIN
 SIGNAL CUSTOM_EXCEPTION
-SET MESSAGE_TEXT = 'ERRO, PRODUTO JA EXISTE';
+SET MESSAGE_TEXT = 'ERRO, PRODUTO JA CADASTRADO';
 END;
 ELSE 
 INSERT INTO tb_produto(descricao_produto, quantidade_produto, valor_produto, marca_produto, quantidade_virtual_produto, imagem_produto)values(DESCRICAO,QUANTIDADE_PRODUTO,VALOR_PRODUTO,MARCA,QUANTIDADE_PRODUTO_VIRTUAL,IMAGEM);
+END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE UpdateProduto (IN DESCRICAO VARCHAR(45), IN QUANTIDADE_PRODUTO INT, QUANTIDADE_PRODUTO_VIRTUAL INT, IN VALOR_PRODUTO double, IN MARCA VARCHAR(40), IN IMAGEM LONGBLOB, in ID INT)
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+IF EXISTS(SELECT*FROM tb_produto where tb_produto.descricao_produto = DESCRICAO AND tb_produto.valor_produto = VALOR_PRODUTO) THEN
+BEGIN
+SIGNAL CUSTOM_EXCEPTION
+SET MESSAGE_TEXT = 'ERRO, PRODUTO JA EXISTE';
+END;
+ELSE 
+update tb_produto set descricao_produto = DESCRICAO, quantidade_produto = QUANTIDADE_PRODUTO, valor_produto = VALOR_PRODUTO, marca_produto = MARCA, quantidade_virtual_produto = QUANTIDADE_PRODUTO_VIRTUAL, imagem_produto = IMAGEM where tb_produto.id_produto = ID;
 END IF;
 END $$
 DELIMITER ;
@@ -516,6 +531,27 @@ END IF;
 END$$
 
 DELIMITER ;
+-- -----------------------------------------------------
+-- procedure UpdateEndereco
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateEndereco`(IN CEP varchar(15), IN RUA varchar(40), IN CIDADE text, IN BAIRRO varchar(15),IN NUMERO varchar(45),IN FK_USUARIO INT, IN ID INT )
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+IF NOT EXISTS (select tb_endereco.fk_usuario_id, tb_endereco.numero_endereco, tb_endereco.cep_endereco from tb_endereco
+inner join tb_usuario on tb_endereco.fk_usuario_id = tb_usuario.id_usuario where tb_endereco.cep_endereco = CEP  and tb_endereco.rua_endereco = RUA and tb_endereco.cidade_endereco = CIDADE and tb_endereco.bairro_endereco = BAIRRO and tb_endereco.numero_endereco = NUMERO and tb_endereco.fk_usuario_id = FK_USUARIO) THEN
+BEGIN
+update tb_endereco set cep_endereco = CEP,rua_endereco = RUA,cidade_endereco = CIDADE,bairro_endereco = BAIRRO,numero_endereco= NUMERO where tb_endereco.id_endereco = ID;
+END;
+ELSE 
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, ENDEREÇO JA EXISTE';
+END IF;
+END$$
+
+DELIMITER ;
 
 
 -- -----------------------------------------------------
@@ -534,7 +570,26 @@ insert into tb_usuario(fk_fornecedor_id)values(LAST_INSERT_ID());
 
 ELSE SIGNAL CUSTOM_EXCEPTION
 
-SET MESSAGE_TEXT = 'ERRO, FORNECEDOR JA EXISTE'; END IF; END$$
+SET MESSAGE_TEXT = 'ERRO, CNPJ JA EXISTE'; END IF; END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure UpdateFornecedor
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateFornecedor`(IN NOME VARCHAR(50), IN CNPJ varchar(45),IN ID INT)
+BEGIN DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000'; IF NOT EXISTS (
+
+select * from tb_fornecedor where tb_fornecedor.cnpj_fornecedor = CNPJ and tb_fornecedor.id_fornecedor != ID ) THEN BEGIN 
+
+update tb_fornecedor set nome_fornecedor = NOME, cnpj_fornecedor = CNPJ where tb_fornecedor.id_fornecedor = ID; END;
+
+ELSE SIGNAL CUSTOM_EXCEPTION
+
+SET MESSAGE_TEXT = 'ERRO, CNPJ JÁ EXISTE'; END IF; END$$
 
 DELIMITER ;
 
@@ -554,7 +609,24 @@ insert into tb_usuario(fk_funcionario_id)values(LAST_INSERT_ID());
 
  END; ELSE SIGNAL CUSTOM_EXCEPTION
 
-SET MESSAGE_TEXT = 'ERRO, FUNCIONARIO JA EXISTE'; END IF; END$$
+SET MESSAGE_TEXT = 'ERRO, CPF JA CADASTRADO'; END IF; END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure UpdateFuncionario
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateFuncionario`(IN NOME VARCHAR(50), IN SOBRENOME varchar(100), CPF varchar(16), DATA_NASC varchar(15), DATA_CONT varchar(15), SEXO char, FK_CARGO_ID INT, IN ID INT)
+BEGIN DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000'; IF EXISTS (
+select * from tb_funcionario where cpf_funcionario = CPF and id_funcionario != ID) THEN BEGIN 
+SIGNAL CUSTOM_EXCEPTION
+SET MESSAGE_TEXT = 'ERRO, CPF JA EXISTE';
+ END; ELSE
+ update tb_funcionario set nome_funcionario = NOME, sobrenome_funcionario = SOBRENOME, cpf_funcionario = CPF, data_nascimento_funcionario= DATA_NASC, data_contratacao_funcionario = DATA_CONT, sexo_funcionario = SEXO, fk_cargo_id = FK_CARGO_ID where tb_funcionario.id_funcionario = ID;
+END IF; END$$
 
 DELIMITER ;
 
@@ -593,10 +665,30 @@ USE `bd_tommotos`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoTelefone`(IN TELEFONE VARCHAR(17), IN FK_USUARIO INT)
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
-IF NOT EXISTS (select tb_telefone.fk_usuario_id, tb_telefone.numero_telefone from tb_telefone
-inner join tb_usuario on tb_telefone.fk_usuario_id = tb_usuario.id_usuario where tb_telefone.numero_telefone = TELEFONE and tb_telefone.fk_usuario_id = FK_USUARIO) THEN
+IF NOT EXISTS (select tb_telefone.numero_telefone from tb_telefone where tb_telefone.numero_telefone = TELEFONE ) THEN
 BEGIN
 INSERT INTO tb_telefone(numero_telefone,fk_usuario_id) VALUES(TELEFONE ,FK_USUARIO);
+END;
+ELSE 
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, TELEFONE JA EXISTE';
+END IF;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure UpdateTelefone
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateTelefone`(IN TELEFONE VARCHAR(17), in ID INT)
+BEGIN
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+IF NOT EXISTS (select * from tb_telefone where tb_telefone.numero_telefone = TELEFONE ) THEN
+BEGIN
+update tb_telefone set numero_telefone = TELEFONE where tb_telefone.id_telefone = ID;
 END;
 ELSE 
  SIGNAL CUSTOM_EXCEPTION
@@ -636,7 +728,7 @@ USE `bd_tommotos`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoVeiculo`(IN MARCA VARCHAR(30), IN MODELO VARCHAR(30), IN COR VARCHAR(30), IN ANO VARCHAR(30), IN KM VARCHAR(30), IN PLACA VARCHAR(12), IN OBS VARCHAR(300), IN FK_CLIENTE INT)
 BEGIN 
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
-if exists(select marca_veiculo, modelo_veiculo, placa_veiculo, fk_cliente_id from tb_veiculo where modelo_veiculo = MODELO AND marca_veiculo = MARCA and fk_cliente_id = FK_CLIENTE)then
+if exists(select * from tb_veiculo where placa_veiculo=PLACA and fk_cliente_id = FK_CLIENTE)then
  SIGNAL CUSTOM_EXCEPTION
      SET MESSAGE_TEXT = 'ERRO, VEICULO JA CADASTRADO';
 ELSE 
@@ -645,6 +737,26 @@ END IF;
 END$$
 
 DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure UpdateVeiculo
+-- -----------------------------------------------------
+select*from tb_cliente;
+DELIMITER $$
+USE `bd_tommotos`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateVeiculo`(IN MARCA VARCHAR(30), IN MODELO VARCHAR(30), IN COR VARCHAR(30), IN ANO VARCHAR(30), IN KM VARCHAR(30), IN PLACA VARCHAR(12), IN OBS VARCHAR(300), IN FK_CLIENTE INT,IN ID INT)
+BEGIN 
+DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
+if exists(select * from tb_veiculo where modelo_veiculo = MODELO AND marca_veiculo = MARCA and cor_veiculo= COR and ano_veiculo = ANO and km_veiculo=KM and placa_veiculo=PLACA and obs_veiculo=OBS and fk_cliente_id = FK_CLIENTE)then
+ SIGNAL CUSTOM_EXCEPTION
+     SET MESSAGE_TEXT = 'ERRO, VEICULO JA EXISTE';
+ELSE 
+update tb_veiculo set marca_veiculo = MARCA, modelo_veiculo = MODELO, cor_veiculo = COR, ano_veiculo = ANO, km_veiculo = KM, placa_veiculo = PLACA, obs_veiculo = OBS, fk_cliente_id  = FK_CLIENTE where tb_veiculo.id_veiculo = ID;
+END IF;
+END$$
+
+DELIMITER ;
+
 -- -----------------------------------------------------
 -- procedure criacaoVenda
 -- -----------------------------------------------------
@@ -768,7 +880,7 @@ call criacaoVeiculo('xtz','yamaha','azul',null,null,'0000022',null,'11');
 
 call criacaoFornecedor('Desconhecido','000000');
 call criacaoFornecedor('Jose silvio','222222');
-call criacaoEmail('samuca@gmail.com','9');
+call criacaoEmail('samuca1@gmail.com','9');
 call criacaoEndereco('006666655','rua cachoeira','santana de parnaiba','imperial','13','9');
 call criacaoTelefone('119988888',9);
 

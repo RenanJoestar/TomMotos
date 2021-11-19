@@ -30,7 +30,9 @@ namespace TomMotos.view
 
         private void FmOrcamento_Load(object sender, EventArgs e)
         {
-            dgOrcamento.DataSource = VendaDAO.listarTodos(true); //Puxa todos os orçamentos
+            cxbData.Checked = true;
+            dtp1.Value = dtp1.Value.AddDays(-14);
+            pesquisarVendaComFiltro(); //Puxa todos os orçamentos de 2 semanas para cá
         }
 
         private void dgOrcamento_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -40,6 +42,7 @@ namespace TomMotos.view
             fmrCx.lbl_buscarCliente.Text = ClienteModel.fk_cliente;
             fmrCx.lbl_BuscarVeiculo.Text = VeiculoModel.fk_veiculo;
             fmrCx.lblSubitotal.Text = string.Format("{0:#,##0.00}",double.Parse(CaixaModel.totalVenda_orcamento));
+            CaixaModel.id_orcamento = dgOrcamento.CurrentRow.Cells[0].Value.ToString();
             DesabilitarComponentes();
 
             this.Close();
@@ -117,6 +120,11 @@ namespace TomMotos.view
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            pesquisarVendaComFiltro();
+        }
+
+        private void pesquisarVendaComFiltro()
         {
             try
             {

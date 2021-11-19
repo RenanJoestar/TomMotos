@@ -162,7 +162,6 @@ namespace TomMotos.view
             this.Controls.Add(this.label8);
             this.Name = "FrmlogFornecimento";
             this.Text = "Form1";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmlogFornecimento_FormClosed);
             this.Load += new System.EventHandler(this.FrmlogFornecimento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_log_fornecimento)).EndInit();
             this.ResumeLayout(false);

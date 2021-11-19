@@ -89,6 +89,20 @@ namespace TomMotos.view
             }
         }
 
+        private void VerificarIdOrcamento() {
+
+           // string Update = @"update tb_venda set valor_pago = "++"where id_cliente=@id";
+
+
+            //MySqlCommand executacmdsql = new MySqlCommand(Update, conexao);
+            //executacmdsql.Parameters.AddWithValue("@id", obj.id);
+            //conexao.Open();
+            //executacmdsql.ExecuteNonQuery();
+
+            //conexao.Close();
+
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             CaixaModel.emailCliente = cbxEmails.Text;

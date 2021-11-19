@@ -74,8 +74,9 @@ namespace TomMotos.Classes
                     MessageBox.Show("Cadastrado não Realizado! " + erro.Message);
 
                 }
-                conexao.Close();
+               
             }
+            conexao.Close();
         }
 
 

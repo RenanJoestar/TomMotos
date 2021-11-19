@@ -66,7 +66,6 @@ namespace TomMotos.view
                         ClienteDAO dao = new ClienteDAO();
                         dao.Excluir(obj);
                         dg_cliente.DataSource = dao.ListarTodosClientes();
-                        MessageBox.Show("Excluido com Sucesso!");
                     }
                     catch (Exception erro)
                     {
@@ -222,7 +221,6 @@ namespace TomMotos.view
                     ClienteDAO Alterar = new ClienteDAO();
                     Alterar.alterar(obj);
                     dg_cliente.DataSource = Alterar.ListarTodosClientes();
-                    MessageBox.Show("Alterado com sucesso");
                 }
             }
             catch (Exception erro)

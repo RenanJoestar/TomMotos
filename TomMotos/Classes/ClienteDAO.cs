@@ -93,6 +93,8 @@ namespace TomMotos.Classes
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
+
+                MessageBox.Show("Alterado com sucesso");
             }
             catch (Exception erro)
             {
@@ -118,12 +120,12 @@ namespace TomMotos.Classes
                 executacmdsql.ExecuteNonQuery();
                
                 conexao.Close();
+
+                MessageBox.Show("Excluido com Sucesso!");
             }
             catch (Exception erro)
             {
-                if (erro.ToString().Contains("Cannot delete or update"))
-                    MessageBox.Show("O Cliente está em uso");
-                else MessageBox.Show("erro " + erro);
+                MessageBox.Show("erro " + erro.Message);
                 
             }
             conexao.Close();

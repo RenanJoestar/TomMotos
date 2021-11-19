@@ -213,9 +213,9 @@ namespace TomMotos.view
             txt_cep.Text = dgEndereco.CurrentRow.Cells[1].Value.ToString();
             EnderecoModel.id_endereco = idEndereco;
             txt_endereco.Text = dgEndereco.CurrentRow.Cells[2].Value.ToString();
-            txt_bairro.Text = dgEndereco.CurrentRow.Cells[3].Value.ToString();
-            txt_numero.Text = dgEndereco.CurrentRow.Cells[4].Value.ToString();
-            txt_cidade.Text = dgEndereco.CurrentRow.Cells[5].Value.ToString();          
+            txt_bairro.Text = dgEndereco.CurrentRow.Cells[4].Value.ToString();
+            txt_numero.Text = dgEndereco.CurrentRow.Cells[5].Value.ToString();
+            txt_cidade.Text = dgEndereco.CurrentRow.Cells[3].Value.ToString();          
         }
 
        

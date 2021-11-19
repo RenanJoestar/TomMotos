@@ -84,7 +84,7 @@ namespace TomMotos.Classes
             try
             {
 
-                string update = @"Update  tb_fornecedor set  nome_fornecedor=@nome,cnpj_fornecedor=@cnpj where id_fornecedor=@id";
+                string update = @"CALL UpdateFornecedor (@nome, @cnpj,@id)";
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
                 executacmdsql.Parameters.AddWithValue("@nome", obj.nome);
@@ -92,6 +92,7 @@ namespace TomMotos.Classes
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
+                MessageBox.Show("Alterado com Sucesso!");
             }
             catch (Exception erro)
             {

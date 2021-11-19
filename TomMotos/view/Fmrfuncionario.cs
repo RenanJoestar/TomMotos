@@ -145,7 +145,7 @@ namespace TomMotos.view
                         FuncionarioDAO dao = new FuncionarioDAO();
                         dao.alterar(obj);
                         dg_funcionario.DataSource = dao.ListarTodosFuncionario();
-                        MessageBox.Show("Alterado com Sucesso!");
+                        
                     }
                 }
                 catch (Exception erro)

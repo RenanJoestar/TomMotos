@@ -29,6 +29,7 @@ namespace TomMotos.view
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -406,10 +407,15 @@ namespace TomMotos.view
             // dg_veiculo
             // 
             this.dg_veiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_veiculo.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dg_veiculo.Location = new System.Drawing.Point(429, 119);
             this.dg_veiculo.Name = "dg_veiculo";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dg_veiculo.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dg_veiculo.Size = new System.Drawing.Size(498, 220);
             this.dg_veiculo.TabIndex = 42;
+            this.dg_veiculo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_veiculo_CellClick_1);
             // 
             // Fmrveiculo
             // 

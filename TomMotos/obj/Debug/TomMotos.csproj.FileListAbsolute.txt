@@ -353,3 +353,4 @@ C:\Users\Lenovo\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
 C:\Users\Math\Documents\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.TomMotos.exe.config
 C:\Users\Math\Documents\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
 C:\Users\Lenovo\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
+C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources

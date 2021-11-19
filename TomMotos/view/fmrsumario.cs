@@ -159,8 +159,8 @@ namespace TomMotos
 
         private void BT_LOG_FORNECIMENTO_Click(object sender, EventArgs e)
         {
-            FmrOrcamento fmrOrc = new FmrOrcamento(null);
-            fmrOrc.Show();
+            FrmlogFornecimento fmr = new FrmlogFornecimento();
+            fmr.Show();
         }
 
         private void btnVendas_Click(object sender, EventArgs e)
