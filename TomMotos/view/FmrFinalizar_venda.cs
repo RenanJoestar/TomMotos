@@ -36,7 +36,10 @@ namespace TomMotos.view
         private void FmrFinalizar_venda_Load(object sender, EventArgs e)
         {
             carregarEmails();
-            lblsubtotal.Text= fp.lblSubitotal.Text; 
+            lblsubtotal.Text= fp.lblSubitotal.Text;
+            txtValorPago.Text = string.Format("{0:#,##0.00}", 0.00);
+            txtTroco.Text = string.Format("{0:#,##0.00}", 0.00);
+            txtFaltaPagar.Text = lblsubtotal.Text;
         }
         private void carregarEmails()
         {
@@ -71,17 +74,13 @@ namespace TomMotos.view
             try
             {
                 txtTroco.Text = string.Format("{0:#,##0.00}", double.Parse(txtDinheiro.Text) + double.Parse(txtDebito.Text) + double.Parse(txt_credito.Text) + double.Parse(txtPix.Text) - double.Parse(lblsubtotal.Text));
-                txtFaltaPagar.Text = "";
+                txtFaltaPagar.Text = string.Format("{0:#,##0.00}", 0.00);
                 if (double.Parse(txtTroco.Text) < 0)
                 {
                     txtFaltaPagar.Text = string.Format("{0:#,##0.00}", double.Parse(txtTroco.Text));
-                    txtTroco.Text = "";
+                    txtTroco.Text = string.Format("{0:#,##0.00}", 0.00);
                 }
                 txtValorPago.Text = string.Format("{0:#,##0.00}", double.Parse(txtDinheiro.Text) + double.Parse(txtDebito.Text) + double.Parse(txt_credito.Text) + double.Parse(txtPix.Text));
-                txtDebito.Text = "0,00";
-                txtDinheiro.Text = "0,00";
-                txtPix.Text = "0,00";
-                txt_credito.Text = "0,00";
             }
             catch (Exception erro) 
             {

@@ -27,21 +27,17 @@ namespace TomMotos.view
         {
            try
            {
-                txtFaltaPagar.Text = "";
+                txtFaltaPagar.Text = string.Format("{0:#,##0.00}", 0.00);
                 txtValorPago.Text = string.Format("{0:#,##0.00}", double.Parse(txtDinheiro.Text) + double.Parse(txtDebito.Text) + double.Parse(txt_credito.Text) + double.Parse(txtPix.Text));
                
-                    if (double.Parse(txtValorPago.Text) >= double.Parse(lblsubtotal.Text))
+                    if (double.Parse(txtValorPago.Text) > double.Parse(lblsubtotal.Text))
                     {
-                        txtValorPago.Text = "";
+                        txtValorPago.Text = string.Format("{0:#,##0.00}", 0.00); ;
                         MessageBox.Show("ADIANTAMENTO NÃO PODE SER MAIOR QUE O TOTAL EM ORÇAMENTO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         txtFaltaPagar.Text = string.Format("{0:#,##0.00}", double.Parse(lblsubtotal.Text) - double.Parse(txtValorPago.Text));
-                        txtDebito.Text = "0,00";
-                        txtDinheiro.Text = "0,00";
-                        txtPix.Text = "0,00";
-                        txt_credito.Text = "0,00";
                     }
                 
            }
@@ -121,6 +117,8 @@ namespace TomMotos.view
         {
             lblsubtotal.Text = Fno.lblSubitotal.Text;
             carregarEmails();
+            txtValorPago.Text = string.Format("{0:#,##0.00}", 0.00);
+            txtFaltaPagar.Text = lblsubtotal.Text;
         }
 
         private void txtDinheiro_KeyPress(object sender, KeyPressEventArgs e)
