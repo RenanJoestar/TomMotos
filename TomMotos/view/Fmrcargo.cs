@@ -85,7 +85,8 @@ namespace TomMotos.view
         {
             txt_id.Text = dgCargo.CurrentRow.Cells[0].Value.ToString();
             txt_nome.Text = dgCargo.CurrentRow.Cells[1].Value.ToString();
-            txt_salario.Text = string.Format("{0:#,##0.00}", double.Parse(dgCargo.CurrentRow.Cells[2].Value.ToString()));
+            if (txt_id.Text != "") txt_salario.Text = string.Format("{0:#,##0.00}", double.Parse(dgCargo.CurrentRow.Cells[2].Value.ToString()));
+            else txt_salario.Text = "0,00";
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

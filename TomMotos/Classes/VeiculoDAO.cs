@@ -106,7 +106,7 @@ namespace TomMotos.Classes
                 string update = @"call UpdateVeiculo(@marca,@modelo,@cor ,@ano,@km,@placa,@obs,@fk,@id)";
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
-                executacmdsql.Parameters.AddWithValue("@fk", VeiculoModel.fk_veiculo);
+                executacmdsql.Parameters.AddWithValue("@fk", obj.cliente_fk);
                 executacmdsql.Parameters.AddWithValue("@marca", obj.marca);
                 executacmdsql.Parameters.AddWithValue("@modelo", obj.modelo);
                 executacmdsql.Parameters.AddWithValue("@cor", obj.cor_veiculo);

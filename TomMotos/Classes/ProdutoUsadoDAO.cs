@@ -64,8 +64,8 @@ namespace TomMotos.Classes
                     da.Fill(ds);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ClienteModel.fk_cliente = ds.Tables[0].Rows[0]["fk_cliente_id"].ToString();
-                    VeiculoModel.fk_veiculo =  ds.Tables[0].Rows[0]["fk_veiculo_id"].ToString();                    
+                    CaixaModel.fk_cliente_id = ds.Tables[0].Rows[0]["fk_cliente_id"].ToString();
+                    CaixaModel.fk_veiculo_id =  ds.Tables[0].Rows[0]["fk_veiculo_id"].ToString();                    
                 }
                 MySqlDataReader reader = executacmdsql.ExecuteReader();
                 if (reader.HasRows)

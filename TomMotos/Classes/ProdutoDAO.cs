@@ -148,6 +148,7 @@ namespace TomMotos.Classes
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
+                MessageBox.Show("Excluido com Sucesso!");
             }
             catch (Exception erro)
             {

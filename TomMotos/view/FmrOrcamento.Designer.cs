@@ -45,7 +45,7 @@
             // dgOrcamento
             // 
             this.dgOrcamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgOrcamento.Location = new System.Drawing.Point(0, 183);
+            this.dgOrcamento.Location = new System.Drawing.Point(-1, 183);
             this.dgOrcamento.Name = "dgOrcamento";
             this.dgOrcamento.Size = new System.Drawing.Size(1154, 470);
             this.dgOrcamento.TabIndex = 0;

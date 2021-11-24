@@ -14,7 +14,7 @@ namespace TomMotos.Model
         public string data_nasc { get; set; }
         public static string cpf { get; set; }
         public static string cnpj { get; set; }
-        public static string fk_cliente {get; set; }//Vai receber o fk do orçamento
+       
     }
 }
 

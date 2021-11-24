@@ -29,7 +29,22 @@ namespace TomMotos.view
         {
             InitializeComponent();
         }
-
+        public void ImageToBase64() {
+            try
+            {
+                if (ptb_perfil.Image != null)
+                {
+                    MemoryStream imageArray = new MemoryStream();
+                    ptb_perfil.Image.Save(imageArray, System.Drawing.Imaging.ImageFormat.Png);
+                    byte[] pic = imageArray.ToArray();
+                    base64Text = pic;
+                }
+            }
+            catch (Exception ERRO) 
+            {
+                MessageBox.Show(ERRO.Message);
+            }
+         }
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -46,10 +61,7 @@ namespace TomMotos.view
                     lblCaminho.Text = "Caminho do arquivo: " + openFileDialog1.FileName;
                     image = new Bitmap(openFileDialog1.FileName);
                     ptb_perfil.Image = (Image)image;
-                    MemoryStream imageArray = new MemoryStream();
-                    ptb_perfil.Image.Save(imageArray, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    byte[] pic = imageArray.ToArray();
-                    base64Text = pic;
+                    ImageToBase64();
                     //base64Text = Convert.ToBase64String(imageArray); //convertendo para base64
 
                 }
@@ -79,15 +91,14 @@ namespace TomMotos.view
                     obj.valor = double.Parse(txt_valor_produto.Text);
                     if (txt_marca_produto.Text == "") obj.marca = null;
                     else obj.marca = txt_marca_produto.Text.ToUpper();
-                    obj.imagem = base64Text;
-
+                    if (ptb_perfil.Image != null) obj.imagem = base64Text;
+                    else obj.imagem = null;
                     Cadastro.cadastrarProduto(obj);
-
                     dg_produto.DataSource = Cadastro.ListarTodosProdutos();
+                
                 }
                 catch (Exception erro)
                 {
-                   
                     MessageBox.Show("Erro: " + erro);
                 }
         
@@ -109,6 +120,15 @@ namespace TomMotos.view
             lblCaminho.Text = "";
             carregarfornecedor();
         }
+        public void limparComponentes() {
+            txt_id.Text = "";
+            txt_descricao_produto.Text = "";
+            txt_marca_produto.Text = "";
+            txt_valor_produto.Text = "0,00";
+            ptb_perfil.Image = null;
+            txtQTD_DIS.Text = "";
+        
+        }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
@@ -124,12 +144,12 @@ namespace TomMotos.view
                 obj.valor = double.Parse(txt_valor_produto.Text.ToUpper());
                 if (txt_marca_produto.Text == "") obj.marca = null;
                 else obj.marca = txt_marca_produto.Text.ToUpper();
-                obj.imagem = base64Text;
-
+                if (ptb_perfil.Image != null) obj.imagem = base64Text;
+                else obj.imagem = null;
                 ProdutoDAO dao = new ProdutoDAO();
                 dao.alterar(obj);
-                dg_produto.DataSource = dao.ListarTodosProdutos();
-            }
+                dg_produto.DataSource = dao.ListarTodosProdutos();    
+                }
             catch (Exception erro)
             {
                 MessageBox.Show("Aconteceu algum erro" + erro);
@@ -142,11 +162,12 @@ namespace TomMotos.view
         {
             txt_id.Text = dg_produto.CurrentRow.Cells[0].Value.ToString();
             txt_descricao_produto.Text = dg_produto.CurrentRow.Cells[1].Value.ToString();
-            np_quantidade.Text = dg_produto.CurrentRow.Cells[2].Value.ToString();            
-            txt_valor_produto.Text = string.Format("{0:#,##0.00}", double.Parse(dg_produto.CurrentRow.Cells[3].Value.ToString()));
+            txtQTD_DIS.Text = dg_produto.CurrentRow.Cells[2].Value.ToString();
             txt_marca_produto.Text = dg_produto.CurrentRow.Cells[4].Value.ToString();
-            
             Base64ToImage();
+            ImageToBase64();
+            if (txt_id.Text != "") txt_valor_produto.Text = string.Format("{0:#,##0.00}", double.Parse(dg_produto.CurrentRow.Cells[3].Value.ToString()));
+            else txt_valor_produto.Text = "0,00";
 
         }
 
@@ -173,7 +194,9 @@ namespace TomMotos.view
                         }
 
                     }
-            }
+                   
+                }
+                
             catch (Exception erro)
             {
                     MessageBox.Show("Aconteceu um Erro" + erro);
@@ -181,7 +204,7 @@ namespace TomMotos.view
           }
             else
             {
-              
+               ptb_perfil.Image = null;
             }
             return image;
         }
@@ -211,7 +234,7 @@ namespace TomMotos.view
                         ProdutoDAO dao = new ProdutoDAO();
                         dao.Excluir(obj);
                         dg_produto.DataSource = dao.ListarTodosProdutos();
-                        MessageBox.Show("Excluido com Sucesso!");
+                        limparComponentes();
                     }
                     catch (Exception)
                     {
@@ -264,6 +287,7 @@ namespace TomMotos.view
         {
             if (cbxAdd.Checked == true)
             {
+                np_quantidade.Value = 0;
                 np_quantidade.Enabled = true;
                 cbxFornecedor.Enabled = true;
                 txt_marca_produto.Enabled = false;

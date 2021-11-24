@@ -17,6 +17,6 @@ namespace TomMotos.Model
         public string placa_veiculo { get; set; }
         public string obs_veiculo { get; set; }
         public string cliente_fk { get; set; }
-        public static string fk_veiculo { get; set; }//Vai receber o fk do orçamento
+        public static string fk_veiculo { get; set; }
     }
 }

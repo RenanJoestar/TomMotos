@@ -60,6 +60,8 @@ namespace TomMotos.view
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtQTD_DIS = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.np_quantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).BeginInit();
@@ -69,7 +71,7 @@ namespace TomMotos.view
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(91, 217);
+            this.btnPesquisar.Location = new System.Drawing.Point(115, 244);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(74, 27);
             this.btnPesquisar.TabIndex = 1;
@@ -84,7 +86,7 @@ namespace TomMotos.view
             // lblCaminho
             // 
             this.lblCaminho.AutoSize = true;
-            this.lblCaminho.Location = new System.Drawing.Point(6, 244);
+            this.lblCaminho.Location = new System.Drawing.Point(6, 274);
             this.lblCaminho.Name = "lblCaminho";
             this.lblCaminho.Size = new System.Drawing.Size(41, 15);
             this.lblCaminho.TabIndex = 2;
@@ -93,6 +95,8 @@ namespace TomMotos.view
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.txtQTD_DIS);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.cbxAdd);
             this.groupBox1.Controls.Add(this.cbxFornecedor);
@@ -116,14 +120,14 @@ namespace TomMotos.view
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(12, 77);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(344, 400);
+            this.groupBox1.Size = new System.Drawing.Size(344, 444);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(31, 359);
+            this.btnAdd.Location = new System.Drawing.Point(31, 389);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(248, 34);
             this.btnAdd.TabIndex = 41;
@@ -134,18 +138,18 @@ namespace TomMotos.view
             // cbxAdd
             // 
             this.cbxAdd.AutoSize = true;
-            this.cbxAdd.Location = new System.Drawing.Point(83, 268);
+            this.cbxAdd.Location = new System.Drawing.Point(75, 298);
             this.cbxAdd.Name = "cbxAdd";
-            this.cbxAdd.Size = new System.Drawing.Size(153, 19);
+            this.cbxAdd.Size = new System.Drawing.Size(170, 19);
             this.cbxAdd.TabIndex = 39;
-            this.cbxAdd.Text = "ADICIONAR PRODUTO";
+            this.cbxAdd.Text = "ADICIONAR QUANTIDADE";
             this.cbxAdd.UseVisualStyleBackColor = true;
             this.cbxAdd.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // cbxFornecedor
             // 
             this.cbxFornecedor.FormattingEnabled = true;
-            this.cbxFornecedor.Location = new System.Drawing.Point(150, 330);
+            this.cbxFornecedor.Location = new System.Drawing.Point(150, 360);
             this.cbxFornecedor.Name = "cbxFornecedor";
             this.cbxFornecedor.Size = new System.Drawing.Size(128, 23);
             this.cbxFornecedor.TabIndex = 38;
@@ -153,7 +157,7 @@ namespace TomMotos.view
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 333);
+            this.label4.Location = new System.Drawing.Point(49, 363);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 15);
             this.label4.TabIndex = 37;
@@ -161,7 +165,7 @@ namespace TomMotos.view
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(171, 217);
+            this.btnLimpar.Location = new System.Drawing.Point(195, 244);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(74, 27);
             this.btnLimpar.TabIndex = 36;
@@ -172,7 +176,7 @@ namespace TomMotos.view
             // txt_valor_produto
             // 
             this.txt_valor_produto.BackColor = System.Drawing.Color.White;
-            this.txt_valor_produto.Location = new System.Drawing.Point(95, 77);
+            this.txt_valor_produto.Location = new System.Drawing.Point(119, 74);
             this.txt_valor_produto.Name = "txt_valor_produto";
             this.txt_valor_produto.Size = new System.Drawing.Size(110, 21);
             this.txt_valor_produto.TabIndex = 34;
@@ -181,7 +185,7 @@ namespace TomMotos.view
             // 
             // np_quantidade
             // 
-            this.np_quantidade.Location = new System.Drawing.Point(150, 303);
+            this.np_quantidade.Location = new System.Drawing.Point(150, 333);
             this.np_quantidade.Name = "np_quantidade";
             this.np_quantidade.Size = new System.Drawing.Size(86, 21);
             this.np_quantidade.TabIndex = 32;
@@ -192,7 +196,7 @@ namespace TomMotos.view
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(28, 131);
+            this.label7.Location = new System.Drawing.Point(52, 158);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 15);
             this.label7.TabIndex = 35;
@@ -201,7 +205,7 @@ namespace TomMotos.view
             // txt_marca_produto
             // 
             this.txt_marca_produto.BackColor = System.Drawing.Color.White;
-            this.txt_marca_produto.Location = new System.Drawing.Point(93, 104);
+            this.txt_marca_produto.Location = new System.Drawing.Point(117, 101);
             this.txt_marca_produto.Name = "txt_marca_produto";
             this.txt_marca_produto.Size = new System.Drawing.Size(112, 21);
             this.txt_marca_produto.TabIndex = 31;
@@ -212,7 +216,7 @@ namespace TomMotos.view
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(37, 104);
+            this.label6.Location = new System.Drawing.Point(61, 101);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 15);
             this.label6.TabIndex = 30;
@@ -224,7 +228,7 @@ namespace TomMotos.view
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(37, 77);
+            this.label5.Location = new System.Drawing.Point(61, 74);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 15);
             this.label5.TabIndex = 29;
@@ -236,7 +240,7 @@ namespace TomMotos.view
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(52, 305);
+            this.label3.Location = new System.Drawing.Point(52, 335);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 15);
             this.label3.TabIndex = 25;
@@ -248,7 +252,7 @@ namespace TomMotos.view
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(67, 25);
+            this.label1.Location = new System.Drawing.Point(91, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(22, 15);
             this.label1.TabIndex = 6;
@@ -261,7 +265,7 @@ namespace TomMotos.view
             this.txt_id.Enabled = false;
             this.txt_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.ForeColor = System.Drawing.Color.White;
-            this.txt_id.Location = new System.Drawing.Point(95, 23);
+            this.txt_id.Location = new System.Drawing.Point(119, 20);
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(46, 21);
             this.txt_id.TabIndex = 0;
@@ -272,7 +276,7 @@ namespace TomMotos.view
             this.txt_descricao_produto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_descricao_produto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_descricao_produto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txt_descricao_produto.Location = new System.Drawing.Point(95, 50);
+            this.txt_descricao_produto.Location = new System.Drawing.Point(119, 47);
             this.txt_descricao_produto.Name = "txt_descricao_produto";
             this.txt_descricao_produto.Size = new System.Drawing.Size(160, 21);
             this.txt_descricao_produto.TabIndex = 1;
@@ -281,7 +285,7 @@ namespace TomMotos.view
             // 
             this.ptb_perfil.BackColor = System.Drawing.SystemColors.Menu;
             this.ptb_perfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptb_perfil.Location = new System.Drawing.Point(93, 131);
+            this.ptb_perfil.Location = new System.Drawing.Point(117, 158);
             this.ptb_perfil.Name = "ptb_perfil";
             this.ptb_perfil.Size = new System.Drawing.Size(152, 80);
             this.ptb_perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -295,7 +299,7 @@ namespace TomMotos.view
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 52);
+            this.label2.Location = new System.Drawing.Point(30, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 15);
             this.label2.TabIndex = 7;
@@ -392,12 +396,33 @@ namespace TomMotos.view
             this.panel1.Size = new System.Drawing.Size(923, 71);
             this.panel1.TabIndex = 31;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(6, 128);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(109, 15);
+            this.label8.TabIndex = 42;
+            this.label8.Text = "QTD DISPONÍVEL:";
+            // 
+            // txtQTD_DIS
+            // 
+            this.txtQTD_DIS.BackColor = System.Drawing.Color.White;
+            this.txtQTD_DIS.Enabled = false;
+            this.txtQTD_DIS.Location = new System.Drawing.Point(117, 128);
+            this.txtQTD_DIS.Name = "txtQTD_DIS";
+            this.txtQTD_DIS.Size = new System.Drawing.Size(112, 21);
+            this.txtQTD_DIS.TabIndex = 43;
+            // 
             // Fmrproduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(923, 482);
+            this.ClientSize = new System.Drawing.Size(923, 533);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.cbxBuscar);
@@ -456,5 +481,7 @@ namespace TomMotos.view
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtQTD_DIS;
+        private System.Windows.Forms.Label label8;
     }
 }
