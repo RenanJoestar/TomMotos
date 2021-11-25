@@ -16,9 +16,7 @@ namespace TomMotos.Classes
     public void cadastrar(ProdutoUsadoModel obj)
         {
             MySqlConnection conexao = ConnectionFactory.getConnection();
-            try
-            {
-                string insert = @"CALL criacaoProdutoUsado(@quantidade_produto_usado, @fk_produto_id, @fk_venda_id, @validade_da_garantia_produto, @desconto_produto_usado)";
+             string insert = @"CALL criacaoProdutoUsado(@quantidade_produto_usado, @fk_produto_id, @fk_venda_id, @validade_da_garantia_produto, @desconto_produto_usado)";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
                 executacmdsql.Parameters.AddWithValue("@quantidade_produto_usado", obj.quantidade_produto_usado);
@@ -30,12 +28,8 @@ namespace TomMotos.Classes
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro: " + erro.Message);
-            }
-            conexao.Close();
+            
+            
         }
         #endregion
 

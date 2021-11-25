@@ -362,7 +362,9 @@
             this.vl_item,
             this.Column6});
             this.dgProdutos.Location = new System.Drawing.Point(12, 272);
+            this.dgProdutos.MultiSelect = false;
             this.dgProdutos.Name = "dgProdutos";
+            this.dgProdutos.ReadOnly = true;
             this.dgProdutos.Size = new System.Drawing.Size(734, 170);
             this.dgProdutos.TabIndex = 25;
             this.dgProdutos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgProdutos_KeyDown);
@@ -373,36 +375,43 @@
             this.ch_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ch_item.HeaderText = "ITEM";
             this.ch_item.Name = "ch_item";
+            this.ch_item.ReadOnly = true;
             // 
             // ch_id
             // 
             this.ch_id.HeaderText = "CODIGO";
             this.ch_id.Name = "ch_id";
+            this.ch_id.ReadOnly = true;
             // 
             // ch_desc
             // 
             this.ch_desc.HeaderText = "DESCRIÇÃO";
             this.ch_desc.Name = "ch_desc";
+            this.ch_desc.ReadOnly = true;
             // 
             // ch_qtd
             // 
             this.ch_qtd.HeaderText = "QTD";
             this.ch_qtd.Name = "ch_qtd";
+            this.ch_qtd.ReadOnly = true;
             // 
             // ch_unit
             // 
             this.ch_unit.HeaderText = "VL.UNIT.(R$)";
             this.ch_unit.Name = "ch_unit";
+            this.ch_unit.ReadOnly = true;
             // 
             // vl_item
             // 
             this.vl_item.HeaderText = "DESCONTO(%)";
             this.vl_item.Name = "vl_item";
+            this.vl_item.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "VL.ITEM.(R$)";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // btndesconto
             // 
@@ -624,16 +633,19 @@
             // 
             this.ch_vl_ser.HeaderText = "VALOR(R$)";
             this.ch_vl_ser.Name = "ch_vl_ser";
+            this.ch_vl_ser.ReadOnly = true;
             // 
             // ch_des
             // 
             this.ch_des.HeaderText = "DESCRIÇÃO";
             this.ch_des.Name = "ch_des";
+            this.ch_des.ReadOnly = true;
             // 
             // ch_itemServ
             // 
             this.ch_itemServ.HeaderText = "ITEM";
             this.ch_itemServ.Name = "ch_itemServ";
+            this.ch_itemServ.ReadOnly = true;
             // 
             // dgServicos
             // 
@@ -644,7 +656,9 @@
             this.ch_des,
             this.ch_vl_ser});
             this.dgServicos.Location = new System.Drawing.Point(801, 274);
+            this.dgServicos.MultiSelect = false;
             this.dgServicos.Name = "dgServicos";
+            this.dgServicos.ReadOnly = true;
             this.dgServicos.Size = new System.Drawing.Size(455, 170);
             this.dgServicos.TabIndex = 26;
             this.dgServicos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgServicos_KeyDown);
@@ -654,7 +668,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1547, 635);
+            this.ClientSize = new System.Drawing.Size(1354, 635);
             this.Controls.Add(this.cBoxOrcamento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label22);

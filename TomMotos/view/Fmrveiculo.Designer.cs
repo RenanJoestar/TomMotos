@@ -29,7 +29,7 @@ namespace TomMotos.view
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -141,7 +141,9 @@ namespace TomMotos.view
             // 
             this.dgv_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_cliente.Location = new System.Drawing.Point(6, 263);
+            this.dgv_cliente.MultiSelect = false;
             this.dgv_cliente.Name = "dgv_cliente";
+            this.dgv_cliente.ReadOnly = true;
             this.dgv_cliente.Size = new System.Drawing.Size(388, 141);
             this.dgv_cliente.TabIndex = 32;
             this.dgv_cliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cliente_CellClick);
@@ -349,6 +351,7 @@ namespace TomMotos.view
             // 
             // cbxBuscar
             // 
+            this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID",
@@ -409,10 +412,12 @@ namespace TomMotos.view
             this.dg_veiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_veiculo.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dg_veiculo.Location = new System.Drawing.Point(429, 119);
+            this.dg_veiculo.MultiSelect = false;
             this.dg_veiculo.Name = "dg_veiculo";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dg_veiculo.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dg_veiculo.ReadOnly = true;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dg_veiculo.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dg_veiculo.Size = new System.Drawing.Size(498, 220);
             this.dg_veiculo.TabIndex = 42;
             this.dg_veiculo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_veiculo_CellClick_1);

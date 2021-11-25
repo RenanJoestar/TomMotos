@@ -41,13 +41,16 @@ namespace TomMotos.view
             // 
             this.dgListProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgListProdutos.Location = new System.Drawing.Point(1, 63);
+            this.dgListProdutos.MultiSelect = false;
             this.dgListProdutos.Name = "dgListProdutos";
+            this.dgListProdutos.ReadOnly = true;
             this.dgListProdutos.Size = new System.Drawing.Size(800, 384);
             this.dgListProdutos.TabIndex = 0;
             this.dgListProdutos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListProdutos_CellDoubleClick);
             // 
             // cbxBuscar
             // 
+            this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID",

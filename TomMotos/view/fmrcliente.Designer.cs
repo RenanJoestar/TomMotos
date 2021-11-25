@@ -322,7 +322,9 @@ namespace TomMotos.view
             // 
             this.dg_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_cliente.Location = new System.Drawing.Point(339, 129);
+            this.dg_cliente.MultiSelect = false;
             this.dg_cliente.Name = "dg_cliente";
+            this.dg_cliente.ReadOnly = true;
             this.dg_cliente.Size = new System.Drawing.Size(588, 256);
             this.dg_cliente.TabIndex = 21;
             this.dg_cliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_cliente_CellClick);
@@ -337,6 +339,7 @@ namespace TomMotos.view
             // 
             // cbxFiltrar
             // 
+            this.cbxFiltrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxFiltrar.FormattingEnabled = true;
             this.cbxFiltrar.Items.AddRange(new object[] {

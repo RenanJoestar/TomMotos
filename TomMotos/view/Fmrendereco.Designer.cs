@@ -222,7 +222,9 @@ namespace TomMotos.view
             // 
             this.dgEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEndereco.Location = new System.Drawing.Point(340, 174);
+            this.dgEndereco.MultiSelect = false;
             this.dgEndereco.Name = "dgEndereco";
+            this.dgEndereco.ReadOnly = true;
             this.dgEndereco.Size = new System.Drawing.Size(717, 213);
             this.dgEndereco.TabIndex = 13;
             this.dgEndereco.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEndereco_CellClick);
@@ -268,6 +270,7 @@ namespace TomMotos.view
             // 
             // cbxBuscar
             // 
+            this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "CEP",

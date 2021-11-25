@@ -20,8 +20,6 @@ namespace TomMotos.Classes
 
         public void cadastrarVenda(CaixaModel obj)
         {
-            try
-            {
                 string insert = @"CALL criacaoVenda(@validade_orcamento_servico, @desconto_venda,@total_venda, @total_venda, @fk_veiculo_id, @fk_cliente_id)";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
@@ -33,14 +31,8 @@ namespace TomMotos.Classes
 
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
-                conexao.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Cadastrado não Realizado! " + erro.Message);               
-                
-            }
-            conexao.Close();
+                conexao.Close();            
+            
         }
 
 
@@ -83,8 +75,6 @@ namespace TomMotos.Classes
 
         public void cadastrarOrcamento(CaixaModel obj)
         {
-            try
-            {
                 string insert = @"CALL criacaoOrcamento(@validade_orcamento_servico, @desconto_venda,@valor_pago, @total_venda, @fk_veiculo_id, @fk_cliente_id, @e_orcamento)";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
@@ -100,12 +90,7 @@ namespace TomMotos.Classes
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
                 MessageBox.Show("Orçamento salvo!");
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Orçamento não Cadastrado! " + erro.Message);
-            }
-            conexao.Close();
+            
         }
 
 
@@ -145,8 +130,7 @@ namespace TomMotos.Classes
                 MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
                 conexao.Open();
                 resultado = executacmdsql.ExecuteScalar().ToString();
-                conexao.Close();
-           
+                conexao.Close();           
           
             return resultado;
         }

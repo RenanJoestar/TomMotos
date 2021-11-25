@@ -37,15 +37,17 @@ namespace TomMotos.view
 
         private void dgOrcamento_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            fmrCx.Show();
-            carregarVenda(int.Parse(dgOrcamento.CurrentRow.Cells[0].Value.ToString())); // ID VENDA
-            fmrCx.lbl_buscarCliente.Text = CaixaModel.fk_cliente_id;
-            fmrCx.lbl_BuscarVeiculo.Text = CaixaModel.fk_veiculo_id;
-            fmrCx.lblSubitotal.Text = string.Format("{0:#,##0.00}",double.Parse(CaixaModel.totalVenda_orcamento));
-            CaixaModel.id_orcamento = dgOrcamento.CurrentRow.Cells[0].Value.ToString();
-            DesabilitarComponentes();
-            this.Close();
-            
+            if (dgOrcamento.SelectedRows.Count != 0)
+            {
+                fmrCx.Show();
+                carregarVenda(int.Parse(dgOrcamento.CurrentRow.Cells[0].Value.ToString())); // ID VENDA
+                fmrCx.lbl_buscarCliente.Text = CaixaModel.fk_cliente_id;
+                fmrCx.lbl_BuscarVeiculo.Text = CaixaModel.fk_veiculo_id;
+                fmrCx.lblSubitotal.Text = string.Format("{0:#,##0.00}", double.Parse(CaixaModel.totalVenda_orcamento));
+                CaixaModel.id_orcamento = dgOrcamento.CurrentRow.Cells[0].Value.ToString();
+                DesabilitarComponentes();
+                this.Close();
+            }
 
         }
 

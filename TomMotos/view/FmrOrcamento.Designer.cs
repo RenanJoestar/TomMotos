@@ -46,7 +46,9 @@
             // 
             this.dgOrcamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgOrcamento.Location = new System.Drawing.Point(-1, 183);
+            this.dgOrcamento.MultiSelect = false;
             this.dgOrcamento.Name = "dgOrcamento";
+            this.dgOrcamento.ReadOnly = true;
             this.dgOrcamento.Size = new System.Drawing.Size(1154, 470);
             this.dgOrcamento.TabIndex = 0;
             this.dgOrcamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOrcamento_CellDoubleClick);
@@ -70,6 +72,7 @@
             // 
             // cbxBuscar
             // 
+            this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID DO ORÇAMENTO",

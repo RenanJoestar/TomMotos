@@ -103,12 +103,6 @@ namespace TomMotos.view
 
         }
 
-        private void dgTelefone_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string idTel = dgTelefone.CurrentRow.Cells[0].Value.ToString();
-            txt_telefone.Text = dgTelefone.CurrentRow.Cells[1].Value.ToString();
-            TelefoneModel.id_telefone = idTel;
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -148,6 +142,23 @@ namespace TomMotos.view
         }
 
         private void lblNome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgTelefone_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            string idTel = dgTelefone.CurrentRow.Cells[0].Value.ToString();
+            txt_telefone.Text = dgTelefone.CurrentRow.Cells[1].Value.ToString();
+            TelefoneModel.id_telefone = idTel;
+        }
+
+        private void cbxBuscar_DropDown(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxBuscar_DragDrop(object sender, DragEventArgs e)
         {
 
         }

@@ -32,6 +32,7 @@ namespace TomMotos.view
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fmrfuncionario));
             this.dg_funcionario = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_contratacao = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@ namespace TomMotos.view
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_contratacao = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_funcionario)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -71,7 +71,9 @@ namespace TomMotos.view
             // 
             this.dg_funcionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_funcionario.Location = new System.Drawing.Point(352, 117);
+            this.dg_funcionario.MultiSelect = false;
             this.dg_funcionario.Name = "dg_funcionario";
+            this.dg_funcionario.ReadOnly = true;
             this.dg_funcionario.Size = new System.Drawing.Size(559, 268);
             this.dg_funcionario.TabIndex = 24;
             this.dg_funcionario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_funcionario_CellClick);
@@ -109,6 +111,15 @@ namespace TomMotos.view
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PREENCHER DADOS";
+            // 
+            // txt_contratacao
+            // 
+            this.txt_contratacao.ForeColor = System.Drawing.Color.Black;
+            this.txt_contratacao.Location = new System.Drawing.Point(104, 166);
+            this.txt_contratacao.Mask = "00/00/0000";
+            this.txt_contratacao.Name = "txt_contratacao";
+            this.txt_contratacao.Size = new System.Drawing.Size(75, 21);
+            this.txt_contratacao.TabIndex = 36;
             // 
             // label2
             // 
@@ -164,6 +175,7 @@ namespace TomMotos.view
             // cbxCargos
             // 
             this.cbxCargos.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.cbxCargos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCargos.ForeColor = System.Drawing.Color.Black;
             this.cbxCargos.FormattingEnabled = true;
             this.cbxCargos.Location = new System.Drawing.Point(104, 222);
@@ -185,6 +197,7 @@ namespace TomMotos.view
             // 
             // cbx_sexo
             // 
+            this.cbx_sexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_sexo.ForeColor = System.Drawing.Color.Black;
             this.cbx_sexo.FormattingEnabled = true;
             this.cbx_sexo.Items.AddRange(new object[] {
@@ -390,6 +403,7 @@ namespace TomMotos.view
             // 
             // cbxBuscar
             // 
+            this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID",
@@ -442,15 +456,6 @@ namespace TomMotos.view
             this.label4.Size = new System.Drawing.Size(419, 36);
             this.label4.TabIndex = 19;
             this.label4.Text = "CADASTRO DE FUNCIONÁRIO";
-            // 
-            // txt_contratacao
-            // 
-            this.txt_contratacao.ForeColor = System.Drawing.Color.Black;
-            this.txt_contratacao.Location = new System.Drawing.Point(104, 166);
-            this.txt_contratacao.Mask = "00/00/0000";
-            this.txt_contratacao.Name = "txt_contratacao";
-            this.txt_contratacao.Size = new System.Drawing.Size(75, 21);
-            this.txt_contratacao.TabIndex = 36;
             // 
             // Fmrfuncionario
             // 

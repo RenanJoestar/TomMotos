@@ -89,8 +89,6 @@ namespace TomMotos.view
 
         public void inserirVariaveisObjProdutoUsado(string idVenda)
         {
-            try
-            {
                 for (int i = 0; i < dgProdutos.Rows.Count - 1; i++)
                 {
                     objProduto.fk_produto_id = int.Parse(dgProdutos.Rows[i].Cells[1].Value.ToString());
@@ -101,15 +99,11 @@ namespace TomMotos.view
 
                     produtoDAO.cadastrar(objProduto);
                 }
-            }
-            catch (Exception erro) {
-                MessageBox.Show(erro.Message);
-            }
+            
+            
         }
         public void inserirVariaveisObjServicoPrestado(string idVenda)
         {
-            try
-            {
                 for (int i = 0; i < dgServicos.Rows.Count - 1; i++)
                 {
                     objServico.descricao_servico_prestado = dgServicos.Rows[i].Cells[1].Value.ToString();
@@ -118,8 +112,7 @@ namespace TomMotos.view
 
                     servicoDAO.cadastrarServicoPrestado(objServico);
                 }
-            }
-            catch (Exception) { }
+            
         }
         public void finalizarOrcamento()
         {
@@ -277,9 +270,7 @@ namespace TomMotos.view
   
         public static void Email(string htmlString)
         {
-            
-            try
-            {
+          
                 string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = CaixaModel.emailCliente;
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
@@ -294,13 +285,7 @@ namespace TomMotos.view
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);              
                 MessageBox.Show("Email enviado com sucesso", "Nota enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-                MessageBox.Show("Erro de conexão, Email não enviado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+              
         }
 
         private void dgServicos_MouseDown(object sender, MouseEventArgs e)
@@ -321,7 +306,7 @@ namespace TomMotos.view
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (txtdesc.Text != "" && lblSubitotal.Text != "0" && double.Parse(lblSubitotal.Text) <= 100)
+            if (txtdesc.Text != "0.00" && lblSubitotal.Text != "0" && double.Parse(txtdesc.Text) <= 100)
             {
                 desconto = double.Parse(lblSubitotal.Text) * (double.Parse(txtdesc.Text) / 100);
                 lblSubitotal.Text = string.Format("{0:#,##0.00}", double.Parse(lblSubitotal.Text) - desconto);               

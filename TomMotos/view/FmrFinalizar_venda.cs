@@ -137,16 +137,17 @@ namespace TomMotos.view
                 else
                 {
                     CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
+                    fz.EnviarEmail();
                     fz.FinalizarVenda();
                     fz.SalvarPdf();
-                    fz.EnviarEmail();
+                    
 
                     CaixaModel.vendaFinalizada = true;
                     this.Close();
                 }
             }
             catch (Exception erro) {
-                MessageBox.Show("Erro "+erro.Message);
+                MessageBox.Show(erro.Message, "Erro, ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

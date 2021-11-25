@@ -337,17 +337,21 @@ namespace TomMotos.view
             }
 
             obj.id_fornecedor = id_fornecedor;
-            obj.id = int.Parse(txt_id.Text);
-            if (np_quantidade.ToString() == "" || np_quantidade.ToString() == "0") MessageBox.Show("DIGITE UMA QUANTIDADE VALIDA");
-            else obj.quantidade = int.Parse(np_quantidade.Text);
-            MessageBox.Show("idFor " + id_fornecedor);
-            MessageBox.Show("Qtd" + np_quantidade.Text.ToString());
-            MessageBox.Show("Test " + obj.id);
+            if (txt_id.Text != "")
+            {
+                obj.id = int.Parse(txt_id.Text);
+                if (np_quantidade.ToString() == "" || np_quantidade.ToString() == "0") MessageBox.Show("DIGITE UMA QUANTIDADE VALIDA");
+                else obj.quantidade = int.Parse(np_quantidade.Text);
+                MessageBox.Show("idFor " + id_fornecedor);
+                MessageBox.Show("Qtd" + np_quantidade.Text.ToString());
+                MessageBox.Show("Test " + obj.id);
 
-            ProdutoDAO Add = new ProdutoDAO();
-            Add.adicionarQtd(obj);
+                ProdutoDAO Add = new ProdutoDAO();
+                Add.adicionarQtd(obj);
 
-            dg_produto.DataSource = Cadastro.ListarTodosProdutos();
+                dg_produto.DataSource = Cadastro.ListarTodosProdutos();
+            }
+            else MessageBox.Show("SELECIONE O PRODUTO !!");
         }
 
         private void txt_valor_produto_KeyPress(object sender, KeyPressEventArgs e)

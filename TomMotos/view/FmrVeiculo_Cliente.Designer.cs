@@ -41,7 +41,9 @@ namespace TomMotos.view
             // 
             this.dg_listarVeiculoOuCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_listarVeiculoOuCliente.Location = new System.Drawing.Point(0, 69);
+            this.dg_listarVeiculoOuCliente.MultiSelect = false;
             this.dg_listarVeiculoOuCliente.Name = "dg_listarVeiculoOuCliente";
+            this.dg_listarVeiculoOuCliente.ReadOnly = true;
             this.dg_listarVeiculoOuCliente.Size = new System.Drawing.Size(800, 381);
             this.dg_listarVeiculoOuCliente.TabIndex = 0;
             this.dg_listarVeiculoOuCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_listarVeiculoOuCliente_CellContentClick);
@@ -67,6 +69,7 @@ namespace TomMotos.view
             // 
             // cbxBuscar
             // 
+            this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Location = new System.Drawing.Point(16, 11);
             this.cbxBuscar.Name = "cbxBuscar";

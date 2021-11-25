@@ -46,7 +46,9 @@
             // 
             this.dgVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgVenda.Location = new System.Drawing.Point(-2, 178);
+            this.dgVenda.MultiSelect = false;
             this.dgVenda.Name = "dgVenda";
+            this.dgVenda.ReadOnly = true;
             this.dgVenda.Size = new System.Drawing.Size(808, 250);
             this.dgVenda.TabIndex = 0;
             // 
@@ -111,6 +113,7 @@
             // 
             // cbxBuscar
             // 
+            this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID DO ORÇAMENTO",

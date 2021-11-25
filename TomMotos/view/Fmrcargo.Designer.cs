@@ -82,7 +82,6 @@ namespace TomMotos.view
             this.label4.Size = new System.Drawing.Size(15, 20);
             this.label4.TabIndex = 29;
             this.label4.Text = "*";
-            
             // 
             // label3
             // 
@@ -94,7 +93,6 @@ namespace TomMotos.view
             this.label3.Size = new System.Drawing.Size(15, 20);
             this.label3.TabIndex = 28;
             this.label3.Text = "*";
-            
             // 
             // lbl
             // 
@@ -107,7 +105,6 @@ namespace TomMotos.view
             this.lbl.Size = new System.Drawing.Size(60, 15);
             this.lbl.TabIndex = 25;
             this.lbl.Text = "SALARIO:";
-            
             // 
             // txt_salario
             // 
@@ -182,7 +179,9 @@ namespace TomMotos.view
             // 
             this.dgCargo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCargo.Location = new System.Drawing.Point(324, 148);
+            this.dgCargo.MultiSelect = false;
             this.dgCargo.Name = "dgCargo";
+            this.dgCargo.ReadOnly = true;
             this.dgCargo.Size = new System.Drawing.Size(582, 260);
             this.dgCargo.TabIndex = 20;
             this.dgCargo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCargo_CellClick);
@@ -240,6 +239,7 @@ namespace TomMotos.view
             // 
             // cbxBuscar
             // 
+            this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID",

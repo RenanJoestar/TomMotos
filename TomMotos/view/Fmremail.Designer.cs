@@ -127,7 +127,9 @@ namespace TomMotos.view
             // 
             this.dgEmail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEmail.Location = new System.Drawing.Point(357, 154);
+            this.dgEmail.MultiSelect = false;
             this.dgEmail.Name = "dgEmail";
+            this.dgEmail.ReadOnly = true;
             this.dgEmail.Size = new System.Drawing.Size(334, 191);
             this.dgEmail.TabIndex = 12;
             this.dgEmail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEmail_CellClick);
@@ -173,6 +175,7 @@ namespace TomMotos.view
             // 
             // cbxBuscar
             // 
+            this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID",

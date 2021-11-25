@@ -52,6 +52,7 @@ namespace TomMotos.view
             // 
             // cbxBuscar
             // 
+            this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID DO LOG DE FORNECIMENTO",
@@ -76,7 +77,9 @@ namespace TomMotos.view
             // 
             this.dg_log_fornecimento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_log_fornecimento.Location = new System.Drawing.Point(12, 193);
+            this.dg_log_fornecimento.MultiSelect = false;
             this.dg_log_fornecimento.Name = "dg_log_fornecimento";
+            this.dg_log_fornecimento.ReadOnly = true;
             this.dg_log_fornecimento.Size = new System.Drawing.Size(749, 288);
             this.dg_log_fornecimento.TabIndex = 31;
             // 
