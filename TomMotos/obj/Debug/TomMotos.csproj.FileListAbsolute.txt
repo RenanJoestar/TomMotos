@@ -353,3 +353,10 @@ C:\Users\Lenovo\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
 C:\Users\Math\Documents\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
 C:\Users\Lenovo\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
+C:\Users\Lab2-01\Desktop\TomMotos-main\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
+C:\Users\Lab2-01\Desktop\TomMotos-main\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_Orcamento.resources
+C:\Users\Lab2-01\Desktop\TomMotos-main\TomMotos\obj\Debug\TomMotos.view.FmrVenda.resources
+C:\Users\Lab2-01\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
+C:\Users\Lab2-01\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_Orcamento.resources
+C:\Users\Lab2-01\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrOrcamento.resources
+C:\Users\Lab2-01\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrVenda.resources

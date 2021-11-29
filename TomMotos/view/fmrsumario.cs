@@ -180,5 +180,10 @@ namespace TomMotos
             Fmrcaixa fmrcx = new Fmrcaixa();
             fmrcx.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bem Vindo ao TOM MOTOS!");
+        }
     }
 }
