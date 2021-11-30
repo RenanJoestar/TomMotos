@@ -107,12 +107,12 @@ namespace TomMotos.view
             CaixaModel.emailCliente = cbxEmails.Text;
             try
             {
-                if (txtTroco.Text == "")
+                if (txtFaltaPagar.Text != "0,00")
                 {
-                    MessageBox.Show("Verifique o valor Pago ", "Aviso",
-                                                MessageBoxButtons.OK,
+                    DialogResult dialogResult = MessageBox.Show("Verifique o valor Pago! \nCliente será cadstrado como devedor?", "Aviso",
+                                                MessageBoxButtons.YesNo,
                                                 MessageBoxIcon.Exclamation);
-                    return;
+                    if (dialogResult == DialogResult.No) return;
                 }
                 
                 if (cbxEmails.Text == "")
@@ -141,7 +141,6 @@ namespace TomMotos.view
                     fz.FinalizarVenda();
                     fz.SalvarPdf();
                     
-
                     CaixaModel.vendaFinalizada = true;
                     this.Close();
                 }

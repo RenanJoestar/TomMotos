@@ -45,6 +45,7 @@ namespace TomMotos.view
             lblSubitotal.Text = 0.ToString();
             dgProdutos.Columns[2].Width = 200;
             dgServicos.Columns[1].Width = 243;
+            cBoxOrcamento.Checked = false;
             
         }
         private void FmrFinalizar_venda_FormClosed(object sender, FormClosedEventArgs e)
@@ -136,10 +137,8 @@ namespace TomMotos.view
         public void verificarFinalVenda(){
             if (cBoxOrcamento.Checked)
             {
-                
                 FmrFinalizar_Orcamento FmO = new FmrFinalizar_Orcamento(this);
                 FmO.Show();
-                 
             }
             
             else IrParaFinalizar();
@@ -395,7 +394,7 @@ namespace TomMotos.view
 
                     txtIdProduto.Text = "";
                     txtqtd.Text = "1";
-                    txt_desconto_pro.Text = "0,00";
+                    txtDescServ.Text = "";
                 }
                 catch (Exception erro)
                 {
@@ -471,6 +470,7 @@ namespace TomMotos.view
                         pt += preco_servico;
                         lblSubitotal.Text = string.Format("{0:#,##0.00}", pt);
                         txt_pmo.Text = "0,00";
+                        txtDescServ.Text = "";
                     }
                     catch (Exception erro)
                     {

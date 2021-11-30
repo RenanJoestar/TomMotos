@@ -104,7 +104,6 @@ namespace TomMotos.view
                     Fno.finalizarFormCaixa(true);
                     this.Close();
                 }
-                
             }
             catch (Exception erro)
             {
