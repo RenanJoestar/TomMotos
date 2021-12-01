@@ -48,14 +48,14 @@ namespace TomMotos.view
             this.label4 = new System.Windows.Forms.Label();
             this.txt_sobrenome = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.dg_cliente = new System.Windows.Forms.DataGridView();
             this.txtFiltrar = new System.Windows.Forms.TextBox();
             this.cbxFiltrar = new System.Windows.Forms.ComboBox();
             this.BtnFiltro = new System.Windows.Forms.Button();
+            this.dg_cliente = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
             this.panel1.SuspendLayout();
@@ -129,9 +129,9 @@ namespace TomMotos.view
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(12, 90);
+            this.groupBox1.Location = new System.Drawing.Point(27, 156);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(320, 332);
+            this.groupBox1.Size = new System.Drawing.Size(320, 340);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
@@ -179,9 +179,9 @@ namespace TomMotos.view
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(212, 270);
+            this.button6.Location = new System.Drawing.Point(215, 278);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(97, 40);
+            this.button6.Size = new System.Drawing.Size(99, 40);
             this.button6.TabIndex = 26;
             this.button6.Text = "ENDEREÇO";
             this.button6.UseVisualStyleBackColor = false;
@@ -192,9 +192,9 @@ namespace TomMotos.view
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(113, 270);
+            this.button5.Location = new System.Drawing.Point(112, 278);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(93, 40);
+            this.button5.Size = new System.Drawing.Size(99, 40);
             this.button5.TabIndex = 22;
             this.button5.Text = "EMAIL";
             this.button5.UseVisualStyleBackColor = false;
@@ -217,9 +217,9 @@ namespace TomMotos.view
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(12, 270);
+            this.button4.Location = new System.Drawing.Point(7, 278);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 40);
+            this.button4.Size = new System.Drawing.Size(99, 40);
             this.button4.TabIndex = 21;
             this.button4.Text = "TELEFONE";
             this.button4.UseVisualStyleBackColor = false;
@@ -274,34 +274,22 @@ namespace TomMotos.view
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(736, 391);
+            this.button1.Location = new System.Drawing.Point(462, 549);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(191, 40);
+            this.button1.Size = new System.Drawing.Size(192, 45);
             this.button1.TabIndex = 18;
             this.button1.Text = "CADASTRAR";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(229, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(436, 44);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "CADASTRO DE CLIENTES";
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(339, 391);
+            this.button2.Location = new System.Drawing.Point(710, 549);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 40);
+            this.button2.Size = new System.Drawing.Size(192, 45);
             this.button2.TabIndex = 19;
             this.button2.Text = "ALTERAR";
             this.button2.UseVisualStyleBackColor = false;
@@ -312,31 +300,20 @@ namespace TomMotos.view
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(540, 391);
+            this.button3.Location = new System.Drawing.Point(962, 549);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(190, 40);
+            this.button3.Size = new System.Drawing.Size(192, 45);
             this.button3.TabIndex = 20;
             this.button3.Text = "EXCLUIR";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dg_cliente
-            // 
-            this.dg_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_cliente.Location = new System.Drawing.Point(339, 129);
-            this.dg_cliente.MultiSelect = false;
-            this.dg_cliente.Name = "dg_cliente";
-            this.dg_cliente.ReadOnly = true;
-            this.dg_cliente.Size = new System.Drawing.Size(588, 256);
-            this.dg_cliente.TabIndex = 21;
-            this.dg_cliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_cliente_CellClick);
-            // 
             // txtFiltrar
             // 
             this.txtFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltrar.Location = new System.Drawing.Point(414, 101);
+            this.txtFiltrar.Location = new System.Drawing.Point(600, 124);
             this.txtFiltrar.Name = "txtFiltrar";
-            this.txtFiltrar.Size = new System.Drawing.Size(482, 21);
+            this.txtFiltrar.Size = new System.Drawing.Size(532, 21);
             this.txtFiltrar.TabIndex = 22;
             // 
             // cbxFiltrar
@@ -350,42 +327,65 @@ namespace TomMotos.view
             "SOBRENOME",
             "CPF",
             "CNPJ"});
-            this.cbxFiltrar.Location = new System.Drawing.Point(339, 103);
+            this.cbxFiltrar.Location = new System.Drawing.Point(471, 124);
             this.cbxFiltrar.Name = "cbxFiltrar";
-            this.cbxFiltrar.Size = new System.Drawing.Size(69, 21);
+            this.cbxFiltrar.Size = new System.Drawing.Size(111, 21);
             this.cbxFiltrar.TabIndex = 23;
             // 
             // BtnFiltro
             // 
             this.BtnFiltro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFiltro.BackgroundImage")));
             this.BtnFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnFiltro.Location = new System.Drawing.Point(902, 100);
+            this.BtnFiltro.Location = new System.Drawing.Point(1150, 117);
             this.BtnFiltro.Name = "BtnFiltro";
-            this.BtnFiltro.Size = new System.Drawing.Size(25, 22);
+            this.BtnFiltro.Size = new System.Drawing.Size(41, 33);
             this.BtnFiltro.TabIndex = 24;
             this.BtnFiltro.UseVisualStyleBackColor = true;
             this.BtnFiltro.Click += new System.EventHandler(this.BtnFiltro_Click);
             // 
+            // dg_cliente
+            // 
+            this.dg_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_cliente.Location = new System.Drawing.Point(387, 156);
+            this.dg_cliente.MultiSelect = false;
+            this.dg_cliente.Name = "dg_cliente";
+            this.dg_cliente.ReadOnly = true;
+            this.dg_cliente.Size = new System.Drawing.Size(894, 365);
+            this.dg_cliente.TabIndex = 36;
+            // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(938, 82);
-            this.panel1.TabIndex = 25;
+            this.panel1.Size = new System.Drawing.Size(1295, 85);
+            this.panel1.TabIndex = 40;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(364, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(435, 44);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "CADASTRO DE CLIENTES";
             // 
             // Fmrcliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(939, 488);
+            this.ClientSize = new System.Drawing.Size(1293, 634);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dg_cliente);
             this.Controls.Add(this.BtnFiltro);
             this.Controls.Add(this.cbxFiltrar);
             this.Controls.Add(this.txtFiltrar);
-            this.Controls.Add(this.dg_cliente);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -415,7 +415,6 @@ namespace TomMotos.view
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_sobrenome;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -425,14 +424,15 @@ namespace TomMotos.view
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dg_cliente;
         private System.Windows.Forms.TextBox txtFiltrar;
         private System.Windows.Forms.ComboBox cbxFiltrar;
         private System.Windows.Forms.Button BtnFiltro;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MaskedTextBox txt_cnpj;
         private System.Windows.Forms.MaskedTextBox txt_cpf;
         private System.Windows.Forms.MaskedTextBox txt_nascimento;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dg_cliente;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label7;
     }
 }

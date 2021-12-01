@@ -32,6 +32,7 @@ namespace TomMotos.view
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fmrfuncionario));
             this.dg_funcionario = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_nascimento = new System.Windows.Forms.MaskedTextBox();
             this.txt_contratacao = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@ namespace TomMotos.view
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_nascimento = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_funcionario)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -70,11 +70,11 @@ namespace TomMotos.view
             // dg_funcionario
             // 
             this.dg_funcionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_funcionario.Location = new System.Drawing.Point(364, 147);
+            this.dg_funcionario.Location = new System.Drawing.Point(384, 156);
             this.dg_funcionario.MultiSelect = false;
             this.dg_funcionario.Name = "dg_funcionario";
             this.dg_funcionario.ReadOnly = true;
-            this.dg_funcionario.Size = new System.Drawing.Size(952, 365);
+            this.dg_funcionario.Size = new System.Drawing.Size(894, 365);
             this.dg_funcionario.TabIndex = 24;
             this.dg_funcionario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_funcionario_CellClick);
             this.dg_funcionario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_funcionario_CellContentClick);
@@ -105,12 +105,22 @@ namespace TomMotos.view
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(38, 147);
+            this.groupBox2.Location = new System.Drawing.Point(27, 156);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(320, 365);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PREENCHER DADOS";
+            // 
+            // txt_nascimento
+            // 
+            this.txt_nascimento.ForeColor = System.Drawing.Color.Black;
+            this.txt_nascimento.Location = new System.Drawing.Point(115, 139);
+            this.txt_nascimento.Mask = "00/00/0000";
+            this.txt_nascimento.Name = "txt_nascimento";
+            this.txt_nascimento.Size = new System.Drawing.Size(75, 21);
+            this.txt_nascimento.TabIndex = 38;
+            this.txt_nascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_contratacao
             // 
@@ -357,12 +367,13 @@ namespace TomMotos.view
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(549, 527);
+            this.btnCadastrar.Location = new System.Drawing.Point(462, 549);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(169, 40);
+            this.btnCadastrar.Size = new System.Drawing.Size(192, 45);
             this.btnCadastrar.TabIndex = 26;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
@@ -370,12 +381,13 @@ namespace TomMotos.view
             // 
             // btnAlterar
             // 
+            this.btnAlterar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(724, 528);
+            this.btnAlterar.Location = new System.Drawing.Point(710, 549);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(197, 39);
+            this.btnAlterar.Size = new System.Drawing.Size(192, 45);
             this.btnAlterar.TabIndex = 27;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
@@ -383,12 +395,13 @@ namespace TomMotos.view
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnExcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(927, 527);
+            this.btnExcluir.Location = new System.Drawing.Point(962, 549);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(183, 40);
+            this.btnExcluir.Size = new System.Drawing.Size(192, 45);
             this.btnExcluir.TabIndex = 28;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
@@ -404,7 +417,7 @@ namespace TomMotos.view
             "SOBRENOME",
             "CPF",
             "CARGO"});
-            this.cbxBuscar.Location = new System.Drawing.Point(532, 117);
+            this.cbxBuscar.Location = new System.Drawing.Point(471, 124);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(111, 21);
             this.cbxBuscar.TabIndex = 29;
@@ -412,16 +425,16 @@ namespace TomMotos.view
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(649, 118);
+            this.txtBuscar.Location = new System.Drawing.Point(600, 124);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(395, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(532, 20);
             this.txtBuscar.TabIndex = 30;
             // 
             // btnBuscar
             // 
             this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(1050, 111);
+            this.btnBuscar.Location = new System.Drawing.Point(1150, 117);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(41, 33);
             this.btnBuscar.TabIndex = 31;
@@ -430,44 +443,32 @@ namespace TomMotos.view
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(20, 0);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1395, 85);
+            this.panel1.Size = new System.Drawing.Size(1295, 85);
             this.panel1.TabIndex = 32;
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(385, 26);
+            this.label4.Location = new System.Drawing.Point(354, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(536, 44);
+            this.label4.Size = new System.Drawing.Size(535, 44);
             this.label4.TabIndex = 19;
             this.label4.Text = "CADASTRO DE FUNCIONÁRIO";
-            // 
-            // txt_nascimento
-            // 
-            this.txt_nascimento.ForeColor = System.Drawing.Color.Black;
-            this.txt_nascimento.Location = new System.Drawing.Point(115, 139);
-            this.txt_nascimento.Mask = "00/00/0000";
-            this.txt_nascimento.Name = "txt_nascimento";
-            this.txt_nascimento.Size = new System.Drawing.Size(75, 21);
-            this.txt_nascimento.TabIndex = 38;
-            this.txt_nascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Fmrfuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1316, 744);
+            this.ClientSize = new System.Drawing.Size(1293, 634);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBuscar);

@@ -356,5 +356,7 @@ namespace TomMotos.view
         {
             validacaoTxtDAO.FormatarValores(sender, e);
         }
+
+  
     }
 }

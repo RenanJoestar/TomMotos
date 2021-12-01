@@ -190,5 +190,51 @@ namespace TomMotos
         {
             Application.Exit();
         }
+
+        private void BTN_GERENCIAMENTO_Click(object sender, EventArgs e)
+        {
+            if(lbl_gerenciamentoeconsulta.Text != "GERENCIAMENTO")
+            {
+                panel_botoes_gerenciamento.Visible = true;
+                lbl_gerenciamentoeconsulta.Text = "GERENCIAMENTO";
+                panel_botoes_consulta.Visible = false;
+                Panel.Controls.Clear();
+
+            }       
+            else
+            {
+                panel_botoes_gerenciamento.Visible = false;
+                lbl_gerenciamentoeconsulta.Text = null;
+                Panel.Controls.Clear();
+            }
+            
+        }
+
+        private void BTN_CONSULTA_Click(object sender, EventArgs e)
+        {
+            if (lbl_gerenciamentoeconsulta.Text != "CONSULTA")
+            {
+                panel_botoes_consulta.Visible = true;
+                lbl_gerenciamentoeconsulta.Text = "CONSULTA";
+                panel_botoes_gerenciamento.Visible = false;
+                Panel.Controls.Clear();
+            }
+            else
+            {
+                panel_botoes_consulta.Visible = false;
+                lbl_gerenciamentoeconsulta.Text = "";
+                Panel.Controls.Clear();
+            }
+        }
+
+        private void Fmrsumario_Load(object sender, EventArgs e)
+        {
+            lbl_gerenciamentoeconsulta.Text = "";
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
