@@ -364,3 +364,28 @@ E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe.co
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_Orcamento.resources
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrVenda.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.csprojAssemblyReference.cache
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.exe.config
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.Properties.Resources.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_Orcamento.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrOrcamento.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrcaixa.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrcargo.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrcliente.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmremail.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrendereco.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_venda.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrfornecedor.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrfuncionario.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrListProdutos.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrproduto.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.Fmrsumario.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrtelefone.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.Fmrveiculo.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrVeiculo_Cliente.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrVenda.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FrmlogFornecimento.resources
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.GenerateResource.cache
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.exe
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
