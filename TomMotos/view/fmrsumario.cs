@@ -185,5 +185,10 @@ namespace TomMotos
         {
             MessageBox.Show("Bem Vindo ao TOM MOTOS!");
         }
+
+        private void X_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

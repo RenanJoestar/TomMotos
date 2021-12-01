@@ -24,6 +24,7 @@ namespace TomMotos.view
         Bitmap image;
         string id_fornecedor;
         ProdutoDAO Cadastro = new ProdutoDAO();
+        ProdutoDAO Produto = new ProdutoDAO();
 
         public Fmrproduto()
         {
@@ -119,6 +120,7 @@ namespace TomMotos.view
             btnAdd.Visible = false;
             lblCaminho.Text = "";
             carregarfornecedor();
+            dg_produto.DataSource = Produto.ListarTodosProdutos();
         }
         public void limparComponentes() {
             txt_id.Text = "";
@@ -146,9 +148,8 @@ namespace TomMotos.view
                 else obj.marca = txt_marca_produto.Text.ToUpper();
                 if (ptb_perfil.Image != null) obj.imagem = base64Text;
                 else obj.imagem = null;
-                ProdutoDAO dao = new ProdutoDAO();
-                dao.alterar(obj);
-                dg_produto.DataSource = dao.ListarTodosProdutos();    
+                Produto.alterar(obj);
+                dg_produto.DataSource = Produto.ListarTodosProdutos();    
                 }
             catch (Exception erro)
             {
@@ -213,7 +214,6 @@ namespace TomMotos.view
         {
             ptb_perfil.Image = null;
             lblCaminho.Text = "";
-            
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -230,10 +230,8 @@ namespace TomMotos.view
                         ProdutoModel obj = new ProdutoModel();
                         obj.id = int.Parse(txt_id.Text);
 
-
-                        ProdutoDAO dao = new ProdutoDAO();
-                        dao.Excluir(obj);
-                        dg_produto.DataSource = dao.ListarTodosProdutos();
+                        Produto.Excluir(obj);
+                        dg_produto.DataSource = Produto.ListarTodosProdutos();
                         limparComponentes();
                     }
                     catch (Exception)

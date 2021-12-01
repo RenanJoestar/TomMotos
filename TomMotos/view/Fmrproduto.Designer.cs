@@ -404,7 +404,7 @@ namespace TomMotos.view
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(262, 21);
+            this.label9.Location = new System.Drawing.Point(262, 22);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(351, 36);
             this.label9.TabIndex = 19;
@@ -417,7 +417,7 @@ namespace TomMotos.view
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(923, 71);
+            this.panel1.Size = new System.Drawing.Size(923, 72);
             this.panel1.TabIndex = 31;
             // 
             // Fmrproduto

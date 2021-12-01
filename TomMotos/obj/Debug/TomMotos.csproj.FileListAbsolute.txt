@@ -389,3 +389,13 @@ C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\To
 C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.GenerateResource.cache
 C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\bin\Debug\TomMotos.exe.config
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\bin\Debug\TomMotos.exe
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\bin\Debug\TomMotos.pdb
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.dll
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\bin\Debug\System.Buffers.dll
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\bin\Debug\System.Memory.dll
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\bin\Debug\Renci.SshNet.dll
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\bin\Debug\MySql.Data.xml
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.xml
+C:\Users\Lab2-01\OneDrive - Etec Centro Paula Souza\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CopyComplete
