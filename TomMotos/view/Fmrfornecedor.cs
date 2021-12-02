@@ -87,12 +87,6 @@ namespace TomMotos.view
             else MessageBox.Show("Escolha um id que deseja Alterar", "Erro",  MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void dg_fornecedor_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_id.Text = dg_fornecedor.CurrentRow.Cells[0].Value.ToString();
-            txt_nome.Text = dg_fornecedor.CurrentRow.Cells[1].Value.ToString();
-            txt_cnpj.Text = dg_fornecedor.CurrentRow.Cells[2].Value.ToString();
-        }
 
         private void dg_fornecedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -232,6 +226,13 @@ namespace TomMotos.view
                 FornecedorModel.cnpj = txt_cnpj.Text;
             }
             else { MessageBox.Show("CNPJ INVÁLIDO"); CNPJ = false; }
+        }
+
+        private void dg_fornecedor_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id.Text = dg_fornecedor.CurrentRow.Cells[0].Value.ToString();
+            txt_nome.Text = dg_fornecedor.CurrentRow.Cells[1].Value.ToString();
+            txt_cnpj.Text = dg_fornecedor.CurrentRow.Cells[2].Value.ToString();
         }
 
         private void button4_Click(object sender, EventArgs e)

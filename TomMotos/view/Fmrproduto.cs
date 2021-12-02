@@ -159,18 +159,6 @@ namespace TomMotos.view
             else MessageBox.Show("Escolha um id que deseja Alterar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void dg_produto_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_id.Text = dg_produto.CurrentRow.Cells[0].Value.ToString();
-            txt_descricao_produto.Text = dg_produto.CurrentRow.Cells[1].Value.ToString();
-            txtQTD_DIS.Text = dg_produto.CurrentRow.Cells[2].Value.ToString();
-            txt_marca_produto.Text = dg_produto.CurrentRow.Cells[4].Value.ToString();
-            Base64ToImage();
-            ImageToBase64();
-            if (txt_id.Text != "") txt_valor_produto.Text = string.Format("{0:#,##0.00}", double.Parse(dg_produto.CurrentRow.Cells[3].Value.ToString()));
-            else txt_valor_produto.Text = "0,00";
-
-        }
 
         public Image Base64ToImage()
         {
@@ -357,6 +345,16 @@ namespace TomMotos.view
             validacaoTxtDAO.FormatarValores(sender, e);
         }
 
-  
+        private void dg_produto_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id.Text = dg_produto.CurrentRow.Cells[0].Value.ToString();
+            txt_descricao_produto.Text = dg_produto.CurrentRow.Cells[1].Value.ToString();
+            txtQTD_DIS.Text = dg_produto.CurrentRow.Cells[2].Value.ToString();
+            txt_marca_produto.Text = dg_produto.CurrentRow.Cells[4].Value.ToString();
+            Base64ToImage();
+            ImageToBase64();
+            if (txt_id.Text != "") txt_valor_produto.Text = string.Format("{0:#,##0.00}", double.Parse(dg_produto.CurrentRow.Cells[3].Value.ToString()));
+            else txt_valor_produto.Text = "0,00";
+        }
     }
 }

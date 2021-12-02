@@ -38,17 +38,6 @@ namespace TomMotos.view
             Alterar();
         }
 
-        private void dg_cliente_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_id.Text = dg_cliente.CurrentRow.Cells[0].Value.ToString();
-            txt_nome.Text = dg_cliente.CurrentRow.Cells[1].Value.ToString();
-            txt_sobrenome.Text = dg_cliente.CurrentRow.Cells[2].Value.ToString();
-            txt_nascimento.Text = dg_cliente.CurrentRow.Cells[3].Value.ToString();
-            txt_cpf.Text = dg_cliente.CurrentRow.Cells[4].Value.ToString();
-            txt_cnpj.Text = dg_cliente.CurrentRow.Cells[5].Value.ToString();
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (txt_id.Text != "")
@@ -241,6 +230,16 @@ namespace TomMotos.view
                 ClienteModel.cnpj = txt_cnpj.Text;
             }
             else { MessageBox.Show("CNPJ INVÁLIDO"); CNPJ = false; }
+        }
+
+        private void dg_cliente_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id.Text = dg_cliente.CurrentRow.Cells[0].Value.ToString();
+            txt_nome.Text = dg_cliente.CurrentRow.Cells[1].Value.ToString();
+            txt_sobrenome.Text = dg_cliente.CurrentRow.Cells[2].Value.ToString();
+            txt_nascimento.Text = dg_cliente.CurrentRow.Cells[3].Value.ToString();
+            txt_cpf.Text = dg_cliente.CurrentRow.Cells[4].Value.ToString();
+            txt_cnpj.Text = dg_cliente.CurrentRow.Cells[5].Value.ToString();
         }
 
         private void ValidarCPF()

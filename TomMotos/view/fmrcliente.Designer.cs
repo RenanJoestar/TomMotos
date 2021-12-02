@@ -352,6 +352,7 @@ namespace TomMotos.view
             this.dg_cliente.ReadOnly = true;
             this.dg_cliente.Size = new System.Drawing.Size(894, 365);
             this.dg_cliente.TabIndex = 36;
+            this.dg_cliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_cliente_CellClick_1);
             // 
             // panel1
             // 
@@ -371,7 +372,7 @@ namespace TomMotos.view
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(364, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(435, 44);
+            this.label7.Size = new System.Drawing.Size(436, 44);
             this.label7.TabIndex = 19;
             this.label7.Text = "CADASTRO DE CLIENTES";
             // 

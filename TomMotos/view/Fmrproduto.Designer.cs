@@ -434,6 +434,7 @@ namespace TomMotos.view
             this.dg_produto.ReadOnly = true;
             this.dg_produto.Size = new System.Drawing.Size(894, 365);
             this.dg_produto.TabIndex = 32;
+            this.dg_produto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_produto_CellClick_1);
             // 
             // txtBuscar
             // 
@@ -476,7 +477,7 @@ namespace TomMotos.view
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(408, 19);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(450, 44);
+            this.label10.Size = new System.Drawing.Size(451, 44);
             this.label10.TabIndex = 19;
             this.label10.Text = "CADASTRO DE PRODUTO";
             // 
