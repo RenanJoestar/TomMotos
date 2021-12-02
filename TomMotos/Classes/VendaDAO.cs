@@ -15,7 +15,28 @@ namespace TomMotos.Classes
     class VendaDAO
     {
         MySqlConnection conexao = ConnectionFactory.getConnection();
+        #region METODO LISTAR FUNCIONARIO
+        public DataTable ListarTodosFuncionario()
+        {
+            string sql = @"select id_funcionario, nome_funcionario, nome_cargo from tb_funcionario 
+                           inner join tb_cargo on tb_funcionario.fk_cargo_id = tb_cargo.id_cargo";
 
+            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
+
+            conexao.Open();
+            executacmdsql.ExecuteNonQuery();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataTable tabelaFuncionario = new DataTable();
+            tabelaFuncionario.Columns.Add("Estado", typeof(bool));
+            da.Fill(tabelaFuncionario);
+
+            conexao.Close();
+
+            return tabelaFuncionario;
+        }
+        #endregion
 
         #region METODO CADASTRAR VENDA
 

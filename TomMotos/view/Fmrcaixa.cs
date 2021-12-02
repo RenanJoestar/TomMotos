@@ -12,6 +12,7 @@ using System.Net.Mail;
 using System.Net;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
+using System.Data.Common;
 
 namespace TomMotos.view
 {
@@ -24,6 +25,8 @@ namespace TomMotos.view
         string id_produto, nome_produto, id_venda;
         int itens = 0, servicos = 0;
         VendaDAO caixaDAO = new VendaDAO();
+        CaixaModel obj = new CaixaModel();
+        VendaDAO Cadastro = new VendaDAO();
         ProdutoUsadoDAO produtoDAO = new ProdutoUsadoDAO();
         ServicoDAO servicoDAO = new ServicoDAO();
         CaixaModel objCaixa = new CaixaModel();
@@ -46,6 +49,7 @@ namespace TomMotos.view
             dgProdutos.Columns[2].Width = 200;
             dgServicos.Columns[1].Width = 243;
             cBoxOrcamento.Checked = false;
+            dg_func.DataSource = Cadastro.ListarTodosFuncionario();
             
         }
         private void FmrFinalizar_venda_FormClosed(object sender, FormClosedEventArgs e)
@@ -148,7 +152,7 @@ namespace TomMotos.view
             inserirVariaveisObjCaixa();
 
             caixaDAO.cadastrarVenda(objCaixa);
-            
+            CadastraGrupoFunc();
             string idVenda = caixaDAO.listarUltimaVenda();
             inserirVariaveisObjProdutoUsado(idVenda);
             inserirVariaveisObjServicoPrestado(idVenda);
@@ -765,8 +769,62 @@ namespace TomMotos.view
 
         private void btnAdd_func_Click(object sender, EventArgs e)
         {
+            CadastraGrupoFunc();
+        }
+
+        public void CadastraGrupoFunc() {
             //FmrAddFunc frmFun = new FmrAddFunc();
             //frmFun.Show(); 
+          
+                CaixaModel.id_venda = Cadastro.listarUltimaVenda();
+                foreach (DataGridViewRow linha in dg_funcGet.Rows)
+                {
+                    try
+                    {
+                        CaixaModel.fk_funcionario_id = linha.Cells[0].Value.ToString();
+                        Cadastro.cadastrarGrupoFunc(obj);
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show(erro.Message);
+                        return;
+                    }                                                        
+                }
+                CaixaModel.id_venda = "";
+                this.Close();
+        }
+
+
+        private void dg_func_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dg_func.Columns["Estado"].Index)
+            {
+                dg_func.EndEdit();
+                if (dg_func.Rows[e.RowIndex].Cells[0].Value.ToString() == "True")
+                {
+                    string[] funcionario = new string[3];
+                    funcionario[0] = dg_func.CurrentRow.Cells[1].Value.ToString();
+                    funcionario[1] = dg_func.CurrentRow.Cells[2].Value.ToString();
+                    funcionario[2] = dg_func.CurrentRow.Cells[3].Value.ToString();
+                    dg_funcGet.Rows.Add(funcionario);
+                }
+                else if (dg_func.Rows[e.RowIndex].Cells[0].Value.ToString() == "False")
+                {
+                    string[] funcionario = new string[3];
+                    funcionario[0] = dg_func.CurrentRow.Cells[1].Value.ToString();
+                    string rowProduto = funcionario[0];
+                    //int VALOR = dg_FuncGet.Rows.Cells["ID"][rowProduto.ToString()];//.Value.ToString() == rowProduto.ToString());
+                    for (int v = 0; v < dg_funcGet.Rows.Count; v++)
+                    {
+                        if (string.Equals(dg_funcGet[0, v].Value as string, rowProduto))
+                        {
+                            dg_funcGet.Rows.RemoveAt(v);
+                            v--; // this just got messy. But you see my point.
+                        }
+                    }
+                }
+
+            }
         }
 
         private void cBoxOrcamento_KeyDown(object sender, KeyEventArgs e)

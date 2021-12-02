@@ -128,7 +128,7 @@ namespace TomMotos.view
                     else
                     {
                         CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
-                        fz.FinalizarVenda();
+                        fz.FinalizarVenda();                        
                         fz.SalvarPdf();
                         CaixaModel.vendaFinalizada = true;
                         this.Close();
