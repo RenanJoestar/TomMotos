@@ -30,19 +30,15 @@ namespace TomMotos
                 Panel.Controls.Add(formulario);
                 formulario.Show();
                 formulario.BringToFront();
-
             }
             else
             {
-               
                 if (formulario.WindowState == FormWindowState.Minimized)
                 {
                     formulario.WindowState = FormWindowState.Normal;
                     formulario.BringToFront();
                 }
-
             }
-
         }
 
         private void btnCadastro_Click(object sender, EventArgs e)
@@ -148,8 +144,7 @@ namespace TomMotos
 
         private void BT_ORCAMENTO_Click(object sender, EventArgs e)
         {
-            FmrOrcamento fmrOrc = new FmrOrcamento(null);
-            fmrOrc.Show();
+            AbrirFormNoPanel<FmrOrcamento>();
             // Preciso de ajuda nisso aqui ^^ -José
 
         }
