@@ -451,7 +451,6 @@ C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.csprojAssemblyReference.cache
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.exe.config
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.Properties.Resources.resources
-C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrAddFunc.resources
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrFinalizar_Orcamento.resources
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrOrcamento.resources

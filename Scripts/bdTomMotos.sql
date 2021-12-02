@@ -516,7 +516,7 @@ DELIMITER ;
 
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoEndereco`(IN CEP varchar(15), IN RUA varchar(40), IN CIDADE text, IN BAIRRO varchar(15),IN NUMERO varchar(45),IN FK_USUARIO INT )
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criacaoEndereco`(IN CEP varchar(15), IN RUA varchar(40), IN CIDADE text, IN BAIRRO varchar(70),IN NUMERO varchar(45),IN FK_USUARIO INT )
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
 IF NOT EXISTS (select tb_endereco.fk_usuario_id, tb_endereco.numero_endereco, tb_endereco.cep_endereco from tb_endereco
@@ -537,7 +537,7 @@ DELIMITER ;
 
 DELIMITER $$
 USE `bd_tommotos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateEndereco`(IN CEP varchar(15), IN RUA varchar(40), IN CIDADE text, IN BAIRRO varchar(15),IN NUMERO varchar(45),IN FK_USUARIO INT, IN ID INT )
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateEndereco`(IN CEP varchar(15), IN RUA varchar(40), IN CIDADE text, IN BAIRRO varchar(70),IN NUMERO varchar(45),IN FK_USUARIO INT, IN ID INT )
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
 IF NOT EXISTS (select tb_endereco.fk_usuario_id, tb_endereco.numero_endereco, tb_endereco.cep_endereco from tb_endereco
@@ -920,7 +920,7 @@ VALUES ('2020/01/20', '5', '4', '3');
 /*INSERT TB_GRUPO_FUNCIONARIO*/
 INSERT INTO `bd_tommotos`.`tb_grupo_funcionarios` (`fk_venda_id`, `fk_funcionario_id`) VALUES ('3', '3');
 INSERT INTO `bd_tommotos`.`tb_grupo_funcionarios` (`fk_venda_id`, `fk_funcionario_id`) VALUES ('3', '4');
-
+INSERT INTO `bd_tommotos`.`tb_grupo_funcionarios` (`fk_venda_id`, `fk_funcionario_id`) VALUES (max(tb_venda.id_venda), '3');
 select*from tb_cargo;
 select*from tb_cliente;
 select*from tb_email;
