@@ -457,7 +457,7 @@ namespace TomMotos.view
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(354, 20);
+            this.label4.Location = new System.Drawing.Point(400, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(535, 44);
             this.label4.TabIndex = 19;

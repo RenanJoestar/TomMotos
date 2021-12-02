@@ -37,10 +37,10 @@ namespace TomMotos
             this.BT_FUNCIONARIO = new System.Windows.Forms.Button();
             this.BT_CLIENTE = new System.Windows.Forms.Button();
             this.Panel = new System.Windows.Forms.Panel();
-            this.btnlimpar = new System.Windows.Forms.Button();
             this.panel_botoes_gerenciamento = new System.Windows.Forms.FlowLayoutPanel();
             this.X = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.BTN_CONSULTA = new System.Windows.Forms.Button();
             this.BTN_GERENCIAMENTO = new System.Windows.Forms.Button();
             this.btnCaixa = new System.Windows.Forms.Button();
@@ -51,8 +51,8 @@ namespace TomMotos
             this.panel_botoes_consulta = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_gerenciamentoeconsulta = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnlimpar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_botoes_gerenciamento.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_botoes_consulta.SuspendLayout();
@@ -166,24 +166,6 @@ namespace TomMotos
             this.Panel.Size = new System.Drawing.Size(1280, 634);
             this.Panel.TabIndex = 0;
             // 
-            // btnlimpar
-            // 
-            this.btnlimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnlimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
-            this.btnlimpar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnlimpar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnlimpar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlimpar.ForeColor = System.Drawing.Color.White;
-            this.btnlimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnlimpar.Image")));
-            this.btnlimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnlimpar.Location = new System.Drawing.Point(1327, 822);
-            this.btnlimpar.Name = "btnlimpar";
-            this.btnlimpar.Size = new System.Drawing.Size(208, 47);
-            this.btnlimpar.TabIndex = 31;
-            this.btnlimpar.Text = "LIMPAR PÁGINA";
-            this.btnlimpar.UseVisualStyleBackColor = false;
-            this.btnlimpar.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // panel_botoes_gerenciamento
             // 
             this.panel_botoes_gerenciamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -194,7 +176,7 @@ namespace TomMotos
             this.panel_botoes_gerenciamento.Controls.Add(this.BT_CARGO);
             this.panel_botoes_gerenciamento.Controls.Add(this.BT_FUNCIONARIO);
             this.panel_botoes_gerenciamento.Controls.Add(this.BT_FORNECEDOR);
-            this.panel_botoes_gerenciamento.Location = new System.Drawing.Point(309, 105);
+            this.panel_botoes_gerenciamento.Location = new System.Drawing.Point(292, 105);
             this.panel_botoes_gerenciamento.Name = "panel_botoes_gerenciamento";
             this.panel_botoes_gerenciamento.Size = new System.Drawing.Size(1165, 55);
             this.panel_botoes_gerenciamento.TabIndex = 32;
@@ -232,6 +214,14 @@ namespace TomMotos
             this.panel2.Size = new System.Drawing.Size(234, 881);
             this.panel2.TabIndex = 29;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(3, 172);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(230, 5);
+            this.panel1.TabIndex = 45;
+            // 
             // BTN_CONSULTA
             // 
             this.BTN_CONSULTA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -242,9 +232,9 @@ namespace TomMotos
             this.BTN_CONSULTA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_CONSULTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.BTN_CONSULTA.ForeColor = System.Drawing.Color.White;
-            this.BTN_CONSULTA.Location = new System.Drawing.Point(0, 430);
+            this.BTN_CONSULTA.Location = new System.Drawing.Point(3, 387);
             this.BTN_CONSULTA.Name = "BTN_CONSULTA";
-            this.BTN_CONSULTA.Size = new System.Drawing.Size(229, 56);
+            this.BTN_CONSULTA.Size = new System.Drawing.Size(231, 56);
             this.BTN_CONSULTA.TabIndex = 43;
             this.BTN_CONSULTA.Text = "CONSULTA";
             this.BTN_CONSULTA.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -261,9 +251,9 @@ namespace TomMotos
             this.BTN_GERENCIAMENTO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_GERENCIAMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.BTN_GERENCIAMENTO.ForeColor = System.Drawing.Color.White;
-            this.BTN_GERENCIAMENTO.Location = new System.Drawing.Point(0, 340);
+            this.BTN_GERENCIAMENTO.Location = new System.Drawing.Point(-1, 290);
             this.BTN_GERENCIAMENTO.Name = "BTN_GERENCIAMENTO";
-            this.BTN_GERENCIAMENTO.Size = new System.Drawing.Size(229, 56);
+            this.BTN_GERENCIAMENTO.Size = new System.Drawing.Size(233, 56);
             this.BTN_GERENCIAMENTO.TabIndex = 41;
             this.BTN_GERENCIAMENTO.Text = "GERENCIAMENTO";
             this.BTN_GERENCIAMENTO.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -280,9 +270,9 @@ namespace TomMotos
             this.btnCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCaixa.ForeColor = System.Drawing.Color.White;
-            this.btnCaixa.Location = new System.Drawing.Point(3, 261);
+            this.btnCaixa.Location = new System.Drawing.Point(-1, 498);
             this.btnCaixa.Name = "btnCaixa";
-            this.btnCaixa.Size = new System.Drawing.Size(226, 56);
+            this.btnCaixa.Size = new System.Drawing.Size(235, 56);
             this.btnCaixa.TabIndex = 39;
             this.btnCaixa.Text = "CAIXA";
             this.btnCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -360,7 +350,7 @@ namespace TomMotos
             this.panel_botoes_consulta.Controls.Add(this.btnVendas);
             this.panel_botoes_consulta.Controls.Add(this.BT_LOG_FORNECIMENTO);
             this.panel_botoes_consulta.Controls.Add(this.BT_ORCAMENTO);
-            this.panel_botoes_consulta.Location = new System.Drawing.Point(481, 105);
+            this.panel_botoes_consulta.Location = new System.Drawing.Point(389, 105);
             this.panel_botoes_consulta.Name = "panel_botoes_consulta";
             this.panel_botoes_consulta.Size = new System.Drawing.Size(795, 55);
             this.panel_botoes_consulta.TabIndex = 39;
@@ -393,9 +383,26 @@ namespace TomMotos
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
+            // btnlimpar
+            // 
+            this.btnlimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnlimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btnlimpar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnlimpar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnlimpar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlimpar.ForeColor = System.Drawing.Color.White;
+            this.btnlimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnlimpar.Image")));
+            this.btnlimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnlimpar.Location = new System.Drawing.Point(1327, 822);
+            this.btnlimpar.Name = "btnlimpar";
+            this.btnlimpar.Size = new System.Drawing.Size(208, 47);
+            this.btnlimpar.TabIndex = 31;
+            this.btnlimpar.Text = "LIMPAR PÁGINA";
+            this.btnlimpar.UseVisualStyleBackColor = false;
+            this.btnlimpar.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(-1, -1);
@@ -404,14 +411,7 @@ namespace TomMotos
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(3, 172);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(230, 5);
-            this.panel1.TabIndex = 45;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // Fmrsumario
             // 

@@ -211,7 +211,7 @@ namespace TomMotos.view
             "CARGO"});
             this.cbxBuscar.Location = new System.Drawing.Point(471, 124);
             this.cbxBuscar.Name = "cbxBuscar";
-            this.cbxBuscar.Size = new System.Drawing.Size(111, 21);
+            this.cbxBuscar.Size = new System.Drawing.Size(121, 21);
             this.cbxBuscar.TabIndex = 32;
             // 
             // dg_fornecedor
@@ -280,9 +280,9 @@ namespace TomMotos.view
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(356, 21);
+            this.label4.Location = new System.Drawing.Point(392, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(523, 44);
+            this.label4.Size = new System.Drawing.Size(522, 44);
             this.label4.TabIndex = 19;
             this.label4.Text = "CADASTRO DE FORNECEDOR";
             // 

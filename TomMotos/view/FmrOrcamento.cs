@@ -16,16 +16,14 @@ namespace TomMotos.view
     public partial class FmrOrcamento : Form
     {
         string[] item = new string[7];
-        Fmrcaixa lp;
         VendaDAO VendaDAO = new VendaDAO();
         Fmrcaixa fmrCx = new Fmrcaixa();
         ProdutoUsadoDAO ProdutoUsadoDAO = new ProdutoUsadoDAO();
         ServicoDAO ServicoPrestadoDAO = new ServicoDAO();
 
-        public FmrOrcamento(Fmrcaixa lpp)
+        public FmrOrcamento()
         {
             InitializeComponent();
-            lp = lpp;
         }
 
         private void FmOrcamento_Load(object sender, EventArgs e)
@@ -93,7 +91,7 @@ namespace TomMotos.view
                     item[1] = DESCRICAO; 
                     item[2] = string.Format("{0:#,##0.00}", double.Parse(VALOR));
 
-                        fmrCx.dgServicos.Rows.Add(item);
+                   fmrCx.dgServicos.Rows.Add(item);
                 }
             }
             catch (Exception erro) { MessageBox.Show("Test " + erro); }

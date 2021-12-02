@@ -30,19 +30,15 @@ namespace TomMotos
                 Panel.Controls.Add(formulario);
                 formulario.Show();
                 formulario.BringToFront();
-
             }
             else
             {
-               
                 if (formulario.WindowState == FormWindowState.Minimized)
                 {
                     formulario.WindowState = FormWindowState.Normal;
                     formulario.BringToFront();
                 }
-
             }
-
         }
 
         private void btnCadastro_Click(object sender, EventArgs e)
@@ -148,8 +144,9 @@ namespace TomMotos
 
         private void BT_ORCAMENTO_Click(object sender, EventArgs e)
         {
-            FmrOrcamento fmrOrc = new FmrOrcamento(null);
-            fmrOrc.Show();
+            AbrirFormNoPanel<FmrOrcamento>();
+            // Preciso de ajuda nisso aqui ^^ -José
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -159,20 +156,17 @@ namespace TomMotos
 
         private void BT_LOG_FORNECIMENTO_Click(object sender, EventArgs e)
         {
-            FrmlogFornecimento fmr = new FrmlogFornecimento();
-            fmr.Show();
+            AbrirFormNoPanel<FrmlogFornecimento>();
         }
 
         private void btnVendas_Click(object sender, EventArgs e)
         {
-            FmrVenda frmVenda = new FmrVenda();
-            frmVenda.Show();
+            AbrirFormNoPanel<FmrVenda>();
         }
 
         private void btnDevedores_Click(object sender, EventArgs e)
         {
-            FmrDevedores frmDev = new FmrDevedores();
-            frmDev.Show();
+            AbrirFormNoPanel<FmrDevedores>();
         }
 
         private void btnCaixa_Click(object sender, EventArgs e)
@@ -181,7 +175,7 @@ namespace TomMotos
             fmrcx.Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show("Bem Vindo ao TOM MOTOS!");
         }
@@ -236,5 +230,6 @@ namespace TomMotos
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
     }
 }
