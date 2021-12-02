@@ -763,6 +763,12 @@ namespace TomMotos.view
             }
         }
 
+        private void btnAdd_func_Click(object sender, EventArgs e)
+        {
+            FmrAddFunc frmFun = new FmrAddFunc();
+            frmFun.Show(); 
+        }
+
         private void cBoxOrcamento_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.F5)

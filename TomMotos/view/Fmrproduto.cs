@@ -356,5 +356,6 @@ namespace TomMotos.view
             if (txt_id.Text != "") txt_valor_produto.Text = string.Format("{0:#,##0.00}", double.Parse(dg_produto.CurrentRow.Cells[3].Value.ToString()));
             else txt_valor_produto.Text = "0,00";
         }
+
     }
 }

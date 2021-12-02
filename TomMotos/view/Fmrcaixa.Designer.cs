@@ -47,12 +47,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnPesquisarProduto = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txt_desconto_pro = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ptb_imagem = new System.Windows.Forms.PictureBox();
             this.btnFinalizaVenda = new System.Windows.Forms.Button();
             this.dgProdutos = new System.Windows.Forms.DataGridView();
             this.ch_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,8 +71,6 @@
             this.lbl_BuscarVeiculo = new System.Windows.Forms.Label();
             this.lbl_buscarCliente = new System.Windows.Forms.Label();
             this.lblSubitotal = new System.Windows.Forms.Label();
-            this.btn_BuscarCliente = new System.Windows.Forms.Button();
-            this.btn_buscarVeiculo = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -88,12 +84,17 @@
             this.ch_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_itemServ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgServicos = new System.Windows.Forms.DataGridView();
+            this.btnAdd_func = new System.Windows.Forms.Button();
+            this.btn_BuscarCliente = new System.Windows.Forms.Button();
+            this.btn_buscarVeiculo = new System.Windows.Forms.Button();
+            this.ptb_imagem = new System.Windows.Forms.PictureBox();
+            this.btnPesquisarProduto = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgServicos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -278,18 +279,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produto";
             // 
-            // btnPesquisarProduto
-            // 
-            this.btnPesquisarProduto.BackColor = System.Drawing.Color.Transparent;
-            this.btnPesquisarProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesquisarProduto.BackgroundImage")));
-            this.btnPesquisarProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarProduto.Location = new System.Drawing.Point(284, 29);
-            this.btnPesquisarProduto.Name = "btnPesquisarProduto";
-            this.btnPesquisarProduto.Size = new System.Drawing.Size(41, 24);
-            this.btnPesquisarProduto.TabIndex = 44;
-            this.btnPesquisarProduto.UseVisualStyleBackColor = false;
-            this.btnPesquisarProduto.Click += new System.EventHandler(this.btnPesquisarProduto_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -329,16 +318,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "IMAGEM";
             // 
-            // ptb_imagem
-            // 
-            this.ptb_imagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptb_imagem.Location = new System.Drawing.Point(8, 18);
-            this.ptb_imagem.Name = "ptb_imagem";
-            this.ptb_imagem.Size = new System.Drawing.Size(202, 173);
-            this.ptb_imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_imagem.TabIndex = 5;
-            this.ptb_imagem.TabStop = false;
-            // 
             // btnFinalizaVenda
             // 
             this.btnFinalizaVenda.Location = new System.Drawing.Point(1006, 515);
@@ -365,7 +344,7 @@
             this.dgProdutos.MultiSelect = false;
             this.dgProdutos.Name = "dgProdutos";
             this.dgProdutos.ReadOnly = true;
-            this.dgProdutos.Size = new System.Drawing.Size(734, 170);
+            this.dgProdutos.Size = new System.Drawing.Size(722, 170);
             this.dgProdutos.TabIndex = 25;
             this.dgProdutos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgProdutos_KeyDown);
             this.dgProdutos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgProdutos_MouseDown);
@@ -515,32 +494,6 @@
             this.lblSubitotal.TabIndex = 43;
             this.lblSubitotal.Text = "0";
             // 
-            // btn_BuscarCliente
-            // 
-            this.btn_BuscarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btn_BuscarCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_BuscarCliente.BackgroundImage")));
-            this.btn_BuscarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_BuscarCliente.Location = new System.Drawing.Point(100, 232);
-            this.btn_BuscarCliente.Name = "btn_BuscarCliente";
-            this.btn_BuscarCliente.Size = new System.Drawing.Size(41, 24);
-            this.btn_BuscarCliente.TabIndex = 39;
-            this.btn_BuscarCliente.UseVisualStyleBackColor = false;
-            this.btn_BuscarCliente.Click += new System.EventHandler(this.btn_BuscarCliente_Click);
-            this.btn_BuscarCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_BuscarCliente_KeyDown);
-            // 
-            // btn_buscarVeiculo
-            // 
-            this.btn_buscarVeiculo.BackColor = System.Drawing.Color.Transparent;
-            this.btn_buscarVeiculo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_buscarVeiculo.BackgroundImage")));
-            this.btn_buscarVeiculo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_buscarVeiculo.Location = new System.Drawing.Point(100, 202);
-            this.btn_buscarVeiculo.Name = "btn_buscarVeiculo";
-            this.btn_buscarVeiculo.Size = new System.Drawing.Size(41, 24);
-            this.btn_buscarVeiculo.TabIndex = 38;
-            this.btn_buscarVeiculo.UseVisualStyleBackColor = false;
-            this.btn_buscarVeiculo.Click += new System.EventHandler(this.btn_buscarVeiculo_Click);
-            this.btn_buscarVeiculo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_buscarVeiculo_KeyDown);
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -664,11 +617,70 @@
             this.dgServicos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgServicos_KeyDown);
             this.dgServicos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgServicos_MouseDown);
             // 
+            // btnAdd_func
+            // 
+            this.btnAdd_func.Location = new System.Drawing.Point(66, 515);
+            this.btnAdd_func.Name = "btnAdd_func";
+            this.btnAdd_func.Size = new System.Drawing.Size(126, 29);
+            this.btnAdd_func.TabIndex = 53;
+            this.btnAdd_func.Text = "ADD FUNCIONARIO";
+            this.btnAdd_func.UseVisualStyleBackColor = true;
+            this.btnAdd_func.Click += new System.EventHandler(this.btnAdd_func_Click);
+            // 
+            // btn_BuscarCliente
+            // 
+            this.btn_BuscarCliente.BackColor = System.Drawing.Color.Transparent;
+            this.btn_BuscarCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_BuscarCliente.BackgroundImage")));
+            this.btn_BuscarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_BuscarCliente.Location = new System.Drawing.Point(100, 232);
+            this.btn_BuscarCliente.Name = "btn_BuscarCliente";
+            this.btn_BuscarCliente.Size = new System.Drawing.Size(41, 24);
+            this.btn_BuscarCliente.TabIndex = 39;
+            this.btn_BuscarCliente.UseVisualStyleBackColor = false;
+            this.btn_BuscarCliente.Click += new System.EventHandler(this.btn_BuscarCliente_Click);
+            this.btn_BuscarCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_BuscarCliente_KeyDown);
+            // 
+            // btn_buscarVeiculo
+            // 
+            this.btn_buscarVeiculo.BackColor = System.Drawing.Color.Transparent;
+            this.btn_buscarVeiculo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_buscarVeiculo.BackgroundImage")));
+            this.btn_buscarVeiculo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_buscarVeiculo.Location = new System.Drawing.Point(100, 202);
+            this.btn_buscarVeiculo.Name = "btn_buscarVeiculo";
+            this.btn_buscarVeiculo.Size = new System.Drawing.Size(41, 24);
+            this.btn_buscarVeiculo.TabIndex = 38;
+            this.btn_buscarVeiculo.UseVisualStyleBackColor = false;
+            this.btn_buscarVeiculo.Click += new System.EventHandler(this.btn_buscarVeiculo_Click);
+            this.btn_buscarVeiculo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_buscarVeiculo_KeyDown);
+            // 
+            // ptb_imagem
+            // 
+            this.ptb_imagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptb_imagem.Location = new System.Drawing.Point(8, 18);
+            this.ptb_imagem.Name = "ptb_imagem";
+            this.ptb_imagem.Size = new System.Drawing.Size(202, 173);
+            this.ptb_imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_imagem.TabIndex = 5;
+            this.ptb_imagem.TabStop = false;
+            // 
+            // btnPesquisarProduto
+            // 
+            this.btnPesquisarProduto.BackColor = System.Drawing.Color.Transparent;
+            this.btnPesquisarProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesquisarProduto.BackgroundImage")));
+            this.btnPesquisarProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarProduto.Location = new System.Drawing.Point(284, 29);
+            this.btnPesquisarProduto.Name = "btnPesquisarProduto";
+            this.btnPesquisarProduto.Size = new System.Drawing.Size(41, 24);
+            this.btnPesquisarProduto.TabIndex = 44;
+            this.btnPesquisarProduto.UseVisualStyleBackColor = false;
+            this.btnPesquisarProduto.Click += new System.EventHandler(this.btnPesquisarProduto_Click);
+            // 
             // Fmrcaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 635);
+            this.Controls.Add(this.btnAdd_func);
             this.Controls.Add(this.cBoxOrcamento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label22);
@@ -709,9 +721,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgServicos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_imagem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -777,5 +789,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_itemServ;
         public System.Windows.Forms.DataGridView dgServicos;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnAdd_func;
     }
 }

@@ -16,6 +16,7 @@ namespace TomMotos.Classes
     {
         MySqlConnection conexao = ConnectionFactory.getConnection();
 
+
         #region METODO CADASTRAR VENDA
 
         public void cadastrarVenda(CaixaModel obj)
@@ -66,6 +67,25 @@ namespace TomMotos.Classes
             }
             conexao.Close();
             return CaixaModel.totalVenda_orcamento;
+        }
+
+
+        #endregion
+
+        #region METODO CADASTRAR FUNCIONARIOS NA VENDA
+
+        public void cadastrarGrupoFunc(CaixaModel obj)
+        {
+            string insert = @"CALL criacaoGrupoFuncionarios(@fk_venda, @fk_funcionario)";
+
+            MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
+            executacmdsql.Parameters.AddWithValue("@fk_venda", CaixaModel.id_venda);
+            executacmdsql.Parameters.AddWithValue("@fk_funcionario", CaixaModel.fk_funcionario_id);           
+
+            conexao.Open();
+            executacmdsql.ExecuteNonQuery();
+            conexao.Close();
+
         }
 
 

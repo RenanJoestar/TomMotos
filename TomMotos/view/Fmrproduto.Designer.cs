@@ -124,7 +124,7 @@ namespace TomMotos.view
             // lblCaminho
             // 
             this.lblCaminho.AutoSize = true;
-            this.lblCaminho.Location = new System.Drawing.Point(180, 220);
+            this.lblCaminho.Location = new System.Drawing.Point(14, 333);
             this.lblCaminho.Name = "lblCaminho";
             this.lblCaminho.Size = new System.Drawing.Size(68, 15);
             this.lblCaminho.TabIndex = 47;
@@ -398,6 +398,7 @@ namespace TomMotos.view
             this.btnExcluir.TabIndex = 31;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -411,6 +412,7 @@ namespace TomMotos.view
             this.btnAlterar.TabIndex = 30;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCadastrar
             // 
@@ -424,6 +426,7 @@ namespace TomMotos.view
             this.btnCadastrar.TabIndex = 29;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // dg_produto
             // 
