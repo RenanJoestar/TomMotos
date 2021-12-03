@@ -156,32 +156,41 @@ namespace TomMotos.view
 
         private void dg_funcionario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txt_id.Text = dg_funcionario.CurrentRow.Cells[0].Value.ToString();
-            txt_nome.Text = dg_funcionario.CurrentRow.Cells[1].Value.ToString();
-            txt_sobrenome.Text = dg_funcionario.CurrentRow.Cells[2].Value.ToString();
-            txt_nascimento.Text = dg_funcionario.CurrentRow.Cells[4].Value.ToString();
-            txt_cpf.Text = dg_funcionario.CurrentRow.Cells[3].Value.ToString();
-            cbx_sexo.Text = dg_funcionario.CurrentRow.Cells[6].Value.ToString();           
-            string fk_cargo = dg_funcionario.CurrentRow.Cells[7].Value.ToString();
-            if (fk_cargo != "") { 
-            string select = "select nome_cargo, id_funcionario from tb_funcionario inner join tb_cargo on tb_cargo.id_cargo = tb_funcionario.fk_cargo_id where id_funcionario = " + fk_cargo;
-            MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-
-            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            
-            if (ds.Tables[0].Rows.Count > 0)
+            try
             {
-                string nome_cargo = ds.Tables[0].Rows[0]["nome_cargo"].ToString();
+                txt_id.Text = dg_funcionario.CurrentRow.Cells[0].Value.ToString();
+                txt_nome.Text = dg_funcionario.CurrentRow.Cells[1].Value.ToString();
+                txt_sobrenome.Text = dg_funcionario.CurrentRow.Cells[2].Value.ToString();
+                txt_nascimento.Text = dg_funcionario.CurrentRow.Cells[4].Value.ToString();
+                txt_contratacao.Text = dg_funcionario.CurrentRow.Cells[5].Value.ToString();
+                txt_cpf.Text = dg_funcionario.CurrentRow.Cells[3].Value.ToString();
+                if (dg_funcionario.CurrentRow.Cells[6].Value.ToString() != "") cbx_sexo.Text = dg_funcionario.CurrentRow.Cells[6].Value.ToString();
+                else cbx_sexo.SelectedIndex = -1;
+                if (dg_funcionario.CurrentRow.Cells[7].Value.ToString() != "") cbxCargos.Text = dg_funcionario.CurrentRow.Cells[7].Value.ToString();
+                else cbxCargos.SelectedIndex = -1;
+               /* if (fk_cargo != "")
+                {
+                    string select = "select nome_cargo, id_funcionario from tb_funcionario inner join tb_cargo on tb_cargo.id_cargo = tb_funcionario.fk_cargo_id where id_funcionario = " + fk_cargo;
+                    MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
-                cbxCargos.Text = nome_cargo.ToString();
-             }
+                    MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        string nome_cargo = ds.Tables[0].Rows[0]["nome_cargo"].ToString();
+
+                         = nome_cargo.ToString();
+                    }
+                }
+                else cbxCargos.Text = ""; */
             }
-            else cbxCargos.Text = "";
-
-            txt_contratacao.Text = dg_funcionario.CurrentRow.Cells[5].Value.ToString();
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

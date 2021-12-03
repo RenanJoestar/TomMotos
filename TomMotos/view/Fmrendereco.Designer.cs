@@ -31,6 +31,7 @@ namespace TomMotos.view
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fmrendereco));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_cep = new System.Windows.Forms.MaskedTextBox();
@@ -56,7 +57,6 @@ namespace TomMotos.view
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnMostrarTudo = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEndereco)).BeginInit();
             this.panel1.SuspendLayout();
@@ -86,6 +86,15 @@ namespace TomMotos.view
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(157, 82);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 13);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "To fix bug Cep";
             // 
             // label8
             // 
@@ -117,6 +126,8 @@ namespace TomMotos.view
             this.txt_cep.Name = "txt_cep";
             this.txt_cep.Size = new System.Drawing.Size(55, 20);
             this.txt_cep.TabIndex = 21;
+            this.txt_cep.Leave += new System.EventHandler(this.txt_cep_Leave);
+            this.txt_cep.Validated += new System.EventHandler(this.txt_cep_Validated);
             // 
             // label6
             // 
@@ -335,15 +346,6 @@ namespace TomMotos.view
             this.btnMostrarTudo.Text = "Mostrar tudo";
             this.btnMostrarTudo.UseVisualStyleBackColor = true;
             this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(157, 82);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 13);
-            this.label9.TabIndex = 31;
-            this.label9.Text = "To fix bug Cep";
             // 
             // Fmrendereco
             // 

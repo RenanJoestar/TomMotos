@@ -29,13 +29,14 @@ namespace TomMotos.view
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fmrveiculo));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btn_buscarCliente = new System.Windows.Forms.Button();
+            this.lblnomecliente = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_marca = new System.Windows.Forms.TextBox();
             this.txt_obs = new System.Windows.Forms.TextBox();
-            this.dgv_cliente = new System.Windows.Forms.DataGridView();
             this.txt_cliente = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -62,18 +63,17 @@ namespace TomMotos.view
             this.label7 = new System.Windows.Forms.Label();
             this.btnMostrarTudo = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_veiculo)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.btn_buscarCliente);
+            this.groupBox2.Controls.Add(this.lblnomecliente);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txt_marca);
             this.groupBox2.Controls.Add(this.txt_obs);
-            this.groupBox2.Controls.Add(this.dgv_cliente);
             this.groupBox2.Controls.Add(this.txt_cliente);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
@@ -93,21 +93,33 @@ namespace TomMotos.view
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(12, 94);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(460, 528);
+            this.groupBox2.Size = new System.Drawing.Size(460, 331);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PREENCHER DADOS";
             // 
-            // label2
+            // btn_buscarCliente
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 10F);
-            this.label2.ForeColor = System.Drawing.Color.IndianRed;
-            this.label2.Location = new System.Drawing.Point(144, 264);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 17);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "SELECIONE O CLIENTE";
+            this.btn_buscarCliente.BackColor = System.Drawing.Color.Transparent;
+            this.btn_buscarCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_buscarCliente.BackgroundImage")));
+            this.btn_buscarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_buscarCliente.Location = new System.Drawing.Point(182, 262);
+            this.btn_buscarCliente.Name = "btn_buscarCliente";
+            this.btn_buscarCliente.Size = new System.Drawing.Size(41, 24);
+            this.btn_buscarCliente.TabIndex = 39;
+            this.btn_buscarCliente.UseVisualStyleBackColor = false;
+            this.btn_buscarCliente.Click += new System.EventHandler(this.btn_buscarCliente_Click);
+            // 
+            // lblnomecliente
+            // 
+            this.lblnomecliente.AutoSize = true;
+            this.lblnomecliente.Font = new System.Drawing.Font("Bahnschrift", 10F);
+            this.lblnomecliente.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblnomecliente.Location = new System.Drawing.Point(128, 243);
+            this.lblnomecliente.Name = "lblnomecliente";
+            this.lblnomecliente.Size = new System.Drawing.Size(153, 17);
+            this.lblnomecliente.TabIndex = 36;
+            this.lblnomecliente.Text = "SELECIONE O CLIENTE";
             // 
             // label1
             // 
@@ -139,24 +151,13 @@ namespace TomMotos.view
             this.txt_obs.Size = new System.Drawing.Size(300, 21);
             this.txt_obs.TabIndex = 33;
             // 
-            // dgv_cliente
-            // 
-            this.dgv_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_cliente.Location = new System.Drawing.Point(5, 311);
-            this.dgv_cliente.MultiSelect = false;
-            this.dgv_cliente.Name = "dgv_cliente";
-            this.dgv_cliente.ReadOnly = true;
-            this.dgv_cliente.Size = new System.Drawing.Size(448, 211);
-            this.dgv_cliente.TabIndex = 32;
-            this.dgv_cliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cliente_CellClick);
-            // 
             // txt_cliente
             // 
             this.txt_cliente.BackColor = System.Drawing.Color.White;
             this.txt_cliente.Enabled = false;
             this.txt_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.txt_cliente.ForeColor = System.Drawing.Color.Black;
-            this.txt_cliente.Location = new System.Drawing.Point(235, 284);
+            this.txt_cliente.Location = new System.Drawing.Point(131, 264);
             this.txt_cliente.Name = "txt_cliente";
             this.txt_cliente.Size = new System.Drawing.Size(45, 21);
             this.txt_cliente.TabIndex = 31;
@@ -167,11 +168,11 @@ namespace TomMotos.view
             this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("Bahnschrift", 11F);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(159, 285);
+            this.label10.Location = new System.Drawing.Point(38, 264);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 18);
+            this.label10.Size = new System.Drawing.Size(88, 18);
             this.label10.TabIndex = 30;
-            this.label10.Text = "CLIENTE:";
+            this.label10.Text = "ID CLIENTE:";
             // 
             // label11
             // 
@@ -369,9 +370,9 @@ namespace TomMotos.view
             this.dg_veiculo.MultiSelect = false;
             this.dg_veiculo.Name = "dg_veiculo";
             this.dg_veiculo.ReadOnly = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dg_veiculo.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dg_veiculo.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dg_veiculo.Size = new System.Drawing.Size(791, 379);
             this.dg_veiculo.TabIndex = 42;
             this.dg_veiculo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_veiculo_CellClick_1);
@@ -388,6 +389,7 @@ namespace TomMotos.view
             this.btnExcluir.TabIndex = 45;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -401,6 +403,7 @@ namespace TomMotos.view
             this.btnAlterar.TabIndex = 44;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCadastrar
             // 
@@ -416,6 +419,7 @@ namespace TomMotos.view
             this.btnCadastrar.TabIndex = 43;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // panel1
             // 
@@ -474,7 +478,6 @@ namespace TomMotos.view
             this.Load += new System.EventHandler(this.Fmrveiculo_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_cliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_veiculo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -486,8 +489,6 @@ namespace TomMotos.view
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgv_cliente;
-        private System.Windows.Forms.TextBox txt_cliente;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -500,12 +501,10 @@ namespace TomMotos.view
         private System.Windows.Forms.TextBox txt_cor;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txt_id;
-        private System.Windows.Forms.TextBox txt_modelo;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txt_obs;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_marca;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
@@ -516,5 +515,9 @@ namespace TomMotos.view
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnMostrarTudo;
+        public System.Windows.Forms.Button btn_buscarCliente;
+        public System.Windows.Forms.TextBox txt_cliente;
+        public System.Windows.Forms.TextBox txt_modelo;
+        public System.Windows.Forms.Label lblnomecliente;
     }
 }

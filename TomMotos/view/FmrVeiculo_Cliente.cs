@@ -23,10 +23,13 @@ namespace TomMotos.view
         ClienteDAO Cliente = new ClienteDAO();
         FiltroDAO Filtro = new FiltroDAO();
         Fmrcaixa fp;
-        public FmrVeiculo_Cliente(Fmrcaixa f)
+        Fmrveiculo fmrCli;
+        //Fmrveiculo fmrCli = new Fmrveiculo();
+        public FmrVeiculo_Cliente(Fmrcaixa fpp, Fmrveiculo fc)
         {           
             InitializeComponent();
-            fp = f;             
+            fmrCli = fc;
+            fp = fpp;
         }
 
         private void FmrVeiculo_Cliente_Load(object sender, EventArgs e)
@@ -56,14 +59,14 @@ namespace TomMotos.view
                 CaixaModel.fk_veiculo_id = dg_listarVeiculoOuCliente.CurrentRow.Cells[0].Value.ToString();
                 CaixaModel.fk_cliente_id = dg_listarVeiculoOuCliente.CurrentRow.Cells[8].Value.ToString();
 
-                if (CaixaModel.fk_veiculo_id !="")
+                if (CaixaModel.fk_veiculo_id != "")
                 {
                     fp.lbl_BuscarVeiculo.Text = CaixaModel.fk_veiculo_id.ToString();
                     fp.lbl_buscarCliente.Text = CaixaModel.fk_cliente_id.ToString();
                 }
                 this.Close();
             }
-            else 
+            else if (CaixaModel.valorPesquisa == "cliente")
             {
                 CaixaModel.fk_cliente_id = dg_listarVeiculoOuCliente.CurrentRow.Cells[0].Value.ToString();
                 if (CaixaModel.fk_cliente_id != "")
@@ -71,6 +74,16 @@ namespace TomMotos.view
                     fp.lbl_buscarCliente.Text = CaixaModel.fk_cliente_id.ToString();
                 }
                 this.Close();
+            }
+            else
+            {
+                string id_cliente = dg_listarVeiculoOuCliente.CurrentRow.Cells[0].Value.ToString();
+                if (id_cliente != "")
+                {
+                   fmrCli.txt_cliente.Text = id_cliente;
+                    fmrCli.lblnomecliente.Text = "CLIENTE " + dg_listarVeiculoOuCliente.CurrentRow.Cells[1].Value.ToString();
+                }
+                this.Close();  
             }
 
         }

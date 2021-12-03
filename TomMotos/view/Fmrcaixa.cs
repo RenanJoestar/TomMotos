@@ -24,7 +24,7 @@ namespace TomMotos.view
         List<string> nota = new List<string>();
         string id_produto, nome_produto, id_venda;
         int itens = 0, servicos = 0;
-
+        Fmrveiculo fmrveiculo;
         VendaDAO caixaDAO = new VendaDAO();
         CaixaModel obj = new CaixaModel();
         VendaDAO Cadastro = new VendaDAO();
@@ -489,7 +489,7 @@ namespace TomMotos.view
             try
             {
                 CaixaModel.valorPesquisa = "veiculo";
-                FmrVeiculo_Cliente fmrVC = new FmrVeiculo_Cliente( this);
+                FmrVeiculo_Cliente fmrVC = new FmrVeiculo_Cliente(this, fmrveiculo);
                 fmrVC.Show();
             }
             catch (Exception erro) {
@@ -502,7 +502,7 @@ namespace TomMotos.view
             try
             {
                 CaixaModel.valorPesquisa = "cliente";
-                FmrVeiculo_Cliente fmrVC = new FmrVeiculo_Cliente( this);
+                FmrVeiculo_Cliente fmrVC = new FmrVeiculo_Cliente(this, fmrveiculo);
                 fmrVC.Show();
             }
             catch (Exception erro)

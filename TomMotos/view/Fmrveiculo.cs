@@ -17,6 +17,7 @@ namespace TomMotos.view
     {
         VeiculoDAO Veiculo = new VeiculoDAO();
         FiltroDAO Filtro = new FiltroDAO();
+        Fmrcaixa fmrcaixa;
         public Fmrveiculo()
         {
             InitializeComponent();
@@ -92,21 +93,11 @@ namespace TomMotos.view
             }
                                    
         }
-       
-        private void dgv_cliente_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_cliente.Text = dgv_cliente.CurrentRow.Cells[0].Value.ToString();
-
-        }
 
         private void Fmrveiculo_Load(object sender, EventArgs e)
         {
             dg_veiculo.DataSource = Veiculo.ListarTodosVeiculos();
-
-            dgv_cliente.DataSource = Veiculo.ListarTodosClientes();
         }
-
-
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
@@ -249,11 +240,27 @@ namespace TomMotos.view
             txt_obs.Text = dg_veiculo.CurrentRow.Cells[7].Value.ToString();
             txt_placa.Text = dg_veiculo.CurrentRow.Cells[6].Value.ToString();
             txt_cliente.Text = dg_veiculo.CurrentRow.Cells[8].Value.ToString();
+            if (dg_veiculo.CurrentRow.Cells[9].Value.ToString() != "") lblnomecliente.Text = "CLIENTE " + dg_veiculo.CurrentRow.Cells[9].Value.ToString();
+            else lblnomecliente.Text = "SELECIONE O CLIENTE";
         }
 
         private void btnMostrarTudo_Click(object sender, EventArgs e)
         {
             dg_veiculo.DataSource = Veiculo.ListarTodosVeiculos();
+        }
+
+        private void btn_buscarCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CaixaModel.valorPesquisa = "getfkClienteforveiculo";                
+                FmrVeiculo_Cliente fmrVC = new FmrVeiculo_Cliente(fmrcaixa,this);
+                fmrVC.Show();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(" " + erro.Message);
+            }
         }
     }
 }

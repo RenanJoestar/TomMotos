@@ -41,7 +41,7 @@ namespace TomMotos.view
         {
             try
             {
-                if (txt_cep.Text != "")
+                if (txt_cep.Text != "     -" && txt_endereco.Text =="" && txt_bairro.Text =="" && txt_cidade.Text == "")
                 {
                     HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://viacep.com.br/ws/"+txt_cep.Text+"/json/");
                     request.AllowAutoRedirect = false;
@@ -88,34 +88,27 @@ namespace TomMotos.view
                                         {
                                             string[] valor = substring.Split(":".ToCharArray());
                                             txt_cidade.Text = valor[1];
+                                            
                                         }
 
                                         cont++;
                                   }
                                 }
-                              }
+                               }
                             }
                           }
-                        }
-                
-                else
-                {
-                    txt_bairro.Text = "";
-                    txt_cidade.Text = "";
-                    txt_endereco.Text = "";
-                }
+                            txt_numero.Focus();
+                     }
+               
           }
 
             catch (Exception erro)
             {
-                if (erro.ToString().Contains("400")) MessageBox.Show("CEP não encontrado");
-                else if(erro.ToString().Contains("viacep.com.br")) MessageBox.Show("Servidor indisponivel");
-                else MessageBox.Show(erro.ToString());
-
+                MessageBox.Show(erro.Message);
                 txt_bairro.Text = "";
                 txt_cidade.Text = "";
                 txt_endereco.Text = "";
-
+                txt_endereco.Focus();
             }
 
         }
@@ -222,7 +215,7 @@ namespace TomMotos.view
        
         private void txt_endereco_MouseUp(object sender, MouseEventArgs e)
         {
-            PegaJson();
+           // PegaJson();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -272,6 +265,16 @@ namespace TomMotos.view
         private void btnMostrarTudo_Click(object sender, EventArgs e)
         {
             dgEndereco.DataSource = Cadastro.ListarEndereco();
+        }
+
+        private void txt_cep_Leave(object sender, EventArgs e)
+        {
+            PegaJson();
+        }
+
+        private void txt_cep_Validated(object sender, EventArgs e)
+        {
+           
         }
     }
 }
