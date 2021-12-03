@@ -24,7 +24,7 @@ namespace TomMotos.Classes
         {
             string sql = @"select tb_veiculo.id_veiculo as 'ID VEICULO', marca_veiculo AS 'MARCA', modelo_veiculo AS 'MODELO', 
             cor_veiculo AS 'COR', ano_veiculo AS 'ANO', km_veiculo AS 'KM RODADO', placa_veiculo AS 'PLACA', 
-            obs_veiculo AS 'OBSERVAÇÃO', tb_cliente.nome_cliente as 'NOME DO CLIENTE' from tb_veiculo
+            obs_veiculo AS 'OBSERVAÇÃO', tb_veiculo.fk_cliente_id AS 'ID CLIENTE' , tb_cliente.nome_cliente as 'NOME CLIENTE' from tb_veiculo
             inner join tb_cliente
             on tb_cliente.id_cliente = tb_veiculo.fk_cliente_id";
 

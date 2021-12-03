@@ -205,6 +205,9 @@ namespace TomMotos.view
                     if (campo == "PLACA") campo = "tb_veiculo.placa_veiculo";
                     if (campo == "OBS") campo = "tb_veiculo.obs_veiculo";
                     if (campo == "NOME DO CLIENTE") campo = "tb_cliente.nome_cliente";
+                    if (campo == "SOBRENOME DO CLIENTE") campo = "tb_cliente.sobrenome_cliente";
+                    if (campo == "CPF DO CLIENTE") campo = "tb_cliente.cpf_cliente";
+
                     finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
 
                     FiltroModel.campoWhere = finalSQL;

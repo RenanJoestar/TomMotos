@@ -474,4 +474,3 @@ C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.Ge
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.CopyComplete
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
-C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrAddFunc.resources

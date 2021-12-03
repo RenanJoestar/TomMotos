@@ -56,6 +56,7 @@ namespace TomMotos.view
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnMostrarTudo = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEndereco)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,6 +65,7 @@ namespace TomMotos.view
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txt_cep);
@@ -222,7 +224,7 @@ namespace TomMotos.view
             // dgEndereco
             // 
             this.dgEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgEndereco.Location = new System.Drawing.Point(340, 174);
+            this.dgEndereco.Location = new System.Drawing.Point(340, 180);
             this.dgEndereco.MultiSelect = false;
             this.dgEndereco.Name = "dgEndereco";
             this.dgEndereco.ReadOnly = true;
@@ -235,7 +237,7 @@ namespace TomMotos.view
             this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.ForeColor = System.Drawing.Color.Snow;
-            this.btnCadastrar.Location = new System.Drawing.Point(340, 408);
+            this.btnCadastrar.Location = new System.Drawing.Point(340, 410);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(247, 42);
             this.btnCadastrar.TabIndex = 14;
@@ -326,13 +328,22 @@ namespace TomMotos.view
             // btnMostrarTudo
             // 
             this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMostrarTudo.Location = new System.Drawing.Point(981, 110);
+            this.btnMostrarTudo.Location = new System.Drawing.Point(956, 110);
             this.btnMostrarTudo.Name = "btnMostrarTudo";
             this.btnMostrarTudo.Size = new System.Drawing.Size(84, 20);
             this.btnMostrarTudo.TabIndex = 43;
             this.btnMostrarTudo.Text = "Mostrar tudo";
             this.btnMostrarTudo.UseVisualStyleBackColor = true;
             this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(157, 82);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 13);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "To fix bug Cep";
             // 
             // Fmrendereco
             // 
@@ -393,5 +404,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnMostrarTudo;
+        private System.Windows.Forms.Label label9;
     }
 }
