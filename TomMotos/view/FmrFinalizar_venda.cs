@@ -30,7 +30,6 @@ namespace TomMotos.view
 
         private void label3_Click(object sender, EventArgs e)
         {
-
         }
 
         private void FmrFinalizar_venda_Load(object sender, EventArgs e)
@@ -65,7 +64,6 @@ namespace TomMotos.view
             { MessageBox.Show(""+erro.Message); }
         
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             CalcularTroco();
@@ -99,7 +97,6 @@ namespace TomMotos.view
             //executacmdsql.ExecuteNonQuery();
 
             //conexao.Close();
-
         }
 
         private void btnOk_Click(object sender, EventArgs e)

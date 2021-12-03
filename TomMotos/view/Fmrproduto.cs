@@ -352,9 +352,9 @@ namespace TomMotos.view
                     if (campo == "ID") campo = "tb_produto.id_produto";
                     if (campo == "DESCRICAO") campo = "tb_produto.descricao_produto";
                     if (campo == "VALOR") campo = "tb_produto.valor_produto";
-                    if (campo == "QUANTIDADE") campo = "tb_produto.quantidade_produto";
                     if (campo == "MARCA") campo = "tb_produto.marca_produto";
-                    finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    if (campo != "") finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    if (campo == "QUANTIDADE") finalSQL = "tb_produto.quantidade_produto <= " + txtBuscar.Text.ToString();
 
                     FiltroModel.campoWhere = finalSQL;
 
@@ -362,6 +362,11 @@ namespace TomMotos.view
                 }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
+        private void cbxBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxBuscar.Text.ToString() == "QUANTIDADE") lblAdendo.Visible = true;
+            else lblAdendo.Visible = false;
         }
     }
 }

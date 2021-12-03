@@ -24,6 +24,7 @@ namespace TomMotos.view
         List<string> nota = new List<string>();
         string id_produto, nome_produto, id_venda;
         int itens = 0, servicos = 0;
+
         VendaDAO caixaDAO = new VendaDAO();
         CaixaModel obj = new CaixaModel();
         VendaDAO Cadastro = new VendaDAO();
@@ -37,11 +38,6 @@ namespace TomMotos.view
         {
             InitializeComponent();
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void Fmrcaixa_Load(object sender, EventArgs e)
         {
             label12.BackColor = Color.Transparent;
@@ -50,7 +46,6 @@ namespace TomMotos.view
             dgServicos.Columns[1].Width = 243;
             cBoxOrcamento.Checked = false;
             dg_func.DataSource = Cadastro.ListarTodosFuncionario();
-            
         }
         private void FmrFinalizar_venda_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -58,7 +53,7 @@ namespace TomMotos.view
         }
         public void finalizarFormCaixa(bool orcamento)
         {
-            if (CaixaModel.vendaFinalizada == true || orcamento)
+            if (CaixaModel.vendaFinalizada || orcamento)
             {
                 CaixaModel obj = new CaixaModel();
                 obj.desconto = 0;
@@ -73,6 +68,7 @@ namespace TomMotos.view
                 CaixaModel.emailCliente = null;
                 this.Controls.Clear();
                 this.InitializeComponent();
+                this.Fmrcaixa_Load(null, null);
             }
         }
 
@@ -104,8 +100,6 @@ namespace TomMotos.view
 
                     produtoDAO.cadastrar(objProduto);
                 }
-            
-            
         }
         public void inserirVariaveisObjServicoPrestado(string idVenda)
         {
@@ -158,6 +152,7 @@ namespace TomMotos.view
             inserirVariaveisObjServicoPrestado(idVenda);
 
             caixaDAO.mudarStatusVenda(idVenda, true);
+            finalizarFormCaixa(true);
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -791,9 +786,7 @@ namespace TomMotos.view
                     }                                                        
                 }
                 CaixaModel.id_venda = "";
-                this.Close();
         }
-
 
         private void dg_func_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

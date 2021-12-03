@@ -65,6 +65,7 @@ namespace TomMotos.view
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.btnMostrarTudo = new System.Windows.Forms.Button();
+            this.lblAdendo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.np_quantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).BeginInit();
@@ -461,6 +462,7 @@ namespace TomMotos.view
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(111, 21);
             this.cbxBuscar.TabIndex = 33;
+            this.cbxBuscar.SelectedIndexChanged += new System.EventHandler(this.cbxBuscar_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -496,12 +498,23 @@ namespace TomMotos.view
             this.btnMostrarTudo.UseVisualStyleBackColor = true;
             this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
             // 
+            // lblAdendo
+            // 
+            this.lblAdendo.AutoSize = true;
+            this.lblAdendo.Location = new System.Drawing.Point(1013, 108);
+            this.lblAdendo.Name = "lblAdendo";
+            this.lblAdendo.Size = new System.Drawing.Size(119, 13);
+            this.lblAdendo.TabIndex = 50;
+            this.lblAdendo.Text = "(quantidade menor que)";
+            this.lblAdendo.Visible = false;
+            // 
             // Fmrproduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1293, 634);
+            this.Controls.Add(this.lblAdendo);
             this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtBuscar);
@@ -566,5 +579,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblCaminho;
         private System.Windows.Forms.Button btnMostrarTudo;
+        private System.Windows.Forms.Label lblAdendo;
     }
 }
