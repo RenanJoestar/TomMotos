@@ -190,50 +190,6 @@ namespace TomMotos.Classes
         }
         #endregion
 
-        #region LISTAR TODOS VEICULOS
-        public DataTable ListarTodosVeiculo()
-        {
-
-            string sql = @"select * from tb_veiculo";
-
-            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
-
-            conexao.Open();
-            executacmdsql.ExecuteNonQuery();
-
-            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-            DataTable tabelaVeiculo = new DataTable();
-            da.Fill(tabelaVeiculo);
-
-            conexao.Close();
-
-            return tabelaVeiculo;
-        }
-        #endregion
-
-        #region LISTAR TODOS CLIENTES
-        public DataTable ListarTodosCliente()
-        {
-
-            string sql = @"select * from tb_cliente";
-
-            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
-
-            conexao.Open();
-            executacmdsql.ExecuteNonQuery();
-
-            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-            DataTable tabelaCliente = new DataTable();
-            da.Fill(tabelaCliente);
-
-            conexao.Close();
-
-            return tabelaCliente;
-        }
-        #endregion
-
         #region LISTAR SERVIÇOS PRESTADOS
         public string listarServiçosPrestados(int idVenda)
         {
@@ -262,7 +218,7 @@ namespace TomMotos.Classes
         public DataTable listarTodos(bool orcamento)
         {
             string sql = @"select tb_venda.id_venda AS 'ID DA CONSULTA', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
-                tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', 
+                tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', tb_cliente.cnpj_cliente AS 'CNPJ DO CLIENTE', 
 		        tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', 
 		        tb_venda.data_venda AS 'DATA DA VENDA', tb_venda.data_venda AS 'DATA DO FORNECIMENTO', tb_venda.total_venda AS 'TOTAL DA VENDA',tb_venda.valor_pago AS 'VALOR PAGO'
 		        from tb_venda
@@ -281,33 +237,6 @@ namespace TomMotos.Classes
             da.Fill(tabelaProduto);
 
             conexao.Close();
-
-            return tabelaProduto;
-        }
-        #endregion
-
-        #region LISTAR VENDAS POR FILTRO
-        public DataTable listarVendaPor(string finalSQL)
-        {
-
-            string select = @"select tb_venda.id_venda AS 'ID DA CONSULTA', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
-                tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', 
-                tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', tb_venda.data_venda AS 'DATA DA VENDA', 
-                tb_venda.data_venda AS 'DATA DA VENDA' from tb_venda
-		        inner join tb_cliente
-		        on tb_venda.fk_cliente_id = tb_cliente.id_cliente
-                where " + finalSQL + " order by tb_venda.data_venda desc";
-
-            MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-
-            conexao.Open();
-            executacmdsql.ExecuteNonQuery();
-            conexao.Close();
-
-            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-            DataTable tabelaProduto = new DataTable();
-            da.Fill(tabelaProduto);
 
             return tabelaProduto;
         }

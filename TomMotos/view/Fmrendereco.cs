@@ -19,6 +19,8 @@ namespace TomMotos.view
 {
     public partial class Fmrendereco : Form
     {
+        EnderecoDAO Cadastro = new EnderecoDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         public Fmrendereco()
         {
             InitializeComponent();
@@ -32,7 +34,6 @@ namespace TomMotos.view
 
         private void Fmrendereco_Load(object sender, EventArgs e)
         {
-            EnderecoDAO Cadastro = new EnderecoDAO();
             dgEndereco.DataSource = Cadastro.ListarEndereco();
             txt_id.Text = EnderecoModel.id;
         }
@@ -230,10 +231,19 @@ namespace TomMotos.view
             {
                 if (cbxBuscar.Text != "")
                 {
-                    string campo = cbxBuscar.Text.ToString() + "_endereco";
-                    FiltroModel.filtro = @"select * from tb_endereco where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%' and fk_usuario_id = " + txt_id.Text.ToString();
-                    FiltroDAO dao = new FiltroDAO();
-                    dgEndereco.DataSource = dao.buscaCargo();
+                    string campo = cbxBuscar.Text.ToString();
+                    string finalSQL = "";
+
+                    if (campo == "CEP") campo = "tb_endereco.cep_endereco";
+                    if (campo == "RUA") campo = "tb_endereco.rua_endereco";
+                    if (campo == "CIDADE") campo = "tb_endereco.cidade_endereco";
+                    if (campo == "BAIRRO") campo = "tb_endereco.bairro_endereco";
+                    if (campo == "NÚMERO") campo = "tb_endereco.numero_endereco";
+                    finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                    FiltroModel.campoWhere = finalSQL;
+
+                    dgEndereco.DataSource = Filtro.buscaEndereco();
                 }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
@@ -257,6 +267,11 @@ namespace TomMotos.view
         {
             EnderecoModel.id_endereco = null;
             EnderecoModel.id = null;
+        }
+
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            dgEndereco.DataSource = Cadastro.ListarEndereco();
         }
     }
 }

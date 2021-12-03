@@ -114,6 +114,7 @@
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID DA VENDA",
             "NOME DO CLIENTE",
+            "SOBRENOME DO CLIENTE",
             "CPF DO CLIENTE"});
             this.cbxBuscar.Location = new System.Drawing.Point(35, 41);
             this.cbxBuscar.Name = "cbxBuscar";

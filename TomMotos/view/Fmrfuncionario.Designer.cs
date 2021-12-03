@@ -62,6 +62,7 @@ namespace TomMotos.view
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnMostrarTudo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_funcionario)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -416,6 +417,9 @@ namespace TomMotos.view
             "NOME",
             "SOBRENOME",
             "CPF",
+            "DATA DE NASCIMENTO",
+            "DATA DE CONTRATAÇÃO",
+            "SEXO",
             "CARGO"});
             this.cbxBuscar.Location = new System.Drawing.Point(471, 124);
             this.cbxBuscar.Name = "cbxBuscar";
@@ -463,12 +467,24 @@ namespace TomMotos.view
             this.label4.TabIndex = 19;
             this.label4.Text = "CADASTRO DE FUNCIONÁRIO";
             // 
+            // btnMostrarTudo
+            // 
+            this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMostrarTudo.Location = new System.Drawing.Point(1172, 91);
+            this.btnMostrarTudo.Name = "btnMostrarTudo";
+            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 20);
+            this.btnMostrarTudo.TabIndex = 46;
+            this.btnMostrarTudo.Text = "Mostrar tudo";
+            this.btnMostrarTudo.UseVisualStyleBackColor = true;
+            this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
+            // 
             // Fmrfuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1293, 634);
+            this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBuscar);
@@ -526,5 +542,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox txt_contratacao;
         private System.Windows.Forms.MaskedTextBox txt_nascimento;
+        private System.Windows.Forms.Button btnMostrarTudo;
     }
 }

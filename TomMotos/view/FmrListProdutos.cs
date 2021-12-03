@@ -17,6 +17,8 @@ namespace TomMotos.view
     public partial class FmrListProdutos : Form
     {
         MySqlConnection conexao = ConnectionFactory.getConnection();
+        ProdutoDAO Produto = new ProdutoDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         Fmrcaixa lp;
         public FmrListProdutos(Fmrcaixa lpp)
         {
@@ -26,14 +28,7 @@ namespace TomMotos.view
 
         private void FmrListProdutos_Load(object sender, EventArgs e)
         {
-            conexao.Open();
-            ProdutoDAO Listar = new ProdutoDAO();
-
-            Listar.ListarTodosProdutos();
-            dgListProdutos.DataSource = Listar.ListarTodosProdutos();
-
-            conexao.Close();
-
+            dgListProdutos.DataSource = Produto.ListarTodosProdutos();
         }
 
         private void dgListProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -49,14 +44,27 @@ namespace TomMotos.view
             {
                 if (cbxBuscar.Text != "")
                 {
-                    string campo = cbxBuscar.Text.ToString() + "_produto";
-                    FiltroModel.filtro = @"select * from tb_produto where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-                    // MessageBox.Show("Test " + FiltroModel.filtro);
-                    FiltroDAO dao = new FiltroDAO();
-                    dgListProdutos.DataSource = dao.buscaCargo();
+                    string campo = cbxBuscar.Text.ToString();
+                    string finalSQL = "";
+     
+                    if (campo == "ID") campo = "tb_produto.id_produto";
+                    if (campo == "DESCRICAO") campo = "tb_produto.descricao_produto";
+                    if (campo == "VALOR") campo = "tb_produto.valor_produto";
+                    if (campo == "QUANTIDADE") campo = "tb_produto.quantidade_produto";
+                    if (campo == "MARCA") campo = "tb_produto.marca_produto";
+                    finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                    FiltroModel.campoWhere = finalSQL;
+
+                    dgListProdutos.DataSource = Filtro.buscaProduto();
                 }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
+
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            dgListProdutos.DataSource = Produto.ListarTodosProdutos();
         }
     }
 }

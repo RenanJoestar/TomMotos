@@ -16,6 +16,8 @@ namespace TomMotos.view
 {
     public partial class Fmremail : Form
     {
+        EmailDAO Cadastro = new EmailDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         public Fmremail()
         {
             InitializeComponent();
@@ -48,7 +50,6 @@ namespace TomMotos.view
 
         private void Fmremail_Load(object sender, EventArgs e)
         {
-            EmailDAO Cadastro = new EmailDAO();
             dgEmail.DataSource = Cadastro.ListarEmails();
             txt_id.Text = EmailModel.id;
         }
@@ -116,10 +117,16 @@ namespace TomMotos.view
             {
                 if (cbxBuscar.Text != "")
                 {
-                    string campo = cbxBuscar.Text.ToString() + "_email";
-                    FiltroModel.filtro = @"select * from tb_email where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%' and fk_usuario_id = " + txt_id.Text.ToString();
-                    FiltroDAO dao = new FiltroDAO();
-                    dgEmail.DataSource = dao.buscaCargo();
+                    string campo = cbxBuscar.Text.ToString();
+                    string finalSQL = "";
+
+                    if (campo == "ID") campo = "tb_email.id_email";
+                    if (campo == "NOME") campo = "tb_email.nome_email";
+                    finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                    FiltroModel.campoWhere = finalSQL;
+
+                    dgEmail.DataSource = Filtro.buscaEmail();
                 }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
@@ -136,6 +143,11 @@ namespace TomMotos.view
         {
             EmailModel.id_email = null;
             EmailModel.id = null;
+        }
+
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            dgEmail.DataSource = Cadastro.ListarEmails();
         }
     }
 }

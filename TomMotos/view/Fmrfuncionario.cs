@@ -18,14 +18,13 @@ namespace TomMotos.view
     {
         static string nome, idUser, id_cargo;
         bool CPF;
+        FuncionarioDAO Cadastro = new FuncionarioDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrfuncionario()
         {
             InitializeComponent();
-
         }
-
-     
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -94,7 +93,6 @@ namespace TomMotos.view
         }
         private void Fmrfuncionario_Load(object sender, EventArgs e)
         {
-            FuncionarioDAO Cadastro = new FuncionarioDAO();
             dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
             FuncionarioDAO Showcargo = new FuncionarioDAO();
             
@@ -301,13 +299,24 @@ namespace TomMotos.view
             {
                 if (cbxBuscar.Text != "")
                 {
-                    string campo = cbxBuscar.Text.ToString() + "_funcionario";
-                    FiltroModel.filtro = @"select * from tb_funcionario where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-                    //MessageBox.Show("Test "+ FiltroModel.filtro);
-                    FiltroDAO dao = new FiltroDAO();
-                    dg_funcionario.DataSource = dao.buscaCargo();
+                    string campo = cbxBuscar.Text.ToString();
+                    string finalSQL = "";
+
+                    if (campo == "ID") campo = "tb_funcionario.id_funcionario";
+                    if (campo == "NOME") campo = "tb_funcionario.nome_funcionario";
+                    if (campo == "SOBRENOME") campo = "tb_funcionario.sobrenome_funcionario";
+                    if (campo == "CPF") campo = "tb_funcionario.cpf_funcionario";
+                    if (campo == "DATA DE NASCIMENTO") campo = "tb_funcionario.cpf_funcionario";
+                    if (campo == "DATA DE CONTRATAÇÃO") campo = "tb_funcionario.data_contratacao_funcionario";
+                    if (campo == "SEXO") campo = "tb_funcionario.sexo_funcionario";
+                    if (campo == "CARGO") campo = "tb_cargo.nome_cargo";
+                    finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                    FiltroModel.campoWhere = finalSQL;
+
+                    dg_funcionario.DataSource = Filtro.buscaFuncionario();
                 }
-             
+
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }
@@ -325,6 +334,11 @@ namespace TomMotos.view
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
         }
 
         private void button7_Click(object sender, EventArgs e)

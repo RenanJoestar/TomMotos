@@ -31,6 +31,8 @@ namespace TomMotos.view
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fmrcargo));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
             this.txt_salario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,8 +49,7 @@ namespace TomMotos.view
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnMostrarTudo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCargo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -72,6 +73,30 @@ namespace TomMotos.view
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label3.Location = new System.Drawing.Point(9, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(16, 20);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label8.Location = new System.Drawing.Point(28, 71);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(16, 20);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "*";
             // 
             // lbl
             // 
@@ -221,8 +246,9 @@ namespace TomMotos.view
             this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
-            "ID",
-            "NOME"});
+            "ID DO CARGO",
+            "NOME DO CARGO",
+            "SALARIO DO CARGO"});
             this.cbxBuscar.Location = new System.Drawing.Point(471, 124);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(121, 21);
@@ -262,29 +288,16 @@ namespace TomMotos.view
             this.tableLayoutPanel1.Size = new System.Drawing.Size(215, 208);
             this.tableLayoutPanel1.TabIndex = 28;
             // 
-            // label8
+            // btnMostrarTudo
             // 
-            this.label8.AutoSize = true;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label8.Location = new System.Drawing.Point(28, 71);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(16, 20);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "*";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(9, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 20);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "*";
+            this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMostrarTudo.Location = new System.Drawing.Point(1197, 117);
+            this.btnMostrarTudo.Name = "btnMostrarTudo";
+            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 33);
+            this.btnMostrarTudo.TabIndex = 42;
+            this.btnMostrarTudo.Text = "Mostrar tudo";
+            this.btnMostrarTudo.UseVisualStyleBackColor = true;
+            this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
             // 
             // Fmrcargo
             // 
@@ -292,6 +305,7 @@ namespace TomMotos.view
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1293, 634);
+            this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.dgCargo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBuscar);
@@ -340,5 +354,6 @@ namespace TomMotos.view
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnMostrarTudo;
     }
 }

@@ -18,6 +18,10 @@ namespace TomMotos.view
     public partial class FmrVeiculo_Cliente : Form
     {
         MySqlConnection conexao = ConnectionFactory.getConnection();
+        VendaDAO Cadastro = new VendaDAO();
+        VeiculoDAO Veiculo = new VeiculoDAO();
+        ClienteDAO Cliente = new ClienteDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         Fmrcaixa fp;
         public FmrVeiculo_Cliente(Fmrcaixa f)
         {           
@@ -28,20 +32,17 @@ namespace TomMotos.view
         private void FmrVeiculo_Cliente_Load(object sender, EventArgs e)
         {
             conexao.Open();
-            VendaDAO Cadastro = new VendaDAO();
             if (CaixaModel.valorPesquisa == "veiculo") {                
                 
-                cbxBuscar.Items.AddRange(new object[] { "ID","MODELO","MARCA","COR","ANO","KM","PLACA","OBS"});
-                Cadastro.ListarTodosVeiculo();
-                dg_listarVeiculoOuCliente.DataSource = Cadastro.ListarTodosVeiculo(); }
-            else {
+                cbxBuscar.Items.AddRange(new object[] { "ID","MODELO","MARCA","COR","ANO","KM","PLACA","OBS", "NOME DO CLIENTE"});
+                dg_listarVeiculoOuCliente.DataSource = Veiculo.ListarTodosVeiculos(); }
+            else
+            {
                 cbxBuscar.Items.AddRange(new object[] { "ID", "NOME", "SOBRENOME", "CPF", "CNPJ"});
-                Cadastro.ListarTodosCliente();
-                dg_listarVeiculoOuCliente.DataSource = Cadastro.ListarTodosCliente();
+                dg_listarVeiculoOuCliente.DataSource = Cliente.ListarTodosClientes();
             }
             conexao.Close();
-
-            }
+        }
 
         private void dg_listarVeiculoOuCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -77,7 +78,6 @@ namespace TomMotos.view
         private void FmrVeiculo_Cliente_FormClosed(object sender, FormClosedEventArgs e)
         {
             cbxBuscar.Items.Clear();
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -86,15 +86,63 @@ namespace TomMotos.view
             {
                 if (cbxBuscar.Text != "")
                 {
-                    string campo = cbxBuscar.Text.ToString() + "_veiculo";
-                    if(CaixaModel.valorPesquisa == "veiculo") FiltroModel.filtro = @"select * from tb_veiculo where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-                    else FiltroModel.filtro = @"select * from tb_cliente where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-                    // MessageBox.Show("Test " + FiltroModel.filtro);
-                    FiltroDAO dao = new FiltroDAO();
-                    dg_listarVeiculoOuCliente.DataSource = dao.buscaCargo();
+                    if (cbxBuscar.Text != "")
+                    {
+                        string campo = cbxBuscar.Text.ToString();
+                        string finalSQL = "";
+                        if (CaixaModel.valorPesquisa == "veiculo") // SE O FORM FOR PARA VEICULO
+                        {
+
+                            if (campo == "ID") campo = "tb_veiculo.id_veiculo";
+                            if (campo == "MODELO") campo = "tb_veiculo.modelo_veiculo";
+                            if (campo == "MARCA") campo = "tb_veiculo.marca_veiculo";
+                            if (campo == "COR") campo = "tb_veiculo.cor_veiculo";
+                            if (campo == "ANO") campo = "tb_veiculo.ano_veiculo";
+                            if (campo == "KM") campo = "tb_veiculo.km_veiculo";
+                            if (campo == "PLACA") campo = "tb_veiculo.placa_veiculo";
+                            if (campo == "OBS") campo = "tb_veiculo.obs_veiculo";
+                            if (campo == "NOME DO CLIENTE") campo = "tb_cliente.nome_cliente";
+                            finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                            FiltroModel.campoWhere = finalSQL;
+                            dg_listarVeiculoOuCliente.DataSource = Filtro.buscaVeiculo();
+                        }
+                        else // SE O FORM FOR PARA CLIENTE
+                        {
+                            if (campo == "ID") campo = "tb_cliente.id_cliente";
+                            if (campo == "NOME") campo = "tb_cliente.nome_cliente";
+                            if (campo == "SOBRENOME") campo = "tb_cliente.sobrenome_cliente";
+                            if (campo == "DATA DE NASCIMENTO") campo = "tb_cliente.data_nascimento_cliente";
+                            if (campo == "CPF") campo = "tb_cliente.cpf_cliente";
+                            if (campo == "CNPJ") campo = "tb_cliente.cnpj_cliente";
+                            finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                            FiltroModel.campoWhere = finalSQL;
+
+                            dg_listarVeiculoOuCliente.DataSource = Filtro.buscaCliente();
+                        }
+                    }
+
                 }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
+        }
+
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            conexao.Open();
+            if (CaixaModel.valorPesquisa == "veiculo")
+            {
+
+                cbxBuscar.Items.AddRange(new object[] { "ID", "MODELO", "MARCA", "COR", "ANO", "KM", "PLACA", "OBS" });
+                dg_listarVeiculoOuCliente.DataSource = Veiculo.ListarTodosVeiculos();
+            }
+            else
+            {
+                cbxBuscar.Items.AddRange(new object[] { "ID", "NOME", "SOBRENOME", "CPF", "CNPJ" });
+                dg_listarVeiculoOuCliente.DataSource = Cliente.ListarTodosClientes();
+            }
+            conexao.Close();
         }
     }
 }

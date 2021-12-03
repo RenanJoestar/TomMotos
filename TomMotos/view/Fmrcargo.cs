@@ -15,8 +15,8 @@ namespace TomMotos.view
 {
     public partial class Fmrcargo : Form
     {
-
-    
+        FiltroDAO Filtro = new FiltroDAO();
+        CargoDAO Cadastro = new CargoDAO();
         public Fmrcargo()
         {
             InitializeComponent();
@@ -52,7 +52,6 @@ namespace TomMotos.view
 
         private void Fmrcargo_Load(object sender, EventArgs e)
         {
-            CargoDAO Cadastro = new CargoDAO();
             dgCargo.DataSource = Cadastro.ListarTodosCargos();
             txt_salario.Text = "0,00";
         }
@@ -129,11 +128,17 @@ namespace TomMotos.view
             try {
                 if (cbxBuscar.Text != "")
                 {
-                    string campo = cbxBuscar.Text.ToString() + "_cargo";
-                    FiltroModel.filtro = @"select * from tb_cargo where " + campo.ToLower() + " like " + "'%" + txtFiltro.Text.ToString() + "%'";
-                    // MessageBox.Show("Test " + FiltroModel.filtro);
-                    FiltroDAO dao = new FiltroDAO();
-                    dgCargo.DataSource = dao.buscaCargo();
+                    string campo = cbxBuscar.Text.ToString();
+                    string finalSQL = "";
+
+                    if (campo == "ID DO CARGO") campo = "tb_cargo.id_cargo";
+                    if (campo == "NOME DO CARGO") campo = "tb_cargo.nome_cargo";
+                    if (campo == "SALARIO DO CARGO") campo = "tb_cargo.salario_cargo";
+                    finalSQL += campo.ToLower() + " like " + "'%" + txtFiltro.Text.ToString() + "%'";
+
+                    FiltroModel.campoWhere = finalSQL;
+
+                    dgCargo.DataSource = Filtro.buscaCargo();
                 }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
@@ -142,6 +147,11 @@ namespace TomMotos.view
         private void txt_salario_KeyPress(object sender, KeyPressEventArgs e)
         {
             validacaoTxtDAO.FormatarValores(sender,e);
+        }
+
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            dgCargo.DataSource = Cadastro.ListarTodosCargos();
         }
     }
 }

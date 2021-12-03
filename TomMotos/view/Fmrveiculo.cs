@@ -15,6 +15,8 @@ namespace TomMotos.view
 {
     public partial class Fmrveiculo : Form
     {
+        VeiculoDAO Veiculo = new VeiculoDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         public Fmrveiculo()
         {
             InitializeComponent();
@@ -99,13 +101,9 @@ namespace TomMotos.view
 
         private void Fmrveiculo_Load(object sender, EventArgs e)
         {
-            
-            VeiculoDAO Cadastro = new VeiculoDAO();                       
-            dg_veiculo.DataSource = Cadastro.ListarTodosVeiculos();
+            dg_veiculo.DataSource = Veiculo.ListarTodosVeiculos();
 
-            VeiculoDAO Cliente = new VeiculoDAO();
-            dgv_cliente.DataSource = Cliente.ListarTodosClientes();
-
+            dgv_cliente.DataSource = Veiculo.ListarTodosClientes();
         }
 
 
@@ -195,14 +193,23 @@ namespace TomMotos.view
             {
                 if (cbxBuscar.Text != "")
                 {
-                    string campo = cbxBuscar.Text.ToString() + "_veiculo";
-                    FiltroModel.filtro = @"select tb_veiculo.id_veiculo as 'ID VEICULO', marca_veiculo AS 'MARCA',
-                     modelo_veiculo AS 'MODELO', cor_veiculo AS 'COR', ano_veiculo AS 'ANO', km_veiculo AS 'KM RODADO',
-                     placa_veiculo AS 'PLACA', obs_veiculo AS 'OBSERVAÇÃO',fk_cliente_id as 'ID DO CLIENTE'
-                     from tb_veiculo where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-                    // MessageBox.Show("Test " + FiltroModel.filtro);
-                    FiltroDAO dao = new FiltroDAO();
-                    dg_veiculo.DataSource = dao.buscaCargo();
+                    string campo = cbxBuscar.Text.ToString();
+                    string finalSQL = "";
+
+                    if (campo == "ID") campo = "tb_veiculo.id_veiculo";
+                    if (campo == "MODELO") campo = "tb_veiculo.modelo_veiculo";
+                    if (campo == "MARCA") campo = "tb_veiculo.marca_veiculo";
+                    if (campo == "COR") campo = "tb_veiculo.cor_veiculo";
+                    if (campo == "ANO") campo = "tb_veiculo.ano_veiculo";
+                    if (campo == "KM") campo = "tb_veiculo.km_veiculo";
+                    if (campo == "PLACA") campo = "tb_veiculo.placa_veiculo";
+                    if (campo == "OBS") campo = "tb_veiculo.obs_veiculo";
+                    if (campo == "NOME DO CLIENTE") campo = "tb_cliente.nome_cliente";
+                    finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                    FiltroModel.campoWhere = finalSQL;
+
+                    dg_veiculo.DataSource = Filtro.buscaVeiculo();
                 }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
@@ -239,6 +246,11 @@ namespace TomMotos.view
             txt_obs.Text = dg_veiculo.CurrentRow.Cells[7].Value.ToString();
             txt_placa.Text = dg_veiculo.CurrentRow.Cells[6].Value.ToString();
             txt_cliente.Text = dg_veiculo.CurrentRow.Cells[8].Value.ToString();
+        }
+
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            dg_veiculo.DataSource = Veiculo.ListarTodosVeiculos();
         }
     }
 }

@@ -20,6 +20,7 @@ namespace TomMotos.view
         Fmrcaixa fmrCx = new Fmrcaixa();
         ProdutoUsadoDAO ProdutoUsadoDAO = new ProdutoUsadoDAO();
         ServicoDAO ServicoPrestadoDAO = new ServicoDAO();
+        FiltroDAO Filtro = new FiltroDAO();
 
         public FmrOrcamento()
         {
@@ -53,12 +54,11 @@ namespace TomMotos.view
             {
                 MessageBox.Show("Erro "+erro.Message);
             }
-
         }
 
         public void carregarVenda(int idVenda)
         {
-            carregarProdutoUsados(idVenda); 
+            carregarProdutoUsados(idVenda);
             carregarServicosFeitos(idVenda);
             carregarLblTotal(idVenda);
         }
@@ -80,19 +80,19 @@ namespace TomMotos.view
             {
                 int ITEM = 1;
                 ArrayList resultado = ServicoPrestadoDAO.listarPorVenda(idVenda);
-                if(resultado.Count > 0)
-                for (int i = -1; i < resultado.Count; ITEM++)
-                {
-                    if (ITEM == 1) i++;
-                    string DESCRICAO = resultado[i].ToString(); i++;
-                    string VALOR = resultado[i].ToString(); i++;
+                if (resultado.Count > 0)
+                    for (int i = -1; i < resultado.Count; ITEM++)
+                    {
+                        if (ITEM == 1) i++;
+                        string DESCRICAO = resultado[i].ToString(); i++;
+                        string VALOR = resultado[i].ToString(); i++;
 
-                    item[0] = ITEM.ToString();
-                    item[1] = DESCRICAO; 
-                    item[2] = string.Format("{0:#,##0.00}", double.Parse(VALOR));
+                        item[0] = ITEM.ToString();
+                        item[1] = DESCRICAO;
+                        item[2] = string.Format("{0:#,##0.00}", double.Parse(VALOR));
 
-                   fmrCx.dgServicos.Rows.Add(item);
-                }
+                        fmrCx.dgServicos.Rows.Add(item);
+                    }
             }
             catch (Exception erro) { MessageBox.Show("Test " + erro); }
         }
@@ -141,13 +141,15 @@ namespace TomMotos.view
                 if (campo == "ID DO ORÇAMENTO") campo = "tb_venda.id_venda";
                 if (campo == "NOME DO CLIENTE") campo = "tb_cliente.nome_cliente";
                 if (campo == "CPF DO CLIENTE") campo = "tb_cliente.cpf_cliente";
+                if (campo == "CNPJ DO CLIENTE") campo = "tb_cliente.cnpj_cliente";
                 if (campo != "") finalSQL += " AND " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
                 if (cxbData.Checked)
                 {
                     finalSQL = finalSQL + " AND tb_venda.data_venda BETWEEN ' " + dtp1.Value.ToString("yyyy/MM/dd") + " 00:00:00' AND ' " + dtp2.Value.ToString("yyyy/MM/dd") + " " + "23:59:59'";
                 }
+                FiltroModel.campoWhere = finalSQL;
 
-                dgOrcamento.DataSource = VendaDAO.listarVendaPor(finalSQL);
+                dgOrcamento.DataSource = Filtro.buscaVenda();
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }

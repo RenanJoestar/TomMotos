@@ -15,6 +15,7 @@ namespace TomMotos.view
     public partial class FrmlogFornecimento : Form
     {
         LogFornecimentoDAO LogFornecimentoDAO = new LogFornecimentoDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         public FrmlogFornecimento()
         {
             InitializeComponent();
@@ -50,8 +51,9 @@ namespace TomMotos.view
                 {
                     finalSQL = finalSQL + " AND tb_log_fornecimento.data_log_fornecimento BETWEEN ' " + dtp1.Value.ToString("yyyy/MM/dd") + " 00:00:00' AND ' " + dtp2.Value.ToString("yyyy/MM/dd") + " " + "23:59:59'";
                 }
+                FiltroModel.campoWhere = finalSQL;
 
-                dg_log_fornecimento.DataSource = LogFornecimentoDAO.listarLogFornecimentoPor(finalSQL);
+                dg_log_fornecimento.DataSource = Filtro.buscaLogFornecimento();
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }

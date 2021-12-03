@@ -25,6 +25,7 @@ namespace TomMotos.view
         string id_fornecedor;
         ProdutoDAO Cadastro = new ProdutoDAO();
         ProdutoDAO Produto = new ProdutoDAO();
+        FiltroDAO Filtro = new FiltroDAO();
 
         public Fmrproduto()
         {
@@ -158,8 +159,6 @@ namespace TomMotos.view
             }
             else MessageBox.Show("Escolha um id que deseja Alterar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-
         public Image Base64ToImage()
         {
         if(txt_id.Text != "" ) { 
@@ -228,30 +227,12 @@ namespace TomMotos.view
                     }
                 }
             }
-            
          }
-
         private void Fmrproduto_FormClosed(object sender, FormClosedEventArgs e)
         {
             Fmrsumario fmrsumario = new Fmrsumario();
             fmrsumario.Show();
             
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cbxBuscar.Text != "")
-                {
-                    string campo = cbxBuscar.Text.ToString() + "_produto";
-                    FiltroModel.filtro = @"select * from tb_produto where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-                    // MessageBox.Show("Test " + FiltroModel.filtro);
-                    FiltroDAO dao = new FiltroDAO();
-                    dg_produto.DataSource = dao.buscaCargo();
-                }
-            }
-            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
         }
         private void carregarfornecedor() //não é melhor usar a função ja pronta do fornecedorDAO?
         {
@@ -298,14 +279,11 @@ namespace TomMotos.view
                 btnAdd.Visible = false;
                 btnPesquisar.Enabled = true;
             }
-
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
   
         }
-
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
             ProdutoModel obj = new ProdutoModel();
@@ -357,5 +335,33 @@ namespace TomMotos.view
             else txt_valor_produto.Text = "0,00";
         }
 
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            dg_produto.DataSource = Produto.ListarTodosProdutos();
+        }
+
+        private void btnPesquisarProduto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbxBuscar.Text != "")
+                {
+                    string campo = cbxBuscar.Text.ToString();
+                    string finalSQL = "";
+
+                    if (campo == "ID") campo = "tb_produto.id_produto";
+                    if (campo == "DESCRICAO") campo = "tb_produto.descricao_produto";
+                    if (campo == "VALOR") campo = "tb_produto.valor_produto";
+                    if (campo == "QUANTIDADE") campo = "tb_produto.quantidade_produto";
+                    if (campo == "MARCA") campo = "tb_produto.marca_produto";
+                    finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                    FiltroModel.campoWhere = finalSQL;
+
+                    dg_produto.DataSource = Filtro.buscaProduto();
+                }
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+        }
     }
 }

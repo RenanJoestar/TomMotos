@@ -56,6 +56,7 @@ namespace TomMotos.view
             this.dg_cliente = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnMostrarTudo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
             this.panel1.SuspendLayout();
@@ -325,6 +326,7 @@ namespace TomMotos.view
             "ID",
             "NOME",
             "SOBRENOME",
+            "DATA DE NASCIMENTO",
             "CPF",
             "CNPJ"});
             this.cbxFiltrar.Location = new System.Drawing.Point(471, 124);
@@ -376,12 +378,24 @@ namespace TomMotos.view
             this.label7.TabIndex = 19;
             this.label7.Text = "CADASTRO DE CLIENTES";
             // 
+            // btnMostrarTudo
+            // 
+            this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMostrarTudo.Location = new System.Drawing.Point(1197, 117);
+            this.btnMostrarTudo.Name = "btnMostrarTudo";
+            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 33);
+            this.btnMostrarTudo.TabIndex = 41;
+            this.btnMostrarTudo.Text = "Mostrar tudo";
+            this.btnMostrarTudo.UseVisualStyleBackColor = true;
+            this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
+            // 
             // Fmrcliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1293, 634);
+            this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dg_cliente);
             this.Controls.Add(this.BtnFiltro);
@@ -435,5 +449,6 @@ namespace TomMotos.view
         private System.Windows.Forms.DataGridView dg_cliente;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnMostrarTudo;
     }
 }

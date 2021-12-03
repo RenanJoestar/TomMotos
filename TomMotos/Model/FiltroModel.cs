@@ -8,6 +8,6 @@ namespace TomMotos.Model
 {
     class FiltroModel
     {
-        public static string filtro { get; set; }
+        public static string campoWhere { get; set; }
     }
 }

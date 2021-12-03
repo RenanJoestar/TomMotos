@@ -12,7 +12,9 @@ namespace TomMotos.view
     {
 
         static string idUser, nome;
-        bool CPF = true, CNPJ = true;
+        bool CPF = true, CNPJ = true; 
+        FiltroDAO Filtro = new FiltroDAO();
+        ClienteDAO Cadastro = new ClienteDAO();
         MySqlConnection conexao = ConnectionFactory.getConnection();
         public Fmrcliente()
         {
@@ -22,9 +24,6 @@ namespace TomMotos.view
 
         private void fmrcliente_Load(object sender, EventArgs e)
         {
-            ClienteDAO Cadastro = new ClienteDAO();
-
-
             dg_cliente.DataSource = Cadastro.ListarTodosClientes();
         }
 
@@ -143,13 +142,21 @@ namespace TomMotos.view
             {
                 if (cbxFiltrar.Text != "")
                 {
-                    string campo = cbxFiltrar.Text.ToString() + "_cliente";
-                    FiltroModel.filtro = @"select * from tb_cliente where " + campo.ToLower() + " like " + "'%" + txtFiltrar.Text.ToString() + "%'";
-                    // MessageBox.Show("Test " + FiltroModel.filtro);
-                    FiltroDAO dao = new FiltroDAO();
-                    dg_cliente.DataSource = dao.buscaCargo();
-                }
+                    string campo = cbxFiltrar.Text.ToString();
+                    string finalSQL = "";
 
+                    if (campo == "ID") campo = "tb_cliente.id_cliente";
+                    if (campo == "NOME") campo = "tb_cliente.nome_cliente";
+                    if (campo == "SOBRENOME") campo = "tb_cliente.sobrenome_cliente";
+                    if (campo == "DATA DE NASCIMENTO") campo = "tb_cliente.data_nascimento_cliente";
+                    if (campo == "CPF") campo = "tb_cliente.cpf_cliente";
+                    if (campo == "CNPJ") campo = "tb_cliente.cnpj_cliente";
+                    finalSQL += campo.ToLower() + " like " + "'%" + txtFiltrar.Text.ToString() + "%'";
+
+                    FiltroModel.campoWhere = finalSQL;
+
+                    dg_cliente.DataSource = Filtro.buscaCliente();
+                }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
 
@@ -157,7 +164,6 @@ namespace TomMotos.view
 
           public void Cadastrar()
           {
-
             try
             {
                 ClienteModel obj = new ClienteModel();
@@ -184,11 +190,9 @@ namespace TomMotos.view
             {
                 MessageBox.Show("Erro: " + erro.Message);
             }
-           
         }
         public void Alterar()
         {
-
             try
             {
                 CPF = true; CNPJ = true;
@@ -240,6 +244,11 @@ namespace TomMotos.view
             txt_nascimento.Text = dg_cliente.CurrentRow.Cells[3].Value.ToString();
             txt_cpf.Text = dg_cliente.CurrentRow.Cells[4].Value.ToString();
             txt_cnpj.Text = dg_cliente.CurrentRow.Cells[5].Value.ToString();
+        }
+
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            dg_cliente.DataSource = Cadastro.ListarTodosClientes();
         }
 
         private void ValidarCPF()

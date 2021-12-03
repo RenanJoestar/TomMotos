@@ -48,34 +48,6 @@ namespace TomMotos.Classes
         }
         #endregion
 
-        #region LISTAR DEVEDORES POR FILTRO
-        public DataTable listarDevedoresPor(string finalSQL)
-        {
-
-            string select = @"select tb_venda.id_venda AS 'ID VENDA', tb_cliente.nome_cliente AS 'NOME CLIENTE', tb_cliente.sobrenome_cliente AS 'SOBRENOME CLIENTE', tb_cliente.cpf_cliente AS 'CPF CLIENTE',
-                            tb_cliente.cnpj_cliente AS 'CNPJ CLIENTE', tb_venda.total_venda AS 'TOTAL VENDA', 
-                            tb_venda.valor_pago AS 'VALOR PAGO', tb_venda.total_venda - tb_venda.valor_pago AS 'VALOR FALTANDO',
-                            tb_venda.data_venda AS 'DATA VENDA'
-                            from tb_cliente
-                            inner join tb_venda
-                            on tb_cliente.id_cliente = tb_venda.fk_cliente_id
-                            where tb_venda.total_venda - tb_venda.valor_pago > 0 " + finalSQL;
-
-            MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-
-            conexao.Open();
-            executacmdsql.ExecuteNonQuery();
-            conexao.Close();
-
-            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-            DataTable tabelaProduto = new DataTable();
-            da.Fill(tabelaProduto);
-
-            return tabelaProduto;
-        }
-        #endregion
-
         #region UPDATE VALOR PAGO
         public void updateValorPago(DevedorModel obj)
         {

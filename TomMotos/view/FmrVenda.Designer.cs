@@ -117,7 +117,9 @@
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID DO ORÇAMENTO",
-            "NOME DO CLIENTE"});
+            "NOME DO CLIENTE",
+            "CPF DO CLIENTE",
+            "CNPJ DO CLIENTE"});
             this.cbxBuscar.Location = new System.Drawing.Point(18, 44);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(151, 21);

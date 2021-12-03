@@ -29,7 +29,7 @@ namespace TomMotos.view
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,6 +60,7 @@ namespace TomMotos.view
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnMostrarTudo = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_veiculo)).BeginInit();
@@ -330,7 +331,8 @@ namespace TomMotos.view
             "ANO",
             "KM",
             "PLACA",
-            "OBS"});
+            "OBS",
+            "NOME DO CLIENTE"});
             this.cbxBuscar.Location = new System.Drawing.Point(516, 124);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(121, 21);
@@ -365,9 +367,9 @@ namespace TomMotos.view
             this.dg_veiculo.MultiSelect = false;
             this.dg_veiculo.Name = "dg_veiculo";
             this.dg_veiculo.ReadOnly = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dg_veiculo.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dg_veiculo.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dg_veiculo.Size = new System.Drawing.Size(791, 379);
             this.dg_veiculo.TabIndex = 42;
             this.dg_veiculo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_veiculo_CellClick_1);
@@ -435,12 +437,24 @@ namespace TomMotos.view
             this.label7.TabIndex = 19;
             this.label7.Text = "CADASTRO DE VEÍCULO";
             // 
+            // btnMostrarTudo
+            // 
+            this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMostrarTudo.Location = new System.Drawing.Point(1197, 94);
+            this.btnMostrarTudo.Name = "btnMostrarTudo";
+            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 20);
+            this.btnMostrarTudo.TabIndex = 48;
+            this.btnMostrarTudo.Text = "Mostrar tudo";
+            this.btnMostrarTudo.UseVisualStyleBackColor = true;
+            this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
+            // 
             // Fmrveiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1293, 634);
+            this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
@@ -499,5 +513,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnMostrarTudo;
     }
 }

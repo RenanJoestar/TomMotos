@@ -45,6 +45,7 @@ namespace TomMotos.view
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgTelefone = new System.Windows.Forms.DataGridView();
+            this.btnMostrarTudo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -153,6 +154,9 @@ namespace TomMotos.view
             // 
             this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBuscar.FormattingEnabled = true;
+            this.cbxBuscar.Items.AddRange(new object[] {
+            "ID",
+            "NÚMERO"});
             this.cbxBuscar.Location = new System.Drawing.Point(328, 120);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(82, 21);
@@ -209,12 +213,24 @@ namespace TomMotos.view
             this.dgTelefone.TabIndex = 32;
             this.dgTelefone.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTelefone_CellClick_1);
             // 
+            // btnMostrarTudo
+            // 
+            this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMostrarTudo.Location = new System.Drawing.Point(683, 101);
+            this.btnMostrarTudo.Name = "btnMostrarTudo";
+            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 20);
+            this.btnMostrarTudo.TabIndex = 45;
+            this.btnMostrarTudo.Text = "Mostrar tudo";
+            this.btnMostrarTudo.UseVisualStyleBackColor = true;
+            this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
+            // 
             // Fmrtelefone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(779, 482);
+            this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.dgTelefone);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBuscar);
@@ -257,5 +273,6 @@ namespace TomMotos.view
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgTelefone;
+        private System.Windows.Forms.Button btnMostrarTudo;
     }
 }

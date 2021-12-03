@@ -23,7 +23,12 @@ namespace TomMotos.Classes
         #region METODO LISTAR
         public DataTable ListarTodosFuncionario()
         {
-            string sql = @"select*from tb_funcionario";
+            string sql = @"select tb_funcionario.id_funcionario, tb_funcionario.nome_funcionario,
+            tb_funcionario.sobrenome_funcionario, tb_funcionario.cpf_funcionario, tb_funcionario.data_nascimento_funcionario,
+            tb_funcionario.data_contratacao_funcionario, tb_funcionario.sexo_funcionario, tb_cargo.nome_cargo
+            from tb_funcionario
+            inner join tb_cargo
+            on tb_cargo.id_cargo = tb_funcionario.fk_cargo_id";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 
@@ -38,27 +43,6 @@ namespace TomMotos.Classes
             conexao.Close();
 
             return tabelaFuncionario;
-        }
-        #endregion
-
-        #region METODO LISTAR CARGO
-        public DataTable ListarTodosCargos()
-        {
-            string sql = @"select * from tb_cargo";
-
-            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
-
-            conexao.Open();
-            executacmdsql.ExecuteNonQuery();
-
-            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-            DataTable tabelaCargo = new DataTable();
-            da.Fill(tabelaCargo);
-
-            conexao.Close();
-
-            return tabelaCargo;
         }
         #endregion
 

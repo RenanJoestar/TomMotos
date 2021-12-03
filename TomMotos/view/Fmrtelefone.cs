@@ -16,6 +16,8 @@ namespace TomMotos.view
 {
     public partial class Fmrtelefone : Form
     {
+        TelefoneDAO Cadastro = new TelefoneDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         public Fmrtelefone()
         {
             InitializeComponent();
@@ -37,11 +39,8 @@ namespace TomMotos.view
 
         private void Fmrtelefone_Load(object sender, EventArgs e)
         {
-
-            TelefoneDAO Cadastro = new TelefoneDAO();
             dgTelefone.DataSource = Cadastro.ListarTelefones();
             txt_id.Text = TelefoneModel.id;
-
         }
 
 
@@ -129,13 +128,18 @@ namespace TomMotos.view
         {
             try
             {
-                if(cbxBuscar.Text != "") 
+                if (cbxBuscar.Text != "")
                 {
-                string campo = cbxBuscar.Text.ToString() + "_telefone";
-                FiltroModel.filtro = @"select * from tb_telefone where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-                // MessageBox.Show("Test " + FiltroModel.filtro);
-                FiltroDAO dao = new FiltroDAO();
-                dgTelefone.DataSource = dao.buscaCargo();
+                    string campo = cbxBuscar.Text.ToString();
+                    string finalSQL = "";
+
+                    if (campo == "ID") campo = "tb_telefone.id_telefone";
+                    if (campo == "NÚMERO") campo = "tb_telefone.numero_telefone";
+                    finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                    FiltroModel.campoWhere = finalSQL;
+
+                    dgTelefone.DataSource = Filtro.buscaTelefone();
                 }
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
@@ -161,6 +165,11 @@ namespace TomMotos.view
         private void cbxBuscar_DragDrop(object sender, DragEventArgs e)
         {
 
+        }
+
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            dgTelefone.DataSource = Cadastro.ListarTelefones();
         }
     }
 }

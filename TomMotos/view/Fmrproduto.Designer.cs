@@ -55,7 +55,7 @@ namespace TomMotos.view
             this.txt_descricao_produto = new System.Windows.Forms.TextBox();
             this.ptb_perfil = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPesquisarProduto = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
@@ -64,6 +64,7 @@ namespace TomMotos.view
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnMostrarTudo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.np_quantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_perfil)).BeginInit();
@@ -375,16 +376,16 @@ namespace TomMotos.view
             this.label2.TabIndex = 7;
             this.label2.Text = "DESCRIÇÃO:";
             // 
-            // button2
+            // btnPesquisarProduto
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Location = new System.Drawing.Point(1150, 117);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(41, 33);
-            this.button2.TabIndex = 24;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnPesquisarProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesquisarProduto.BackgroundImage")));
+            this.btnPesquisarProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarProduto.Location = new System.Drawing.Point(1150, 117);
+            this.btnPesquisarProduto.Name = "btnPesquisarProduto";
+            this.btnPesquisarProduto.Size = new System.Drawing.Size(41, 33);
+            this.btnPesquisarProduto.TabIndex = 24;
+            this.btnPesquisarProduto.UseVisualStyleBackColor = true;
+            this.btnPesquisarProduto.Click += new System.EventHandler(this.btnPesquisarProduto_Click);
             // 
             // btnExcluir
             // 
@@ -452,10 +453,10 @@ namespace TomMotos.view
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID",
-            "NOME",
-            "SOBRENOME",
-            "CPF",
-            "CARGO"});
+            "DESCRICAO",
+            "VALOR",
+            "QUANTIDADE",
+            "MARCA"});
             this.cbxBuscar.Location = new System.Drawing.Point(471, 124);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(111, 21);
@@ -480,9 +481,20 @@ namespace TomMotos.view
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(408, 19);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(451, 44);
+            this.label10.Size = new System.Drawing.Size(450, 44);
             this.label10.TabIndex = 19;
             this.label10.Text = "CADASTRO DE PRODUTO";
+            // 
+            // btnMostrarTudo
+            // 
+            this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMostrarTudo.Location = new System.Drawing.Point(1173, 91);
+            this.btnMostrarTudo.Name = "btnMostrarTudo";
+            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 20);
+            this.btnMostrarTudo.TabIndex = 49;
+            this.btnMostrarTudo.Text = "Mostrar tudo";
+            this.btnMostrarTudo.UseVisualStyleBackColor = true;
+            this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
             // 
             // Fmrproduto
             // 
@@ -490,6 +502,7 @@ namespace TomMotos.view
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1293, 634);
+            this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.cbxBuscar);
@@ -497,7 +510,7 @@ namespace TomMotos.view
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnPesquisarProduto);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Fmrproduto";
@@ -533,7 +546,7 @@ namespace TomMotos.view
         private System.Windows.Forms.TextBox txt_descricao_produto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPesquisarProduto;
         private System.Windows.Forms.ComboBox cbxFornecedor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox cbxAdd;
@@ -552,5 +565,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblCaminho;
+        private System.Windows.Forms.Button btnMostrarTudo;
     }
 }

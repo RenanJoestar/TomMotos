@@ -920,7 +920,6 @@ VALUES ('2020/01/20', '5', '4', '3');
 /*INSERT TB_GRUPO_FUNCIONARIO*/
 INSERT INTO `bd_tommotos`.`tb_grupo_funcionarios` (`fk_venda_id`, `fk_funcionario_id`) VALUES ('3', '3');
 INSERT INTO `bd_tommotos`.`tb_grupo_funcionarios` (`fk_venda_id`, `fk_funcionario_id`) VALUES ('3', '4');
-INSERT INTO `bd_tommotos`.`tb_grupo_funcionarios` (`fk_venda_id`, `fk_funcionario_id`) VALUES (max(tb_venda.id_venda), '3');
 select*from tb_cargo;
 select*from tb_cliente;
 select*from tb_email;

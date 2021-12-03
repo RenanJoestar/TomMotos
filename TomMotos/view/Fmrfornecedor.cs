@@ -20,6 +20,8 @@ namespace TomMotos.view
         string idUser,nome;
         bool CNPJ;
         MySqlConnection conexao = ConnectionFactory.getConnection();
+        FornecedorDAO Cadastro = new FornecedorDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         public Fmrfornecedor()
         {
             InitializeComponent();
@@ -36,9 +38,6 @@ namespace TomMotos.view
                 else validarCNPJ();
                 if (CNPJ == true)
                 {
-
-                    FornecedorDAO Cadastro = new FornecedorDAO();
-
                     Cadastro.cadastrarFornecedor(obj);
 
                     dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
@@ -53,7 +52,6 @@ namespace TomMotos.view
 
         private void Fmrfornecedor_Load(object sender, EventArgs e)
         {
-            FornecedorDAO Cadastro = new FornecedorDAO();
             dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
         }
 
@@ -86,13 +84,6 @@ namespace TomMotos.view
             }
             else MessageBox.Show("Escolha um id que deseja Alterar", "Erro",  MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-
-        private void dg_fornecedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             if (txt_id.Text != "") { 
@@ -207,7 +198,7 @@ namespace TomMotos.view
                 if (cbxBuscar.Text != "")
                 {
                     string campo = cbxBuscar.Text.ToString() + "_fornecedor";
-                    FiltroModel.filtro = @"select * from tb_fornecedor where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+                    FiltroModel.campoWhere = @"select * from tb_fornecedor where " + campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
                     FiltroDAO dao = new FiltroDAO();
                     dg_fornecedor.DataSource = dao.buscaCargo();
                 }
@@ -233,6 +224,29 @@ namespace TomMotos.view
             txt_id.Text = dg_fornecedor.CurrentRow.Cells[0].Value.ToString();
             txt_nome.Text = dg_fornecedor.CurrentRow.Cells[1].Value.ToString();
             txt_cnpj.Text = dg_fornecedor.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void btnMostrarTudo_Click(object sender, EventArgs e)
+        {
+            dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            if (cbxBuscar.Text != "")
+            {
+                string campo = cbxBuscar.Text.ToString();
+                string finalSQL = "";
+
+                if (campo == "ID") campo = "tb_fornecedor.id_fornecedor";
+                if (campo == "NOME") campo = "tb_fornecedor.nome_fornecedor";
+                if (campo == "CNPJ") campo = "tb_fornecedor.cnpj_fornecedor";
+                finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                FiltroModel.campoWhere = finalSQL;
+
+                dg_fornecedor.DataSource = Filtro.buscaFornecedor();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

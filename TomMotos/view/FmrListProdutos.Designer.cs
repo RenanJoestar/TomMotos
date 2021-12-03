@@ -34,6 +34,7 @@ namespace TomMotos.view
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.btnMostrarTudo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgListProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +56,8 @@ namespace TomMotos.view
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID",
             "DESCRICAO",
+            "VALOR",
+            "QUANTIDADE",
             "MARCA"});
             this.cbxBuscar.Location = new System.Drawing.Point(12, 12);
             this.cbxBuscar.Name = "cbxBuscar";
@@ -79,11 +82,23 @@ namespace TomMotos.view
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // btnMostrarTudo
+            // 
+            this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMostrarTudo.Location = new System.Drawing.Point(552, 16);
+            this.btnMostrarTudo.Name = "btnMostrarTudo";
+            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 20);
+            this.btnMostrarTudo.TabIndex = 47;
+            this.btnMostrarTudo.Text = "Mostrar tudo";
+            this.btnMostrarTudo.UseVisualStyleBackColor = true;
+            this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
+            // 
             // FmrListProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.cbxBuscar);
@@ -103,5 +118,6 @@ namespace TomMotos.view
         private System.Windows.Forms.ComboBox cbxBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMostrarTudo;
     }
 }

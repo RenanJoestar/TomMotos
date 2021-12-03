@@ -34,6 +34,7 @@ namespace TomMotos.view
             this.button2 = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
+            this.btnMostrarTudo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_listarVeiculoOuCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,11 +77,23 @@ namespace TomMotos.view
             this.cbxBuscar.Size = new System.Drawing.Size(105, 21);
             this.cbxBuscar.TabIndex = 29;
             // 
+            // btnMostrarTudo
+            // 
+            this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMostrarTudo.Location = new System.Drawing.Point(556, 10);
+            this.btnMostrarTudo.Name = "btnMostrarTudo";
+            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 20);
+            this.btnMostrarTudo.TabIndex = 50;
+            this.btnMostrarTudo.Text = "Mostrar tudo";
+            this.btnMostrarTudo.UseVisualStyleBackColor = true;
+            this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
+            // 
             // FmrVeiculo_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.cbxBuscar);
@@ -101,5 +114,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.ComboBox cbxBuscar;
+        private System.Windows.Forms.Button btnMostrarTudo;
     }
 }

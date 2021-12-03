@@ -56,8 +56,6 @@ namespace TomMotos.Classes
         #region METODO LISTAR
         public DataTable ListarEndereco()
         {
-
-
             string sql = @"select * from tb_endereco where fk_usuario_id = @id";
 
             conexao.Open();
