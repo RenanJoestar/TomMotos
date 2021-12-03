@@ -239,7 +239,7 @@ namespace TomMotos.view
                     dgEndereco.DataSource = Filtro.buscaEndereco();
                 }
             }
-            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro); }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }
 
         private void cbxBuscar_SelectedIndexChanged(object sender, EventArgs e)

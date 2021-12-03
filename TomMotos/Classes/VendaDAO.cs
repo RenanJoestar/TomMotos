@@ -29,7 +29,7 @@ namespace TomMotos.Classes
             MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
 
             DataTable tabelaFuncionario = new DataTable();
-            tabelaFuncionario.Columns.Add("Estado", typeof(bool));
+            tabelaFuncionario.Columns.Add("Selecionar", typeof(bool));
             da.Fill(tabelaFuncionario);
 
             conexao.Close();

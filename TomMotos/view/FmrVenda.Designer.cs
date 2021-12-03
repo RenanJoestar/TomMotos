@@ -39,7 +39,12 @@
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblnomecliente = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenda)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgVenda
@@ -51,6 +56,7 @@
             this.dgVenda.ReadOnly = true;
             this.dgVenda.Size = new System.Drawing.Size(808, 250);
             this.dgVenda.TabIndex = 0;
+            this.dgVenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVenda_CellClick);
             // 
             // cxbData
             // 
@@ -146,11 +152,52 @@
             this.label8.TabIndex = 55;
             this.label8.Text = "Consulta de venda";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(101, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 23);
+            this.button1.TabIndex = 65;
+            this.button1.Text = "Exibir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(27, 49);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(68, 20);
+            this.textBox1.TabIndex = 66;
+            // 
+            // lblnomecliente
+            // 
+            this.lblnomecliente.AutoSize = true;
+            this.lblnomecliente.Font = new System.Drawing.Font("Bahnschrift", 10F);
+            this.lblnomecliente.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblnomecliente.Location = new System.Drawing.Point(15, 26);
+            this.lblnomecliente.Name = "lblnomecliente";
+            this.lblnomecliente.Size = new System.Drawing.Size(91, 17);
+            this.lblnomecliente.TabIndex = 67;
+            this.lblnomecliente.Text = "ID DA VENDA";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblnomecliente);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Location = new System.Drawing.Point(567, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(221, 100);
+            this.groupBox1.TabIndex = 68;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "GRUPO DE FUNCIONÁRIOS";
+            // 
             // FmrVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 428);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cxbData);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -166,6 +213,8 @@
             this.Text = "FmrVenda";
             this.Load += new System.EventHandler(this.FmrVendacs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVenda)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +233,9 @@
         private System.Windows.Forms.ComboBox cbxBuscar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label lblnomecliente;
+        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

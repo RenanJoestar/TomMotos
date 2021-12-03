@@ -176,6 +176,39 @@ namespace TomMotos.Classes
         }
         #endregion
 
+        #region BUSCA FUNCIONARIO FILTRADA
+        public DataTable buscaGrupoFuncionario()
+        {
+            string campoWhere = FiltroModel.campoWhere;
+
+            string select = @"select tb_funcionario.id_funcionario AS 'ID FUNCIONARIO', tb_funcionario.nome_funcionario AS 'NOME',
+            tb_funcionario.sobrenome_funcionario AS 'SOBRENOME', tb_cargo.nome_cargo AS 'CARGO'
+            from tb_grupo_funcionarios
+            inner join tb_funcionario
+            on tb_grupo_funcionarios.fk_funcionario_id = tb_funcionario.id_funcionario
+            inner join tb_cargo
+            on tb_cargo.id_cargo = tb_funcionario.fk_cargo_id 
+            inner join tb_venda 
+            on tb_grupo_funcionarios.fk_venda_id = tb_venda.id_venda
+            where " + campoWhere;
+
+            MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+
+            conexao.Open();
+
+            executacmdsql.ExecuteNonQuery();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+            DataTable Filtro = new DataTable();
+            da.Fill(Filtro);
+
+            conexao.Close();
+
+            return Filtro;
+        }
+        #endregion
+
         #region BUSCA PRODUTO FILTRADA
         public DataTable buscaProduto()
         {

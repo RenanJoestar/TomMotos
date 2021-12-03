@@ -237,6 +237,7 @@ namespace TomMotos.view
             this.btnExcluir.TabIndex = 38;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -250,6 +251,7 @@ namespace TomMotos.view
             this.btnAlterar.TabIndex = 37;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCadastrar
             // 
@@ -263,6 +265,7 @@ namespace TomMotos.view
             this.btnCadastrar.TabIndex = 36;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // panel1
             // 
@@ -282,7 +285,7 @@ namespace TomMotos.view
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(392, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(522, 44);
+            this.label4.Size = new System.Drawing.Size(523, 44);
             this.label4.TabIndex = 19;
             this.label4.Text = "CADASTRO DE FORNECEDOR";
             // 

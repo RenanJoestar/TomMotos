@@ -86,14 +86,13 @@
             this.ch_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_itemServ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgServicos = new System.Windows.Forms.DataGridView();
-            this.btnAdd_func = new System.Windows.Forms.Button();
             this.btn_BuscarCliente = new System.Windows.Forms.Button();
             this.btn_buscarVeiculo = new System.Windows.Forms.Button();
             this.dg_funcGet = new System.Windows.Forms.DataGridView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dg_func = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -648,16 +647,6 @@
             this.dgServicos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgServicos_KeyDown);
             this.dgServicos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgServicos_MouseDown);
             // 
-            // btnAdd_func
-            // 
-            this.btnAdd_func.Location = new System.Drawing.Point(387, 189);
-            this.btnAdd_func.Name = "btnAdd_func";
-            this.btnAdd_func.Size = new System.Drawing.Size(126, 29);
-            this.btnAdd_func.TabIndex = 53;
-            this.btnAdd_func.Text = "ADD FUNCIONARIO";
-            this.btnAdd_func.UseVisualStyleBackColor = true;
-            this.btnAdd_func.Click += new System.EventHandler(this.btnAdd_func_Click);
-            // 
             // btn_BuscarCliente
             // 
             this.btn_BuscarCliente.BackColor = System.Drawing.Color.Transparent;
@@ -700,18 +689,6 @@
             this.dg_funcGet.Size = new System.Drawing.Size(302, 150);
             this.dg_funcGet.TabIndex = 55;
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnAdd_func);
-            this.groupBox4.Controls.Add(this.dg_func);
-            this.groupBox4.Controls.Add(this.dg_funcGet);
-            this.groupBox4.Location = new System.Drawing.Point(812, 206);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(627, 246);
-            this.groupBox4.TabIndex = 54;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Funcionarios";
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "ID";
@@ -729,6 +706,17 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "CARGO";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dg_func);
+            this.groupBox4.Controls.Add(this.dg_funcGet);
+            this.groupBox4.Location = new System.Drawing.Point(812, 206);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(627, 210);
+            this.groupBox4.TabIndex = 54;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Funcionarios";
             // 
             // dg_func
             // 
@@ -858,7 +846,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_itemServ;
         public System.Windows.Forms.DataGridView dgServicos;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button btnAdd_func;
         public System.Windows.Forms.DataGridView dg_funcGet;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;

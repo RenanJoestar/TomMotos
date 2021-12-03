@@ -762,11 +762,6 @@ namespace TomMotos.view
             }
         }
 
-        private void btnAdd_func_Click(object sender, EventArgs e)
-        {
-            CadastraGrupoFunc();
-        }
-
         public void CadastraGrupoFunc() {
             //FmrAddFunc frmFun = new FmrAddFunc();
             //frmFun.Show(); 
@@ -790,7 +785,7 @@ namespace TomMotos.view
 
         private void dg_func_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dg_func.Columns["Estado"].Index)
+            if (e.ColumnIndex == dg_func.Columns["Selecionar"].Index)
             {
                 dg_func.EndEdit();
                 if (dg_func.Rows[e.RowIndex].Cells[0].Value.ToString() == "True")

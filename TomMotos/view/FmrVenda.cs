@@ -60,5 +60,19 @@ namespace TomMotos.view
             cbxBuscar.Text = "";
             cxbData.Checked = false;
         }
+
+        private void dgVenda_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox1.Text = dgVenda.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                FmrShowFuncionarios Showfunc = new FmrShowFuncionarios(this);
+                Showfunc.Show();
+            }
+        }
     }
 }
