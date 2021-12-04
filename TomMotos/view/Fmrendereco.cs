@@ -276,5 +276,11 @@ namespace TomMotos.view
         {
            
         }
+
+        private void voltar_Click(object sender, EventArgs e)
+        {
+            Close();
+
+        }
     }
 }

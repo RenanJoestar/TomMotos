@@ -52,11 +52,11 @@
             // dgVenda
             // 
             this.dgVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgVenda.Location = new System.Drawing.Point(-1, 278);
+            this.dgVenda.Location = new System.Drawing.Point(34, 278);
             this.dgVenda.MultiSelect = false;
             this.dgVenda.Name = "dgVenda";
             this.dgVenda.ReadOnly = true;
-            this.dgVenda.Size = new System.Drawing.Size(1048, 381);
+            this.dgVenda.Size = new System.Drawing.Size(1046, 370);
             this.dgVenda.TabIndex = 0;
             this.dgVenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVenda_CellClick);
             // 
@@ -64,7 +64,7 @@
             // 
             this.cxbData.AutoSize = true;
             this.cxbData.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cxbData.Location = new System.Drawing.Point(33, 173);
+            this.cxbData.Location = new System.Drawing.Point(145, 174);
             this.cxbData.Name = "cxbData";
             this.cxbData.Size = new System.Drawing.Size(122, 20);
             this.cxbData.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 226);
+            this.label2.Location = new System.Drawing.Point(142, 227);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 16);
             this.label2.TabIndex = 63;
@@ -85,7 +85,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 200);
+            this.label1.Location = new System.Drawing.Point(143, 201);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 16);
             this.label1.TabIndex = 62;
@@ -93,14 +93,14 @@
             // 
             // dtp2
             // 
-            this.dtp2.Location = new System.Drawing.Point(65, 225);
+            this.dtp2.Location = new System.Drawing.Point(177, 226);
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(231, 20);
             this.dtp2.TabIndex = 5;
             // 
             // dtp1
             // 
-            this.dtp1.Location = new System.Drawing.Point(65, 199);
+            this.dtp1.Location = new System.Drawing.Point(177, 200);
             this.dtp1.Name = "dtp1";
             this.dtp1.Size = new System.Drawing.Size(231, 20);
             this.dtp1.TabIndex = 4;
@@ -110,7 +110,7 @@
             this.btn_mostrar_tudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btn_mostrar_tudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_mostrar_tudo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_mostrar_tudo.Location = new System.Drawing.Point(433, 165);
+            this.btn_mostrar_tudo.Location = new System.Drawing.Point(545, 166);
             this.btn_mostrar_tudo.Name = "btn_mostrar_tudo";
             this.btn_mostrar_tudo.Size = new System.Drawing.Size(88, 39);
             this.btn_mostrar_tudo.TabIndex = 7;
@@ -120,7 +120,7 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(181, 130);
+            this.txtBuscar.Location = new System.Drawing.Point(293, 131);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(340, 20);
             this.txtBuscar.TabIndex = 2;
@@ -134,7 +134,7 @@
             "NOME DO CLIENTE",
             "CPF DO CLIENTE",
             "CNPJ DO CLIENTE"});
-            this.cbxBuscar.Location = new System.Drawing.Point(34, 130);
+            this.cbxBuscar.Location = new System.Drawing.Point(146, 131);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(141, 21);
             this.cbxBuscar.TabIndex = 1;
@@ -144,7 +144,7 @@
             this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPesquisar.Location = new System.Drawing.Point(330, 165);
+            this.btnPesquisar.Location = new System.Drawing.Point(442, 166);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(88, 39);
             this.btnPesquisar.TabIndex = 6;
@@ -157,7 +157,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(63, 79);
+            this.button1.Location = new System.Drawing.Point(61, 82);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 39);
             this.button1.TabIndex = 9;
@@ -188,7 +188,7 @@
             this.groupBox1.Controls.Add(this.lblnomecliente);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(715, 110);
+            this.groupBox1.Location = new System.Drawing.Point(811, 110);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(213, 135);
             this.groupBox1.TabIndex = 68;
@@ -199,9 +199,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Location = new System.Drawing.Point(12, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1046, 83);
+            this.panel1.Size = new System.Drawing.Size(1077, 83);
             this.panel1.TabIndex = 75;
             // 
             // label6
@@ -209,7 +209,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(311, 20);
+            this.label6.Location = new System.Drawing.Point(336, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(398, 44);
             this.label6.TabIndex = 0;
@@ -219,8 +219,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1043, 660);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1101, 660);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cxbData);

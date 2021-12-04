@@ -66,5 +66,15 @@ namespace TomMotos.view
         {
             dgListProdutos.DataSource = Produto.ListarTodosProdutos();
         }
+
+        private void X_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void X_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

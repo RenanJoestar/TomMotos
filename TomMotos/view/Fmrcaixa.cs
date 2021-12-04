@@ -488,6 +488,7 @@ namespace TomMotos.view
         {
             try
             {
+               
                 CaixaModel.valorPesquisa = "veiculo";
                 FmrVeiculo_Cliente fmrVC = new FmrVeiculo_Cliente(this, fmrveiculo);
                 fmrVC.Show();
@@ -501,6 +502,7 @@ namespace TomMotos.view
         {
             try
             {
+                label7.Text = "PESQUISA DE CLIENTE";
                 CaixaModel.valorPesquisa = "cliente";
                 FmrVeiculo_Cliente fmrVC = new FmrVeiculo_Cliente(this, fmrveiculo);
                 fmrVC.Show();
@@ -657,6 +659,7 @@ namespace TomMotos.view
                 string nomePDF = "venda" + caixaDAO.listarUltimaVenda() + ".pdf";
 
                 criarPDF(html, nomePDF);
+
             }
             catch (Exception erro)
             {
@@ -684,7 +687,7 @@ namespace TomMotos.view
 
         private void criarPDF(string html, string nomePDF)
         {
-            string caminhoPDF = "E:/" + nomePDF;
+            string caminhoPDF = "C:/" + nomePDF;
             var conteudoHTML = String.Format(html, DateTime.Now);
             var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
             htmlToPdf.GeneratePdf(conteudoHTML, null, caminhoPDF);

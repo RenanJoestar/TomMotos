@@ -201,5 +201,10 @@ namespace TomMotos.view
         {
             validacaoTxtDAO.FormatarValores(sender, e);
         }
+
+        private void botaofechar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

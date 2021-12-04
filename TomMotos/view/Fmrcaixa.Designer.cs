@@ -357,7 +357,7 @@
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox3.Controls.Add(this.ptb_imagem);
-            this.groupBox3.Location = new System.Drawing.Point(35, 120);
+            this.groupBox3.Location = new System.Drawing.Point(37, 117);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(216, 197);
             this.groupBox3.TabIndex = 18;
@@ -511,10 +511,10 @@
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Bahnschrift", 9F);
-            this.label13.Location = new System.Drawing.Point(65, 330);
+            this.label13.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.label13.Location = new System.Drawing.Point(55, 325);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 14);
+            this.label13.Size = new System.Drawing.Size(71, 19);
             this.label13.TabIndex = 34;
             this.label13.Text = "VEÍCULO";
             // 
@@ -522,10 +522,10 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Bahnschrift", 9F);
-            this.label14.Location = new System.Drawing.Point(65, 359);
+            this.label14.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.label14.Location = new System.Drawing.Point(54, 366);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 14);
+            this.label14.Size = new System.Drawing.Size(72, 19);
             this.label14.TabIndex = 35;
             this.label14.Text = "CLIENTE";
             // 
@@ -533,30 +533,30 @@
             // 
             this.lbl_id_veiculo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_id_veiculo.AutoSize = true;
-            this.lbl_id_veiculo.Font = new System.Drawing.Font("Bahnschrift", 9F);
-            this.lbl_id_veiculo.Location = new System.Drawing.Point(114, 330);
+            this.lbl_id_veiculo.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.lbl_id_veiculo.Location = new System.Drawing.Point(95, 325);
             this.lbl_id_veiculo.Name = "lbl_id_veiculo";
-            this.lbl_id_veiculo.Size = new System.Drawing.Size(0, 14);
+            this.lbl_id_veiculo.Size = new System.Drawing.Size(0, 19);
             this.lbl_id_veiculo.TabIndex = 36;
             // 
             // lbl_fk_cliente
             // 
             this.lbl_fk_cliente.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_fk_cliente.AutoSize = true;
-            this.lbl_fk_cliente.Font = new System.Drawing.Font("Bahnschrift", 9F);
+            this.lbl_fk_cliente.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.lbl_fk_cliente.Location = new System.Drawing.Point(117, 359);
             this.lbl_fk_cliente.Name = "lbl_fk_cliente";
-            this.lbl_fk_cliente.Size = new System.Drawing.Size(0, 14);
+            this.lbl_fk_cliente.Size = new System.Drawing.Size(0, 19);
             this.lbl_fk_cliente.TabIndex = 37;
             // 
             // lbl_BuscarVeiculo
             // 
             this.lbl_BuscarVeiculo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_BuscarVeiculo.AutoSize = true;
-            this.lbl_BuscarVeiculo.Font = new System.Drawing.Font("Bahnschrift", 9F);
-            this.lbl_BuscarVeiculo.Location = new System.Drawing.Point(117, 329);
+            this.lbl_BuscarVeiculo.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.lbl_BuscarVeiculo.Location = new System.Drawing.Point(123, 325);
             this.lbl_BuscarVeiculo.Name = "lbl_BuscarVeiculo";
-            this.lbl_BuscarVeiculo.Size = new System.Drawing.Size(24, 14);
+            this.lbl_BuscarVeiculo.Size = new System.Drawing.Size(32, 19);
             this.lbl_BuscarVeiculo.TabIndex = 40;
             this.lbl_BuscarVeiculo.Text = "(id)";
             // 
@@ -564,10 +564,10 @@
             // 
             this.lbl_buscarCliente.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_buscarCliente.AutoSize = true;
-            this.lbl_buscarCliente.Font = new System.Drawing.Font("Bahnschrift", 9F);
-            this.lbl_buscarCliente.Location = new System.Drawing.Point(117, 359);
+            this.lbl_buscarCliente.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.lbl_buscarCliente.Location = new System.Drawing.Point(123, 366);
             this.lbl_buscarCliente.Name = "lbl_buscarCliente";
-            this.lbl_buscarCliente.Size = new System.Drawing.Size(24, 14);
+            this.lbl_buscarCliente.Size = new System.Drawing.Size(32, 19);
             this.lbl_buscarCliente.TabIndex = 41;
             this.lbl_buscarCliente.Text = "(id)";
             // 
@@ -723,9 +723,9 @@
             this.btn_BuscarCliente.BackColor = System.Drawing.Color.Transparent;
             this.btn_BuscarCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_BuscarCliente.BackgroundImage")));
             this.btn_BuscarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_BuscarCliente.Location = new System.Drawing.Point(161, 354);
+            this.btn_BuscarCliente.Location = new System.Drawing.Point(161, 359);
             this.btn_BuscarCliente.Name = "btn_BuscarCliente";
-            this.btn_BuscarCliente.Size = new System.Drawing.Size(41, 24);
+            this.btn_BuscarCliente.Size = new System.Drawing.Size(41, 37);
             this.btn_BuscarCliente.TabIndex = 2;
             this.btn_BuscarCliente.UseVisualStyleBackColor = false;
             this.btn_BuscarCliente.Click += new System.EventHandler(this.btn_BuscarCliente_Click);
@@ -737,9 +737,9 @@
             this.btn_buscarVeiculo.BackColor = System.Drawing.Color.Transparent;
             this.btn_buscarVeiculo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_buscarVeiculo.BackgroundImage")));
             this.btn_buscarVeiculo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_buscarVeiculo.Location = new System.Drawing.Point(161, 324);
+            this.btn_buscarVeiculo.Location = new System.Drawing.Point(161, 316);
             this.btn_buscarVeiculo.Name = "btn_buscarVeiculo";
-            this.btn_buscarVeiculo.Size = new System.Drawing.Size(41, 24);
+            this.btn_buscarVeiculo.Size = new System.Drawing.Size(41, 40);
             this.btn_buscarVeiculo.TabIndex = 1;
             this.btn_buscarVeiculo.UseVisualStyleBackColor = false;
             this.btn_buscarVeiculo.Click += new System.EventHandler(this.btn_buscarVeiculo_Click);
@@ -875,6 +875,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1477, 744);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

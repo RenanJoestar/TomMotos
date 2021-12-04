@@ -47,7 +47,7 @@ namespace TomMotos.view
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(448, 114);
+            this.txtBuscar.Location = new System.Drawing.Point(475, 114);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(326, 20);
             this.txtBuscar.TabIndex = 2;
@@ -60,7 +60,7 @@ namespace TomMotos.view
             "ID DO LOG DE FORNECIMENTO",
             "NOME DO PRODUTO",
             "NOME DO FORNECEDOR"});
-            this.cbxBuscar.Location = new System.Drawing.Point(282, 113);
+            this.cbxBuscar.Location = new System.Drawing.Point(309, 113);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(151, 21);
             this.cbxBuscar.TabIndex = 1;
@@ -70,7 +70,7 @@ namespace TomMotos.view
             this.btPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btPesquisar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btPesquisar.Location = new System.Drawing.Point(592, 146);
+            this.btPesquisar.Location = new System.Drawing.Point(619, 146);
             this.btPesquisar.Name = "btPesquisar";
             this.btPesquisar.Size = new System.Drawing.Size(88, 39);
             this.btPesquisar.TabIndex = 6;
@@ -81,11 +81,11 @@ namespace TomMotos.view
             // dg_log_fornecimento
             // 
             this.dg_log_fornecimento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_log_fornecimento.Location = new System.Drawing.Point(-1, 278);
+            this.dg_log_fornecimento.Location = new System.Drawing.Point(34, 278);
             this.dg_log_fornecimento.MultiSelect = false;
             this.dg_log_fornecimento.Name = "dg_log_fornecimento";
             this.dg_log_fornecimento.ReadOnly = true;
-            this.dg_log_fornecimento.Size = new System.Drawing.Size(1048, 381);
+            this.dg_log_fornecimento.Size = new System.Drawing.Size(1055, 358);
             this.dg_log_fornecimento.TabIndex = 31;
             // 
             // btn_mostrar_tudo
@@ -93,7 +93,7 @@ namespace TomMotos.view
             this.btn_mostrar_tudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btn_mostrar_tudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_mostrar_tudo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_mostrar_tudo.Location = new System.Drawing.Point(686, 146);
+            this.btn_mostrar_tudo.Location = new System.Drawing.Point(713, 146);
             this.btn_mostrar_tudo.Name = "btn_mostrar_tudo";
             this.btn_mostrar_tudo.Size = new System.Drawing.Size(88, 39);
             this.btn_mostrar_tudo.TabIndex = 7;
@@ -103,14 +103,14 @@ namespace TomMotos.view
             // 
             // dtp1
             // 
-            this.dtp1.Location = new System.Drawing.Point(313, 179);
+            this.dtp1.Location = new System.Drawing.Point(340, 179);
             this.dtp1.Name = "dtp1";
             this.dtp1.Size = new System.Drawing.Size(228, 20);
             this.dtp1.TabIndex = 4;
             // 
             // dtp2
             // 
-            this.dtp2.Location = new System.Drawing.Point(313, 205);
+            this.dtp2.Location = new System.Drawing.Point(340, 205);
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(228, 20);
             this.dtp2.TabIndex = 5;
@@ -119,7 +119,7 @@ namespace TomMotos.view
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(279, 180);
+            this.label1.Location = new System.Drawing.Point(306, 180);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 16);
             this.label1.TabIndex = 41;
@@ -129,7 +129,7 @@ namespace TomMotos.view
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(279, 207);
+            this.label2.Location = new System.Drawing.Point(306, 207);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 16);
             this.label2.TabIndex = 42;
@@ -139,7 +139,7 @@ namespace TomMotos.view
             // 
             this.cxbData.AutoSize = true;
             this.cxbData.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cxbData.Location = new System.Drawing.Point(282, 156);
+            this.cxbData.Location = new System.Drawing.Point(309, 156);
             this.cxbData.Name = "cxbData";
             this.cxbData.Size = new System.Drawing.Size(174, 20);
             this.cxbData.TabIndex = 3;
@@ -150,9 +150,9 @@ namespace TomMotos.view
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(12, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1047, 83);
+            this.panel1.Size = new System.Drawing.Size(1077, 83);
             this.panel1.TabIndex = 74;
             // 
             // label6
@@ -160,7 +160,7 @@ namespace TomMotos.view
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(189, 20);
+            this.label6.Location = new System.Drawing.Point(229, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(642, 44);
             this.label6.TabIndex = 0;
@@ -170,8 +170,8 @@ namespace TomMotos.view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1043, 660);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1094, 660);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cxbData);
             this.Controls.Add(this.label2);

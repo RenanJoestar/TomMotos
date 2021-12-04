@@ -171,5 +171,10 @@ namespace TomMotos.view
         {
             dgTelefone.DataSource = Cadastro.ListarTelefones();
         }
+
+        private void voltar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

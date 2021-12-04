@@ -149,5 +149,10 @@ namespace TomMotos.view
         {
             dgEmail.DataSource = Cadastro.ListarEmails();
         }
+
+        private void voltar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

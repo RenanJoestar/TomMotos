@@ -235,9 +235,9 @@ namespace TomMotos
             this.BTN_CONSULTA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_CONSULTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.BTN_CONSULTA.ForeColor = System.Drawing.Color.White;
-            this.BTN_CONSULTA.Location = new System.Drawing.Point(3, 387);
+            this.BTN_CONSULTA.Location = new System.Drawing.Point(-2, 395);
             this.BTN_CONSULTA.Name = "BTN_CONSULTA";
-            this.BTN_CONSULTA.Size = new System.Drawing.Size(231, 56);
+            this.BTN_CONSULTA.Size = new System.Drawing.Size(234, 56);
             this.BTN_CONSULTA.TabIndex = 43;
             this.BTN_CONSULTA.Text = "CONSULTA";
             this.BTN_CONSULTA.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -254,7 +254,7 @@ namespace TomMotos
             this.BTN_GERENCIAMENTO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_GERENCIAMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.BTN_GERENCIAMENTO.ForeColor = System.Drawing.Color.White;
-            this.BTN_GERENCIAMENTO.Location = new System.Drawing.Point(-1, 290);
+            this.BTN_GERENCIAMENTO.Location = new System.Drawing.Point(-1, 301);
             this.BTN_GERENCIAMENTO.Name = "BTN_GERENCIAMENTO";
             this.BTN_GERENCIAMENTO.Size = new System.Drawing.Size(233, 56);
             this.BTN_GERENCIAMENTO.TabIndex = 41;
@@ -273,9 +273,9 @@ namespace TomMotos
             this.btnCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCaixa.ForeColor = System.Drawing.Color.White;
-            this.btnCaixa.Location = new System.Drawing.Point(-1, 498);
+            this.btnCaixa.Location = new System.Drawing.Point(-1, 485);
             this.btnCaixa.Name = "btnCaixa";
-            this.btnCaixa.Size = new System.Drawing.Size(235, 56);
+            this.btnCaixa.Size = new System.Drawing.Size(234, 56);
             this.btnCaixa.TabIndex = 39;
             this.btnCaixa.Text = "CAIXA";
             this.btnCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -420,6 +420,7 @@ namespace TomMotos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1584, 881);
             this.Controls.Add(this.btnlimpar);

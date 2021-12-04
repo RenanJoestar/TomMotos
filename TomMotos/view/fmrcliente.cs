@@ -16,6 +16,7 @@ namespace TomMotos.view
         FiltroDAO Filtro = new FiltroDAO();
         ClienteDAO Cadastro = new ClienteDAO();
         MySqlConnection conexao = ConnectionFactory.getConnection();
+
         public Fmrcliente()
         {
             InitializeComponent();
@@ -98,8 +99,10 @@ namespace TomMotos.view
 
         private void button6_Click(object sender, EventArgs e)
         {
+
             if (txt_id.Text != "")
             {
+                
                 try
                 {
                     nome = ("CADASTRO DE ENDEREÇO DO CLIENTE " + txt_nome.Text).ToUpper();

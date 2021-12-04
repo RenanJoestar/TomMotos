@@ -157,5 +157,10 @@ namespace TomMotos.view
             }
             conexao.Close();
         }
+
+        private void X_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

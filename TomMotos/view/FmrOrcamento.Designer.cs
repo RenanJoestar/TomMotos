@@ -47,11 +47,11 @@
             // dgOrcamento
             // 
             this.dgOrcamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgOrcamento.Location = new System.Drawing.Point(-1, 278);
+            this.dgOrcamento.Location = new System.Drawing.Point(34, 278);
             this.dgOrcamento.MultiSelect = false;
             this.dgOrcamento.Name = "dgOrcamento";
             this.dgOrcamento.ReadOnly = true;
-            this.dgOrcamento.Size = new System.Drawing.Size(1048, 381);
+            this.dgOrcamento.Size = new System.Drawing.Size(1055, 370);
             this.dgOrcamento.TabIndex = 0;
             this.dgOrcamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOrcamento_CellDoubleClick);
             // 
@@ -60,7 +60,7 @@
             this.btn_mostrar_tudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btn_mostrar_tudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_mostrar_tudo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_mostrar_tudo.Location = new System.Drawing.Point(686, 146);
+            this.btn_mostrar_tudo.Location = new System.Drawing.Point(718, 165);
             this.btn_mostrar_tudo.Name = "btn_mostrar_tudo";
             this.btn_mostrar_tudo.Size = new System.Drawing.Size(88, 39);
             this.btn_mostrar_tudo.TabIndex = 8;
@@ -70,7 +70,7 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(448, 114);
+            this.txtBuscar.Location = new System.Drawing.Point(480, 133);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(326, 20);
             this.txtBuscar.TabIndex = 2;
@@ -82,7 +82,7 @@
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID DO ORÇAMENTO",
             "NOME DO CLIENTE"});
-            this.cbxBuscar.Location = new System.Drawing.Point(282, 113);
+            this.cbxBuscar.Location = new System.Drawing.Point(314, 132);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(141, 21);
             this.cbxBuscar.TabIndex = 1;
@@ -92,7 +92,7 @@
             this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPesquisar.Location = new System.Drawing.Point(592, 146);
+            this.btnPesquisar.Location = new System.Drawing.Point(624, 165);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(88, 39);
             this.btnPesquisar.TabIndex = 7;
@@ -104,7 +104,7 @@
             // 
             this.cxbData.AutoSize = true;
             this.cxbData.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.cxbData.Location = new System.Drawing.Point(282, 156);
+            this.cxbData.Location = new System.Drawing.Point(314, 175);
             this.cxbData.Name = "cxbData";
             this.cxbData.Size = new System.Drawing.Size(154, 20);
             this.cxbData.TabIndex = 4;
@@ -115,7 +115,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.label2.Location = new System.Drawing.Point(279, 207);
+            this.label2.Location = new System.Drawing.Point(311, 226);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 16);
             this.label2.TabIndex = 53;
@@ -125,7 +125,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.label1.Location = new System.Drawing.Point(279, 183);
+            this.label1.Location = new System.Drawing.Point(311, 202);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 16);
             this.label1.TabIndex = 52;
@@ -133,14 +133,14 @@
             // 
             // dtp2
             // 
-            this.dtp2.Location = new System.Drawing.Point(313, 205);
+            this.dtp2.Location = new System.Drawing.Point(345, 224);
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(226, 20);
             this.dtp2.TabIndex = 6;
             // 
             // dtp1
             // 
-            this.dtp1.Location = new System.Drawing.Point(313, 179);
+            this.dtp1.Location = new System.Drawing.Point(345, 198);
             this.dtp1.Name = "dtp1";
             this.dtp1.Size = new System.Drawing.Size(226, 20);
             this.dtp1.TabIndex = 5;
@@ -149,9 +149,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Location = new System.Drawing.Point(12, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1156, 83);
+            this.panel1.Size = new System.Drawing.Size(1077, 83);
             this.panel1.TabIndex = 73;
             // 
             // label6
@@ -159,7 +159,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(265, 19);
+            this.label6.Location = new System.Drawing.Point(287, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(507, 44);
             this.label6.TabIndex = 0;
@@ -169,8 +169,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1043, 660);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1101, 660);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cxbData);
             this.Controls.Add(this.label2);
