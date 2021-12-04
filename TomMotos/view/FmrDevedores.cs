@@ -74,5 +74,6 @@ namespace TomMotos.view
             txtIdVenda.Text = "";
             txtValorPago.Text = "";
         }
+
     }
 }

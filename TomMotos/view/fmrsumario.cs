@@ -173,6 +173,7 @@ namespace TomMotos
         {
             Fmrcaixa fmrcx = new Fmrcaixa();
             fmrcx.Show();
+            
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)

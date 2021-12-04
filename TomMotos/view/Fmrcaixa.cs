@@ -815,6 +815,11 @@ namespace TomMotos.view
             }
         }
 
+        private void voltar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void cBoxOrcamento_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.F5)

@@ -36,11 +36,11 @@ namespace TomMotos
             this.BT_VEICULO = new System.Windows.Forms.Button();
             this.BT_FUNCIONARIO = new System.Windows.Forms.Button();
             this.BT_CLIENTE = new System.Windows.Forms.Button();
-            this.Panel = new System.Windows.Forms.Panel();
             this.panel_botoes_gerenciamento = new System.Windows.Forms.FlowLayoutPanel();
             this.X = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BTN_CONSULTA = new System.Windows.Forms.Button();
             this.BTN_GERENCIAMENTO = new System.Windows.Forms.Button();
             this.btnCaixa = new System.Windows.Forms.Button();
@@ -51,12 +51,12 @@ namespace TomMotos
             this.panel_botoes_consulta = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_gerenciamentoeconsulta = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.Panel = new System.Windows.Forms.Panel();
             this.btnlimpar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_botoes_gerenciamento.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel_botoes_consulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel_botoes_consulta.SuspendLayout();
             this.SuspendLayout();
             // 
             // BT_PRODUTO
@@ -156,20 +156,11 @@ namespace TomMotos
             this.BT_CLIENTE.UseVisualStyleBackColor = false;
             this.BT_CLIENTE.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Panel
-            // 
-            this.Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.Panel.AutoSize = true;
-            this.Panel.Location = new System.Drawing.Point(237, 221);
-            this.Panel.Margin = new System.Windows.Forms.Padding(0);
-            this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(1280, 634);
-            this.Panel.TabIndex = 0;
-            // 
             // panel_botoes_gerenciamento
             // 
             this.panel_botoes_gerenciamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel_botoes_gerenciamento.AutoSize = true;
+            this.panel_botoes_gerenciamento.BackColor = System.Drawing.Color.Transparent;
             this.panel_botoes_gerenciamento.Controls.Add(this.BT_CLIENTE);
             this.panel_botoes_gerenciamento.Controls.Add(this.BT_VEICULO);
             this.panel_botoes_gerenciamento.Controls.Add(this.BT_PRODUTO);
@@ -221,6 +212,18 @@ namespace TomMotos
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 5);
             this.panel1.TabIndex = 45;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(234, 167);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 44;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // BTN_CONSULTA
             // 
@@ -350,7 +353,7 @@ namespace TomMotos
             this.panel_botoes_consulta.Controls.Add(this.btnVendas);
             this.panel_botoes_consulta.Controls.Add(this.BT_LOG_FORNECIMENTO);
             this.panel_botoes_consulta.Controls.Add(this.BT_ORCAMENTO);
-            this.panel_botoes_consulta.Location = new System.Drawing.Point(389, 105);
+            this.panel_botoes_consulta.Location = new System.Drawing.Point(372, 105);
             this.panel_botoes_consulta.Name = "panel_botoes_consulta";
             this.panel_botoes_consulta.Size = new System.Drawing.Size(795, 55);
             this.panel_botoes_consulta.TabIndex = 39;
@@ -360,8 +363,9 @@ namespace TomMotos
             // 
             this.lbl_gerenciamentoeconsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbl_gerenciamentoeconsulta.AutoSize = true;
+            this.lbl_gerenciamentoeconsulta.BackColor = System.Drawing.Color.Transparent;
             this.lbl_gerenciamentoeconsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_gerenciamentoeconsulta.Location = new System.Drawing.Point(573, 9);
+            this.lbl_gerenciamentoeconsulta.Location = new System.Drawing.Point(579, 9);
             this.lbl_gerenciamentoeconsulta.Name = "lbl_gerenciamentoeconsulta";
             this.lbl_gerenciamentoeconsulta.Size = new System.Drawing.Size(611, 73);
             this.lbl_gerenciamentoeconsulta.TabIndex = 40;
@@ -383,6 +387,17 @@ namespace TomMotos
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
+            // Panel
+            // 
+            this.Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Panel.AutoSize = true;
+            this.Panel.BackColor = System.Drawing.Color.Transparent;
+            this.Panel.Location = new System.Drawing.Point(260, 235);
+            this.Panel.Margin = new System.Windows.Forms.Padding(0);
+            this.Panel.Name = "Panel";
+            this.Panel.Size = new System.Drawing.Size(1263, 634);
+            this.Panel.TabIndex = 0;
+            // 
             // btnlimpar
             // 
             this.btnlimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -401,22 +416,11 @@ namespace TomMotos
             this.btnlimpar.UseVisualStyleBackColor = false;
             this.btnlimpar.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(234, 167);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 44;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
-            // 
             // Fmrsumario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1584, 881);
             this.Controls.Add(this.btnlimpar);
             this.Controls.Add(this.button1);
@@ -426,6 +430,7 @@ namespace TomMotos
             this.Controls.Add(this.X);
             this.Controls.Add(this.panel_botoes_gerenciamento);
             this.Controls.Add(this.panel2);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -436,8 +441,8 @@ namespace TomMotos
             this.Load += new System.EventHandler(this.Fmrsumario_Load);
             this.panel_botoes_gerenciamento.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel_botoes_consulta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel_botoes_consulta.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,7 +455,6 @@ namespace TomMotos
         private System.Windows.Forms.Button BT_FORNECEDOR;
         private System.Windows.Forms.Button BT_FUNCIONARIO;
         private System.Windows.Forms.Button BT_PRODUTO;
-        private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.Button btnlimpar;
         private System.Windows.Forms.FlowLayoutPanel panel_botoes_gerenciamento;
         private System.Windows.Forms.Button X;
@@ -467,6 +471,7 @@ namespace TomMotos
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel Panel;
     }
 }
 

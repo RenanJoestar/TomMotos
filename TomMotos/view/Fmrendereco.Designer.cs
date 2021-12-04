@@ -339,7 +339,7 @@ namespace TomMotos.view
             // btnMostrarTudo
             // 
             this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMostrarTudo.Location = new System.Drawing.Point(956, 110);
+            this.btnMostrarTudo.Location = new System.Drawing.Point(1063, 139);
             this.btnMostrarTudo.Name = "btnMostrarTudo";
             this.btnMostrarTudo.Size = new System.Drawing.Size(84, 20);
             this.btnMostrarTudo.TabIndex = 43;
@@ -351,7 +351,7 @@ namespace TomMotos.view
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 481);
+            this.ClientSize = new System.Drawing.Size(1185, 481);
             this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBuscar);

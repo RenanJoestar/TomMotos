@@ -77,6 +77,7 @@ namespace TomMotos.view
             this.dg_funcionario.ReadOnly = true;
             this.dg_funcionario.Size = new System.Drawing.Size(894, 365);
             this.dg_funcionario.TabIndex = 24;
+            this.dg_funcionario.TabStop = false;
             this.dg_funcionario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_funcionario_CellClick);
             this.dg_funcionario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_funcionario_CellContentClick);
             // 
@@ -120,7 +121,7 @@ namespace TomMotos.view
             this.txt_nascimento.Mask = "00/00/0000";
             this.txt_nascimento.Name = "txt_nascimento";
             this.txt_nascimento.Size = new System.Drawing.Size(75, 21);
-            this.txt_nascimento.TabIndex = 38;
+            this.txt_nascimento.TabIndex = 4;
             this.txt_nascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_contratacao
@@ -130,7 +131,7 @@ namespace TomMotos.view
             this.txt_contratacao.Mask = "00/00/0000";
             this.txt_contratacao.Name = "txt_contratacao";
             this.txt_contratacao.Size = new System.Drawing.Size(75, 21);
-            this.txt_contratacao.TabIndex = 36;
+            this.txt_contratacao.TabIndex = 5;
             this.txt_contratacao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -175,7 +176,7 @@ namespace TomMotos.view
             this.cbxCargos.Location = new System.Drawing.Point(115, 221);
             this.cbxCargos.Name = "cbxCargos";
             this.cbxCargos.Size = new System.Drawing.Size(121, 23);
-            this.cbxCargos.TabIndex = 33;
+            this.cbxCargos.TabIndex = 7;
             // 
             // label10
             // 
@@ -196,7 +197,7 @@ namespace TomMotos.view
             this.txt_cpf.Mask = "000.000.000-00";
             this.txt_cpf.Name = "txt_cpf";
             this.txt_cpf.Size = new System.Drawing.Size(100, 21);
-            this.txt_cpf.TabIndex = 32;
+            this.txt_cpf.TabIndex = 3;
             // 
             // cbx_sexo
             // 
@@ -209,7 +210,7 @@ namespace TomMotos.view
             this.cbx_sexo.Location = new System.Drawing.Point(115, 192);
             this.cbx_sexo.Name = "cbx_sexo";
             this.cbx_sexo.Size = new System.Drawing.Size(46, 23);
-            this.cbx_sexo.TabIndex = 29;
+            this.cbx_sexo.TabIndex = 6;
             // 
             // label11
             // 
@@ -231,7 +232,7 @@ namespace TomMotos.view
             this.button9.Location = new System.Drawing.Point(216, 278);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(97, 40);
-            this.button9.TabIndex = 26;
+            this.button9.TabIndex = 10;
             this.button9.Text = "ENDEREÇO";
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
@@ -244,7 +245,7 @@ namespace TomMotos.view
             this.button8.Location = new System.Drawing.Point(113, 278);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(97, 40);
-            this.button8.TabIndex = 22;
+            this.button8.TabIndex = 9;
             this.button8.Text = "EMAIL";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
@@ -269,7 +270,7 @@ namespace TomMotos.view
             this.button7.Location = new System.Drawing.Point(8, 278);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(99, 40);
-            this.button7.TabIndex = 21;
+            this.button7.TabIndex = 8;
             this.button7.Text = "TELEFONE";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
@@ -316,7 +317,7 @@ namespace TomMotos.view
             this.txt_sobrenome.Location = new System.Drawing.Point(115, 85);
             this.txt_sobrenome.Name = "txt_sobrenome";
             this.txt_sobrenome.Size = new System.Drawing.Size(166, 21);
-            this.txt_sobrenome.TabIndex = 9;
+            this.txt_sobrenome.TabIndex = 2;
             // 
             // label16
             // 
@@ -375,7 +376,7 @@ namespace TomMotos.view
             this.btnCadastrar.Location = new System.Drawing.Point(462, 549);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(192, 45);
-            this.btnCadastrar.TabIndex = 26;
+            this.btnCadastrar.TabIndex = 15;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -389,7 +390,7 @@ namespace TomMotos.view
             this.btnAlterar.Location = new System.Drawing.Point(710, 549);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(192, 45);
-            this.btnAlterar.TabIndex = 27;
+            this.btnAlterar.TabIndex = 16;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
@@ -403,7 +404,7 @@ namespace TomMotos.view
             this.btnExcluir.Location = new System.Drawing.Point(962, 549);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(192, 45);
-            this.btnExcluir.TabIndex = 28;
+            this.btnExcluir.TabIndex = 17;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -424,7 +425,7 @@ namespace TomMotos.view
             this.cbxBuscar.Location = new System.Drawing.Point(471, 124);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(111, 21);
-            this.cbxBuscar.TabIndex = 29;
+            this.cbxBuscar.TabIndex = 11;
             this.cbxBuscar.SelectedIndexChanged += new System.EventHandler(this.cbxBuscar_SelectedIndexChanged);
             // 
             // txtBuscar
@@ -432,16 +433,16 @@ namespace TomMotos.view
             this.txtBuscar.Location = new System.Drawing.Point(600, 124);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(532, 20);
-            this.txtBuscar.TabIndex = 30;
+            this.txtBuscar.TabIndex = 12;
             // 
             // btnBuscar
             // 
             this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(1150, 117);
+            this.btnBuscar.Location = new System.Drawing.Point(1138, 117);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(41, 33);
-            this.btnBuscar.TabIndex = 31;
+            this.btnBuscar.TabIndex = 13;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -452,7 +453,7 @@ namespace TomMotos.view
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1295, 85);
+            this.panel1.Size = new System.Drawing.Size(1282, 85);
             this.panel1.TabIndex = 32;
             // 
             // label4
@@ -461,7 +462,7 @@ namespace TomMotos.view
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(400, 22);
+            this.label4.Location = new System.Drawing.Point(394, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(535, 44);
             this.label4.TabIndex = 19;
@@ -469,13 +470,16 @@ namespace TomMotos.view
             // 
             // btnMostrarTudo
             // 
+            this.btnMostrarTudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMostrarTudo.Location = new System.Drawing.Point(1172, 91);
+            this.btnMostrarTudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarTudo.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnMostrarTudo.Location = new System.Drawing.Point(1185, 115);
             this.btnMostrarTudo.Name = "btnMostrarTudo";
-            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 20);
-            this.btnMostrarTudo.TabIndex = 46;
-            this.btnMostrarTudo.Text = "Mostrar tudo";
-            this.btnMostrarTudo.UseVisualStyleBackColor = true;
+            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 37);
+            this.btnMostrarTudo.TabIndex = 14;
+            this.btnMostrarTudo.Text = "MOSTRAR TUDO";
+            this.btnMostrarTudo.UseVisualStyleBackColor = false;
             this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
             // 
             // Fmrfuncionario
