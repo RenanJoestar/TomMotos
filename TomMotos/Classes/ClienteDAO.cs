@@ -23,7 +23,7 @@ namespace TomMotos.Classes
         #region METODO LISTAR
         public DataTable ListarTodosClientes()
         {
-            string sql = @"select * from tb_cliente";
+            string sql = @"select id_cliente as 'ID',nome_cliente as 'NOME',sobrenome_cliente as 'SOBRENOME',data_nascimento_cliente as 'DATA DE NASCIMENTO',cpf_cliente as 'CPF',cnpj_cliente as 'CNPJ' from tb_cliente";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 

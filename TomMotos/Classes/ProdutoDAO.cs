@@ -22,7 +22,7 @@ namespace TomMotos.Classes
         #region METODO LISTAR PRODUTOS
         public DataTable ListarTodosProdutos()
         {
-            string sql = @"select * from tb_produto";
+            string sql = @"select id_produto as 'ID',descricao_produto as 'DESCRIÇÃO',quantidade_produto as 'QTD',valor_produto as 'VALOR',marca_produto as 'MARCA',quantidade_virtual_produto as 'QTD VIRTUAL',imagem_produto as 'IMAGEM' from tb_produto;";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 

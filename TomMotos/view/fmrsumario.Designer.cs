@@ -422,7 +422,7 @@ namespace TomMotos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1584, 881);
+            this.ClientSize = new System.Drawing.Size(1584, 749);
             this.Controls.Add(this.btnlimpar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_gerenciamentoeconsulta);

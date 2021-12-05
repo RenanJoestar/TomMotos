@@ -23,7 +23,7 @@ namespace TomMotos.Classes
         public DataTable ListarTodosCargos()
         {
 
-            string sql = @"select * from tb_cargo";
+            string sql = @"select id_cargo as 'ID',nome_cargo as 'CARGO',salario_cargo as 'SALARIO' from tb_cargo";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 

@@ -26,7 +26,7 @@ namespace TomMotos.Classes
 
             //tem que mudar o select para a storeProcedur, porém tem que criar o metodo cadastra telefone, email e endereco
 
-            string sql = @"select * from tb_fornecedor";
+            string sql = @"select id_fornecedor as 'ID',nome_fornecedor as 'NOME',cnpj_fornecedor as 'CNPJ' from tb_fornecedor";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 

@@ -23,12 +23,8 @@ namespace TomMotos.Classes
         #region METODO LISTAR
         public DataTable ListarTodosFuncionario()
         {
-            string sql = @"select tb_funcionario.id_funcionario, tb_funcionario.nome_funcionario,
-            tb_funcionario.sobrenome_funcionario, tb_funcionario.cpf_funcionario, tb_funcionario.data_nascimento_funcionario,
-            tb_funcionario.data_contratacao_funcionario, tb_funcionario.sexo_funcionario, tb_cargo.nome_cargo
-            from tb_funcionario
-            inner join tb_cargo
-            on tb_cargo.id_cargo = tb_funcionario.fk_cargo_id";
+            string sql = @"select id_funcionario as 'ID',nome_funcionario as 'NOME',sobrenome_funcionario as 'SOBRENOME',cpf_funcionario as 'CPF',data_nascimento_funcionario as 'DATA DE NASCIMENTO',data_contratacao_funcionario as 'DATA DE CONTRATAÇÃO',sexo_funcionario as 'SEXO',nome_cargo as 'CARGO' from tb_funcionario
+inner join tb_cargo on tb_funcionario.fk_cargo_id = tb_cargo.id_cargo";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 
