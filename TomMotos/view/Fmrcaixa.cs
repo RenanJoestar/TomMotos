@@ -171,7 +171,6 @@ namespace TomMotos.view
                 string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\">";
                 string htmlTableEnd = "</table><br>";
 
-
                 string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
                 string htmlHeaderRowEnd = "</tr>";
 
@@ -255,7 +254,6 @@ namespace TomMotos.view
                     messageB = messageB + htmlTrEnd;
 
                 }
-
                 string final = messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd;
 
                 return final;
@@ -291,7 +289,7 @@ namespace TomMotos.view
                 smtp.Send(message);
                 MessageBox.Show("Email enviado com sucesso", "Nota enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch { MessageBox.Show("Por favor, verifique o email\nEmail não enviado."); return; }
+            catch { MessageBox.Show("Por favor, verifique o email\nEmail não enviado."); }
                 
         }
 
@@ -654,10 +652,7 @@ namespace TomMotos.view
                 verificarFinalVenda();
             }
             if (e.KeyData == Keys.Delete) {
-                
                 Excluir_Produto();
-               
-
             }
         }
 
@@ -687,9 +682,7 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.Delete)
             {
-
                 Excluir_Servico();
-
             }
         }
 

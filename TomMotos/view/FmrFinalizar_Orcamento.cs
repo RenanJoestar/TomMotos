@@ -88,8 +88,8 @@ namespace TomMotos.view
                     {
                         CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
                         CaixaModel.eOrcamento = true;
-                        Fno.finalizarOrcamento();                        
                         Fno.SalvarPdf();
+                        Fno.finalizarOrcamento();                        
                         Fno.finalizarFormCaixa(true);
                         this.Close();
                     }
@@ -99,8 +99,8 @@ namespace TomMotos.view
                     CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
                     CaixaModel.eOrcamento = true;
                     Fno.EnviarEmail();
-                    Fno.finalizarOrcamento();
                     Fno.SalvarPdf();
+                    Fno.finalizarOrcamento();
                     Fno.finalizarFormCaixa(true);
                     this.Close();
                 }

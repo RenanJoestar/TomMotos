@@ -125,8 +125,8 @@ namespace TomMotos.view
                     else
                     {
                         CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
-                        fz.FinalizarVenda();                        
                         fz.SalvarPdf();
+                        fz.FinalizarVenda();                        
                         CaixaModel.vendaFinalizada = true;
                         this.Close();
                     }
@@ -135,9 +135,8 @@ namespace TomMotos.view
                 {
                     CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
                     fz.EnviarEmail();
-                    fz.FinalizarVenda();
                     fz.SalvarPdf();
-                    
+                    fz.FinalizarVenda();
                     CaixaModel.vendaFinalizada = true;
                     this.Close();
                 }
