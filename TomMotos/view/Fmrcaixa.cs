@@ -13,6 +13,7 @@ using System.Net;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.Data.Common;
+using Microsoft.Win32;
 
 namespace TomMotos.view
 {
@@ -268,22 +269,30 @@ namespace TomMotos.view
   
         public static void Email(string htmlString)
         {
-          
-                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = CaixaModel.emailCliente;
+            try { 
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\TomMotos");
+
+                string emailRementente = key.GetValue("nomeEmail").ToString();
+                string senhaRementente = key.GetValue("senhaEmail").ToString();
+
+                string emailDestinatario = CaixaModel.emailCliente;
+
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                message.From = new MailAddress(emailRementente); // EMAIL REMETENTE
-                message.To.Add(new MailAddress(emailDestinatario)); // EMAIL DESTINATARIO
-                message.Subject = "Test";
+                message.From = new MailAddress(emailRementente);
+                message.To.Add(new MailAddress(emailDestinatario));
+                message.Subject = "Test"; // ASSUNTO DO EMAIL
                 message.IsBodyHtml = true;
-                message.Body = htmlString;                
+                message.Body = htmlString;
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new NetworkCredential(emailRementente, senhaRementente);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp.Send(message);              
+                smtp.Send(message);
                 MessageBox.Show("Email enviado com sucesso", "Nota enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-              
+            }
+            catch { MessageBox.Show("Por favor, verifique o email\nEmail não enviado."); return; }
+                
         }
 
         private void dgServicos_MouseDown(object sender, MouseEventArgs e)
@@ -659,7 +668,6 @@ namespace TomMotos.view
                 string nomePDF = "venda" + caixaDAO.listarUltimaVenda() + ".pdf";
 
                 criarPDF(html, nomePDF);
-
             }
             catch (Exception erro)
             {
@@ -687,10 +695,17 @@ namespace TomMotos.view
 
         private void criarPDF(string html, string nomePDF)
         {
-            string caminhoPDF = "C:/" + nomePDF;
-            var conteudoHTML = String.Format(html, DateTime.Now);
-            var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
-            htmlToPdf.GeneratePdf(conteudoHTML, null, caminhoPDF);
+            try { 
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\TomMotos");
+                string caminhoPDF = key.GetValue("localPDF").ToString();
+                if (caminhoPDF == "") { MessageBox.Show("Verifique a pasta dos pdfs.\nPDF não foi salvo"); return; }
+
+                caminhoPDF = caminhoPDF + "\\" + nomePDF;
+                var conteudoHTML = String.Format(html, DateTime.Now);
+                var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
+                htmlToPdf.GeneratePdf(conteudoHTML, null, caminhoPDF);
+            }
+            catch { MessageBox.Show("Verifique a pasta dos pdfs.\nPDF não foi salvo"); }
         }
 
         private void btndesconto_KeyDown(object sender, KeyEventArgs e)

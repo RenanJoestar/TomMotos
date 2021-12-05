@@ -53,6 +53,7 @@ namespace TomMotos
             this.button1 = new System.Windows.Forms.Button();
             this.Panel = new System.Windows.Forms.Panel();
             this.btnlimpar = new System.Windows.Forms.Button();
+            this.btnConfig = new System.Windows.Forms.Button();
             this.panel_botoes_gerenciamento.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -416,6 +417,16 @@ namespace TomMotos
             this.btnlimpar.UseVisualStyleBackColor = false;
             this.btnlimpar.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // btnConfig
+            // 
+            this.btnConfig.Location = new System.Drawing.Point(239, 3);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(86, 59);
+            this.btnConfig.TabIndex = 42;
+            this.btnConfig.Text = "btnConfig";
+            this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            // 
             // Fmrsumario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,6 +434,7 @@ namespace TomMotos
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1584, 749);
+            this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnlimpar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_gerenciamentoeconsulta);
@@ -473,6 +485,7 @@ namespace TomMotos
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel Panel;
+        private System.Windows.Forms.Button btnConfig;
     }
 }
 

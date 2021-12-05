@@ -106,7 +106,7 @@ namespace TomMotos.view
             {
                 if (txtFaltaPagar.Text != "0,00")
                 {
-                    DialogResult dialogResult = MessageBox.Show("Verifique o valor Pago! \nCliente será cadstrado como devedor?", "Aviso",
+                    DialogResult dialogResult = MessageBox.Show("Verifique o valor Pago! \nCliente será cadastrado como devedor?", "Aviso",
                                                 MessageBoxButtons.YesNo,
                                                 MessageBoxIcon.Exclamation);
                     if (dialogResult == DialogResult.No) return;
