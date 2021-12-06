@@ -9,5 +9,6 @@ namespace TomMotos.Model
     class FiltroModel
     {
         public static string campoWhere { get; set; }
+        public static string ShowExib { get; set; }
     }
 }

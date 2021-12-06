@@ -66,13 +66,49 @@ namespace TomMotos.view
             textBox1.Text = dgVenda.CurrentRow.Cells[0].Value.ToString();
         }
 
+        private void Exibir() {
+
+            FmrShowVendas Showfunc = new FmrShowVendas(this);
+            if (textBox1.Text.Replace(" ", "") != "")
+            {
+                if (rb_Func.Checked == true)
+                {
+                    FiltroModel.campoWhere = @"select tb_funcionario.id_funcionario AS 'ID FUNCIONARIO', tb_funcionario.nome_funcionario AS 'NOME',
+                    tb_funcionario.sobrenome_funcionario AS 'SOBRENOME', tb_cargo.nome_cargo AS 'CARGO'
+                    from tb_grupo_funcionarios
+                    inner join tb_funcionario
+                    on tb_grupo_funcionarios.fk_funcionario_id = tb_funcionario.id_funcionario
+                    inner join tb_cargo
+                    on tb_cargo.id_cargo = tb_funcionario.fk_cargo_id 
+                    inner join tb_venda 
+                    on tb_grupo_funcionarios.fk_venda_id = tb_venda.id_venda
+                    where id_venda = " + textBox1.Text.ToString();
+                    Showfunc.Show();
+                }
+                if (rb_Pv.Checked == true)
+                {
+                    FiltroModel.campoWhere = @"select tb_produto.id_produto AS 'ID', tb_produto.descricao_produto AS 'DESCRIÇÃO',tb_produto.marca_produto AS 'MARCA',tb_produto.valor_produto AS 'VALOR(R$)',
+                    tb_produto_usado.quantidade_produto_usado AS 'QTD VENDIDA', tb_produto_usado.desconto_produto_usado AS 'DESCONTO(%)', tb_produto_usado.validade_da_garantia_produto AS 'VALIDADE GARANTIA' from tb_produto_usado
+                    inner join tb_produto
+                    on tb_produto_usado.fk_produto_id = tb_produto.id_produto            
+                    inner join tb_venda 
+                    on tb_produto_usado.fk_venda_id = tb_venda.id_venda
+                    where id_venda = " + textBox1.Text.ToString();
+                    Showfunc.Show();
+                }
+                if (rb_Sp.Checked == true)
+                {
+                    FiltroModel.campoWhere = @"select tb_servico_prestado.descricao_servico_prestado AS 'DESCRIÇÃO', tb_servico_prestado.valor_servico_prestado AS 'VALOR' from tb_servico_prestado
+                    where fk_venda_id = " + textBox1.Text.ToString();
+                    Showfunc.Show();
+                }
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
-            {
-                FmrShowFuncionarios Showfunc = new FmrShowFuncionarios(this);
-                Showfunc.Show();
-            }
+            Exibir();
         }
     }
 }
+

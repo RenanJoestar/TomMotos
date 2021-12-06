@@ -469,7 +469,7 @@ namespace TomMotos.view
                         else servicos += 1;
                         preco_servico = double.Parse(pmo);
                         pt = double.Parse(lblSubitotal.Text);
-                        SERVICO[1] = txtDescServ.Text.ToString();
+                        SERVICO[1] = txtDescServ.Text.ToString().ToUpper();
                         SERVICO[2] = pmo.ToString();
 
                         SERVICO[0] = servicos.ToString();
@@ -878,7 +878,6 @@ namespace TomMotos.view
         {
             double subitotal = double.Parse(lblSubitotal.Text);
             
-            MessageBox.Show("Test "+subitotal);
             if (dgServicos.SelectedCells.Count > 0)
             {
                 if (dgServicos.CurrentRow.Cells[2].Value != null)

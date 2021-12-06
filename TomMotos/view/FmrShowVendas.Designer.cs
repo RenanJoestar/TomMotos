@@ -1,7 +1,7 @@
 ﻿
 namespace TomMotos.view
 {
-    partial class FmrShowFuncionarios
+    partial class FmrShowVendas
     {
         /// <summary>
         /// Required designer variable.

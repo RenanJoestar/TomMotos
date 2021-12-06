@@ -44,6 +44,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.rb_Pv = new System.Windows.Forms.RadioButton();
+            this.rb_Sp = new System.Windows.Forms.RadioButton();
+            this.rb_Func = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenda)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -66,7 +69,7 @@
             this.cxbData.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cxbData.Location = new System.Drawing.Point(145, 174);
             this.cxbData.Name = "cxbData";
-            this.cxbData.Size = new System.Drawing.Size(122, 20);
+            this.cxbData.Size = new System.Drawing.Size(123, 20);
             this.cxbData.TabIndex = 3;
             this.cxbData.Text = "DATA DA VENDA";
             this.cxbData.UseVisualStyleBackColor = true;
@@ -77,7 +80,7 @@
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(142, 227);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 16);
+            this.label2.Size = new System.Drawing.Size(30, 16);
             this.label2.TabIndex = 63;
             this.label2.Text = "ATÉ";
             // 
@@ -87,7 +90,7 @@
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(143, 201);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 16);
+            this.label1.Size = new System.Drawing.Size(25, 16);
             this.label1.TabIndex = 62;
             this.label1.Text = "DE";
             // 
@@ -157,7 +160,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(61, 82);
+            this.button1.Location = new System.Drawing.Point(160, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 39);
             this.button1.TabIndex = 9;
@@ -167,7 +170,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 43);
+            this.textBox1.Location = new System.Drawing.Point(173, 43);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(68, 20);
             this.textBox1.TabIndex = 8;
@@ -177,23 +180,27 @@
             this.lblnomecliente.AutoSize = true;
             this.lblnomecliente.Font = new System.Drawing.Font("Bahnschrift", 11F);
             this.lblnomecliente.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblnomecliente.Location = new System.Drawing.Point(59, 21);
+            this.lblnomecliente.Location = new System.Drawing.Point(157, 16);
             this.lblnomecliente.Name = "lblnomecliente";
-            this.lblnomecliente.Size = new System.Drawing.Size(99, 18);
+            this.lblnomecliente.Size = new System.Drawing.Size(102, 18);
             this.lblnomecliente.TabIndex = 67;
-            this.lblnomecliente.Text = "ID DA VENDA";
+            this.lblnomecliente.Text = "ID DA VENDA:";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rb_Func);
+            this.groupBox1.Controls.Add(this.rb_Sp);
+            this.groupBox1.Controls.Add(this.rb_Pv);
             this.groupBox1.Controls.Add(this.lblnomecliente);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(811, 110);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox1.Location = new System.Drawing.Point(724, 89);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 135);
+            this.groupBox1.Size = new System.Drawing.Size(322, 131);
             this.groupBox1.TabIndex = 68;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "GRUPO DE FUNCIONÁRIOS";
+            this.groupBox1.Text = "CONTROLE DE EXIBIÇÃO";
             // 
             // panel1
             // 
@@ -211,9 +218,45 @@
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(336, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(398, 44);
+            this.label6.Size = new System.Drawing.Size(399, 44);
             this.label6.TabIndex = 0;
             this.label6.Text = "CONSULTA DE VENDA";
+            // 
+            // rb_Pv
+            // 
+            this.rb_Pv.AutoSize = true;
+            this.rb_Pv.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rb_Pv.Location = new System.Drawing.Point(6, 19);
+            this.rb_Pv.Name = "rb_Pv";
+            this.rb_Pv.Size = new System.Drawing.Size(145, 17);
+            this.rb_Pv.TabIndex = 68;
+            this.rb_Pv.TabStop = true;
+            this.rb_Pv.Text = "PRODUTOS VENDIDOS";
+            this.rb_Pv.UseVisualStyleBackColor = true;
+            // 
+            // rb_Sp
+            // 
+            this.rb_Sp.AutoSize = true;
+            this.rb_Sp.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rb_Sp.Location = new System.Drawing.Point(6, 42);
+            this.rb_Sp.Name = "rb_Sp";
+            this.rb_Sp.Size = new System.Drawing.Size(148, 17);
+            this.rb_Sp.TabIndex = 69;
+            this.rb_Sp.TabStop = true;
+            this.rb_Sp.Text = "SERVIÇOS PRESTADOS";
+            this.rb_Sp.UseVisualStyleBackColor = true;
+            // 
+            // rb_Func
+            // 
+            this.rb_Func.AutoSize = true;
+            this.rb_Func.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rb_Func.Location = new System.Drawing.Point(6, 65);
+            this.rb_Func.Name = "rb_Func";
+            this.rb_Func.Size = new System.Drawing.Size(106, 17);
+            this.rb_Func.TabIndex = 70;
+            this.rb_Func.TabStop = true;
+            this.rb_Func.Text = "FUNCIONÁRIOS";
+            this.rb_Func.UseVisualStyleBackColor = true;
             // 
             // FmrVenda
             // 
@@ -266,5 +309,8 @@
         public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton rb_Func;
+        private System.Windows.Forms.RadioButton rb_Sp;
+        private System.Windows.Forms.RadioButton rb_Pv;
     }
 }
