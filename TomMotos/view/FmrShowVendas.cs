@@ -22,19 +22,14 @@ namespace TomMotos.view
             func = fun;
         }
 
-        private void FmrShowFuncionarios_Load(object sender, EventArgs e)
+        private void FmrShowVendas_Load(object sender, EventArgs e)
         {
             try
             {
-
                 dataGridView1.DataSource = busca.Exibir();
             }
             catch (Exception erro)
             { MessageBox.Show(erro.Message); }
-            
-            /*string finalSQL = "id_venda = " + func.textBox1.Text.ToString();
-            FiltroModel.campoWhere = finalSQL;*/
-            
         }
     }
 }
