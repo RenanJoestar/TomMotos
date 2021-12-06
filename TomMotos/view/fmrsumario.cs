@@ -14,6 +14,7 @@ namespace TomMotos
 {
     public partial class Fmrsumario : Form
     {
+        Fmrcaixa fmrcx = new Fmrcaixa();
         public Fmrsumario()
         {
             InitializeComponent();
@@ -172,9 +173,12 @@ namespace TomMotos
 
         private void btnCaixa_Click(object sender, EventArgs e)
         {
-            Fmrcaixa fmrcx = new Fmrcaixa();
-            fmrcx.Show();
-            
+                  
+
+            if (fmrcx.Visible == true) try { fmrcx.WindowState = FormWindowState.Maximized; } catch { }
+            else try { fmrcx.Show(); } catch { fmrcx = new Fmrcaixa(); fmrcx.Show(); }
+
+
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)

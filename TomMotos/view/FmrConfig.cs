@@ -100,8 +100,20 @@ namespace TomMotos.view
             lblLocalPDF.ForeColor = Color.Red;
         }
 
+        private void fechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mostrarsenha_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSenha.PasswordChar = mostrarsenha.Checked ? '\0' : '*';
+        }
+
+
         private void FmrConfig_Load(object sender, EventArgs e)
         {
+            this.ShowInTaskbar = false;
             lblLocalImg.Text = "Nenhuma imagem configurada.";
             lblLocalImg.ForeColor = Color.Red;
             lblLocalPDF.Text = "Nenhum local configurado.";

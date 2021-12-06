@@ -41,148 +41,355 @@
             this.brnAplicar = new System.Windows.Forms.Button();
             this.btnLimparImg = new System.Windows.Forms.Button();
             this.btnAcharImg = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.mostrarsenha = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.fechar = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(50, 37);
+            this.txtEmail.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(114, 34);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.Size = new System.Drawing.Size(266, 23);
             this.txtEmail.TabIndex = 0;
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(50, 78);
+            this.txtSenha.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(114, 77);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(100, 20);
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(266, 23);
             this.txtSenha.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 40);
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(57, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Email:";
+            this.label1.Text = "EMAIL:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 81);
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(52, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Senha: ";
+            this.label2.Text = "SENHA:";
             // 
             // lblLocalImg
             // 
             this.lblLocalImg.AutoSize = true;
-            this.lblLocalImg.Location = new System.Drawing.Point(168, 85);
+            this.lblLocalImg.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocalImg.ForeColor = System.Drawing.Color.Black;
+            this.lblLocalImg.Location = new System.Drawing.Point(45, 70);
             this.lblLocalImg.Name = "lblLocalImg";
-            this.lblLocalImg.Size = new System.Drawing.Size(106, 13);
+            this.lblLocalImg.Size = new System.Drawing.Size(131, 16);
             this.lblLocalImg.TabIndex = 9;
-            this.lblLocalImg.Text = "Localização imagem:";
+            this.lblLocalImg.Text = "(Localização imagem)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 124);
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(84, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 15;
             this.label3.Text = "Local PDF: ";
             // 
             // lblLocalPDF
             // 
             this.lblLocalPDF.AutoSize = true;
-            this.lblLocalPDF.Location = new System.Drawing.Point(58, 150);
+            this.lblLocalPDF.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocalPDF.ForeColor = System.Drawing.Color.Black;
+            this.lblLocalPDF.Location = new System.Drawing.Point(45, 67);
             this.lblLocalPDF.Name = "lblLocalPDF";
-            this.lblLocalPDF.Size = new System.Drawing.Size(106, 13);
+            this.lblLocalPDF.Size = new System.Drawing.Size(109, 16);
             this.lblLocalPDF.TabIndex = 16;
-            this.lblLocalPDF.Text = "Localização imagem:";
+            this.lblLocalPDF.Text = "(Localização PDF)";
             // 
             // btnAcharPDF
             // 
-            this.btnAcharPDF.Location = new System.Drawing.Point(69, 119);
+            this.btnAcharPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btnAcharPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcharPDF.ForeColor = System.Drawing.Color.White;
+            this.btnAcharPDF.Location = new System.Drawing.Point(170, 31);
             this.btnAcharPDF.Name = "btnAcharPDF";
-            this.btnAcharPDF.Size = new System.Drawing.Size(75, 23);
-            this.btnAcharPDF.TabIndex = 17;
+            this.btnAcharPDF.Size = new System.Drawing.Size(75, 26);
+            this.btnAcharPDF.TabIndex = 5;
             this.btnAcharPDF.Text = "Pesquisar";
-            this.btnAcharPDF.UseVisualStyleBackColor = true;
+            this.btnAcharPDF.UseVisualStyleBackColor = false;
             this.btnAcharPDF.Click += new System.EventHandler(this.btnAcharPDF_Click);
             // 
             // btnLimparPDF
             // 
-            this.btnLimparPDF.Location = new System.Drawing.Point(150, 119);
+            this.btnLimparPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btnLimparPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimparPDF.ForeColor = System.Drawing.Color.White;
+            this.btnLimparPDF.Location = new System.Drawing.Point(251, 31);
             this.btnLimparPDF.Name = "btnLimparPDF";
-            this.btnLimparPDF.Size = new System.Drawing.Size(75, 23);
-            this.btnLimparPDF.TabIndex = 18;
+            this.btnLimparPDF.Size = new System.Drawing.Size(75, 26);
+            this.btnLimparPDF.TabIndex = 6;
             this.btnLimparPDF.Text = "Limpar";
-            this.btnLimparPDF.UseVisualStyleBackColor = true;
+            this.btnLimparPDF.UseVisualStyleBackColor = false;
             this.btnLimparPDF.Click += new System.EventHandler(this.btnLimparPDF_Click);
             // 
             // btbCancelar
             // 
-            this.btbCancelar.Location = new System.Drawing.Point(226, 184);
+            this.btbCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btbCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btbCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btbCancelar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btbCancelar.ForeColor = System.Drawing.Color.White;
+            this.btbCancelar.Location = new System.Drawing.Point(213, 516);
             this.btbCancelar.Name = "btbCancelar";
-            this.btbCancelar.Size = new System.Drawing.Size(108, 58);
-            this.btbCancelar.TabIndex = 22;
+            this.btbCancelar.Size = new System.Drawing.Size(108, 45);
+            this.btbCancelar.TabIndex = 8;
             this.btbCancelar.Text = "Cancelar";
-            this.btbCancelar.UseVisualStyleBackColor = true;
+            this.btbCancelar.UseVisualStyleBackColor = false;
             this.btbCancelar.Click += new System.EventHandler(this.btbCancelar_Click);
             // 
             // brnAplicar
             // 
-            this.brnAplicar.Location = new System.Drawing.Point(98, 184);
+            this.brnAplicar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.brnAplicar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.brnAplicar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.brnAplicar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brnAplicar.ForeColor = System.Drawing.Color.White;
+            this.brnAplicar.Location = new System.Drawing.Point(99, 516);
             this.brnAplicar.Name = "brnAplicar";
-            this.brnAplicar.Size = new System.Drawing.Size(108, 58);
-            this.brnAplicar.TabIndex = 21;
+            this.brnAplicar.Size = new System.Drawing.Size(108, 45);
+            this.brnAplicar.TabIndex = 7;
             this.brnAplicar.Text = "Aplicar";
-            this.brnAplicar.UseVisualStyleBackColor = true;
+            this.brnAplicar.UseVisualStyleBackColor = false;
             this.brnAplicar.Click += new System.EventHandler(this.brnAplicar_Click);
             // 
             // btnLimparImg
             // 
-            this.btnLimparImg.Location = new System.Drawing.Point(259, 54);
+            this.btnLimparImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btnLimparImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimparImg.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimparImg.ForeColor = System.Drawing.Color.White;
+            this.btnLimparImg.Location = new System.Drawing.Point(251, 32);
             this.btnLimparImg.Name = "btnLimparImg";
-            this.btnLimparImg.Size = new System.Drawing.Size(75, 23);
-            this.btnLimparImg.TabIndex = 20;
+            this.btnLimparImg.Size = new System.Drawing.Size(75, 26);
+            this.btnLimparImg.TabIndex = 4;
             this.btnLimparImg.Text = "Limpar";
-            this.btnLimparImg.UseVisualStyleBackColor = true;
+            this.btnLimparImg.UseVisualStyleBackColor = false;
             this.btnLimparImg.Click += new System.EventHandler(this.btnLimparImg_Click);
             // 
             // btnAcharImg
             // 
-            this.btnAcharImg.Location = new System.Drawing.Point(178, 54);
+            this.btnAcharImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btnAcharImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcharImg.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcharImg.ForeColor = System.Drawing.Color.White;
+            this.btnAcharImg.Location = new System.Drawing.Point(170, 32);
             this.btnAcharImg.Name = "btnAcharImg";
-            this.btnAcharImg.Size = new System.Drawing.Size(75, 23);
-            this.btnAcharImg.TabIndex = 19;
+            this.btnAcharImg.Size = new System.Drawing.Size(75, 26);
+            this.btnAcharImg.TabIndex = 3;
             this.btnAcharImg.Text = "Pesquisar";
-            this.btnAcharImg.UseVisualStyleBackColor = true;
+            this.btnAcharImg.UseVisualStyleBackColor = false;
             this.btnAcharImg.Click += new System.EventHandler(this.btnAcharImg_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(64, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 16);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Local imagem:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnLimparPDF);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblLocalPDF);
+            this.groupBox1.Controls.Add(this.btnAcharPDF);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.groupBox1.Location = new System.Drawing.Point(3, 378);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(427, 106);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "CONFIGURAÇÕES PDF";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnLimparImg);
+            this.groupBox2.Controls.Add(this.btnAcharImg);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.lblLocalImg);
+            this.groupBox2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.groupBox2.Location = new System.Drawing.Point(3, 248);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(427, 105);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "CONFIGURAÇÕES IMAGEM DE FUNDO";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.mostrarsenha);
+            this.groupBox3.Controls.Add(this.txtEmail);
+            this.groupBox3.Controls.Add(this.txtSenha);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.groupBox3.Location = new System.Drawing.Point(3, 104);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(427, 126);
+            this.groupBox3.TabIndex = 27;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "CONFIGURAÇÕES DO EMAIL";
+            // 
+            // mostrarsenha
+            // 
+            this.mostrarsenha.AutoSize = true;
+            this.mostrarsenha.Location = new System.Drawing.Point(269, 102);
+            this.mostrarsenha.Name = "mostrarsenha";
+            this.mostrarsenha.Size = new System.Drawing.Size(111, 20);
+            this.mostrarsenha.TabIndex = 2;
+            this.mostrarsenha.Text = "Mostrar senha";
+            this.mostrarsenha.UseVisualStyleBackColor = true;
+            this.mostrarsenha.CheckedChanged += new System.EventHandler(this.mostrarsenha_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(3, 574);
+            this.panel1.TabIndex = 28;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.panel4.Location = new System.Drawing.Point(0, 492);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(427, 3);
+            this.panel4.TabIndex = 31;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.panel2.Location = new System.Drawing.Point(422, -1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(3, 574);
+            this.panel2.TabIndex = 29;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.panel3.Location = new System.Drawing.Point(-1, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(427, 3);
+            this.panel3.TabIndex = 30;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.panel5.Location = new System.Drawing.Point(-1, 570);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(427, 3);
+            this.panel5.TabIndex = 31;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(91, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(239, 35);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "CONFIGURAÇÕES";
+            // 
+            // fechar
+            // 
+            this.fechar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.fechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.fechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fechar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechar.ForeColor = System.Drawing.Color.White;
+            this.fechar.Location = new System.Drawing.Point(373, 0);
+            this.fechar.Name = "fechar";
+            this.fechar.Size = new System.Drawing.Size(52, 47);
+            this.fechar.TabIndex = 9;
+            this.fechar.Text = "X";
+            this.fechar.UseVisualStyleBackColor = false;
+            this.fechar.Click += new System.EventHandler(this.fechar_Click);
             // 
             // FmrConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 254);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(425, 573);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btbCancelar);
             this.Controls.Add(this.brnAplicar);
-            this.Controls.Add(this.btnLimparImg);
-            this.Controls.Add(this.btnAcharImg);
-            this.Controls.Add(this.btnLimparPDF);
-            this.Controls.Add(this.btnAcharPDF);
-            this.Controls.Add(this.lblLocalPDF);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblLocalImg);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtSenha);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.fechar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FmrConfig";
-            this.Text = "FmrConfig";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "CONFIGURAÇÕES";
             this.Load += new System.EventHandler(this.FmrConfig_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,5 +410,17 @@
         private System.Windows.Forms.Button brnAplicar;
         private System.Windows.Forms.Button btnLimparImg;
         private System.Windows.Forms.Button btnAcharImg;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox mostrarsenha;
+        private System.Windows.Forms.Button fechar;
     }
 }

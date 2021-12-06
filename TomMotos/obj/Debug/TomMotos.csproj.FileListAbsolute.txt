@@ -482,3 +482,4 @@ C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.vie
 C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrVenda.resources
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrShowFuncionarios.resources
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrConfig.resources
+C:\Users\José Henrique\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrConfig.resources

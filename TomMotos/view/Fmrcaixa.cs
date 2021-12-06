@@ -180,6 +180,7 @@ namespace TomMotos.view
                 string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
                 string htmlTdEnd = "</td>";
                 string messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE VENDA TOMMOTOS: </p><br><br>", messageB = "", total = "";
+
                 if (CaixaModel.eOrcamento == true)
                 {
                     htmlTdStart = "<td style=\" border-color:#d2a06f; border-style:solid; border-width:thin; padding: 5px;\">";
@@ -828,7 +829,8 @@ namespace TomMotos.view
 
         private void voltar_Click(object sender, EventArgs e)
         {
-            Close();
+            this.WindowState = FormWindowState.Minimized;
+
         }
 
         private void cBoxOrcamento_KeyDown(object sender, KeyEventArgs e)
