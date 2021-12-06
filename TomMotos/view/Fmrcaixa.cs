@@ -13,6 +13,7 @@ using System.Net;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.Data.Common;
+using Microsoft.Win32;
 
 namespace TomMotos.view
 {
@@ -22,10 +23,12 @@ namespace TomMotos.view
         string[] SERVICO = new string[4];
         string[] item = new string[7];
         List<string> nota = new List<string>();
-        string id_produto, nome_produto, id_venda;
+        string id_produto, nome_produto;
         int itens = 0, servicos = 0;
         Fmrveiculo fmrveiculo;
+        FmrLoading fmrLoading = new FmrLoading();
         VendaDAO caixaDAO = new VendaDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         CaixaModel obj = new CaixaModel();
         VendaDAO Cadastro = new VendaDAO();
         ProdutoUsadoDAO produtoDAO = new ProdutoUsadoDAO();
@@ -45,7 +48,9 @@ namespace TomMotos.view
             dgProdutos.Columns[2].Width = 200;
             dgServicos.Columns[1].Width = 243;
             cBoxOrcamento.Checked = false;
-            dg_func.DataSource = Cadastro.ListarTodosFuncionario();
+
+            FiltroModel.campoWhere = "true";
+            dg_func.DataSource = Filtro.buscaFuncionario(true);
         }
         private void FmrFinalizar_venda_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -66,9 +71,14 @@ namespace TomMotos.view
                 CaixaModel.fk_cliente_id = null;
                 CaixaModel.fk_veiculo_id = null;
                 CaixaModel.emailCliente = null;
+                FiltroModel.campoWhere = "true";
+
                 this.Controls.Clear();
                 this.InitializeComponent();
                 this.Fmrcaixa_Load(null, null);
+
+                this.WindowState = FormWindowState.Minimized; // CENTRALIZA 
+                this.WindowState = FormWindowState.Maximized; // O FORM
             }
         }
 
@@ -76,6 +86,40 @@ namespace TomMotos.view
         {
             verificarFinalVenda();
         }
+        public void carregarLoading()
+        {
+            try { fmrLoading.Show(); } catch
+            {
+                fmrLoading = new FmrLoading();
+                fmrLoading.Show();
+            }
+            esperar(700);
+        }
+        public void fecharLoading()
+        {
+            fmrLoading.Close();
+        }
+        public void esperar(int milissegundos)
+        {
+            var timer1 = new System.Windows.Forms.Timer();
+            if (milissegundos == 0 || milissegundos < 0) return;
+
+            timer1.Interval = milissegundos;
+            timer1.Enabled = true;
+            timer1.Start();
+
+            timer1.Tick += (s, e) =>
+            {
+                timer1.Enabled = false;
+                timer1.Stop();
+            };
+
+            while (timer1.Enabled)
+            {
+                Application.DoEvents();
+            }
+        }
+
         public void inserirVariaveisObjCaixa()
         {
             objCaixa.validade_orcamento_servico = DateTime.Now;
@@ -133,13 +177,18 @@ namespace TomMotos.view
             }
         }
         public void verificarFinalVenda(){
-            if (cBoxOrcamento.Checked)
+
+            if (lblSubitotal.Text != "0")
             {
-                FmrFinalizar_Orcamento FmO = new FmrFinalizar_Orcamento(this);
-                FmO.Show();
+                if (cBoxOrcamento.Checked)
+                {
+                    FmrFinalizar_Orcamento FmO = new FmrFinalizar_Orcamento(this);
+                    FmO.Show();
+                }
+                else if (dg_funcGet.Rows.Count == 0) MessageBox.Show("Por favor, selecione ao menos um funcionário.");
+
+                else IrParaFinalizar();
             }
-            
-            else IrParaFinalizar();
         }
         public void FinalizarVenda()
         {
@@ -167,39 +216,30 @@ namespace TomMotos.view
             
             try
             {
-                string htmlDivStart = "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>" +"<div style=\"max-width: 100%; height: 150px;; background-color: #25293E;\">";
-                string htmlImg =    "<br>"+
-                                    "<img src=\"https://media.discordapp.net/attachments/468531379798278151/917505687045693510/LOGO_BRANCO.png?width=267&height=175\"style =\"width: 180px; margin-left:auto; margin-right:auto; display:block; \">";
-                string htmlDivEnd = "</div>";
-                string htmlFooter = "<footer  style=\"width:100%; height: 150px; ; background-color: #25293E;bottom: 0;text-align: center;\">" +
-                                    "<br>" +
-                                    "<a href=\"#\"  style =\"width:180px;margin-left:auto;margin-right:auto;display:block;padding:8px;text-decoration:none;background-color:transparent; color:white; border:1px solid white; \">SAIBA MAIS</a>";
-                string htmlFooterEnd = "</footer>";
-                
-                string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center; margin-left:auto; margin-right:auto; display:block;width:700px;\">";
+                string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\">";
                 string htmlTableEnd = "</table><br>";
 
-                string htmlHeaderRowStart = "<tr style=\"background-color:#25293e; color:#ffffff;\">";
+                string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
                 string htmlHeaderRowEnd = "</tr>";
 
                 string htmlTrStart = "<tr style=\"color:#555555;\">";
                 string htmlTrEnd = "</tr>";
 
-                string htmlTdStart = "<td style=\"border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
+                string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
                 string htmlTdEnd = "</td>";
                 string messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE VENDA TOMMOTOS: </p><br><br>", messageB = "", total = "";
+
                 if (CaixaModel.eOrcamento == true)
-                {   
-                    htmlTdStart = "<td style=\"border-color:black; border-style:solid; border-width:thin; padding: 5px;\">";
+                {
+                    htmlTdStart = "<td style=\" border-color:#d2a06f; border-style:solid; border-width:thin; padding: 5px;\">";
                     messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE ORÇAMENTO TOMMOTOS: </p><br><br>";
-                    htmlHeaderRowStart = "<tr style=\"background-color:#25293e; color:#ffffff;\">";
+                    htmlHeaderRowStart = "<tr style=\"background-color:#d2a06f; color:#ffffff;\">";
                 }
                 if (grid.RowCount == 0 || grid2.RowCount == 0) return messageBody;
                
                
                 if (dgProdutos.Rows.Count > 1)
                 {
-
                     messageBody += htmlTableStart;
                     messageBody += htmlHeaderRowStart;
                     messageBody += htmlTdStart + "ITEM" + htmlTdEnd;
@@ -210,22 +250,16 @@ namespace TomMotos.view
                     messageBody += htmlTdStart + "DESCONTO.(%)" + htmlTdEnd;
                     messageBody += htmlTdStart + "VL.ITEM.(R$)" + htmlTdEnd;
                     messageBody += htmlHeaderRowEnd;
-
                 }
 
                 if (dgServicos.Rows.Count > 1 )
                 {
-                    messageBody += htmlDivStart;
-                    messageBody += htmlImg;
                     messageB += htmlTableStart;
                     messageB += htmlHeaderRowStart;
                     messageB += htmlTdStart + "    " + htmlTdEnd;
                     messageB += htmlTdStart + "DESCRIÇÃO SERVIÇO" + htmlTdEnd;
                     messageB += htmlTdStart + "VALOR(R$)" + htmlTdEnd;
                     messageB += htmlHeaderRowEnd;
-                    messageBody += htmlDivEnd;
-
-                    
                 }
                 total += htmlTableStart;
                 total += htmlHeaderRowStart;
@@ -269,8 +303,8 @@ namespace TomMotos.view
                     messageB = messageB + htmlTrEnd;
 
                 }
+                string final = messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd;
 
-                string final = messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd+ htmlFooter + htmlFooterEnd;
                 return final;
             }
 
@@ -282,22 +316,30 @@ namespace TomMotos.view
   
         public static void Email(string htmlString)
         {
-          
-                string emailRementente = "tommotos2020@gmail.com", senhaRementente = "972494264", emailDestinatario = CaixaModel.emailCliente;
+            try { 
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\TomMotos");
+
+                string emailRementente = key.GetValue("nomeEmail").ToString();
+                string senhaRementente = key.GetValue("senhaEmail").ToString();
+
+                string emailDestinatario = CaixaModel.emailCliente;
+
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                message.From = new MailAddress(emailRementente); // EMAIL REMETENTE
-                message.To.Add(new MailAddress(emailDestinatario)); // EMAIL DESTINATARIO
-                message.Subject = "Test";
+                message.From = new MailAddress(emailRementente);
+                message.To.Add(new MailAddress(emailDestinatario));
+                message.Subject = "Test"; // ASSUNTO DO EMAIL
                 message.IsBodyHtml = true;
-                message.Body = htmlString;                
+                message.Body = htmlString;
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new NetworkCredential(emailRementente, senhaRementente);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp.Send(message);              
+                smtp.Send(message);
                 MessageBox.Show("Email enviado com sucesso", "Nota enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-              
+            }
+            catch { MessageBox.Show("Por favor, verifique o email\nEmail não enviado."); }
+                
         }
 
         private void dgServicos_MouseDown(object sender, MouseEventArgs e)
@@ -475,7 +517,7 @@ namespace TomMotos.view
                         else servicos += 1;
                         preco_servico = double.Parse(pmo);
                         pt = double.Parse(lblSubitotal.Text);
-                        SERVICO[1] = txtDescServ.Text.ToString();
+                        SERVICO[1] = txtDescServ.Text.ToString().ToUpper();
                         SERVICO[2] = pmo.ToString();
 
                         SERVICO[0] = servicos.ToString();
@@ -537,12 +579,9 @@ namespace TomMotos.view
             IrParaFinalizar();
         }
         public void IrParaFinalizar() {
-            if (lblSubitotal.Text != "0")
-            {
-                FmrFinalizar_venda destino = new FmrFinalizar_venda(this, this);
-                destino.FormClosed += new FormClosedEventHandler(FmrFinalizar_venda_FormClosed);
-                destino.Show();
-            }
+            FmrFinalizar_venda destino = new FmrFinalizar_venda(this, this);
+            destino.FormClosed += new FormClosedEventHandler(FmrFinalizar_venda_FormClosed);
+            destino.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -659,10 +698,7 @@ namespace TomMotos.view
                 verificarFinalVenda();
             }
             if (e.KeyData == Keys.Delete) {
-                
                 Excluir_Produto();
-               
-
             }
         }
 
@@ -673,7 +709,6 @@ namespace TomMotos.view
                 string nomePDF = "venda" + caixaDAO.listarUltimaVenda() + ".pdf";
 
                 criarPDF(html, nomePDF);
-
             }
             catch (Exception erro)
             {
@@ -693,18 +728,23 @@ namespace TomMotos.view
             }
             if (e.KeyData == Keys.Delete)
             {
-
                 Excluir_Servico();
-
             }
         }
 
         private void criarPDF(string html, string nomePDF)
         {
-            string caminhoPDF = "C:/" + nomePDF;
-            var conteudoHTML = String.Format(html, DateTime.Now);
-            var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
-            htmlToPdf.GeneratePdf(conteudoHTML, null, caminhoPDF);
+            try { 
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\TomMotos");
+                string caminhoPDF = key.GetValue("localPDF").ToString();
+                if (caminhoPDF == "") { MessageBox.Show("Verifique a pasta dos pdfs.\nPDF não foi salvo"); return; }
+
+                caminhoPDF = caminhoPDF + "\\" + nomePDF;
+                var conteudoHTML = String.Format(html, DateTime.Now);
+                var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
+                htmlToPdf.GeneratePdf(conteudoHTML, null, caminhoPDF);
+            }
+            catch { MessageBox.Show("Verifique a pasta dos pdfs.\nPDF não foi salvo"); }
         }
 
         private void btndesconto_KeyDown(object sender, KeyEventArgs e)
@@ -763,9 +803,6 @@ namespace TomMotos.view
             validacaoTxtDAO.FormatarPorcentagem(sender, e);
 
         }
-       
-       
-
 
         private void txt_desconto_pro_Leave(object sender, EventArgs e)
         {
@@ -834,7 +871,7 @@ namespace TomMotos.view
 
         private void voltar_Click(object sender, EventArgs e)
         {
-            Close();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void cBoxOrcamento_KeyDown(object sender, KeyEventArgs e)
@@ -843,9 +880,36 @@ namespace TomMotos.view
             {
                 verificarFinalVenda();
             }
-
         }
 
+        private void txtFuncID_TextChanged(object sender, EventArgs e)
+        {
+            puxarFuncPorID();
+        }
+
+        private void BtnMostrarFunc_Click(object sender, EventArgs e)
+        {
+            txtFuncID.Text = "";
+            puxarFuncPorID();
+        }
+
+        private void puxarFuncPorID()
+        {
+            FiltroModel.campoWhere = "true";
+            if (txtFuncID.Text != "") FiltroModel.campoWhere = "tb_funcionario.id_funcionario = " + txtFuncID.Text;
+            dg_func.DataSource = Filtro.buscaFuncionario(true);
+
+            for (int i = 0; i < dg_func.Rows.Count; i++) // VERIFICA SE A CHECKBOX DEVE ESTAR MARCADA OU NÃO
+            {
+                for (int ii = 0; ii < dg_funcGet.Rows.Count; ii++)
+                {
+                    if (dg_func.Rows[i].Cells[1].Value.ToString() == dg_funcGet.Rows[ii].Cells[0].Value.ToString())
+                    {
+                        dg_func.Rows[i].Cells[0].Value = true;
+                    }
+                }
+            }
+        }
 
         public void Excluir_Produto() {
             double subitotal = double.Parse(lblSubitotal.Text);
@@ -882,7 +946,6 @@ namespace TomMotos.view
         {
             double subitotal = double.Parse(lblSubitotal.Text);
             
-            MessageBox.Show("Test "+subitotal);
             if (dgServicos.SelectedCells.Count > 0)
             {
                 if (dgServicos.CurrentRow.Cells[2].Value != null)

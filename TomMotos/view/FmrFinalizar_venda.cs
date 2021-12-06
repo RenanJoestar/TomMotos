@@ -209,10 +209,5 @@ namespace TomMotos.view
         {
             Close();
         }
-
-        private void cbxEmails_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
