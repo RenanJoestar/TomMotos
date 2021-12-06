@@ -65,7 +65,6 @@ namespace TomMotos.view
                     ptb_perfil.Image = (Image)image;
                     ImageToBase64();
                     //base64Text = Convert.ToBase64String(imageArray); //convertendo para base64
-
                 }
             }
             catch (Exception erro) {

@@ -106,6 +106,17 @@
     <Compile Include="Model\ProdutoModel.cs" />
     <Compile Include="Model\TelefoneModel.cs" />
     <Compile Include="Model\VeiculoModel.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="view\FmrConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FmrConfig.Designer.cs">
+      <DependentUpon>FmrConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\FmrDevedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,11 +129,11 @@
     <Compile Include="view\FmrFinalizar_Orcamento.Designer.cs">
       <DependentUpon>FmrFinalizar_Orcamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\FmrShowFuncionarios.cs">
+    <Compile Include="view\FmrLoading.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\FmrShowFuncionarios.Designer.cs">
-      <DependentUpon>FmrShowFuncionarios.cs</DependentUpon>
+    <Compile Include="view\FmrLoading.Designer.cs">
+      <DependentUpon>FmrLoading.cs</DependentUpon>
     </Compile>
     <Compile Include="view\FmrOrcamento.cs">
       <SubType>Form</SubType>
@@ -190,6 +201,12 @@
     <Compile Include="view\Fmrproduto.Designer.cs">
       <DependentUpon>Fmrproduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\FmrShowVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FmrShowVendas.Designer.cs">
+      <DependentUpon>FmrShowVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Fmrsumario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,22 +247,20 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="view\FmrConfig.resx">
+      <DependentUpon>FmrConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\FmrDevedores.resx">
       <DependentUpon>FmrDevedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FmrFinalizar_Orcamento.resx">
       <DependentUpon>FmrFinalizar_Orcamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\FmrShowFuncionarios.resx">
-      <DependentUpon>FmrShowFuncionarios.cs</DependentUpon>
+    <EmbeddedResource Include="view\FmrLoading.resx">
+      <DependentUpon>FmrLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FmrOrcamento.resx">
       <DependentUpon>FmrOrcamento.cs</DependentUpon>
@@ -279,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrproduto.resx">
       <DependentUpon>Fmrproduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FmrShowVendas.resx">
+      <DependentUpon>FmrShowVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Fmrsumario.resx">
       <DependentUpon>Fmrsumario.cs</DependentUpon>
@@ -326,6 +344,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LOGO1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -106,7 +106,7 @@ namespace TomMotos.view
             {
                 if (txtFaltaPagar.Text != "0,00")
                 {
-                    DialogResult dialogResult = MessageBox.Show("Verifique o valor Pago! \nCliente será cadstrado como devedor?", "Aviso",
+                    DialogResult dialogResult = MessageBox.Show("Verifique o valor Pago! \nCliente será cadastrado como devedor?", "Aviso",
                                                 MessageBoxButtons.YesNo,
                                                 MessageBoxIcon.Exclamation);
                     if (dialogResult == DialogResult.No) return;
@@ -124,21 +124,24 @@ namespace TomMotos.view
                     }
                     else
                     {
+                        fz.carregarLoading();
                         CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
-                        fz.FinalizarVenda();                        
                         fz.SalvarPdf();
+                        fz.FinalizarVenda();                        
                         CaixaModel.vendaFinalizada = true;
+                        fz.fecharLoading();
                         this.Close();
                     }
                 }
                 else
                 {
+                    fz.carregarLoading();
                     CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
                     fz.EnviarEmail();
-                    fz.FinalizarVenda();
                     fz.SalvarPdf();
-                    
+                    fz.FinalizarVenda();
                     CaixaModel.vendaFinalizada = true;
+                    fz.fecharLoading();
                     this.Close();
                 }
             }

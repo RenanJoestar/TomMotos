@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fmrcaixa));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdProduto = new System.Windows.Forms.TextBox();
@@ -93,6 +99,9 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BtnMostrarFunc = new System.Windows.Forms.Button();
+            this.txtFuncID = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.dg_func = new System.Windows.Forms.DataGridView();
             this.label23 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -117,7 +126,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1073, 613);
+            this.label1.Location = new System.Drawing.Point(1073, 622);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 25);
             this.label1.TabIndex = 2;
@@ -187,7 +196,7 @@
             // 
             this.txtdesc.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtdesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtdesc.Location = new System.Drawing.Point(1058, 559);
+            this.txtdesc.Location = new System.Drawing.Point(1058, 568);
             this.txtdesc.Name = "txtdesc";
             this.txtdesc.Size = new System.Drawing.Size(102, 23);
             this.txtdesc.TabIndex = 11;
@@ -219,12 +228,12 @@
             this.groupBox1.Controls.Add(this.txt_pmo);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Location = new System.Drawing.Point(784, 118);
+            this.groupBox1.Location = new System.Drawing.Point(758, 118);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(323, 175);
+            this.groupBox1.Size = new System.Drawing.Size(349, 175);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Serviço";
+            this.groupBox1.Text = "SERVIÇO";
             // 
             // label24
             // 
@@ -252,7 +261,7 @@
             this.txtDescServ.Location = new System.Drawing.Point(24, 34);
             this.txtDescServ.Name = "txtDescServ";
             this.txtDescServ.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.txtDescServ.Size = new System.Drawing.Size(268, 62);
+            this.txtDescServ.Size = new System.Drawing.Size(284, 77);
             this.txtDescServ.TabIndex = 9;
             this.txtDescServ.Text = "";
             this.txtDescServ.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescServ_KeyDown);
@@ -308,7 +317,7 @@
             this.groupBox2.Size = new System.Drawing.Size(330, 244);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Produto";
+            this.groupBox2.Text = "PRODUTO";
             // 
             // btnPesquisarProduto
             // 
@@ -380,7 +389,7 @@
             this.btnFinalizaVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnFinalizaVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinalizaVenda.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFinalizaVenda.Location = new System.Drawing.Point(1113, 651);
+            this.btnFinalizaVenda.Location = new System.Drawing.Point(1113, 660);
             this.btnFinalizaVenda.Name = "btnFinalizaVenda";
             this.btnFinalizaVenda.Size = new System.Drawing.Size(166, 56);
             this.btnFinalizaVenda.TabIndex = 14;
@@ -393,6 +402,14 @@
             this.dgProdutos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgProdutos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ch_item,
@@ -402,11 +419,34 @@
             this.ch_unit,
             this.vl_item,
             this.Column6});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgProdutos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgProdutos.Location = new System.Drawing.Point(8, 402);
             this.dgProdutos.MultiSelect = false;
             this.dgProdutos.Name = "dgProdutos";
             this.dgProdutos.ReadOnly = true;
-            this.dgProdutos.Size = new System.Drawing.Size(722, 170);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FloralWhite;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgProdutos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dgProdutos.Size = new System.Drawing.Size(725, 170);
             this.dgProdutos.TabIndex = 25;
             this.dgProdutos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgProdutos_KeyDown);
             this.dgProdutos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgProdutos_MouseDown);
@@ -460,7 +500,7 @@
             this.btndesconto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btndesconto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndesconto.ForeColor = System.Drawing.Color.White;
-            this.btndesconto.Location = new System.Drawing.Point(1179, 550);
+            this.btndesconto.Location = new System.Drawing.Point(1179, 559);
             this.btndesconto.Name = "btndesconto";
             this.btndesconto.Size = new System.Drawing.Size(78, 40);
             this.btndesconto.TabIndex = 12;
@@ -475,7 +515,7 @@
             this.btnCancelDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnCancelDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelDesc.ForeColor = System.Drawing.Color.White;
-            this.btnCancelDesc.Location = new System.Drawing.Point(1274, 550);
+            this.btnCancelDesc.Location = new System.Drawing.Point(1274, 559);
             this.btnCancelDesc.Name = "btnCancelDesc";
             this.btnCancelDesc.Size = new System.Drawing.Size(78, 40);
             this.btnCancelDesc.TabIndex = 13;
@@ -576,7 +616,7 @@
             this.lblSubitotal.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblSubitotal.AutoSize = true;
             this.lblSubitotal.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubitotal.Location = new System.Drawing.Point(1215, 613);
+            this.lblSubitotal.Location = new System.Drawing.Point(1215, 622);
             this.lblSubitotal.Name = "lblSubitotal";
             this.lblSubitotal.Size = new System.Drawing.Size(24, 25);
             this.lblSubitotal.TabIndex = 43;
@@ -662,7 +702,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(940, 562);
+            this.label4.Location = new System.Drawing.Point(940, 571);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 17);
             this.label4.TabIndex = 51;
@@ -672,10 +712,10 @@
             // 
             this.cBoxOrcamento.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cBoxOrcamento.AutoSize = true;
-            this.cBoxOrcamento.Font = new System.Drawing.Font("Bahnschrift", 10F);
-            this.cBoxOrcamento.Location = new System.Drawing.Point(1244, 117);
+            this.cBoxOrcamento.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.cBoxOrcamento.Location = new System.Drawing.Point(1231, 110);
             this.cBoxOrcamento.Name = "cBoxOrcamento";
-            this.cBoxOrcamento.Size = new System.Drawing.Size(108, 21);
+            this.cBoxOrcamento.Size = new System.Drawing.Size(144, 28);
             this.cBoxOrcamento.TabIndex = 11;
             this.cBoxOrcamento.Text = "É orçamento";
             this.cBoxOrcamento.UseVisualStyleBackColor = true;
@@ -701,18 +741,29 @@
             // 
             // dgServicos
             // 
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.dgServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgServicos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgServicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgServicos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Bahnschrift", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgServicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ch_itemServ,
             this.ch_des,
             this.ch_vl_ser});
-            this.dgServicos.Location = new System.Drawing.Point(1140, 144);
+            this.dgServicos.Location = new System.Drawing.Point(1113, 144);
             this.dgServicos.MultiSelect = false;
             this.dgServicos.Name = "dgServicos";
             this.dgServicos.ReadOnly = true;
-            this.dgServicos.Size = new System.Drawing.Size(301, 149);
+            this.dgServicos.Size = new System.Drawing.Size(352, 149);
             this.dgServicos.TabIndex = 26;
             this.dgServicos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgServicos_KeyDown);
             this.dgServicos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgServicos_MouseDown);
@@ -755,7 +806,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.dg_funcGet.Location = new System.Drawing.Point(353, 33);
+            this.dg_funcGet.Location = new System.Drawing.Point(383, 66);
             this.dg_funcGet.MultiSelect = false;
             this.dg_funcGet.Name = "dg_funcGet";
             this.dg_funcGet.ReadOnly = true;
@@ -783,14 +834,46 @@
             // groupBox4
             // 
             this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox4.Controls.Add(this.BtnMostrarFunc);
+            this.groupBox4.Controls.Add(this.txtFuncID);
+            this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.dg_func);
             this.groupBox4.Controls.Add(this.dg_funcGet);
-            this.groupBox4.Location = new System.Drawing.Point(787, 312);
+            this.groupBox4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(758, 321);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(678, 210);
+            this.groupBox4.Size = new System.Drawing.Size(707, 232);
             this.groupBox4.TabIndex = 54;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "FUNCIONÁRIOS";
+            // 
+            // BtnMostrarFunc
+            // 
+            this.BtnMostrarFunc.Location = new System.Drawing.Point(198, 38);
+            this.BtnMostrarFunc.Name = "BtnMostrarFunc";
+            this.BtnMostrarFunc.Size = new System.Drawing.Size(110, 23);
+            this.BtnMostrarFunc.TabIndex = 57;
+            this.BtnMostrarFunc.Text = "Mostrar todos";
+            this.BtnMostrarFunc.UseVisualStyleBackColor = true;
+            this.BtnMostrarFunc.Click += new System.EventHandler(this.BtnMostrarFunc_Click);
+            // 
+            // txtFuncID
+            // 
+            this.txtFuncID.Location = new System.Drawing.Point(61, 38);
+            this.txtFuncID.Name = "txtFuncID";
+            this.txtFuncID.Size = new System.Drawing.Size(128, 23);
+            this.txtFuncID.TabIndex = 56;
+            this.txtFuncID.TextChanged += new System.EventHandler(this.txtFuncID_TextChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Bahnschrift", 10F);
+            this.label26.Location = new System.Drawing.Point(3, 19);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(228, 17);
+            this.label26.TabIndex = 52;
+            this.label26.Text = "PESQUISAR FUNCIONARIO POR ID:";
             // 
             // dg_func
             // 
@@ -798,9 +881,9 @@
             this.dg_func.AllowUserToDeleteRows = false;
             this.dg_func.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.dg_func.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_func.Location = new System.Drawing.Point(6, 33);
+            this.dg_func.Location = new System.Drawing.Point(6, 66);
             this.dg_func.Name = "dg_func";
-            this.dg_func.Size = new System.Drawing.Size(314, 150);
+            this.dg_func.Size = new System.Drawing.Size(343, 150);
             this.dg_func.TabIndex = 1;
             this.dg_func.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_func_CellContentClick);
             // 
@@ -838,7 +921,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel2.Controls.Add(this.voltar);
             this.panel2.Controls.Add(this.label25);
-            this.panel2.Location = new System.Drawing.Point(-1, -1);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1479, 89);
             this.panel2.TabIndex = 45;
@@ -920,6 +1003,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgServicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_funcGet)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_func)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1001,5 +1085,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button voltar;
+        private System.Windows.Forms.TextBox txtFuncID;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button BtnMostrarFunc;
     }
 }

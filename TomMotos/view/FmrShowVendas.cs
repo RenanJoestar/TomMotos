@@ -12,21 +12,24 @@ using TomMotos.Model;
 
 namespace TomMotos.view
 {
-    public partial class FmrShowFuncionarios : Form
+    public partial class FmrShowVendas : Form
     {
         FmrVenda func;
-        public FmrShowFuncionarios(FmrVenda fun)
+        FiltroDAO busca = new FiltroDAO();
+        public FmrShowVendas(FmrVenda fun)
         {
             InitializeComponent();
             func = fun;
         }
 
-        private void FmrShowFuncionarios_Load(object sender, EventArgs e)
+        private void FmrShowVendas_Load(object sender, EventArgs e)
         {
-            FiltroDAO busca = new FiltroDAO();
-            string finalSQL = "id_venda = " + func.textBox1.Text.ToString();
-            FiltroModel.campoWhere = finalSQL;
-            dataGridView1.DataSource= busca.buscaGrupoFuncionario();
+            try
+            {
+                dataGridView1.DataSource = busca.Exibir();
+            }
+            catch (Exception erro)
+            { MessageBox.Show(erro.Message); }
         }
     }
 }

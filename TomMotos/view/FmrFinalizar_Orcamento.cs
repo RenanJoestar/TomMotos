@@ -86,22 +86,26 @@ namespace TomMotos.view
                     }
                     else
                     {
+                        Fno.carregarLoading();
                         CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
                         CaixaModel.eOrcamento = true;
-                        Fno.finalizarOrcamento();                        
                         Fno.SalvarPdf();
+                        Fno.finalizarOrcamento();                        
                         Fno.finalizarFormCaixa(true);
+                        Fno.fecharLoading();
                         this.Close();
                     }
                 }
                 else
                 {
+                    Fno.carregarLoading();
                     CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
                     CaixaModel.eOrcamento = true;
                     Fno.EnviarEmail();
-                    Fno.finalizarOrcamento();
                     Fno.SalvarPdf();
+                    Fno.finalizarOrcamento();
                     Fno.finalizarFormCaixa(true);
+                    Fno.fecharLoading();
                     this.Close();
                 }
             }

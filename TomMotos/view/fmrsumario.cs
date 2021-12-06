@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace TomMotos
 {
     public partial class Fmrsumario : Form
     {
+        Fmrcaixa fmrcx = new Fmrcaixa();
         public Fmrsumario()
         {
             InitializeComponent();
@@ -171,9 +173,8 @@ namespace TomMotos
 
         private void btnCaixa_Click(object sender, EventArgs e)
         {
-            Fmrcaixa fmrcx = new Fmrcaixa();
-            fmrcx.Show();
-            
+            if (fmrcx.Visible == true) try { fmrcx.WindowState = FormWindowState.Maximized; } catch { }
+            else try { fmrcx.Show(); } catch { fmrcx = new Fmrcaixa(); fmrcx.Show(); }
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
@@ -225,6 +226,24 @@ namespace TomMotos
         private void Fmrsumario_Load(object sender, EventArgs e)
         {
             lbl_gerenciamentoeconsulta.Text = "";
+
+            try
+            {
+                FmrConfig config = new FmrConfig();
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\TomMotos");
+
+                try { this.BackgroundImage = Image.FromFile(key.GetValue("localImg").ToString()); } catch { } // SE DER ERRO É SÓ MARCAR A CHECKBOX (VISUAL STUDIO SÓ AVISA QUE NÃO FOI)
+                    // VERIFICA SE EXISTE UM VALOR NO REGEDIT
+                if (key.GetValue("nomeEmail") == null || key.GetValue("senhaEmail") == null ||
+                    key.GetValue("nomeEmail").ToString() == "" || key.GetValue("senhaEmail").ToString() == "") {
+
+                    DialogResult dialogResult = MessageBox.Show("Nenhum email configurado\nDeseja configura-lo?", "Aviso",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Exclamation);
+                    if (dialogResult == DialogResult.Yes) config.Show();
+                }
+            }
+            catch { }
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -232,5 +251,10 @@ namespace TomMotos
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            FmrConfig config = new FmrConfig();
+            config.Show();
+        }
     }
 }
