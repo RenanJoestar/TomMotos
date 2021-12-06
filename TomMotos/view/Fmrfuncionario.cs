@@ -323,7 +323,7 @@ namespace TomMotos.view
 
                     FiltroModel.campoWhere = finalSQL;
 
-                    dg_funcionario.DataSource = Filtro.buscaFuncionario();
+                    dg_funcionario.DataSource = Filtro.buscaFuncionario(false);
                 }
 
             }

@@ -148,7 +148,7 @@ namespace TomMotos.Classes
         #endregion
 
         #region BUSCA FUNCIONARIO FILTRADA
-        public DataTable buscaFuncionario()
+        public DataTable buscaFuncionario(bool selecionada)
         {
             string campoWhere = FiltroModel.campoWhere;
 
@@ -168,6 +168,7 @@ namespace TomMotos.Classes
             MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
 
             DataTable Filtro = new DataTable();
+            if (selecionada) Filtro.Columns.Add("Selecionar", typeof(bool));
             da.Fill(Filtro);
 
             conexao.Close();
@@ -179,7 +180,7 @@ namespace TomMotos.Classes
         #region BUSCA PRODUTOS, FUNCIONARIO, SERVIÇOS DA VENDA
         public DataTable Exibir()
         {
-            string campoWhere = FiltroModel.campoWhere;            
+            string campoWhere = FiltroModel.campoWhere;
 
             MySqlCommand executacmdsql = new MySqlCommand(campoWhere, conexao);
 

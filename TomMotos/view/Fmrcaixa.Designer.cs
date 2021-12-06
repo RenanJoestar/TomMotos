@@ -99,6 +99,9 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BtnMostrarFunc = new System.Windows.Forms.Button();
+            this.txtFuncID = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.dg_func = new System.Windows.Forms.DataGridView();
             this.label23 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -803,7 +806,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.dg_funcGet.Location = new System.Drawing.Point(381, 33);
+            this.dg_funcGet.Location = new System.Drawing.Point(383, 66);
             this.dg_funcGet.MultiSelect = false;
             this.dg_funcGet.Name = "dg_funcGet";
             this.dg_funcGet.ReadOnly = true;
@@ -831,15 +834,46 @@
             // groupBox4
             // 
             this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox4.Controls.Add(this.BtnMostrarFunc);
+            this.groupBox4.Controls.Add(this.txtFuncID);
+            this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.dg_func);
             this.groupBox4.Controls.Add(this.dg_funcGet);
             this.groupBox4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(758, 321);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(707, 210);
+            this.groupBox4.Size = new System.Drawing.Size(707, 232);
             this.groupBox4.TabIndex = 54;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "FUNCIONÁRIOS";
+            // 
+            // BtnMostrarFunc
+            // 
+            this.BtnMostrarFunc.Location = new System.Drawing.Point(198, 38);
+            this.BtnMostrarFunc.Name = "BtnMostrarFunc";
+            this.BtnMostrarFunc.Size = new System.Drawing.Size(110, 23);
+            this.BtnMostrarFunc.TabIndex = 57;
+            this.BtnMostrarFunc.Text = "Mostrar todos";
+            this.BtnMostrarFunc.UseVisualStyleBackColor = true;
+            this.BtnMostrarFunc.Click += new System.EventHandler(this.BtnMostrarFunc_Click);
+            // 
+            // txtFuncID
+            // 
+            this.txtFuncID.Location = new System.Drawing.Point(61, 38);
+            this.txtFuncID.Name = "txtFuncID";
+            this.txtFuncID.Size = new System.Drawing.Size(128, 23);
+            this.txtFuncID.TabIndex = 56;
+            this.txtFuncID.TextChanged += new System.EventHandler(this.txtFuncID_TextChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Bahnschrift", 10F);
+            this.label26.Location = new System.Drawing.Point(3, 19);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(228, 17);
+            this.label26.TabIndex = 52;
+            this.label26.Text = "PESQUISAR FUNCIONARIO POR ID:";
             // 
             // dg_func
             // 
@@ -847,7 +881,7 @@
             this.dg_func.AllowUserToDeleteRows = false;
             this.dg_func.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.dg_func.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_func.Location = new System.Drawing.Point(6, 33);
+            this.dg_func.Location = new System.Drawing.Point(6, 66);
             this.dg_func.Name = "dg_func";
             this.dg_func.Size = new System.Drawing.Size(343, 150);
             this.dg_func.TabIndex = 1;
@@ -887,7 +921,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel2.Controls.Add(this.voltar);
             this.panel2.Controls.Add(this.label25);
-            this.panel2.Location = new System.Drawing.Point(-1, -1);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1479, 89);
             this.panel2.TabIndex = 45;
@@ -969,6 +1003,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgServicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_funcGet)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_func)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1050,5 +1085,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button voltar;
+        private System.Windows.Forms.TextBox txtFuncID;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button BtnMostrarFunc;
     }
 }

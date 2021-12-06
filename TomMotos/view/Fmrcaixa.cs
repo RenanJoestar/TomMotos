@@ -28,6 +28,7 @@ namespace TomMotos.view
         Fmrveiculo fmrveiculo;
         FmrLoading fmrLoading = new FmrLoading();
         VendaDAO caixaDAO = new VendaDAO();
+        FiltroDAO Filtro = new FiltroDAO();
         CaixaModel obj = new CaixaModel();
         VendaDAO Cadastro = new VendaDAO();
         ProdutoUsadoDAO produtoDAO = new ProdutoUsadoDAO();
@@ -47,7 +48,9 @@ namespace TomMotos.view
             dgProdutos.Columns[2].Width = 200;
             dgServicos.Columns[1].Width = 243;
             cBoxOrcamento.Checked = false;
-            dg_func.DataSource = Cadastro.ListarTodosFuncionario();
+
+            FiltroModel.campoWhere = "true";
+            dg_func.DataSource = Filtro.buscaFuncionario(true);
         }
         private void FmrFinalizar_venda_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -68,9 +71,14 @@ namespace TomMotos.view
                 CaixaModel.fk_cliente_id = null;
                 CaixaModel.fk_veiculo_id = null;
                 CaixaModel.emailCliente = null;
+                FiltroModel.campoWhere = "true";
+
                 this.Controls.Clear();
                 this.InitializeComponent();
                 this.Fmrcaixa_Load(null, null);
+
+                this.WindowState = FormWindowState.Minimized; // CENTRALIZA 
+                this.WindowState = FormWindowState.Maximized; // O FORM
             }
         }
 
@@ -170,14 +178,17 @@ namespace TomMotos.view
         }
         public void verificarFinalVenda(){
 
-            if (cBoxOrcamento.Checked)
+            if (lblSubitotal.Text != "0")
             {
-                FmrFinalizar_Orcamento FmO = new FmrFinalizar_Orcamento(this);
-                FmO.Show();
-            }
-            else if (dg_funcGet.Rows.Count == 0) MessageBox.Show("Por favor, selecione ao menos um funcionário.");
+                if (cBoxOrcamento.Checked)
+                {
+                    FmrFinalizar_Orcamento FmO = new FmrFinalizar_Orcamento(this);
+                    FmO.Show();
+                }
+                else if (dg_funcGet.Rows.Count == 0) MessageBox.Show("Por favor, selecione ao menos um funcionário.");
 
-            else IrParaFinalizar();
+                else IrParaFinalizar();
+            }
         }
         public void FinalizarVenda()
         {
@@ -568,12 +579,9 @@ namespace TomMotos.view
             IrParaFinalizar();
         }
         public void IrParaFinalizar() {
-            if (lblSubitotal.Text != "0")
-            {
-                FmrFinalizar_venda destino = new FmrFinalizar_venda(this, this);
-                destino.FormClosed += new FormClosedEventHandler(FmrFinalizar_venda_FormClosed);
-                destino.Show();
-            }
+            FmrFinalizar_venda destino = new FmrFinalizar_venda(this, this);
+            destino.FormClosed += new FormClosedEventHandler(FmrFinalizar_venda_FormClosed);
+            destino.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -795,9 +803,6 @@ namespace TomMotos.view
             validacaoTxtDAO.FormatarPorcentagem(sender, e);
 
         }
-       
-       
-
 
         private void txt_desconto_pro_Leave(object sender, EventArgs e)
         {
@@ -867,7 +872,6 @@ namespace TomMotos.view
         private void voltar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-
         }
 
         private void cBoxOrcamento_KeyDown(object sender, KeyEventArgs e)
@@ -876,9 +880,36 @@ namespace TomMotos.view
             {
                 verificarFinalVenda();
             }
-
         }
 
+        private void txtFuncID_TextChanged(object sender, EventArgs e)
+        {
+            puxarFuncPorID();
+        }
+
+        private void BtnMostrarFunc_Click(object sender, EventArgs e)
+        {
+            txtFuncID.Text = "";
+            puxarFuncPorID();
+        }
+
+        private void puxarFuncPorID()
+        {
+            FiltroModel.campoWhere = "true";
+            if (txtFuncID.Text != "") FiltroModel.campoWhere = "tb_funcionario.id_funcionario = " + txtFuncID.Text;
+            dg_func.DataSource = Filtro.buscaFuncionario(true);
+
+            for (int i = 0; i < dg_func.Rows.Count; i++) // VERIFICA SE A CHECKBOX DEVE ESTAR MARCADA OU NÃO
+            {
+                for (int ii = 0; ii < dg_funcGet.Rows.Count; ii++)
+                {
+                    if (dg_func.Rows[i].Cells[1].Value.ToString() == dg_funcGet.Rows[ii].Cells[0].Value.ToString())
+                    {
+                        dg_func.Rows[i].Cells[0].Value = true;
+                    }
+                }
+            }
+        }
 
         public void Excluir_Produto() {
             double subitotal = double.Parse(lblSubitotal.Text);
