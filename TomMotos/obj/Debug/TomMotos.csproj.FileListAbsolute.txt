@@ -477,7 +477,6 @@ C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
 C:\Users\José Henrique\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrShowFuncionarios.resources
 C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.exe.config
 C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrDevedores.resources
-C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrShowFuncionarios.resources
 C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrVenda.resources
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrConfig.resources
 C:\Users\José Henrique\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrConfig.resources
@@ -486,3 +485,6 @@ C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrConfig.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrLoading.resources
 C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrShowVendas.resources
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrShowVendas.resources
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrConfig.resources
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrLoading.resources
+C:\Users\es120\OneDrive\Área de Trabalho\GitHub\TomMotos\obj\Debug\TomMotos.view.FmrShowVendas.resources
