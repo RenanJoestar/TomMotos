@@ -23,9 +23,10 @@ namespace TomMotos.view
         string[] SERVICO = new string[4];
         string[] item = new string[7];
         List<string> nota = new List<string>();
-        string id_produto, nome_produto, id_venda;
+        string id_produto, nome_produto;
         int itens = 0, servicos = 0;
         Fmrveiculo fmrveiculo;
+        FmrLoading fmrLoading = new FmrLoading();
         VendaDAO caixaDAO = new VendaDAO();
         CaixaModel obj = new CaixaModel();
         VendaDAO Cadastro = new VendaDAO();
@@ -77,6 +78,40 @@ namespace TomMotos.view
         {
             verificarFinalVenda();
         }
+        public void carregarLoading()
+        {
+            try { fmrLoading.Show(); } catch
+            {
+                fmrLoading = new FmrLoading();
+                fmrLoading.Show();
+            }
+            esperar(700);
+        }
+        public void fecharLoading()
+        {
+            fmrLoading.Close();
+        }
+        public void esperar(int milissegundos)
+        {
+            var timer1 = new System.Windows.Forms.Timer();
+            if (milissegundos == 0 || milissegundos < 0) return;
+
+            timer1.Interval = milissegundos;
+            timer1.Enabled = true;
+            timer1.Start();
+
+            timer1.Tick += (s, e) =>
+            {
+                timer1.Enabled = false;
+                timer1.Stop();
+            };
+
+            while (timer1.Enabled)
+            {
+                Application.DoEvents();
+            }
+        }
+
         public void inserirVariaveisObjCaixa()
         {
             objCaixa.validade_orcamento_servico = DateTime.Now;
@@ -134,12 +169,14 @@ namespace TomMotos.view
             }
         }
         public void verificarFinalVenda(){
+
             if (cBoxOrcamento.Checked)
             {
                 FmrFinalizar_Orcamento FmO = new FmrFinalizar_Orcamento(this);
                 FmO.Show();
             }
-            
+            else if (dg_funcGet.Rows.Count == 0) MessageBox.Show("Por favor, selecione ao menos um funcionário.");
+
             else IrParaFinalizar();
         }
         public void FinalizarVenda()
