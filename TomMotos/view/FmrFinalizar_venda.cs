@@ -124,20 +124,24 @@ namespace TomMotos.view
                     }
                     else
                     {
+                        fz.carregarLoading();
                         CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
                         fz.SalvarPdf();
                         fz.FinalizarVenda();                        
                         CaixaModel.vendaFinalizada = true;
+                        fz.fecharLoading();
                         this.Close();
                     }
                 }
                 else
                 {
+                    fz.carregarLoading();
                     CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
                     fz.EnviarEmail();
                     fz.SalvarPdf();
                     fz.FinalizarVenda();
                     CaixaModel.vendaFinalizada = true;
+                    fz.fecharLoading();
                     this.Close();
                 }
             }
