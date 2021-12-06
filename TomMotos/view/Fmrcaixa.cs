@@ -167,30 +167,39 @@ namespace TomMotos.view
             
             try
             {
-                string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\">";
+                string htmlDivStart = "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>" +"<div style=\"max-width: 100%; height: 150px;; background-color: #25293E;\">";
+                string htmlImg =    "<br>"+
+                                    "<img src=\"https://media.discordapp.net/attachments/468531379798278151/917505687045693510/LOGO_BRANCO.png?width=267&height=175\"style =\"width: 180px; margin-left:auto; margin-right:auto; display:block; \">";
+                string htmlDivEnd = "</div>";
+                string htmlFooter = "<footer  style=\"width:100%; height: 150px; ; background-color: #25293E;bottom: 0;text-align: center;\">" +
+                                    "<br>" +
+                                    "<a href=\"#\"  style =\"width:180px;margin-left:auto;margin-right:auto;display:block;padding:8px;text-decoration:none;background-color:transparent; color:white; border:1px solid white; \">SAIBA MAIS</a>";
+                string htmlFooterEnd = "</footer>";
+                
+                string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center; margin-left:auto; margin-right:auto; display:block;width:700px;\">";
                 string htmlTableEnd = "</table><br>";
 
-
-                string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
+                string htmlHeaderRowStart = "<tr style=\"background-color:#25293e; color:#ffffff;\">";
                 string htmlHeaderRowEnd = "</tr>";
 
                 string htmlTrStart = "<tr style=\"color:#555555;\">";
                 string htmlTrEnd = "</tr>";
 
-                string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
+                string htmlTdStart = "<td style=\"border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
                 string htmlTdEnd = "</td>";
                 string messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE VENDA TOMMOTOS: </p><br><br>", messageB = "", total = "";
                 if (CaixaModel.eOrcamento == true)
-                {
-                    htmlTdStart = "<td style=\" border-color:#d2a06f; border-style:solid; border-width:thin; padding: 5px;\">";
+                {   
+                    htmlTdStart = "<td style=\"border-color:black; border-style:solid; border-width:thin; padding: 5px;\">";
                     messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE ORÇAMENTO TOMMOTOS: </p><br><br>";
-                    htmlHeaderRowStart = "<tr style=\"background-color:#d2a06f; color:#ffffff;\">";
+                    htmlHeaderRowStart = "<tr style=\"background-color:#25293e; color:#ffffff;\">";
                 }
                 if (grid.RowCount == 0 || grid2.RowCount == 0) return messageBody;
                
                
                 if (dgProdutos.Rows.Count > 1)
                 {
+
                     messageBody += htmlTableStart;
                     messageBody += htmlHeaderRowStart;
                     messageBody += htmlTdStart + "ITEM" + htmlTdEnd;
@@ -201,16 +210,22 @@ namespace TomMotos.view
                     messageBody += htmlTdStart + "DESCONTO.(%)" + htmlTdEnd;
                     messageBody += htmlTdStart + "VL.ITEM.(R$)" + htmlTdEnd;
                     messageBody += htmlHeaderRowEnd;
+
                 }
 
                 if (dgServicos.Rows.Count > 1 )
                 {
+                    messageBody += htmlDivStart;
+                    messageBody += htmlImg;
                     messageB += htmlTableStart;
                     messageB += htmlHeaderRowStart;
                     messageB += htmlTdStart + "    " + htmlTdEnd;
                     messageB += htmlTdStart + "DESCRIÇÃO SERVIÇO" + htmlTdEnd;
                     messageB += htmlTdStart + "VALOR(R$)" + htmlTdEnd;
                     messageB += htmlHeaderRowEnd;
+                    messageBody += htmlDivEnd;
+
+                    
                 }
                 total += htmlTableStart;
                 total += htmlHeaderRowStart;
@@ -255,8 +270,7 @@ namespace TomMotos.view
 
                 }
 
-                string final = messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd;
-
+                string final = messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd+ htmlFooter + htmlFooterEnd;
                 return final;
             }
 
