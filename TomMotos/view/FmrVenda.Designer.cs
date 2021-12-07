@@ -57,12 +57,13 @@
             this.dgVenda.AllowUserToAddRows = false;
             this.dgVenda.AllowUserToDeleteRows = false;
             this.dgVenda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgVenda.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgVenda.Location = new System.Drawing.Point(12, 271);
+            this.dgVenda.Location = new System.Drawing.Point(12, 255);
             this.dgVenda.MultiSelect = false;
             this.dgVenda.Name = "dgVenda";
             this.dgVenda.ReadOnly = true;
-            this.dgVenda.Size = new System.Drawing.Size(1077, 328);
+            this.dgVenda.Size = new System.Drawing.Size(1076, 293);
             this.dgVenda.TabIndex = 0;
             this.dgVenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVenda_CellClick);
             // 
@@ -115,10 +116,11 @@
             // 
             this.btn_mostrar_tudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btn_mostrar_tudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_mostrar_tudo.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_mostrar_tudo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_mostrar_tudo.Location = new System.Drawing.Point(545, 166);
+            this.btn_mostrar_tudo.Location = new System.Drawing.Point(545, 169);
             this.btn_mostrar_tudo.Name = "btn_mostrar_tudo";
-            this.btn_mostrar_tudo.Size = new System.Drawing.Size(88, 39);
+            this.btn_mostrar_tudo.Size = new System.Drawing.Size(88, 36);
             this.btn_mostrar_tudo.TabIndex = 7;
             this.btn_mostrar_tudo.Text = "MOSTRAR TUDO";
             this.btn_mostrar_tudo.UseVisualStyleBackColor = false;
@@ -126,14 +128,16 @@
             // 
             // txtBuscar
             // 
+            this.txtBuscar.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(293, 131);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(340, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(340, 23);
             this.txtBuscar.TabIndex = 2;
             // 
             // cbxBuscar
             // 
             this.cbxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxBuscar.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxBuscar.FormattingEnabled = true;
             this.cbxBuscar.Items.AddRange(new object[] {
             "ID DO ORÇAMENTO",
@@ -142,17 +146,18 @@
             "CNPJ DO CLIENTE"});
             this.cbxBuscar.Location = new System.Drawing.Point(146, 131);
             this.cbxBuscar.Name = "cbxBuscar";
-            this.cbxBuscar.Size = new System.Drawing.Size(141, 21);
+            this.cbxBuscar.Size = new System.Drawing.Size(141, 24);
             this.cbxBuscar.TabIndex = 1;
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPesquisar.Location = new System.Drawing.Point(442, 166);
+            this.btnPesquisar.Location = new System.Drawing.Point(442, 169);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(88, 39);
+            this.btnPesquisar.Size = new System.Drawing.Size(88, 36);
             this.btnPesquisar.TabIndex = 6;
             this.btnPesquisar.Text = "PESQUISAR";
             this.btnPesquisar.UseVisualStyleBackColor = false;
@@ -162,8 +167,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(160, 69);
+            this.button1.Location = new System.Drawing.Point(185, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 39);
             this.button1.TabIndex = 9;
@@ -173,19 +179,20 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(173, 43);
+            this.textBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(194, 42);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 20);
+            this.textBox1.Size = new System.Drawing.Size(68, 23);
             this.textBox1.TabIndex = 8;
             // 
             // lblnomecliente
             // 
             this.lblnomecliente.AutoSize = true;
-            this.lblnomecliente.Font = new System.Drawing.Font("Bahnschrift", 11F);
+            this.lblnomecliente.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnomecliente.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblnomecliente.Location = new System.Drawing.Point(157, 16);
+            this.lblnomecliente.Location = new System.Drawing.Point(187, 21);
             this.lblnomecliente.Name = "lblnomecliente";
-            this.lblnomecliente.Size = new System.Drawing.Size(102, 18);
+            this.lblnomecliente.Size = new System.Drawing.Size(89, 16);
             this.lblnomecliente.TabIndex = 67;
             this.lblnomecliente.Text = "ID DA VENDA:";
             // 
@@ -197,8 +204,9 @@
             this.groupBox1.Controls.Add(this.lblnomecliente);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox1.Location = new System.Drawing.Point(724, 89);
+            this.groupBox1.Location = new System.Drawing.Point(716, 112);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(322, 131);
             this.groupBox1.TabIndex = 68;
@@ -208,10 +216,11 @@
             // rb_Func
             // 
             this.rb_Func.AutoSize = true;
+            this.rb_Func.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_Func.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rb_Func.Location = new System.Drawing.Point(6, 65);
+            this.rb_Func.Location = new System.Drawing.Point(10, 83);
             this.rb_Func.Name = "rb_Func";
-            this.rb_Func.Size = new System.Drawing.Size(106, 17);
+            this.rb_Func.Size = new System.Drawing.Size(116, 20);
             this.rb_Func.TabIndex = 70;
             this.rb_Func.TabStop = true;
             this.rb_Func.Text = "FUNCIONÁRIOS";
@@ -220,10 +229,11 @@
             // rb_Sp
             // 
             this.rb_Sp.AutoSize = true;
+            this.rb_Sp.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_Sp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rb_Sp.Location = new System.Drawing.Point(6, 42);
+            this.rb_Sp.Location = new System.Drawing.Point(10, 57);
             this.rb_Sp.Name = "rb_Sp";
-            this.rb_Sp.Size = new System.Drawing.Size(148, 17);
+            this.rb_Sp.Size = new System.Drawing.Size(160, 20);
             this.rb_Sp.TabIndex = 69;
             this.rb_Sp.TabStop = true;
             this.rb_Sp.Text = "SERVIÇOS PRESTADOS";
@@ -232,10 +242,11 @@
             // rb_Pv
             // 
             this.rb_Pv.AutoSize = true;
+            this.rb_Pv.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_Pv.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rb_Pv.Location = new System.Drawing.Point(6, 19);
+            this.rb_Pv.Location = new System.Drawing.Point(10, 32);
             this.rb_Pv.Name = "rb_Pv";
-            this.rb_Pv.Size = new System.Drawing.Size(145, 17);
+            this.rb_Pv.Size = new System.Drawing.Size(156, 20);
             this.rb_Pv.TabIndex = 68;
             this.rb_Pv.TabStop = true;
             this.rb_Pv.Text = "PRODUTOS VENDIDOS";
@@ -245,17 +256,19 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(12, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1077, 83);
+            this.panel1.Size = new System.Drawing.Size(1100, 83);
             this.panel1.TabIndex = 75;
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(336, 19);
+            this.label6.Location = new System.Drawing.Point(359, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(399, 44);
             this.label6.TabIndex = 0;
@@ -266,7 +279,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1101, 611);
+            this.ClientSize = new System.Drawing.Size(1100, 560);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cxbData);

@@ -245,6 +245,7 @@ namespace TomMotos.view
             this.dgEndereco.AllowUserToDeleteRows = false;
             this.dgEndereco.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgEndereco.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgEndereco.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEndereco.Location = new System.Drawing.Point(364, 226);
             this.dgEndereco.MultiSelect = false;

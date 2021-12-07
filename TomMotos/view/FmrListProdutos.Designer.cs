@@ -49,6 +49,7 @@ namespace TomMotos.view
             this.dgListProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgListProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgListProdutos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgListProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgListProdutos.Location = new System.Drawing.Point(12, 187);
             this.dgListProdutos.MultiSelect = false;

@@ -132,6 +132,7 @@ namespace TomMotos.view
             this.dgEmail.AllowUserToDeleteRows = false;
             this.dgEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgEmail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgEmail.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgEmail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEmail.Location = new System.Drawing.Point(369, 225);
             this.dgEmail.MultiSelect = false;

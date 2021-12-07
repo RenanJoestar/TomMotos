@@ -83,12 +83,13 @@ namespace TomMotos.view
             this.dg_log_fornecimento.AllowUserToAddRows = false;
             this.dg_log_fornecimento.AllowUserToDeleteRows = false;
             this.dg_log_fornecimento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dg_log_fornecimento.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dg_log_fornecimento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_log_fornecimento.Location = new System.Drawing.Point(34, 278);
+            this.dg_log_fornecimento.Location = new System.Drawing.Point(12, 243);
             this.dg_log_fornecimento.MultiSelect = false;
             this.dg_log_fornecimento.Name = "dg_log_fornecimento";
             this.dg_log_fornecimento.ReadOnly = true;
-            this.dg_log_fornecimento.Size = new System.Drawing.Size(1048, 358);
+            this.dg_log_fornecimento.Size = new System.Drawing.Size(1076, 305);
             this.dg_log_fornecimento.TabIndex = 31;
             // 
             // btn_mostrar_tudo
@@ -153,9 +154,10 @@ namespace TomMotos.view
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(12, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1077, 83);
+            this.panel1.Size = new System.Drawing.Size(1100, 83);
             this.panel1.TabIndex = 74;
             // 
             // label6
@@ -174,7 +176,7 @@ namespace TomMotos.view
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1094, 660);
+            this.ClientSize = new System.Drawing.Size(1100, 560);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cxbData);
             this.Controls.Add(this.label2);

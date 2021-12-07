@@ -115,7 +115,7 @@ namespace TomMotos.view
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(39, 145);
+            this.groupBox1.Location = new System.Drawing.Point(12, 98);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(270, 340);
             this.groupBox1.TabIndex = 17;
@@ -219,6 +219,7 @@ namespace TomMotos.view
             this.dg_fornecedor.AllowUserToAddRows = false;
             this.dg_fornecedor.AllowUserToDeleteRows = false;
             this.dg_fornecedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dg_fornecedor.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dg_fornecedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_fornecedor.Location = new System.Drawing.Point(342, 134);
             this.dg_fornecedor.MultiSelect = false;
@@ -235,7 +236,7 @@ namespace TomMotos.view
             this.btnExcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(838, 506);
+            this.btnExcluir.Location = new System.Drawing.Point(832, 506);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(192, 45);
             this.btnExcluir.TabIndex = 12;
@@ -287,7 +288,7 @@ namespace TomMotos.view
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(303, 21);
+            this.label4.Location = new System.Drawing.Point(296, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(523, 44);
             this.label4.TabIndex = 19;

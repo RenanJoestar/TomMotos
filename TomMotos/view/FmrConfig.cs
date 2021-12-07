@@ -85,7 +85,7 @@ namespace TomMotos.view
                 key.SetValue("localPDF", localPDF);
                 key.SetValue("estiloImagem", estiloImagem);
                 key.Close();
-                this.Close();
+                Application.Restart();
             }
             catch (Exception erro) { MessageBox.Show(erro.ToString()); }
         }

@@ -364,6 +364,7 @@ namespace TomMotos.view
             this.dg_cliente.AllowUserToAddRows = false;
             this.dg_cliente.AllowUserToDeleteRows = false;
             this.dg_cliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dg_cliente.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dg_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_cliente.Location = new System.Drawing.Point(368, 131);
             this.dg_cliente.MultiSelect = false;
@@ -390,7 +391,7 @@ namespace TomMotos.view
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(335, 18);
+            this.label7.Location = new System.Drawing.Point(328, 22);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(436, 44);
             this.label7.TabIndex = 19;

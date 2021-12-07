@@ -39,7 +39,6 @@ namespace TomMotos
             this.panel_botoes_gerenciamento = new System.Windows.Forms.FlowLayoutPanel();
             this.X = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BTN_CONSULTA = new System.Windows.Forms.Button();
             this.BTN_GERENCIAMENTO = new System.Windows.Forms.Button();
@@ -194,7 +193,6 @@ namespace TomMotos
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(70)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.BTN_CONSULTA);
             this.panel2.Controls.Add(this.BTN_GERENCIAMENTO);
@@ -204,14 +202,7 @@ namespace TomMotos
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(234, 768);
             this.panel2.TabIndex = 29;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(3, 172);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(230, 5);
-            this.panel1.TabIndex = 45;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox1
             // 
@@ -236,7 +227,7 @@ namespace TomMotos
             this.BTN_CONSULTA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_CONSULTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.BTN_CONSULTA.ForeColor = System.Drawing.Color.White;
-            this.BTN_CONSULTA.Location = new System.Drawing.Point(-2, 339);
+            this.BTN_CONSULTA.Location = new System.Drawing.Point(0, 235);
             this.BTN_CONSULTA.Name = "BTN_CONSULTA";
             this.BTN_CONSULTA.Size = new System.Drawing.Size(234, 56);
             this.BTN_CONSULTA.TabIndex = 43;
@@ -255,7 +246,7 @@ namespace TomMotos
             this.BTN_GERENCIAMENTO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_GERENCIAMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.BTN_GERENCIAMENTO.ForeColor = System.Drawing.Color.White;
-            this.BTN_GERENCIAMENTO.Location = new System.Drawing.Point(-1, 245);
+            this.BTN_GERENCIAMENTO.Location = new System.Drawing.Point(-1, 173);
             this.BTN_GERENCIAMENTO.Name = "BTN_GERENCIAMENTO";
             this.BTN_GERENCIAMENTO.Size = new System.Drawing.Size(233, 56);
             this.BTN_GERENCIAMENTO.TabIndex = 41;
@@ -274,7 +265,7 @@ namespace TomMotos
             this.btnCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCaixa.ForeColor = System.Drawing.Color.White;
-            this.btnCaixa.Location = new System.Drawing.Point(-1, 429);
+            this.btnCaixa.Location = new System.Drawing.Point(0, 297);
             this.btnCaixa.Name = "btnCaixa";
             this.btnCaixa.Size = new System.Drawing.Size(234, 56);
             this.btnCaixa.TabIndex = 39;
@@ -396,7 +387,7 @@ namespace TomMotos
             this.Panel.Location = new System.Drawing.Point(249, 187);
             this.Panel.Margin = new System.Windows.Forms.Padding(0);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(1096, 587);
+            this.Panel.Size = new System.Drawing.Size(1071, 587);
             this.Panel.TabIndex = 0;
             // 
             // btnConfig
@@ -484,7 +475,6 @@ namespace TomMotos
         private System.Windows.Forms.FlowLayoutPanel panel_botoes_consulta;
         private System.Windows.Forms.Label lbl_gerenciamentoeconsulta;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.Button btnConfig;

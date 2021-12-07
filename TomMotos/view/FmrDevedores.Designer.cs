@@ -160,14 +160,15 @@
             this.dgDevedores.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.dgDevedores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgDevedores.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgDevedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgDevedores.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgDevedores.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgDevedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDevedores.Location = new System.Drawing.Point(34, 270);
+            this.dgDevedores.Location = new System.Drawing.Point(12, 251);
             this.dgDevedores.MultiSelect = false;
             this.dgDevedores.Name = "dgDevedores";
             this.dgDevedores.ReadOnly = true;
-            this.dgDevedores.Size = new System.Drawing.Size(1055, 378);
+            this.dgDevedores.Size = new System.Drawing.Size(1076, 297);
             this.dgDevedores.TabIndex = 55;
             this.dgDevedores.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgDevedores_CellMouseClick);
             // 
@@ -175,7 +176,7 @@
             // 
             this.txtIdVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIdVenda.Enabled = false;
-            this.txtIdVenda.Location = new System.Drawing.Point(884, 131);
+            this.txtIdVenda.Location = new System.Drawing.Point(883, 131);
             this.txtIdVenda.Name = "txtIdVenda";
             this.txtIdVenda.Size = new System.Drawing.Size(100, 20);
             this.txtIdVenda.TabIndex = 8;
@@ -183,7 +184,7 @@
             // txtValorPago
             // 
             this.txtValorPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtValorPago.Location = new System.Drawing.Point(884, 159);
+            this.txtValorPago.Location = new System.Drawing.Point(883, 159);
             this.txtValorPago.Name = "txtValorPago";
             this.txtValorPago.Size = new System.Drawing.Size(100, 20);
             this.txtValorPago.TabIndex = 9;
@@ -194,7 +195,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(845, 215);
+            this.button1.Location = new System.Drawing.Point(844, 192);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 39);
             this.button1.TabIndex = 10;
@@ -207,7 +208,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(773, 98);
+            this.label3.Location = new System.Drawing.Point(772, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(227, 20);
             this.label3.TabIndex = 69;
@@ -218,7 +219,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 10F);
-            this.label4.Location = new System.Drawing.Point(738, 160);
+            this.label4.Location = new System.Drawing.Point(737, 160);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 17);
             this.label4.TabIndex = 70;
@@ -229,7 +230,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 10F);
-            this.label5.Location = new System.Drawing.Point(784, 132);
+            this.label5.Location = new System.Drawing.Point(783, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 17);
             this.label5.TabIndex = 71;
@@ -239,9 +240,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(12, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1077, 83);
+            this.panel1.Size = new System.Drawing.Size(1100, 83);
             this.panel1.TabIndex = 74;
             // 
             // label6
@@ -249,7 +251,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(299, 20);
+            this.label6.Location = new System.Drawing.Point(338, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(480, 44);
             this.label6.TabIndex = 0;
@@ -260,7 +262,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1101, 660);
+            this.ClientSize = new System.Drawing.Size(1100, 560);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);

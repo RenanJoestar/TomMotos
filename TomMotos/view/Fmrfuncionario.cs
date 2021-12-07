@@ -350,6 +350,7 @@ namespace TomMotos.view
             dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
         }
 
+
         private void button7_Click(object sender, EventArgs e)
         {
             if(txt_id.Text != "")

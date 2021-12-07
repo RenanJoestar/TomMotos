@@ -394,7 +394,7 @@ namespace TomMotos.view
             this.btnExcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(872, 514);
+            this.btnExcluir.Location = new System.Drawing.Point(860, 496);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(192, 45);
             this.btnExcluir.TabIndex = 17;
@@ -408,7 +408,7 @@ namespace TomMotos.view
             this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(651, 514);
+            this.btnAlterar.Location = new System.Drawing.Point(637, 496);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(192, 45);
             this.btnAlterar.TabIndex = 16;
@@ -422,7 +422,7 @@ namespace TomMotos.view
             this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(430, 514);
+            this.btnCadastrar.Location = new System.Drawing.Point(418, 496);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(192, 45);
             this.btnCadastrar.TabIndex = 15;
@@ -435,12 +435,13 @@ namespace TomMotos.view
             this.dg_produto.AllowUserToAddRows = false;
             this.dg_produto.AllowUserToDeleteRows = false;
             this.dg_produto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dg_produto.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dg_produto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_produto.Location = new System.Drawing.Point(385, 140);
             this.dg_produto.MultiSelect = false;
             this.dg_produto.Name = "dg_produto";
             this.dg_produto.ReadOnly = true;
-            this.dg_produto.Size = new System.Drawing.Size(703, 365);
+            this.dg_produto.Size = new System.Drawing.Size(703, 350);
             this.dg_produto.TabIndex = 32;
             this.dg_produto.TabStop = false;
             this.dg_produto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_produto_CellClick_1);
@@ -470,13 +471,12 @@ namespace TomMotos.view
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel2.Controls.Add(this.label10);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1088, 85);
+            this.panel2.Size = new System.Drawing.Size(1100, 85);
             this.panel2.TabIndex = 35;
             // 
             // label10
@@ -485,7 +485,7 @@ namespace TomMotos.view
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(339, 18);
+            this.label10.Location = new System.Drawing.Point(317, 22);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(451, 44);
             this.label10.TabIndex = 19;
