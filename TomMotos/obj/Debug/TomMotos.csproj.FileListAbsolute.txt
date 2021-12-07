@@ -487,3 +487,6 @@ C:\TomMotos\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrShowVendas.resources
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrShowVendas.resources
 C:\Users\José Henrique\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrLoading.resources
 C:\Users\José Henrique\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrShowVendas.resources
+C:\Users\Lenovo\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrConfig.resources
+C:\Users\Lenovo\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrLoading.resources
+C:\Users\Lenovo\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.view.FmrShowVendas.resources

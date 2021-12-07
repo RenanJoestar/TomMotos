@@ -214,8 +214,6 @@ namespace TomMotos.view
         public string getHtml(DataGridView grid, DataGridView grid2)
         {
 
-            try
-            {
                 string htmlDivStart = "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>" + "<div style=\"max-width: 100%; height: 150px;; background-color: #25293E;\">";
                 string htmlImg = "<img src=\"'https://www.addictivetips.com/app/uploads/2021/03/Windows-Device-Manager-uninstall-device.png' style =\"width: 180px; margin-left:auto; margin-right:auto; display:block; \">";
                 string htmlDivEnd = "</div>";
@@ -320,18 +318,11 @@ namespace TomMotos.view
 
                 string final = htmlDivStart+ htmlImg + htmlDivEnd+ messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd + htmlFooter + htmlFooterEnd;
                 return final;
-            }
-
-            catch (Exception erro)
-            {
-                MessageBox.Show(" " + erro);
-                return null;
-            }
+            
         }
   
         public static void Email(string htmlString)
         {
-            try { 
                 RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\TomMotos");
 
                 string emailRementente = key.GetValue("nomeEmail").ToString();
@@ -351,9 +342,7 @@ namespace TomMotos.view
                 smtp.Credentials = new NetworkCredential(emailRementente, senhaRementente);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
-                MessageBox.Show("Email enviado com sucesso", "Nota enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch { MessageBox.Show("Por favor, verifique o email\nEmail não enviado."); }
+
                 
         }
 
@@ -787,7 +776,7 @@ namespace TomMotos.view
                 e.Handled = true;
             }
         }
-
+     
         private void txtIdProduto_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Se a tecla digitada não for número e nem backspace
@@ -955,6 +944,20 @@ namespace TomMotos.view
                if (e.KeyData == Keys.F5)
             {
                 verificarFinalVenda();
+            }
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        } 
+
+        private void txtFuncID_KeyPress(object sender, KeyPressEventArgs e)
+        {//Se a tecla digitada não for número e nem backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
             }
         }
 
