@@ -213,33 +213,42 @@ namespace TomMotos.view
         }
         public string getHtml(DataGridView grid, DataGridView grid2)
         {
-            
+
             try
             {
-                string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\">";
+                string htmlDivStart = "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>" + "<div style=\"max-width: 100%; height: 150px;; background-color: #25293E;\">";
+                string htmlImg = "<br>" +
+                                    "<img src=\"https://media.discordapp.net/attachments/468531379798278151/917505687045693510/LOGO_BRANCO.png?width=267&height=175\"style =\"width: 180px; margin-left:auto; margin-right:auto; display:block; \">";
+                string htmlDivEnd = "</div>";
+                string htmlFooter = "<footer  style=\"width:100%; height: 150px; ; background-color: #25293E;bottom: 0;text-align: center;\">" +
+                                    "<br>" +
+                                    "<a href=\"#\"  style =\"width:180px;margin-left:auto;margin-right:auto;display:block;padding:8px;text-decoration:none;background-color:transparent; color:white; border:1px solid white; \">SAIBA MAIS</a>";
+                string htmlFooterEnd = "</footer>";
+
+                string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center; margin-left:auto; margin-right:auto; display:block;width:700px;\">";
                 string htmlTableEnd = "</table><br>";
 
-                string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
+                string htmlHeaderRowStart = "<tr style=\"background-color:#25293e; color:#ffffff;\">";
                 string htmlHeaderRowEnd = "</tr>";
 
                 string htmlTrStart = "<tr style=\"color:#555555;\">";
                 string htmlTrEnd = "</tr>";
 
-                string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
+                string htmlTdStart = "<td style=\"border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
                 string htmlTdEnd = "</td>";
                 string messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE VENDA TOMMOTOS: </p><br><br>", messageB = "", total = "";
-
                 if (CaixaModel.eOrcamento == true)
                 {
-                    htmlTdStart = "<td style=\" border-color:#d2a06f; border-style:solid; border-width:thin; padding: 5px;\">";
+                    htmlTdStart = "<td style=\"border-color:black; border-style:solid; border-width:thin; padding: 5px;\">";
                     messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE ORÇAMENTO TOMMOTOS: </p><br><br>";
-                    htmlHeaderRowStart = "<tr style=\"background-color:#d2a06f; color:#ffffff;\">";
+                    htmlHeaderRowStart = "<tr style=\"background-color:#25293e; color:#ffffff;\">";
                 }
                 if (grid.RowCount == 0 || grid2.RowCount == 0) return messageBody;
-               
-               
+
+
                 if (dgProdutos.Rows.Count > 1)
                 {
+
                     messageBody += htmlTableStart;
                     messageBody += htmlHeaderRowStart;
                     messageBody += htmlTdStart + "ITEM" + htmlTdEnd;
@@ -250,38 +259,44 @@ namespace TomMotos.view
                     messageBody += htmlTdStart + "DESCONTO.(%)" + htmlTdEnd;
                     messageBody += htmlTdStart + "VL.ITEM.(R$)" + htmlTdEnd;
                     messageBody += htmlHeaderRowEnd;
+
                 }
 
-                if (dgServicos.Rows.Count > 1 )
+                if (dgServicos.Rows.Count > 1)
                 {
+                    messageBody += htmlDivStart;
+                    messageBody += htmlImg;
                     messageB += htmlTableStart;
                     messageB += htmlHeaderRowStart;
                     messageB += htmlTdStart + "    " + htmlTdEnd;
                     messageB += htmlTdStart + "DESCRIÇÃO SERVIÇO" + htmlTdEnd;
                     messageB += htmlTdStart + "VALOR(R$)" + htmlTdEnd;
                     messageB += htmlHeaderRowEnd;
+                    messageBody += htmlDivEnd;
+
+
                 }
                 total += htmlTableStart;
                 total += htmlHeaderRowStart;
                 total += htmlTdStart + "DATA" + htmlTdEnd;
-                if(txtdesc.Text !="0,00"&& txtdesc.Text != "")total += htmlTdStart + "DESCONTO FINAL(%)" + htmlTdEnd;
-                if (CaixaModel.eOrcamento==false) total += htmlTdStart + "VALOR PAGO(R$)" + htmlTdEnd;
+                if (txtdesc.Text != "0,00" && txtdesc.Text != "") total += htmlTdStart + "DESCONTO FINAL(%)" + htmlTdEnd;
+                if (CaixaModel.eOrcamento == false) total += htmlTdStart + "VALOR PAGO(R$)" + htmlTdEnd;
                 else total += htmlTdStart + "VALOR ADIANTADO(R$)" + htmlTdEnd;
                 total += htmlTdStart + "TOTAL(R$)" + htmlTdEnd;
                 if (CaixaModel.eOrcamento == false) total += htmlTdStart + "TROCO(R$)" + htmlTdEnd;
-                if (CaixaModel.eOrcamento == true && CaixaModel.valor_pago !=0)total += htmlTdStart + "FALTA PAGAR(R$)" + htmlTdEnd;
+                if (CaixaModel.eOrcamento == true && CaixaModel.valor_pago != 0) total += htmlTdStart + "FALTA PAGAR(R$)" + htmlTdEnd;
                 total += htmlHeaderRowEnd;
 
                 total = total + htmlTrStart;
                 total = total + htmlTdStart + DateTime.Now.ToString() + htmlTdEnd;
-                if (txtdesc.Text != ""&& txtdesc.Text != "0,00") total = total + htmlTdStart + string.Format("{0:P}", double.Parse(txtdesc.Text)/100) + htmlTdEnd; 
-                total = total + htmlTdStart + string.Format("{0:#,##0.00}",CaixaModel.valor_pago) + htmlTdEnd;
-                total = total+ htmlTdStart + lblSubitotal.Text.ToString() + htmlTdEnd;
+                if (txtdesc.Text != "" && txtdesc.Text != "0,00") total = total + htmlTdStart + string.Format("{0:P}", double.Parse(txtdesc.Text) / 100) + htmlTdEnd;
+                total = total + htmlTdStart + string.Format("{0:#,##0.00}", CaixaModel.valor_pago) + htmlTdEnd;
+                total = total + htmlTdStart + lblSubitotal.Text.ToString() + htmlTdEnd;
                 if (CaixaModel.eOrcamento == false) total = total + htmlTdStart + string.Format("{0:#,##0.00}", CaixaModel.valor_pago - double.Parse(lblSubitotal.Text)) + htmlTdEnd;
                 if (CaixaModel.eOrcamento == true && CaixaModel.valor_pago != 0) total = total + htmlTdStart + string.Format("{0:#,##0.00}", CaixaModel.valor_pago - double.Parse(lblSubitotal.Text)) + htmlTdEnd;
                 total = total + htmlTrEnd;
 
-                for (int i = 0; i <= grid.RowCount -2; i++)
+                for (int i = 0; i <= grid.RowCount - 2; i++)
                 {
                     messageBody = messageBody + htmlTrStart;
                     messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[0].Value + htmlTdEnd;
@@ -292,9 +307,9 @@ namespace TomMotos.view
                     messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[5].Value + htmlTdEnd;
                     messageBody = messageBody + htmlTdStart + grid.Rows[i].Cells[6].Value + htmlTdEnd;
                     messageBody = messageBody + htmlTrEnd;
-                 
+
                 }
-                for (int a = 0; a <= grid2.RowCount -2; a++)
+                for (int a = 0; a <= grid2.RowCount - 2; a++)
                 {
                     messageB = messageB + htmlTrStart;
                     messageB = messageB + htmlTdStart + grid2.Rows[a].Cells[0].Value + htmlTdEnd;
@@ -303,13 +318,14 @@ namespace TomMotos.view
                     messageB = messageB + htmlTrEnd;
 
                 }
-                string final = messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd;
 
+                string final = messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd + htmlFooter + htmlFooterEnd;
                 return final;
             }
 
-            catch (Exception erro) {
-                MessageBox.Show(" "+ erro);
+            catch (Exception erro)
+            {
+                MessageBox.Show(" " + erro);
                 return null;
             }
         }
