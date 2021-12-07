@@ -42,11 +42,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblnomecliente = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rb_Func = new System.Windows.Forms.RadioButton();
+            this.rb_Sp = new System.Windows.Forms.RadioButton();
+            this.rb_Pv = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.rb_Pv = new System.Windows.Forms.RadioButton();
-            this.rb_Sp = new System.Windows.Forms.RadioButton();
-            this.rb_Func = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenda)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -54,6 +54,9 @@
             // 
             // dgVenda
             // 
+            this.dgVenda.AllowUserToAddRows = false;
+            this.dgVenda.AllowUserToDeleteRows = false;
+            this.dgVenda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgVenda.Location = new System.Drawing.Point(34, 278);
             this.dgVenda.MultiSelect = false;
@@ -202,6 +205,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CONTROLE DE EXIBIÇÃO";
             // 
+            // rb_Func
+            // 
+            this.rb_Func.AutoSize = true;
+            this.rb_Func.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rb_Func.Location = new System.Drawing.Point(6, 65);
+            this.rb_Func.Name = "rb_Func";
+            this.rb_Func.Size = new System.Drawing.Size(106, 17);
+            this.rb_Func.TabIndex = 70;
+            this.rb_Func.TabStop = true;
+            this.rb_Func.Text = "FUNCIONÁRIOS";
+            this.rb_Func.UseVisualStyleBackColor = true;
+            // 
+            // rb_Sp
+            // 
+            this.rb_Sp.AutoSize = true;
+            this.rb_Sp.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rb_Sp.Location = new System.Drawing.Point(6, 42);
+            this.rb_Sp.Name = "rb_Sp";
+            this.rb_Sp.Size = new System.Drawing.Size(148, 17);
+            this.rb_Sp.TabIndex = 69;
+            this.rb_Sp.TabStop = true;
+            this.rb_Sp.Text = "SERVIÇOS PRESTADOS";
+            this.rb_Sp.UseVisualStyleBackColor = true;
+            // 
+            // rb_Pv
+            // 
+            this.rb_Pv.AutoSize = true;
+            this.rb_Pv.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rb_Pv.Location = new System.Drawing.Point(6, 19);
+            this.rb_Pv.Name = "rb_Pv";
+            this.rb_Pv.Size = new System.Drawing.Size(145, 17);
+            this.rb_Pv.TabIndex = 68;
+            this.rb_Pv.TabStop = true;
+            this.rb_Pv.Text = "PRODUTOS VENDIDOS";
+            this.rb_Pv.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
@@ -221,42 +260,6 @@
             this.label6.Size = new System.Drawing.Size(399, 44);
             this.label6.TabIndex = 0;
             this.label6.Text = "CONSULTA DE VENDA";
-            // 
-            // rb_Pv
-            // 
-            this.rb_Pv.AutoSize = true;
-            this.rb_Pv.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rb_Pv.Location = new System.Drawing.Point(6, 19);
-            this.rb_Pv.Name = "rb_Pv";
-            this.rb_Pv.Size = new System.Drawing.Size(145, 17);
-            this.rb_Pv.TabIndex = 68;
-            this.rb_Pv.TabStop = true;
-            this.rb_Pv.Text = "PRODUTOS VENDIDOS";
-            this.rb_Pv.UseVisualStyleBackColor = true;
-            // 
-            // rb_Sp
-            // 
-            this.rb_Sp.AutoSize = true;
-            this.rb_Sp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rb_Sp.Location = new System.Drawing.Point(6, 42);
-            this.rb_Sp.Name = "rb_Sp";
-            this.rb_Sp.Size = new System.Drawing.Size(148, 17);
-            this.rb_Sp.TabIndex = 69;
-            this.rb_Sp.TabStop = true;
-            this.rb_Sp.Text = "SERVIÇOS PRESTADOS";
-            this.rb_Sp.UseVisualStyleBackColor = true;
-            // 
-            // rb_Func
-            // 
-            this.rb_Func.AutoSize = true;
-            this.rb_Func.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rb_Func.Location = new System.Drawing.Point(6, 65);
-            this.rb_Func.Name = "rb_Func";
-            this.rb_Func.Size = new System.Drawing.Size(106, 17);
-            this.rb_Func.TabIndex = 70;
-            this.rb_Func.TabStop = true;
-            this.rb_Func.Text = "FUNCIONÁRIOS";
-            this.rb_Func.UseVisualStyleBackColor = true;
             // 
             // FmrVenda
             // 

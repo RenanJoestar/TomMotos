@@ -44,8 +44,11 @@ namespace TomMotos.view
             // 
             // dg_listarVeiculoOuCliente
             // 
+            this.dg_listarVeiculoOuCliente.AllowUserToAddRows = false;
+            this.dg_listarVeiculoOuCliente.AllowUserToDeleteRows = false;
             this.dg_listarVeiculoOuCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dg_listarVeiculoOuCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_listarVeiculoOuCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_listarVeiculoOuCliente.Location = new System.Drawing.Point(-1, 265);
             this.dg_listarVeiculoOuCliente.MultiSelect = false;
@@ -137,7 +140,7 @@ namespace TomMotos.view
             this.pesquisadecliente.ForeColor = System.Drawing.Color.White;
             this.pesquisadecliente.Location = new System.Drawing.Point(264, 21);
             this.pesquisadecliente.Name = "pesquisadecliente";
-            this.pesquisadecliente.Size = new System.Drawing.Size(581, 44);
+            this.pesquisadecliente.Size = new System.Drawing.Size(582, 44);
             this.pesquisadecliente.TabIndex = 19;
             this.pesquisadecliente.Text = "PESQUISA DE VEÍCULO/CLIENTES";
             // 

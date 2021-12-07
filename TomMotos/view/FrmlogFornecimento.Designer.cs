@@ -80,12 +80,15 @@ namespace TomMotos.view
             // 
             // dg_log_fornecimento
             // 
+            this.dg_log_fornecimento.AllowUserToAddRows = false;
+            this.dg_log_fornecimento.AllowUserToDeleteRows = false;
+            this.dg_log_fornecimento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_log_fornecimento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_log_fornecimento.Location = new System.Drawing.Point(34, 278);
             this.dg_log_fornecimento.MultiSelect = false;
             this.dg_log_fornecimento.Name = "dg_log_fornecimento";
             this.dg_log_fornecimento.ReadOnly = true;
-            this.dg_log_fornecimento.Size = new System.Drawing.Size(1055, 358);
+            this.dg_log_fornecimento.Size = new System.Drawing.Size(1048, 358);
             this.dg_log_fornecimento.TabIndex = 31;
             // 
             // btn_mostrar_tudo
@@ -121,7 +124,7 @@ namespace TomMotos.view
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(306, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 16);
+            this.label1.Size = new System.Drawing.Size(25, 16);
             this.label1.TabIndex = 41;
             this.label1.Text = "DE";
             // 
@@ -131,7 +134,7 @@ namespace TomMotos.view
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(306, 207);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 16);
+            this.label2.Size = new System.Drawing.Size(30, 16);
             this.label2.TabIndex = 42;
             this.label2.Text = "ATÉ";
             // 
@@ -141,7 +144,7 @@ namespace TomMotos.view
             this.cxbData.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cxbData.Location = new System.Drawing.Point(309, 156);
             this.cxbData.Name = "cxbData";
-            this.cxbData.Size = new System.Drawing.Size(174, 20);
+            this.cxbData.Size = new System.Drawing.Size(175, 20);
             this.cxbData.TabIndex = 3;
             this.cxbData.Text = "DATA DO FORNECIMENTO";
             this.cxbData.UseVisualStyleBackColor = true;
@@ -162,7 +165,7 @@ namespace TomMotos.view
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(229, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(642, 44);
+            this.label6.Size = new System.Drawing.Size(643, 44);
             this.label6.TabIndex = 0;
             this.label6.Text = "CONSULTA DE LOG FORNECIMENTO";
             // 

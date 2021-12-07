@@ -216,6 +216,9 @@ namespace TomMotos.view
             // 
             // dg_fornecedor
             // 
+            this.dg_fornecedor.AllowUserToAddRows = false;
+            this.dg_fornecedor.AllowUserToDeleteRows = false;
+            this.dg_fornecedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_fornecedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_fornecedor.Location = new System.Drawing.Point(387, 156);
             this.dg_fornecedor.MultiSelect = false;
@@ -286,7 +289,7 @@ namespace TomMotos.view
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(386, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(522, 44);
+            this.label4.Size = new System.Drawing.Size(523, 44);
             this.label4.TabIndex = 19;
             this.label4.Text = "CADASTRO DE FORNECEDOR";
             // 

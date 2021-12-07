@@ -347,6 +347,9 @@ namespace TomMotos.view
             // 
             // dg_cliente
             // 
+            this.dg_cliente.AllowUserToAddRows = false;
+            this.dg_cliente.AllowUserToDeleteRows = false;
+            this.dg_cliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_cliente.Location = new System.Drawing.Point(387, 156);
             this.dg_cliente.MultiSelect = false;
@@ -375,7 +378,7 @@ namespace TomMotos.view
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(432, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(435, 44);
+            this.label7.Size = new System.Drawing.Size(436, 44);
             this.label7.TabIndex = 19;
             this.label7.Text = "CADASTRO DE CLIENTES";
             // 

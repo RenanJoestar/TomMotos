@@ -70,6 +70,9 @@ namespace TomMotos.view
             // 
             // dg_funcionario
             // 
+            this.dg_funcionario.AllowUserToAddRows = false;
+            this.dg_funcionario.AllowUserToDeleteRows = false;
+            this.dg_funcionario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_funcionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_funcionario.Location = new System.Drawing.Point(384, 156);
             this.dg_funcionario.MultiSelect = false;
@@ -464,7 +467,7 @@ namespace TomMotos.view
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(394, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(535, 44);
+            this.label4.Size = new System.Drawing.Size(536, 44);
             this.label4.TabIndex = 19;
             this.label4.Text = "CADASTRO DE FUNCIONÁRIO";
             // 

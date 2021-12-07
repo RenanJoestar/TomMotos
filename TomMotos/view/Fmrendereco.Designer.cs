@@ -241,7 +241,10 @@ namespace TomMotos.view
             // 
             // dgEndereco
             // 
+            this.dgEndereco.AllowUserToAddRows = false;
+            this.dgEndereco.AllowUserToDeleteRows = false;
             this.dgEndereco.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgEndereco.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEndereco.Location = new System.Drawing.Point(364, 226);
             this.dgEndereco.MultiSelect = false;

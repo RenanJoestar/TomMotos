@@ -46,6 +46,9 @@
             // 
             // dgOrcamento
             // 
+            this.dgOrcamento.AllowUserToAddRows = false;
+            this.dgOrcamento.AllowUserToDeleteRows = false;
+            this.dgOrcamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgOrcamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgOrcamento.Location = new System.Drawing.Point(34, 278);
             this.dgOrcamento.MultiSelect = false;
@@ -106,7 +109,7 @@
             this.cxbData.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.cxbData.Location = new System.Drawing.Point(314, 175);
             this.cxbData.Name = "cxbData";
-            this.cxbData.Size = new System.Drawing.Size(154, 20);
+            this.cxbData.Size = new System.Drawing.Size(155, 20);
             this.cxbData.TabIndex = 4;
             this.cxbData.Text = "DATA DO ORÇAMENTO";
             this.cxbData.UseVisualStyleBackColor = true;
@@ -117,7 +120,7 @@
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.label2.Location = new System.Drawing.Point(311, 226);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 16);
+            this.label2.Size = new System.Drawing.Size(30, 16);
             this.label2.TabIndex = 53;
             this.label2.Text = "ATÉ";
             // 
@@ -127,7 +130,7 @@
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.label1.Location = new System.Drawing.Point(311, 202);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 16);
+            this.label1.Size = new System.Drawing.Size(25, 16);
             this.label1.TabIndex = 52;
             this.label1.Text = "DE";
             // 
@@ -161,7 +164,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(287, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(507, 44);
+            this.label6.Size = new System.Drawing.Size(508, 44);
             this.label6.TabIndex = 0;
             this.label6.Text = "CONSULTA DE ORÇAMENTO";
             // 

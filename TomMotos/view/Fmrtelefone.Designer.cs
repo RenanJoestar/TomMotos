@@ -197,7 +197,10 @@ namespace TomMotos.view
             // 
             // dgTelefone
             // 
+            this.dgTelefone.AllowUserToAddRows = false;
+            this.dgTelefone.AllowUserToDeleteRows = false;
             this.dgTelefone.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgTelefone.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgTelefone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgTelefone.Location = new System.Drawing.Point(368, 228);
             this.dgTelefone.MultiSelect = false;

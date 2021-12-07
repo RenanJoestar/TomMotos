@@ -184,7 +184,7 @@ namespace TomMotos
 
         private void X_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void BTN_GERENCIAMENTO_Click(object sender, EventArgs e)

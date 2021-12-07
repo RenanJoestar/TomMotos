@@ -129,7 +129,7 @@ namespace TomMotos.view
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(67, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
+            this.label1.Size = new System.Drawing.Size(53, 16);
             this.label1.TabIndex = 35;
             this.label1.Text = "MARCA:";
             // 
@@ -182,7 +182,7 @@ namespace TomMotos.view
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(31, 222);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(88, 16);
+            this.label11.Size = new System.Drawing.Size(89, 16);
             this.label11.TabIndex = 28;
             this.label11.Text = "OBSERVAÇÃO:";
             // 
@@ -194,7 +194,7 @@ namespace TomMotos.view
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(71, 195);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 16);
+            this.label12.Size = new System.Drawing.Size(49, 16);
             this.label12.TabIndex = 25;
             this.label12.Text = "PLACA:";
             // 
@@ -226,7 +226,7 @@ namespace TomMotos.view
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(38, 168);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 16);
+            this.label13.Size = new System.Drawing.Size(82, 16);
             this.label13.TabIndex = 22;
             this.label13.Text = "KM RODADO:";
             // 
@@ -238,7 +238,7 @@ namespace TomMotos.view
             this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.Location = new System.Drawing.Point(84, 141);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(35, 16);
+            this.label14.Size = new System.Drawing.Size(36, 16);
             this.label14.TabIndex = 21;
             this.label14.Text = "ANO:";
             // 
@@ -250,7 +250,7 @@ namespace TomMotos.view
             this.label15.ForeColor = System.Drawing.Color.Black;
             this.label15.Location = new System.Drawing.Point(85, 114);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(34, 16);
+            this.label15.Size = new System.Drawing.Size(35, 16);
             this.label15.TabIndex = 12;
             this.label15.Text = "COR:";
             // 
@@ -281,7 +281,7 @@ namespace TomMotos.view
             this.label16.ForeColor = System.Drawing.Color.Black;
             this.label16.Location = new System.Drawing.Point(96, 33);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(23, 16);
+            this.label16.Size = new System.Drawing.Size(24, 16);
             this.label16.TabIndex = 6;
             this.label16.Text = "ID:";
             // 
@@ -316,7 +316,7 @@ namespace TomMotos.view
             this.label17.ForeColor = System.Drawing.Color.Black;
             this.label17.Location = new System.Drawing.Point(59, 59);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 16);
+            this.label17.Size = new System.Drawing.Size(61, 16);
             this.label17.TabIndex = 7;
             this.label17.Text = "MODELO:";
             // 
@@ -364,6 +364,9 @@ namespace TomMotos.view
             // 
             // dg_veiculo
             // 
+            this.dg_veiculo.AllowUserToAddRows = false;
+            this.dg_veiculo.AllowUserToDeleteRows = false;
+            this.dg_veiculo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_veiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_veiculo.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dg_veiculo.Location = new System.Drawing.Point(490, 170);
@@ -454,7 +457,7 @@ namespace TomMotos.view
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(432, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(454, 44);
+            this.label7.Size = new System.Drawing.Size(455, 44);
             this.label7.TabIndex = 19;
             this.label7.Text = "CADASTRO DE VEICULOS";
             // 

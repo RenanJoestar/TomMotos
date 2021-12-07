@@ -36,16 +36,19 @@ namespace TomMotos.view
             this.button2 = new System.Windows.Forms.Button();
             this.btnMostrarTudo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.X = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgListProdutos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgListProdutos
             // 
+            this.dgListProdutos.AllowUserToAddRows = false;
+            this.dgListProdutos.AllowUserToDeleteRows = false;
             this.dgListProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgListProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgListProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgListProdutos.Location = new System.Drawing.Point(-1, 216);
             this.dgListProdutos.MultiSelect = false;
@@ -117,18 +120,6 @@ namespace TomMotos.view
             this.panel1.Size = new System.Drawing.Size(1135, 85);
             this.panel1.TabIndex = 48;
             // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(385, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(361, 44);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "LISTA DE PRODUTOS";
-            // 
             // X
             // 
             this.X.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -144,6 +135,18 @@ namespace TomMotos.view
             this.X.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.X.UseVisualStyleBackColor = false;
             this.X.Click += new System.EventHandler(this.X_Click_1);
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(385, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(362, 44);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "LISTA DE PRODUTOS";
             // 
             // FmrListProdutos
             // 

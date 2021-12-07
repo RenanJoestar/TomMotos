@@ -58,7 +58,7 @@
             this.cxbData.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cxbData.Location = new System.Drawing.Point(80, 173);
             this.cxbData.Name = "cxbData";
-            this.cxbData.Size = new System.Drawing.Size(154, 20);
+            this.cxbData.Size = new System.Drawing.Size(155, 20);
             this.cxbData.TabIndex = 3;
             this.cxbData.Text = "DATA DO ORÇAMENTO";
             this.cxbData.UseVisualStyleBackColor = true;
@@ -69,7 +69,7 @@
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(77, 226);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 16);
+            this.label2.Size = new System.Drawing.Size(30, 16);
             this.label2.TabIndex = 64;
             this.label2.Text = "ATÉ";
             // 
@@ -79,7 +79,7 @@
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(78, 200);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 16);
+            this.label1.Size = new System.Drawing.Size(25, 16);
             this.label1.TabIndex = 63;
             this.label1.Text = "DE";
             // 
@@ -156,8 +156,11 @@
             // 
             // dgDevedores
             // 
+            this.dgDevedores.AllowUserToAddRows = false;
+            this.dgDevedores.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.dgDevedores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgDevedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgDevedores.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgDevedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgDevedores.Location = new System.Drawing.Point(34, 270);
@@ -248,7 +251,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(299, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(479, 44);
+            this.label6.Size = new System.Drawing.Size(480, 44);
             this.label6.TabIndex = 0;
             this.label6.Text = "CONSULTA DE DEVEDORES";
             // 

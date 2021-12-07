@@ -217,8 +217,7 @@ namespace TomMotos.view
             try
             {
                 string htmlDivStart = "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>" + "<div style=\"max-width: 100%; height: 150px;; background-color: #25293E;\">";
-                string htmlImg = "<br>" +
-                                    "<img src=\"https://media.discordapp.net/attachments/468531379798278151/917505687045693510/LOGO_BRANCO.png?width=267&height=175\"style =\"width: 180px; margin-left:auto; margin-right:auto; display:block; \">";
+                string htmlImg = "<img src=\"'https://www.addictivetips.com/app/uploads/2021/03/Windows-Device-Manager-uninstall-device.png' style =\"width: 180px; margin-left:auto; margin-right:auto; display:block; \">";
                 string htmlDivEnd = "</div>";
                 string htmlFooter = "<footer  style=\"width:100%; height: 150px; ; background-color: #25293E;bottom: 0;text-align: center;\">" +
                                     "<br>" +
@@ -319,7 +318,7 @@ namespace TomMotos.view
 
                 }
 
-                string final = messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd + htmlFooter + htmlFooterEnd;
+                string final = htmlDivStart+ htmlImg + htmlDivEnd+ messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd + htmlFooter + htmlFooterEnd;
                 return final;
             }
 
@@ -924,6 +923,38 @@ namespace TomMotos.view
                         dg_func.Rows[i].Cells[0].Value = true;
                     }
                 }
+            }
+        }
+
+        private void dg_func_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F5)
+            {
+                verificarFinalVenda();
+            }
+        }
+
+        private void dg_funcGet_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F5)
+            {
+                verificarFinalVenda();
+            }
+        }
+
+        private void txtFuncID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F5)
+            {
+                verificarFinalVenda();
+            }
+        }
+
+        private void BtnMostrarFunc_KeyDown(object sender, KeyEventArgs e)
+        {
+               if (e.KeyData == Keys.F5)
+            {
+                verificarFinalVenda();
             }
         }
 
