@@ -50,11 +50,11 @@
             this.dgOrcamento.AllowUserToDeleteRows = false;
             this.dgOrcamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgOrcamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgOrcamento.Location = new System.Drawing.Point(34, 278);
+            this.dgOrcamento.Location = new System.Drawing.Point(12, 275);
             this.dgOrcamento.MultiSelect = false;
             this.dgOrcamento.Name = "dgOrcamento";
             this.dgOrcamento.ReadOnly = true;
-            this.dgOrcamento.Size = new System.Drawing.Size(1055, 370);
+            this.dgOrcamento.Size = new System.Drawing.Size(1077, 328);
             this.dgOrcamento.TabIndex = 0;
             this.dgOrcamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOrcamento_CellDoubleClick);
             // 
@@ -173,7 +173,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1101, 660);
+            this.ClientSize = new System.Drawing.Size(1101, 615);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cxbData);
             this.Controls.Add(this.label2);

@@ -67,7 +67,7 @@ namespace TomMotos
             this.BT_PRODUTO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_PRODUTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_PRODUTO.ForeColor = System.Drawing.Color.White;
-            this.BT_PRODUTO.Location = new System.Drawing.Point(391, 3);
+            this.BT_PRODUTO.Location = new System.Drawing.Point(363, 3);
             this.BT_PRODUTO.Name = "BT_PRODUTO";
             this.BT_PRODUTO.Size = new System.Drawing.Size(188, 49);
             this.BT_PRODUTO.TabIndex = 35;
@@ -83,9 +83,9 @@ namespace TomMotos
             this.BT_FORNECEDOR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_FORNECEDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_FORNECEDOR.ForeColor = System.Drawing.Color.White;
-            this.BT_FORNECEDOR.Location = new System.Drawing.Point(973, 3);
+            this.BT_FORNECEDOR.Location = new System.Drawing.Point(889, 3);
             this.BT_FORNECEDOR.Name = "BT_FORNECEDOR";
-            this.BT_FORNECEDOR.Size = new System.Drawing.Size(188, 49);
+            this.BT_FORNECEDOR.Size = new System.Drawing.Size(160, 50);
             this.BT_FORNECEDOR.TabIndex = 36;
             this.BT_FORNECEDOR.Text = "FORNECEDOR";
             this.BT_FORNECEDOR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -99,9 +99,9 @@ namespace TomMotos
             this.BT_CARGO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_CARGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_CARGO.ForeColor = System.Drawing.Color.White;
-            this.BT_CARGO.Location = new System.Drawing.Point(585, 3);
+            this.BT_CARGO.Location = new System.Drawing.Point(557, 3);
             this.BT_CARGO.Name = "BT_CARGO";
-            this.BT_CARGO.Size = new System.Drawing.Size(188, 49);
+            this.BT_CARGO.Size = new System.Drawing.Size(160, 50);
             this.BT_CARGO.TabIndex = 32;
             this.BT_CARGO.Text = "CARGO";
             this.BT_CARGO.UseVisualStyleBackColor = false;
@@ -114,7 +114,7 @@ namespace TomMotos
             this.BT_VEICULO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_VEICULO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_VEICULO.ForeColor = System.Drawing.Color.White;
-            this.BT_VEICULO.Location = new System.Drawing.Point(197, 3);
+            this.BT_VEICULO.Location = new System.Drawing.Point(169, 3);
             this.BT_VEICULO.Name = "BT_VEICULO";
             this.BT_VEICULO.Size = new System.Drawing.Size(188, 49);
             this.BT_VEICULO.TabIndex = 31;
@@ -131,9 +131,9 @@ namespace TomMotos
             this.BT_FUNCIONARIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_FUNCIONARIO.ForeColor = System.Drawing.Color.White;
             this.BT_FUNCIONARIO.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_FUNCIONARIO.Location = new System.Drawing.Point(779, 3);
+            this.BT_FUNCIONARIO.Location = new System.Drawing.Point(723, 3);
             this.BT_FUNCIONARIO.Name = "BT_FUNCIONARIO";
-            this.BT_FUNCIONARIO.Size = new System.Drawing.Size(188, 49);
+            this.BT_FUNCIONARIO.Size = new System.Drawing.Size(160, 50);
             this.BT_FUNCIONARIO.TabIndex = 37;
             this.BT_FUNCIONARIO.Text = "FUNCIONÁRIO";
             this.BT_FUNCIONARIO.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -150,7 +150,7 @@ namespace TomMotos
             this.BT_CLIENTE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BT_CLIENTE.Location = new System.Drawing.Point(3, 3);
             this.BT_CLIENTE.Name = "BT_CLIENTE";
-            this.BT_CLIENTE.Size = new System.Drawing.Size(188, 49);
+            this.BT_CLIENTE.Size = new System.Drawing.Size(160, 50);
             this.BT_CLIENTE.TabIndex = 30;
             this.BT_CLIENTE.Text = "CLIENTE";
             this.BT_CLIENTE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -159,7 +159,7 @@ namespace TomMotos
             // 
             // panel_botoes_gerenciamento
             // 
-            this.panel_botoes_gerenciamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel_botoes_gerenciamento.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel_botoes_gerenciamento.AutoSize = true;
             this.panel_botoes_gerenciamento.BackColor = System.Drawing.Color.Transparent;
             this.panel_botoes_gerenciamento.Controls.Add(this.BT_CLIENTE);
@@ -168,9 +168,9 @@ namespace TomMotos
             this.panel_botoes_gerenciamento.Controls.Add(this.BT_CARGO);
             this.panel_botoes_gerenciamento.Controls.Add(this.BT_FUNCIONARIO);
             this.panel_botoes_gerenciamento.Controls.Add(this.BT_FORNECEDOR);
-            this.panel_botoes_gerenciamento.Location = new System.Drawing.Point(292, 105);
+            this.panel_botoes_gerenciamento.Location = new System.Drawing.Point(268, 104);
             this.panel_botoes_gerenciamento.Name = "panel_botoes_gerenciamento";
-            this.panel_botoes_gerenciamento.Size = new System.Drawing.Size(1165, 55);
+            this.panel_botoes_gerenciamento.Size = new System.Drawing.Size(1052, 56);
             this.panel_botoes_gerenciamento.TabIndex = 32;
             this.panel_botoes_gerenciamento.Visible = false;
             // 
@@ -181,7 +181,7 @@ namespace TomMotos
             this.X.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.X.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.X.ForeColor = System.Drawing.Color.White;
-            this.X.Location = new System.Drawing.Point(1529, 3);
+            this.X.Location = new System.Drawing.Point(1311, 3);
             this.X.Name = "X";
             this.X.Size = new System.Drawing.Size(52, 49);
             this.X.TabIndex = 37;
@@ -192,8 +192,6 @@ namespace TomMotos
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(70)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel1);
@@ -201,9 +199,10 @@ namespace TomMotos
             this.panel2.Controls.Add(this.BTN_CONSULTA);
             this.panel2.Controls.Add(this.BTN_GERENCIAMENTO);
             this.panel2.Controls.Add(this.btnCaixa);
-            this.panel2.Location = new System.Drawing.Point(-1, 0);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(234, 881);
+            this.panel2.Size = new System.Drawing.Size(234, 768);
             this.panel2.TabIndex = 29;
             // 
             // panel1
@@ -216,11 +215,12 @@ namespace TomMotos
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(234, 167);
+            this.pictureBox1.Size = new System.Drawing.Size(232, 167);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
@@ -236,7 +236,7 @@ namespace TomMotos
             this.BTN_CONSULTA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_CONSULTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.BTN_CONSULTA.ForeColor = System.Drawing.Color.White;
-            this.BTN_CONSULTA.Location = new System.Drawing.Point(-2, 395);
+            this.BTN_CONSULTA.Location = new System.Drawing.Point(-2, 339);
             this.BTN_CONSULTA.Name = "BTN_CONSULTA";
             this.BTN_CONSULTA.Size = new System.Drawing.Size(234, 56);
             this.BTN_CONSULTA.TabIndex = 43;
@@ -255,7 +255,7 @@ namespace TomMotos
             this.BTN_GERENCIAMENTO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_GERENCIAMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.BTN_GERENCIAMENTO.ForeColor = System.Drawing.Color.White;
-            this.BTN_GERENCIAMENTO.Location = new System.Drawing.Point(-1, 301);
+            this.BTN_GERENCIAMENTO.Location = new System.Drawing.Point(-1, 245);
             this.BTN_GERENCIAMENTO.Name = "BTN_GERENCIAMENTO";
             this.BTN_GERENCIAMENTO.Size = new System.Drawing.Size(233, 56);
             this.BTN_GERENCIAMENTO.TabIndex = 41;
@@ -274,7 +274,7 @@ namespace TomMotos
             this.btnCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCaixa.ForeColor = System.Drawing.Color.White;
-            this.btnCaixa.Location = new System.Drawing.Point(-1, 485);
+            this.btnCaixa.Location = new System.Drawing.Point(-1, 429);
             this.btnCaixa.Name = "btnCaixa";
             this.btnCaixa.Size = new System.Drawing.Size(234, 56);
             this.btnCaixa.TabIndex = 39;
@@ -290,9 +290,9 @@ namespace TomMotos
             this.BT_LOG_FORNECIMENTO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_LOG_FORNECIMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_LOG_FORNECIMENTO.ForeColor = System.Drawing.Color.White;
-            this.BT_LOG_FORNECIMENTO.Location = new System.Drawing.Point(402, 3);
+            this.BT_LOG_FORNECIMENTO.Location = new System.Drawing.Point(335, 3);
             this.BT_LOG_FORNECIMENTO.Name = "BT_LOG_FORNECIMENTO";
-            this.BT_LOG_FORNECIMENTO.Size = new System.Drawing.Size(188, 49);
+            this.BT_LOG_FORNECIMENTO.Size = new System.Drawing.Size(160, 50);
             this.BT_LOG_FORNECIMENTO.TabIndex = 33;
             this.BT_LOG_FORNECIMENTO.Text = "LOG FORNECIMENTO";
             this.BT_LOG_FORNECIMENTO.UseVisualStyleBackColor = false;
@@ -305,9 +305,9 @@ namespace TomMotos
             this.BT_ORCAMENTO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_ORCAMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_ORCAMENTO.ForeColor = System.Drawing.Color.White;
-            this.BT_ORCAMENTO.Location = new System.Drawing.Point(596, 3);
+            this.BT_ORCAMENTO.Location = new System.Drawing.Point(501, 3);
             this.BT_ORCAMENTO.Name = "BT_ORCAMENTO";
-            this.BT_ORCAMENTO.Size = new System.Drawing.Size(188, 49);
+            this.BT_ORCAMENTO.Size = new System.Drawing.Size(160, 50);
             this.BT_ORCAMENTO.TabIndex = 34;
             this.BT_ORCAMENTO.Text = "ORÇAMENTO";
             this.BT_ORCAMENTO.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -321,9 +321,9 @@ namespace TomMotos
             this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVendas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVendas.ForeColor = System.Drawing.Color.White;
-            this.btnVendas.Location = new System.Drawing.Point(208, 3);
+            this.btnVendas.Location = new System.Drawing.Point(169, 3);
             this.btnVendas.Name = "btnVendas";
-            this.btnVendas.Size = new System.Drawing.Size(188, 49);
+            this.btnVendas.Size = new System.Drawing.Size(160, 50);
             this.btnVendas.TabIndex = 38;
             this.btnVendas.Text = "VENDAS";
             this.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -339,7 +339,7 @@ namespace TomMotos
             this.btnDevedores.ForeColor = System.Drawing.Color.White;
             this.btnDevedores.Location = new System.Drawing.Point(3, 3);
             this.btnDevedores.Name = "btnDevedores";
-            this.btnDevedores.Size = new System.Drawing.Size(199, 49);
+            this.btnDevedores.Size = new System.Drawing.Size(160, 50);
             this.btnDevedores.TabIndex = 0;
             this.btnDevedores.Text = "DEVEDORES";
             this.btnDevedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -348,25 +348,25 @@ namespace TomMotos
             // 
             // panel_botoes_consulta
             // 
-            this.panel_botoes_consulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel_botoes_consulta.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel_botoes_consulta.BackColor = System.Drawing.Color.Transparent;
             this.panel_botoes_consulta.Controls.Add(this.btnDevedores);
             this.panel_botoes_consulta.Controls.Add(this.btnVendas);
             this.panel_botoes_consulta.Controls.Add(this.BT_LOG_FORNECIMENTO);
             this.panel_botoes_consulta.Controls.Add(this.BT_ORCAMENTO);
-            this.panel_botoes_consulta.Location = new System.Drawing.Point(372, 105);
+            this.panel_botoes_consulta.Location = new System.Drawing.Point(454, 104);
             this.panel_botoes_consulta.Name = "panel_botoes_consulta";
-            this.panel_botoes_consulta.Size = new System.Drawing.Size(795, 55);
+            this.panel_botoes_consulta.Size = new System.Drawing.Size(671, 52);
             this.panel_botoes_consulta.TabIndex = 39;
             this.panel_botoes_consulta.Visible = false;
             // 
             // lbl_gerenciamentoeconsulta
             // 
-            this.lbl_gerenciamentoeconsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbl_gerenciamentoeconsulta.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_gerenciamentoeconsulta.AutoSize = true;
             this.lbl_gerenciamentoeconsulta.BackColor = System.Drawing.Color.Transparent;
             this.lbl_gerenciamentoeconsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_gerenciamentoeconsulta.Location = new System.Drawing.Point(579, 9);
+            this.lbl_gerenciamentoeconsulta.Location = new System.Drawing.Point(514, 18);
             this.lbl_gerenciamentoeconsulta.Name = "lbl_gerenciamentoeconsulta";
             this.lbl_gerenciamentoeconsulta.Size = new System.Drawing.Size(611, 73);
             this.lbl_gerenciamentoeconsulta.TabIndex = 40;
@@ -379,7 +379,7 @@ namespace TomMotos
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1471, 3);
+            this.button1.Location = new System.Drawing.Point(1253, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(52, 49);
             this.button1.TabIndex = 41;
@@ -390,13 +390,13 @@ namespace TomMotos
             // 
             // Panel
             // 
-            this.Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Panel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Panel.AutoSize = true;
             this.Panel.BackColor = System.Drawing.Color.Transparent;
-            this.Panel.Location = new System.Drawing.Point(260, 235);
+            this.Panel.Location = new System.Drawing.Point(249, 187);
             this.Panel.Margin = new System.Windows.Forms.Padding(0);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(1263, 634);
+            this.Panel.Size = new System.Drawing.Size(1096, 587);
             this.Panel.TabIndex = 0;
             // 
             // btnConfig
@@ -421,7 +421,7 @@ namespace TomMotos
             this.btnlimpar.ForeColor = System.Drawing.Color.White;
             this.btnlimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnlimpar.Image")));
             this.btnlimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnlimpar.Location = new System.Drawing.Point(1327, 822);
+            this.btnlimpar.Location = new System.Drawing.Point(1109, 841);
             this.btnlimpar.Name = "btnlimpar";
             this.btnlimpar.Size = new System.Drawing.Size(208, 47);
             this.btnlimpar.TabIndex = 31;
@@ -435,16 +435,16 @@ namespace TomMotos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1584, 749);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnlimpar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_gerenciamentoeconsulta);
-            this.Controls.Add(this.Panel);
-            this.Controls.Add(this.panel_botoes_consulta);
             this.Controls.Add(this.X);
-            this.Controls.Add(this.panel_botoes_gerenciamento);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel_botoes_consulta);
+            this.Controls.Add(this.panel_botoes_gerenciamento);
+            this.Controls.Add(this.Panel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

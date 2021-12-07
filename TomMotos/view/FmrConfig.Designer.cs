@@ -83,7 +83,7 @@
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(57, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 16);
+            this.label1.Size = new System.Drawing.Size(48, 16);
             this.label1.TabIndex = 7;
             this.label1.Text = "EMAIL:";
             // 
@@ -93,7 +93,7 @@
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(52, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 16);
+            this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 8;
             this.label2.Text = "SENHA:";
             // 
@@ -102,9 +102,9 @@
             this.lblLocalImg.AutoSize = true;
             this.lblLocalImg.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocalImg.ForeColor = System.Drawing.Color.Black;
-            this.lblLocalImg.Location = new System.Drawing.Point(9, 70);
+            this.lblLocalImg.Location = new System.Drawing.Point(19, 70);
             this.lblLocalImg.Name = "lblLocalImg";
-            this.lblLocalImg.Size = new System.Drawing.Size(131, 16);
+            this.lblLocalImg.Size = new System.Drawing.Size(132, 16);
             this.lblLocalImg.TabIndex = 9;
             this.lblLocalImg.Text = "(Localização imagem)";
             // 
@@ -113,9 +113,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(9, 37);
+            this.label3.Location = new System.Drawing.Point(19, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 16);
+            this.label3.Size = new System.Drawing.Size(71, 16);
             this.label3.TabIndex = 15;
             this.label3.Text = "Local PDF: ";
             // 
@@ -124,9 +124,9 @@
             this.lblLocalPDF.AutoSize = true;
             this.lblLocalPDF.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocalPDF.ForeColor = System.Drawing.Color.Black;
-            this.lblLocalPDF.Location = new System.Drawing.Point(9, 67);
+            this.lblLocalPDF.Location = new System.Drawing.Point(19, 66);
             this.lblLocalPDF.Name = "lblLocalPDF";
-            this.lblLocalPDF.Size = new System.Drawing.Size(109, 16);
+            this.lblLocalPDF.Size = new System.Drawing.Size(110, 16);
             this.lblLocalPDF.TabIndex = 16;
             this.lblLocalPDF.Text = "(Localização PDF)";
             // 
@@ -135,7 +135,7 @@
             this.btnAcharPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnAcharPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcharPDF.ForeColor = System.Drawing.Color.White;
-            this.btnAcharPDF.Location = new System.Drawing.Point(114, 32);
+            this.btnAcharPDF.Location = new System.Drawing.Point(124, 31);
             this.btnAcharPDF.Name = "btnAcharPDF";
             this.btnAcharPDF.Size = new System.Drawing.Size(75, 26);
             this.btnAcharPDF.TabIndex = 5;
@@ -148,7 +148,7 @@
             this.btnLimparPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnLimparPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparPDF.ForeColor = System.Drawing.Color.White;
-            this.btnLimparPDF.Location = new System.Drawing.Point(196, 32);
+            this.btnLimparPDF.Location = new System.Drawing.Point(206, 31);
             this.btnLimparPDF.Name = "btnLimparPDF";
             this.btnLimparPDF.Size = new System.Drawing.Size(75, 26);
             this.btnLimparPDF.TabIndex = 6;
@@ -163,7 +163,7 @@
             this.btbCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btbCancelar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btbCancelar.ForeColor = System.Drawing.Color.White;
-            this.btbCancelar.Location = new System.Drawing.Point(213, 516);
+            this.btbCancelar.Location = new System.Drawing.Point(224, 516);
             this.btbCancelar.Name = "btbCancelar";
             this.btbCancelar.Size = new System.Drawing.Size(108, 45);
             this.btbCancelar.TabIndex = 8;
@@ -178,7 +178,7 @@
             this.brnAplicar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.brnAplicar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.brnAplicar.ForeColor = System.Drawing.Color.White;
-            this.brnAplicar.Location = new System.Drawing.Point(99, 516);
+            this.brnAplicar.Location = new System.Drawing.Point(110, 516);
             this.brnAplicar.Name = "brnAplicar";
             this.brnAplicar.Size = new System.Drawing.Size(108, 45);
             this.brnAplicar.TabIndex = 7;
@@ -192,7 +192,7 @@
             this.btnLimparImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparImg.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimparImg.ForeColor = System.Drawing.Color.White;
-            this.btnLimparImg.Location = new System.Drawing.Point(196, 31);
+            this.btnLimparImg.Location = new System.Drawing.Point(206, 31);
             this.btnLimparImg.Name = "btnLimparImg";
             this.btnLimparImg.Size = new System.Drawing.Size(75, 26);
             this.btnLimparImg.TabIndex = 4;
@@ -206,7 +206,7 @@
             this.btnAcharImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcharImg.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcharImg.ForeColor = System.Drawing.Color.White;
-            this.btnAcharImg.Location = new System.Drawing.Point(115, 31);
+            this.btnAcharImg.Location = new System.Drawing.Point(125, 31);
             this.btnAcharImg.Name = "btnAcharImg";
             this.btnAcharImg.Size = new System.Drawing.Size(75, 26);
             this.btnAcharImg.TabIndex = 3;
@@ -219,9 +219,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(9, 36);
+            this.label4.Location = new System.Drawing.Point(19, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 16);
+            this.label4.Size = new System.Drawing.Size(91, 16);
             this.label4.TabIndex = 23;
             this.label4.Text = "Local imagem:";
             // 
@@ -237,7 +237,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.groupBox1.Location = new System.Drawing.Point(3, 378);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(427, 106);
+            this.groupBox1.Size = new System.Drawing.Size(448, 106);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CONFIGURAÇÕES PDF";
@@ -254,7 +254,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.groupBox2.Location = new System.Drawing.Point(3, 248);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(427, 105);
+            this.groupBox2.Size = new System.Drawing.Size(448, 105);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "CONFIGURAÇÕES IMAGEM DE FUNDO";
@@ -262,9 +262,9 @@
             // cb_esticarimagem
             // 
             this.cb_esticarimagem.AutoSize = true;
-            this.cb_esticarimagem.Location = new System.Drawing.Point(277, 37);
+            this.cb_esticarimagem.Location = new System.Drawing.Point(287, 37);
             this.cb_esticarimagem.Name = "cb_esticarimagem";
-            this.cb_esticarimagem.Size = new System.Drawing.Size(124, 20);
+            this.cb_esticarimagem.Size = new System.Drawing.Size(125, 20);
             this.cb_esticarimagem.TabIndex = 24;
             this.cb_esticarimagem.Text = "Imagem esticada";
             this.cb_esticarimagem.UseVisualStyleBackColor = true;
@@ -282,7 +282,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.groupBox3.Location = new System.Drawing.Point(3, 104);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(427, 126);
+            this.groupBox3.Size = new System.Drawing.Size(448, 126);
             this.groupBox3.TabIndex = 27;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "CONFIGURAÇÕES DO EMAIL";
@@ -292,7 +292,7 @@
             this.mostrarsenha.AutoSize = true;
             this.mostrarsenha.Location = new System.Drawing.Point(277, 103);
             this.mostrarsenha.Name = "mostrarsenha";
-            this.mostrarsenha.Size = new System.Drawing.Size(111, 20);
+            this.mostrarsenha.Size = new System.Drawing.Size(112, 20);
             this.mostrarsenha.TabIndex = 2;
             this.mostrarsenha.Text = "Mostrar senha";
             this.mostrarsenha.UseVisualStyleBackColor = true;
@@ -322,7 +322,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
-            this.panel2.Location = new System.Drawing.Point(422, -1);
+            this.panel2.Location = new System.Drawing.Point(443, -1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(3, 574);
             this.panel2.TabIndex = 29;
@@ -334,7 +334,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel3.Location = new System.Drawing.Point(-1, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(427, 3);
+            this.panel3.Size = new System.Drawing.Size(448, 3);
             this.panel3.TabIndex = 30;
             // 
             // panel5
@@ -344,7 +344,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel5.Location = new System.Drawing.Point(-1, 570);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(427, 3);
+            this.panel5.Size = new System.Drawing.Size(448, 3);
             this.panel5.TabIndex = 31;
             // 
             // label5
@@ -352,7 +352,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(91, 37);
+            this.label5.Location = new System.Drawing.Point(102, 37);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(239, 35);
             this.label5.TabIndex = 32;
@@ -365,7 +365,7 @@
             this.fechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fechar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechar.ForeColor = System.Drawing.Color.White;
-            this.fechar.Location = new System.Drawing.Point(373, 0);
+            this.fechar.Location = new System.Drawing.Point(392, 2);
             this.fechar.Name = "fechar";
             this.fechar.Size = new System.Drawing.Size(52, 47);
             this.fechar.TabIndex = 9;
@@ -378,7 +378,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(425, 573);
+            this.ClientSize = new System.Drawing.Size(446, 573);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);

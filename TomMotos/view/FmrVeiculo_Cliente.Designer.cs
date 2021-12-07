@@ -37,7 +37,7 @@ namespace TomMotos.view
             this.btnMostrarTudo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.X = new System.Windows.Forms.Button();
-            this.pesquisadecliente = new System.Windows.Forms.Label();
+            this.lblPesquisa = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dg_listarVeiculoOuCliente)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,11 +50,11 @@ namespace TomMotos.view
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dg_listarVeiculoOuCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_listarVeiculoOuCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_listarVeiculoOuCliente.Location = new System.Drawing.Point(-1, 265);
+            this.dg_listarVeiculoOuCliente.Location = new System.Drawing.Point(19, 265);
             this.dg_listarVeiculoOuCliente.MultiSelect = false;
             this.dg_listarVeiculoOuCliente.Name = "dg_listarVeiculoOuCliente";
             this.dg_listarVeiculoOuCliente.ReadOnly = true;
-            this.dg_listarVeiculoOuCliente.Size = new System.Drawing.Size(1140, 384);
+            this.dg_listarVeiculoOuCliente.Size = new System.Drawing.Size(1091, 360);
             this.dg_listarVeiculoOuCliente.TabIndex = 0;
             this.dg_listarVeiculoOuCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_listarVeiculoOuCliente_CellContentClick);
             this.dg_listarVeiculoOuCliente.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_listarVeiculoOuCliente_CellContentDoubleClick);
@@ -110,7 +110,7 @@ namespace TomMotos.view
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.panel1.Controls.Add(this.X);
-            this.panel1.Controls.Add(this.pesquisadecliente);
+            this.panel1.Controls.Add(this.lblPesquisa);
             this.panel1.Location = new System.Drawing.Point(-1, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1125, 85);
@@ -132,17 +132,17 @@ namespace TomMotos.view
             this.X.UseVisualStyleBackColor = false;
             this.X.Click += new System.EventHandler(this.X_Click);
             // 
-            // pesquisadecliente
+            // lblPesquisa
             // 
-            this.pesquisadecliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.pesquisadecliente.AutoSize = true;
-            this.pesquisadecliente.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
-            this.pesquisadecliente.ForeColor = System.Drawing.Color.White;
-            this.pesquisadecliente.Location = new System.Drawing.Point(264, 21);
-            this.pesquisadecliente.Name = "pesquisadecliente";
-            this.pesquisadecliente.Size = new System.Drawing.Size(582, 44);
-            this.pesquisadecliente.TabIndex = 19;
-            this.pesquisadecliente.Text = "PESQUISA DE VEÍCULO/CLIENTES";
+            this.lblPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblPesquisa.AutoSize = true;
+            this.lblPesquisa.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
+            this.lblPesquisa.ForeColor = System.Drawing.Color.White;
+            this.lblPesquisa.Location = new System.Drawing.Point(369, 21);
+            this.lblPesquisa.Name = "lblPesquisa";
+            this.lblPesquisa.Size = new System.Drawing.Size(336, 44);
+            this.lblPesquisa.TabIndex = 19;
+            this.lblPesquisa.Text = "PESQUISA CLIENTE";
             // 
             // FmrVeiculo_Cliente
             // 
@@ -178,6 +178,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnMostrarTudo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button X;
-        private System.Windows.Forms.Label pesquisadecliente;
+        private System.Windows.Forms.Label lblPesquisa;
     }
 }

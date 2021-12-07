@@ -58,11 +58,11 @@
             this.dgVenda.AllowUserToDeleteRows = false;
             this.dgVenda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgVenda.Location = new System.Drawing.Point(34, 278);
+            this.dgVenda.Location = new System.Drawing.Point(12, 271);
             this.dgVenda.MultiSelect = false;
             this.dgVenda.Name = "dgVenda";
             this.dgVenda.ReadOnly = true;
-            this.dgVenda.Size = new System.Drawing.Size(1046, 370);
+            this.dgVenda.Size = new System.Drawing.Size(1077, 328);
             this.dgVenda.TabIndex = 0;
             this.dgVenda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVenda_CellClick);
             // 
@@ -266,7 +266,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1101, 660);
+            this.ClientSize = new System.Drawing.Size(1101, 611);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cxbData);

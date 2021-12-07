@@ -57,7 +57,7 @@ namespace TomMotos.Classes
             
                 //tem que mudar o select para a storeProcedur, porém tem que criar o metodo cadastra telefone, email e endereco
 
-                string sql = @"select * from tb_telefone where fk_usuario_id = @id";
+                string sql = @"select id_telefone AS 'ID', numero_telefone AS 'NÚMERO' from tb_telefone where fk_usuario_id = @id";
 
                 conexao.Open();
                 MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);

@@ -48,8 +48,8 @@ namespace TomMotos.view
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnMostrarTudo = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCargo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -67,7 +67,7 @@ namespace TomMotos.view
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(58, 227);
+            this.groupBox1.Location = new System.Drawing.Point(58, 232);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(277, 157);
             this.groupBox1.TabIndex = 18;
@@ -173,11 +173,11 @@ namespace TomMotos.view
             this.dgCargo.AllowUserToDeleteRows = false;
             this.dgCargo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgCargo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCargo.Location = new System.Drawing.Point(387, 156);
+            this.dgCargo.Location = new System.Drawing.Point(363, 151);
             this.dgCargo.MultiSelect = false;
             this.dgCargo.Name = "dgCargo";
             this.dgCargo.ReadOnly = true;
-            this.dgCargo.Size = new System.Drawing.Size(894, 365);
+            this.dgCargo.Size = new System.Drawing.Size(725, 342);
             this.dgCargo.TabIndex = 20;
             this.dgCargo.TabStop = false;
             this.dgCargo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCargo_CellClick);
@@ -190,7 +190,7 @@ namespace TomMotos.view
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(462, 549);
+            this.btnCadastrar.Location = new System.Drawing.Point(402, 503);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(192, 45);
             this.btnCadastrar.TabIndex = 7;
@@ -204,7 +204,7 @@ namespace TomMotos.view
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(710, 549);
+            this.btnAlterar.Location = new System.Drawing.Point(624, 503);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(192, 45);
             this.btnAlterar.TabIndex = 8;
@@ -218,7 +218,7 @@ namespace TomMotos.view
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(962, 549);
+            this.btnExcluir.Location = new System.Drawing.Point(847, 503);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(192, 45);
             this.btnExcluir.TabIndex = 9;
@@ -228,9 +228,9 @@ namespace TomMotos.view
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(600, 125);
+            this.txtFiltro.Location = new System.Drawing.Point(481, 121);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(532, 20);
+            this.txtFiltro.Size = new System.Drawing.Size(473, 20);
             this.txtFiltro.TabIndex = 4;
             // 
             // cbxBuscar
@@ -241,7 +241,7 @@ namespace TomMotos.view
             "ID DO CARGO",
             "NOME DO CARGO",
             "SALARIO DO CARGO"});
-            this.cbxBuscar.Location = new System.Drawing.Point(472, 124);
+            this.cbxBuscar.Location = new System.Drawing.Point(365, 120);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(110, 21);
             this.cbxBuscar.TabIndex = 3;
@@ -250,7 +250,7 @@ namespace TomMotos.view
             // 
             this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(1138, 118);
+            this.btnBuscar.Location = new System.Drawing.Point(960, 114);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(41, 33);
             this.btnBuscar.TabIndex = 5;
@@ -262,7 +262,7 @@ namespace TomMotos.view
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(90, 390);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(90, 395);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.48077F));
@@ -276,23 +276,13 @@ namespace TomMotos.view
             this.btnMostrarTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnMostrarTudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrarTudo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMostrarTudo.Location = new System.Drawing.Point(1185, 115);
+            this.btnMostrarTudo.Location = new System.Drawing.Point(1009, 111);
             this.btnMostrarTudo.Name = "btnMostrarTudo";
-            this.btnMostrarTudo.Size = new System.Drawing.Size(84, 36);
+            this.btnMostrarTudo.Size = new System.Drawing.Size(79, 36);
             this.btnMostrarTudo.TabIndex = 6;
             this.btnMostrarTudo.Text = "MOSTRAR TUDO";
             this.btnMostrarTudo.UseVisualStyleBackColor = false;
             this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1282, 85);
-            this.panel1.TabIndex = 43;
             // 
             // label7
             // 
@@ -300,18 +290,28 @@ namespace TomMotos.view
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(452, 22);
+            this.label7.Location = new System.Drawing.Point(452, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(420, 44);
             this.label7.TabIndex = 19;
             this.label7.Text = "CADASTRO DE CARGO";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Location = new System.Drawing.Point(-97, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1282, 85);
+            this.panel1.TabIndex = 43;
             // 
             // Fmrcargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1293, 634);
+            this.ClientSize = new System.Drawing.Size(1100, 560);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.dgCargo);
@@ -360,7 +360,7 @@ namespace TomMotos.view
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnMostrarTudo;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel1;
     }
 }

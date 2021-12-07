@@ -80,7 +80,7 @@ namespace TomMotos.Classes
         {
 
 
-            string sql = @"select * from tb_email where fk_usuario_id = @id";
+            string sql = @"select id_email AS 'ID', nome_email AS 'NOME' from tb_email where fk_usuario_id = @id";
 
             conexao.Open();
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);

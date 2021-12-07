@@ -35,12 +35,13 @@ namespace TomMotos.view
         private void FmrVeiculo_Cliente_Load(object sender, EventArgs e)
         {
             conexao.Open();
-            if (CaixaModel.valorPesquisa == "veiculo") {                
-                
+            if (CaixaModel.valorPesquisa == "veiculo") {
+                lblPesquisa.Text = "PESQUISA VEICULO";
                 cbxBuscar.Items.AddRange(new object[] { "ID","MODELO","MARCA","COR","ANO","KM","PLACA","OBS", "NOME DO CLIENTE"});
                 dg_listarVeiculoOuCliente.DataSource = Veiculo.ListarTodosVeiculos(); }
             else
             {
+                lblPesquisa.Text = "PESQUISA CLIENTE";
                 cbxBuscar.Items.AddRange(new object[] { "ID", "NOME", "SOBRENOME", "CPF", "CNPJ"});
                 dg_listarVeiculoOuCliente.DataSource = Cliente.ListarTodosClientes();
             }

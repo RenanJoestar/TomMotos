@@ -50,11 +50,11 @@ namespace TomMotos.view
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgListProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgListProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgListProdutos.Location = new System.Drawing.Point(-1, 216);
+            this.dgListProdutos.Location = new System.Drawing.Point(12, 187);
             this.dgListProdutos.MultiSelect = false;
             this.dgListProdutos.Name = "dgListProdutos";
             this.dgListProdutos.ReadOnly = true;
-            this.dgListProdutos.Size = new System.Drawing.Size(1135, 384);
+            this.dgListProdutos.Size = new System.Drawing.Size(1109, 328);
             this.dgListProdutos.TabIndex = 0;
             this.dgListProdutos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListProdutos_CellDoubleClick);
             // 
