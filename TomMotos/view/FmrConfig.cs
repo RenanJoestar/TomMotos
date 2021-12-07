@@ -144,11 +144,9 @@ namespace TomMotos.view
                     lblLocalPDF.ForeColor = Color.Green;
                 }
 
-                if (key.GetValue("estiloImagem").ToString() != "") // ESTILO DE IMAGEM
+                if ((key.GetValue("estiloImagem").ToString() == "ImageLayout.Stretch")) // ESTILO DE IMAGEM
                 {
-                    if (key.GetValue("estiloImagem").ToString() == "ImageLayout.Stretch") cb_esticarimagem.Checked = true;
-                    localizacaoPDF = lblLocalPDF.Text;
-                    lblLocalPDF.ForeColor = Color.Green;
+                    cb_esticarimagem.Checked = true;
                 }
             }
         }
