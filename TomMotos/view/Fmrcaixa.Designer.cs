@@ -126,7 +126,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1073, 622);
+            this.label1.Location = new System.Drawing.Point(1073, 649);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 25);
             this.label1.TabIndex = 2;
@@ -196,7 +196,7 @@
             // 
             this.txtdesc.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtdesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtdesc.Location = new System.Drawing.Point(1058, 568);
+            this.txtdesc.Location = new System.Drawing.Point(1058, 595);
             this.txtdesc.Name = "txtdesc";
             this.txtdesc.Size = new System.Drawing.Size(102, 23);
             this.txtdesc.TabIndex = 11;
@@ -389,7 +389,7 @@
             this.btnFinalizaVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnFinalizaVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinalizaVenda.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFinalizaVenda.Location = new System.Drawing.Point(1113, 660);
+            this.btnFinalizaVenda.Location = new System.Drawing.Point(1113, 687);
             this.btnFinalizaVenda.Name = "btnFinalizaVenda";
             this.btnFinalizaVenda.Size = new System.Drawing.Size(166, 56);
             this.btnFinalizaVenda.TabIndex = 14;
@@ -432,10 +432,10 @@
             this.dgProdutos.Name = "dgProdutos";
             this.dgProdutos.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
@@ -500,7 +500,7 @@
             this.btndesconto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btndesconto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndesconto.ForeColor = System.Drawing.Color.White;
-            this.btndesconto.Location = new System.Drawing.Point(1179, 559);
+            this.btndesconto.Location = new System.Drawing.Point(1179, 586);
             this.btndesconto.Name = "btndesconto";
             this.btndesconto.Size = new System.Drawing.Size(78, 40);
             this.btndesconto.TabIndex = 12;
@@ -515,7 +515,7 @@
             this.btnCancelDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnCancelDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelDesc.ForeColor = System.Drawing.Color.White;
-            this.btnCancelDesc.Location = new System.Drawing.Point(1274, 559);
+            this.btnCancelDesc.Location = new System.Drawing.Point(1274, 586);
             this.btnCancelDesc.Name = "btnCancelDesc";
             this.btnCancelDesc.Size = new System.Drawing.Size(78, 40);
             this.btnCancelDesc.TabIndex = 13;
@@ -616,7 +616,7 @@
             this.lblSubitotal.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblSubitotal.AutoSize = true;
             this.lblSubitotal.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubitotal.Location = new System.Drawing.Point(1215, 622);
+            this.lblSubitotal.Location = new System.Drawing.Point(1215, 649);
             this.lblSubitotal.Name = "lblSubitotal";
             this.lblSubitotal.Size = new System.Drawing.Size(24, 25);
             this.lblSubitotal.TabIndex = 43;
@@ -702,7 +702,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(940, 571);
+            this.label4.Location = new System.Drawing.Point(940, 598);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 17);
             this.label4.TabIndex = 51;
@@ -806,7 +806,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.dg_funcGet.Location = new System.Drawing.Point(383, 66);
+            this.dg_funcGet.Location = new System.Drawing.Point(383, 81);
             this.dg_funcGet.MultiSelect = false;
             this.dg_funcGet.Name = "dg_funcGet";
             this.dg_funcGet.ReadOnly = true;
@@ -842,24 +842,27 @@
             this.groupBox4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(758, 321);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(707, 232);
+            this.groupBox4.Size = new System.Drawing.Size(707, 259);
             this.groupBox4.TabIndex = 54;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "FUNCIONÁRIOS";
             // 
             // BtnMostrarFunc
             // 
-            this.BtnMostrarFunc.Location = new System.Drawing.Point(198, 38);
+            this.BtnMostrarFunc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.BtnMostrarFunc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnMostrarFunc.ForeColor = System.Drawing.Color.White;
+            this.BtnMostrarFunc.Location = new System.Drawing.Point(183, 51);
             this.BtnMostrarFunc.Name = "BtnMostrarFunc";
-            this.BtnMostrarFunc.Size = new System.Drawing.Size(110, 23);
+            this.BtnMostrarFunc.Size = new System.Drawing.Size(122, 23);
             this.BtnMostrarFunc.TabIndex = 57;
             this.BtnMostrarFunc.Text = "Mostrar todos";
-            this.BtnMostrarFunc.UseVisualStyleBackColor = true;
+            this.BtnMostrarFunc.UseVisualStyleBackColor = false;
             this.BtnMostrarFunc.Click += new System.EventHandler(this.BtnMostrarFunc_Click);
             // 
             // txtFuncID
             // 
-            this.txtFuncID.Location = new System.Drawing.Point(61, 38);
+            this.txtFuncID.Location = new System.Drawing.Point(43, 51);
             this.txtFuncID.Name = "txtFuncID";
             this.txtFuncID.Size = new System.Drawing.Size(128, 23);
             this.txtFuncID.TabIndex = 56;
@@ -869,7 +872,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Bahnschrift", 10F);
-            this.label26.Location = new System.Drawing.Point(3, 19);
+            this.label26.Location = new System.Drawing.Point(49, 26);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(228, 17);
             this.label26.TabIndex = 52;
@@ -881,7 +884,7 @@
             this.dg_func.AllowUserToDeleteRows = false;
             this.dg_func.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.dg_func.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_func.Location = new System.Drawing.Point(6, 66);
+            this.dg_func.Location = new System.Drawing.Point(6, 81);
             this.dg_func.Name = "dg_func";
             this.dg_func.Size = new System.Drawing.Size(343, 150);
             this.dg_func.TabIndex = 1;

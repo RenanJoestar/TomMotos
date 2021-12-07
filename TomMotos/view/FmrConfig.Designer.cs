@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cb_esticarimagem = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.mostrarsenha = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -101,7 +102,7 @@
             this.lblLocalImg.AutoSize = true;
             this.lblLocalImg.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocalImg.ForeColor = System.Drawing.Color.Black;
-            this.lblLocalImg.Location = new System.Drawing.Point(45, 70);
+            this.lblLocalImg.Location = new System.Drawing.Point(9, 70);
             this.lblLocalImg.Name = "lblLocalImg";
             this.lblLocalImg.Size = new System.Drawing.Size(131, 16);
             this.lblLocalImg.TabIndex = 9;
@@ -112,7 +113,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(84, 36);
+            this.label3.Location = new System.Drawing.Point(9, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 15;
@@ -123,7 +124,7 @@
             this.lblLocalPDF.AutoSize = true;
             this.lblLocalPDF.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocalPDF.ForeColor = System.Drawing.Color.Black;
-            this.lblLocalPDF.Location = new System.Drawing.Point(45, 67);
+            this.lblLocalPDF.Location = new System.Drawing.Point(9, 67);
             this.lblLocalPDF.Name = "lblLocalPDF";
             this.lblLocalPDF.Size = new System.Drawing.Size(109, 16);
             this.lblLocalPDF.TabIndex = 16;
@@ -134,7 +135,7 @@
             this.btnAcharPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnAcharPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcharPDF.ForeColor = System.Drawing.Color.White;
-            this.btnAcharPDF.Location = new System.Drawing.Point(170, 31);
+            this.btnAcharPDF.Location = new System.Drawing.Point(114, 32);
             this.btnAcharPDF.Name = "btnAcharPDF";
             this.btnAcharPDF.Size = new System.Drawing.Size(75, 26);
             this.btnAcharPDF.TabIndex = 5;
@@ -147,7 +148,7 @@
             this.btnLimparPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.btnLimparPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparPDF.ForeColor = System.Drawing.Color.White;
-            this.btnLimparPDF.Location = new System.Drawing.Point(251, 31);
+            this.btnLimparPDF.Location = new System.Drawing.Point(196, 32);
             this.btnLimparPDF.Name = "btnLimparPDF";
             this.btnLimparPDF.Size = new System.Drawing.Size(75, 26);
             this.btnLimparPDF.TabIndex = 6;
@@ -191,7 +192,7 @@
             this.btnLimparImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparImg.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimparImg.ForeColor = System.Drawing.Color.White;
-            this.btnLimparImg.Location = new System.Drawing.Point(251, 32);
+            this.btnLimparImg.Location = new System.Drawing.Point(196, 31);
             this.btnLimparImg.Name = "btnLimparImg";
             this.btnLimparImg.Size = new System.Drawing.Size(75, 26);
             this.btnLimparImg.TabIndex = 4;
@@ -205,7 +206,7 @@
             this.btnAcharImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcharImg.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcharImg.ForeColor = System.Drawing.Color.White;
-            this.btnAcharImg.Location = new System.Drawing.Point(170, 32);
+            this.btnAcharImg.Location = new System.Drawing.Point(115, 31);
             this.btnAcharImg.Name = "btnAcharImg";
             this.btnAcharImg.Size = new System.Drawing.Size(75, 26);
             this.btnAcharImg.TabIndex = 3;
@@ -218,7 +219,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(64, 37);
+            this.label4.Location = new System.Drawing.Point(9, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 16);
             this.label4.TabIndex = 23;
@@ -244,6 +245,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.cb_esticarimagem);
             this.groupBox2.Controls.Add(this.btnLimparImg);
             this.groupBox2.Controls.Add(this.btnAcharImg);
             this.groupBox2.Controls.Add(this.label4);
@@ -256,6 +258,17 @@
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "CONFIGURAÇÕES IMAGEM DE FUNDO";
+            // 
+            // cb_esticarimagem
+            // 
+            this.cb_esticarimagem.AutoSize = true;
+            this.cb_esticarimagem.Location = new System.Drawing.Point(277, 37);
+            this.cb_esticarimagem.Name = "cb_esticarimagem";
+            this.cb_esticarimagem.Size = new System.Drawing.Size(124, 20);
+            this.cb_esticarimagem.TabIndex = 24;
+            this.cb_esticarimagem.Text = "Imagem esticada";
+            this.cb_esticarimagem.UseVisualStyleBackColor = true;
+            this.cb_esticarimagem.CheckedChanged += new System.EventHandler(this.cb_esticarimagem_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -277,7 +290,7 @@
             // mostrarsenha
             // 
             this.mostrarsenha.AutoSize = true;
-            this.mostrarsenha.Location = new System.Drawing.Point(269, 102);
+            this.mostrarsenha.Location = new System.Drawing.Point(277, 103);
             this.mostrarsenha.Name = "mostrarsenha";
             this.mostrarsenha.Size = new System.Drawing.Size(111, 20);
             this.mostrarsenha.TabIndex = 2;
@@ -422,5 +435,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox mostrarsenha;
         private System.Windows.Forms.Button fechar;
+        private System.Windows.Forms.CheckBox cb_esticarimagem;
     }
 }

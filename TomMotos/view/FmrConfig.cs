@@ -14,7 +14,7 @@ namespace TomMotos.view
 {
     public partial class FmrConfig : Form
     {
-        string localizacaoImagem = "", localizacaoPDF = "";
+        string localizacaoImagem = "", localizacaoPDF = "", estiloImagemCXB = "";
         RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\TomMotos");
         public FmrConfig()
         {
@@ -74,6 +74,7 @@ namespace TomMotos.view
             string senha = txtSenha.Text;
             string localImg = localizacaoImagem;
             string localPDF = localizacaoPDF;
+            string estiloImagem = estiloImagemCXB;
 
             try
             {
@@ -82,6 +83,7 @@ namespace TomMotos.view
                 key.SetValue("senhaEmail", senha);
                 key.SetValue("localImg", localImg);
                 key.SetValue("localPDF", localPDF);
+                key.SetValue("estiloImagem", estiloImagem);
                 key.Close();
                 Application.Restart();
             }
@@ -105,12 +107,16 @@ namespace TomMotos.view
             this.Close();
         }
 
+        private void cb_esticarimagem_CheckedChanged(object sender, EventArgs e)
+        {
+            estiloImagemCXB = cb_esticarimagem.Checked ? "ImageLayout.Stretch" : "ImageLayout.Center";
+        }
+
         private void mostrarsenha_CheckedChanged(object sender, EventArgs e)
         {
             txtSenha.PasswordChar = mostrarsenha.Checked ? '\0' : '*';
         }
-
-
+        
         private void FmrConfig_Load(object sender, EventArgs e)
         {
             this.ShowInTaskbar = false;
@@ -132,8 +138,15 @@ namespace TomMotos.view
                 }
 
                 if (key.GetValue("localPDF").ToString() != "") // LOCAL PDF
-                { 
+                {
                     lblLocalPDF.Text = key.GetValue("localPDF").ToString();
+                    localizacaoPDF = lblLocalPDF.Text;
+                    lblLocalPDF.ForeColor = Color.Green;
+                }
+
+                if (key.GetValue("estiloImagem").ToString() != "") // ESTILO DE IMAGEM
+                {
+                    if (key.GetValue("estiloImagem").ToString() == "ImageLayout.Stretch") cb_esticarimagem.Checked = true;
                     localizacaoPDF = lblLocalPDF.Text;
                     lblLocalPDF.ForeColor = Color.Green;
                 }

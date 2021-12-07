@@ -232,7 +232,9 @@ namespace TomMotos
                 FmrConfig config = new FmrConfig();
                 RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\TomMotos");
 
-                try { this.BackgroundImage = Image.FromFile(key.GetValue("localImg").ToString()); } catch { } // SE DER ERRO É SÓ MARCAR A CHECKBOX (VISUAL STUDIO SÓ AVISA QUE NÃO FOI)
+                try { this.BackgroundImage = Image.FromFile(key.GetValue("localImg").ToString()); } catch { } // SE DER ERRO É SÓ MARCAR A CHECKBOX 
+                try { if (key.GetValue("estiloImagem").ToString() == "ImageLayout.Stretch") this.BackgroundImageLayout = ImageLayout.Stretch; } catch { }// DO VISUAL STUDIO SÓ AVISA QUE NÃO FOI)
+
                     // VERIFICA SE EXISTE UM VALOR NO REGEDIT
                 if (key.GetValue("nomeEmail") == null || key.GetValue("senhaEmail") == null ||
                     key.GetValue("nomeEmail").ToString() == "" || key.GetValue("senhaEmail").ToString() == "") {
