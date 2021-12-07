@@ -215,8 +215,8 @@ namespace TomMotos.view
         {
 
                 string htmlDivStart = "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>" + "<div style=\"max-width: 100%; height: 150px;; background-color: #25293E;\">";
-                string htmlImg = "<img src=\"'https://www.addictivetips.com/app/uploads/2021/03/Windows-Device-Manager-uninstall-device.png' style =\"width: 180px; margin-left:auto; margin-right:auto; display:block; \">";
-                string htmlDivEnd = "</div>";
+                string htmlImg = "<img src=\'https://ci5.googleusercontent.com/proxy/qUung-ZlIwqg4tyJhKwsh3R0Mwpw59ILZqmGT50Go6eqsXC6OJxv4OYRdckw5i3GnHyfffcVJ93JYCbRSfvG-Sb3ZhzZfNlGkxdj-cvM0Tv7JfeAckZMkTM1crDTrqe-BEyZ92uSx2odQMEFRGUP6o0yUpAkgdvfXdQGqITv1aZkYOZfxKQ=s0-d-e1-ft#https://media.discordapp.net/attachments/468531379798278151/917505687045693510/LOGO_BRANCO.png' style =\"width: 180px; margin-left:auto; margin-right:auto; display:block; \">";
+                string htmlDivEnd = "</div><br>";
                 string htmlFooter = "<footer  style=\"width:100%; height: 150px; ; background-color: #25293E;bottom: 0;text-align: center;\">" +
                                     "<br>" +
                                     "<a href=\"#\"  style =\"width:180px;margin-left:auto;margin-right:auto;display:block;padding:8px;text-decoration:none;background-color:transparent; color:white; border:1px solid white; \">SAIBA MAIS</a>";
@@ -233,12 +233,11 @@ namespace TomMotos.view
 
                 string htmlTdStart = "<td style=\"border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
                 string htmlTdEnd = "</td>";
-                string messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE VENDA TOMMOTOS: </p><br><br>", messageB = "", total = "";
+                string messageBody = "", messageB = "", total = "";
                 if (CaixaModel.eOrcamento == true)
                 {
                     htmlTdStart = "<td style=\"border-color:black; border-style:solid; border-width:thin; padding: 5px;\">";
-                    messageBody = "<head> <meta charset = 'utf-8' /> </head> <p> SEU COMPROVANTE DE ORÇAMENTO TOMMOTOS: </p><br><br>";
-                    htmlHeaderRowStart = "<tr style=\"background-color:#25293e; color:#ffffff;\">";
+                    htmlHeaderRowStart = "<tr style=\"background-color:#d2a06f; color:#ffffff;\">";
                 }
                 if (grid.RowCount == 0 || grid2.RowCount == 0) return messageBody;
 
@@ -261,15 +260,12 @@ namespace TomMotos.view
 
                 if (dgServicos.Rows.Count > 1)
                 {
-                    messageBody += htmlDivStart;
-                    messageBody += htmlImg;
                     messageB += htmlTableStart;
                     messageB += htmlHeaderRowStart;
                     messageB += htmlTdStart + "    " + htmlTdEnd;
                     messageB += htmlTdStart + "DESCRIÇÃO SERVIÇO" + htmlTdEnd;
                     messageB += htmlTdStart + "VALOR(R$)" + htmlTdEnd;
                     messageB += htmlHeaderRowEnd;
-                    messageBody += htmlDivEnd;
 
 
                 }
@@ -316,7 +312,7 @@ namespace TomMotos.view
 
                 }
 
-                string final = htmlDivStart+ htmlImg + htmlDivEnd+ messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd + htmlFooter + htmlFooterEnd;
+                string final = htmlDivStart+ htmlImg + htmlDivEnd + messageBody + htmlTableEnd + messageB + htmlTableEnd + total + htmlTableEnd + htmlFooter + htmlFooterEnd;
                 return final;
             
         }
@@ -334,7 +330,9 @@ namespace TomMotos.view
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 message.From = new MailAddress(emailRementente);
                 message.To.Add(new MailAddress(emailDestinatario));
-                message.Subject = "Test"; // ASSUNTO DO EMAIL
+                if (CaixaModel.eOrcamento == true) message.Subject = "COMPROVANTE DE ORÇAMENTO";
+                else message.Subject = "COMPROVANTE DE VENDA";
+                // ASSUNTO DO EMAIL
                 message.IsBodyHtml = true;
                 message.Body = htmlString;
                 smtp.EnableSsl = true;
