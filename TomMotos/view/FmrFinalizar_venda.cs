@@ -147,7 +147,23 @@ namespace TomMotos.view
                 }
             }
             catch (Exception erro) {
+                fz.fecharLoading();
                 MessageBox.Show(erro.Message, "Erro, ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var dialogResult = MessageBox.Show("Deseja finalizar a venda! \nsem enviar comprovante no email?", "Aviso",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Exclamation);
+                if (dialogResult == DialogResult.No) return;
+                if (dialogResult == DialogResult.Yes)
+                {
+                    fz.carregarLoading();
+                    CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
+                    fz.SalvarPdf();
+                    fz.FinalizarVenda();
+                    CaixaModel.vendaFinalizada = true;
+                    fz.fecharLoading();
+                    this.Close();
+                }
+
             }
         }
 
