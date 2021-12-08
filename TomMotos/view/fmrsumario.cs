@@ -208,10 +208,10 @@ namespace TomMotos
 
         private void BTN_CONSULTA_Click(object sender, EventArgs e)
         {
-            if (lbl_gerenciamentoeconsulta.Text != "CONSULTA")
+            if (lbl_gerenciamentoeconsulta.Text != "      CONSULTA")
             {
                 panel_botoes_consulta.Visible = true;
-                lbl_gerenciamentoeconsulta.Text = "CONSULTA";
+                lbl_gerenciamentoeconsulta.Text = "      CONSULTA";
                 panel_botoes_gerenciamento.Visible = false;
                 Panel.Controls.Clear();
             }

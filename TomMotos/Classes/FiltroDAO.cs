@@ -19,7 +19,7 @@ namespace TomMotos.Classes
         {
             string campoWhere = FiltroModel.campoWhere;
 
-            string select = @"select tb_cargo.id_cargo, tb_cargo.nome_cargo, tb_cargo.salario_cargo
+            string select = @"select tb_cargo.id_cargo AS 'ID', tb_cargo.nome_cargo AS 'CARGO', tb_cargo.salario_cargo AS 'SALARIO'
             from tb_cargo 
             where " + campoWhere;
 
@@ -45,8 +45,8 @@ namespace TomMotos.Classes
         {
             string campoWhere = FiltroModel.campoWhere;
 
-            string select = @"select tb_cliente.id_cliente, tb_cliente.nome_cliente, tb_cliente.sobrenome_cliente, 
-            tb_cliente.data_nascimento_cliente, tb_cliente.cpf_cliente, tb_cliente.cnpj_cliente 
+            string select = @"select tb_cliente.id_cliente AS 'ID', tb_cliente.nome_cliente AS 'NOME', tb_cliente.sobrenome_cliente AS 'SOBRENOME', 
+            tb_cliente.data_nascimento_cliente AS 'DATA DE NASCIMENTO', tb_cliente.cpf_cliente AS 'CPF', tb_cliente.cnpj_cliente AS 'CNPJ'
             from tb_cliente where " + campoWhere;
 
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
@@ -71,9 +71,8 @@ namespace TomMotos.Classes
         {
             string campoWhere = FiltroModel.campoWhere;
 
-            string select = @"select tb_endereco.cep_endereco, tb_endereco.rua_endereco, tb_endereco.cidade_endereco,
-            tb_endereco.bairro_endereco, tb_endereco.numero_endereco, tb_endereco.fk_usuario_id, tb_endereco.id_endereco
-            from tb_endereco
+            string select = @"select id_endereco AS 'ID', rua_endereco AS 'RUA', numero_endereco AS 'NÚMERO',  bairro_endereco AS 'BAIRRO', 
+            cidade_endereco AS 'CIDADE', cep_endereco AS 'CEP' from tb_endereco
             where " + campoWhere + " AND tb_endereco.fk_usuario_id = @id";
 
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
@@ -99,8 +98,7 @@ namespace TomMotos.Classes
         {
             string campoWhere = FiltroModel.campoWhere;
 
-            string select = @"select tb_email.id_email, tb_email.nome_email, tb_email.fk_usuario_id
-            from tb_email
+            string select = @"select id_email AS 'ID', nome_email AS 'NOME' from tb_email
             where " + campoWhere + " AND tb_email.fk_usuario_id = @id";
 
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
@@ -126,7 +124,7 @@ namespace TomMotos.Classes
         {
             string campoWhere = FiltroModel.campoWhere;
 
-            string select = @"select tb_fornecedor.id_fornecedor, tb_fornecedor.nome_fornecedor, tb_fornecedor.cnpj_fornecedor
+            string select = @"select id_fornecedor as 'ID', nome_fornecedor as 'NOME', cnpj_fornecedor as 'CNPJ'
             from tb_fornecedor
             where " + campoWhere;
 
@@ -152,12 +150,13 @@ namespace TomMotos.Classes
         {
             string campoWhere = FiltroModel.campoWhere;
 
-            string select = @"select tb_funcionario.id_funcionario, tb_funcionario.nome_funcionario,
-            tb_funcionario.sobrenome_funcionario, tb_funcionario.cpf_funcionario, tb_funcionario.data_nascimento_funcionario,
-            tb_funcionario.data_contratacao_funcionario, tb_funcionario.sexo_funcionario, tb_cargo.nome_cargo
-            from tb_funcionario
-            inner join tb_cargo
-            on tb_cargo.id_cargo = tb_funcionario.fk_cargo_id where " + campoWhere;
+            string select = @"
+
+            select id_funcionario as 'ID',nome_funcionario as 'NOME', sobrenome_funcionario as 'SOBRENOME', cpf_funcionario as 'CPF', 
+            data_nascimento_funcionario as 'DATA DE NASCIMENTO', data_contratacao_funcionario as 'DATA DE CONTRATAÇÃO', sexo_funcionario as 'SEXO',
+            nome_cargo as 'CARGO' from tb_funcionario
+            inner join tb_cargo on tb_funcionario.fk_cargo_id = tb_cargo.id_cargo
+            where " + campoWhere;
 
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
 
@@ -204,8 +203,8 @@ namespace TomMotos.Classes
         {
             string campoWhere = FiltroModel.campoWhere;
 
-            string select = @"select tb_produto.id_produto, tb_produto.descricao_produto, tb_produto.quantidade_produto, 
-            tb_produto.valor_produto, tb_produto.marca_produto, tb_produto.quantidade_virtual_produto, tb_produto.imagem_produto
+            string select = @"select id_produto as 'ID', descricao_produto as 'DESCRIÇÃO', quantidade_produto as 'QTD', valor_produto as 'VALOR', 
+            marca_produto as 'MARCA',quantidade_virtual_produto as 'QTD VIRTUAL', imagem_produto as 'IMAGEM'
             from tb_produto
             where " + campoWhere;
 
@@ -349,8 +348,7 @@ namespace TomMotos.Classes
         {
             string campoWhere = FiltroModel.campoWhere;
 
-            string select = @"select tb_telefone.id_telefone, tb_telefone.numero_telefone, tb_telefone.fk_usuario_id
-            from tb_telefone
+            string select = @"select id_telefone AS 'ID', numero_telefone AS 'NÚMERO' from tb_telefone
             where " + campoWhere + " AND tb_telefone.fk_usuario_id = @id";
 
             MySqlCommand executacmdsql = new MySqlCommand(select, conexao);

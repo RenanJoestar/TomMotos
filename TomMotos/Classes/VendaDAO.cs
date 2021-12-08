@@ -19,7 +19,7 @@ namespace TomMotos.Classes
 
         public void cadastrarVenda(CaixaModel obj)
         {
-                string insert = @"CALL criacaoVenda(@validade_orcamento_servico, @desconto_venda,@total_venda, @total_venda, @fk_veiculo_id, @fk_cliente_id)";
+                string insert = @"CALL criacaoVenda(@validade_orcamento_servico, @desconto_venda, @total_venda, @total_venda, @fk_veiculo_id, @fk_cliente_id)";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
                 executacmdsql.Parameters.AddWithValue("@validade_orcamento_servico", obj.validade_orcamento_servico);
@@ -31,9 +31,7 @@ namespace TomMotos.Classes
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();            
-            
         }
-
 
         #endregion
 

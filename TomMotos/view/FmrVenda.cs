@@ -71,7 +71,7 @@ namespace TomMotos.view
             FmrShowVendas Showfunc = new FmrShowVendas(this);
             if (textBox1.Text.Replace(" ", "") != "")
             {
-                if (rb_Func.Checked == true)
+                if (rb_Func.Checked)
                 {
                     FiltroModel.campoWhere = @"select tb_funcionario.id_funcionario AS 'ID FUNCIONARIO', tb_funcionario.nome_funcionario AS 'NOME',
                     tb_funcionario.sobrenome_funcionario AS 'SOBRENOME', tb_cargo.nome_cargo AS 'CARGO'
@@ -85,7 +85,7 @@ namespace TomMotos.view
                     where id_venda = " + textBox1.Text.ToString();
                     Showfunc.Show();
                 }
-                if (rb_Pv.Checked == true)
+                else if (rb_Pv.Checked)
                 {
                     FiltroModel.campoWhere = @"select tb_produto.id_produto AS 'ID', tb_produto.descricao_produto AS 'DESCRIÇÃO',tb_produto.marca_produto AS 'MARCA',tb_produto.valor_produto AS 'VALOR(R$)',
                     tb_produto_usado.quantidade_produto_usado AS 'QTD VENDIDA', tb_produto_usado.desconto_produto_usado AS 'DESCONTO(%)', tb_produto_usado.validade_da_garantia_produto AS 'VALIDADE GARANTIA' from tb_produto_usado
@@ -96,12 +96,13 @@ namespace TomMotos.view
                     where id_venda = " + textBox1.Text.ToString();
                     Showfunc.Show();
                 }
-                if (rb_Sp.Checked == true)
+                else if (rb_Sp.Checked)
                 {
                     FiltroModel.campoWhere = @"select tb_servico_prestado.descricao_servico_prestado AS 'DESCRIÇÃO', tb_servico_prestado.valor_servico_prestado AS 'VALOR' from tb_servico_prestado
                     where fk_venda_id = " + textBox1.Text.ToString();
                     Showfunc.Show();
                 }
+                else MessageBox.Show("Escolha uma opção!");
             }
         }
 

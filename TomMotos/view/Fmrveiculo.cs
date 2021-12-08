@@ -178,37 +178,6 @@ namespace TomMotos.view
            
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cbxBuscar.Text != "")
-                {
-                    string campo = cbxBuscar.Text.ToString();
-                    string finalSQL = "";
-
-                    if (campo == "ID") campo = "tb_veiculo.id_veiculo";
-                    if (campo == "MODELO") campo = "tb_veiculo.modelo_veiculo";
-                    if (campo == "MARCA") campo = "tb_veiculo.marca_veiculo";
-                    if (campo == "COR") campo = "tb_veiculo.cor_veiculo";
-                    if (campo == "ANO") campo = "tb_veiculo.ano_veiculo";
-                    if (campo == "KM") campo = "tb_veiculo.km_veiculo";
-                    if (campo == "PLACA") campo = "tb_veiculo.placa_veiculo";
-                    if (campo == "OBS") campo = "tb_veiculo.obs_veiculo";
-                    if (campo == "NOME DO CLIENTE") campo = "tb_cliente.nome_cliente";
-                    if (campo == "SOBRENOME DO CLIENTE") campo = "tb_cliente.sobrenome_cliente";
-                    if (campo == "CPF DO CLIENTE") campo = "tb_cliente.cpf_cliente";
-
-                    finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
-
-                    FiltroModel.campoWhere = finalSQL;
-
-                    dg_veiculo.DataSource = Filtro.buscaVeiculo();
-                }
-            }
-            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
-        }
-
         private void txt_ano_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Se a tecla digitada não for número e nem backspace
@@ -261,6 +230,37 @@ namespace TomMotos.view
             {
                 MessageBox.Show(" " + erro.Message);
             }
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbxBuscar.Text != "")
+                {
+                    string campo = cbxBuscar.Text.ToString();
+                    string finalSQL = "";
+
+                    if (campo == "ID") campo = "tb_veiculo.id_veiculo";
+                    if (campo == "MODELO") campo = "tb_veiculo.modelo_veiculo";
+                    if (campo == "MARCA") campo = "tb_veiculo.marca_veiculo";
+                    if (campo == "COR") campo = "tb_veiculo.cor_veiculo";
+                    if (campo == "ANO") campo = "tb_veiculo.ano_veiculo";
+                    if (campo == "KM") campo = "tb_veiculo.km_veiculo";
+                    if (campo == "PLACA") campo = "tb_veiculo.placa_veiculo";
+                    if (campo == "OBS") campo = "tb_veiculo.obs_veiculo";
+                    if (campo == "NOME DO CLIENTE") campo = "tb_cliente.nome_cliente";
+                    if (campo == "SOBRENOME DO CLIENTE") campo = "tb_cliente.sobrenome_cliente";
+                    if (campo == "CPF DO CLIENTE") campo = "tb_cliente.cpf_cliente";
+
+                    finalSQL += campo.ToLower() + " like " + "'%" + txtBuscar.Text.ToString() + "%'";
+
+                    FiltroModel.campoWhere = finalSQL;
+
+                    dg_veiculo.DataSource = Filtro.buscaVeiculo();
+                }
+            }
+            catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }
     }
 }

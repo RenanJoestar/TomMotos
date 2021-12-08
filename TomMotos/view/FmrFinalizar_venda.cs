@@ -35,7 +35,7 @@ namespace TomMotos.view
         private void FmrFinalizar_venda_Load(object sender, EventArgs e)
         {
             carregarEmails();
-            lblsubtotal.Text= fp.lblSubitotal.Text;
+            lblsubtotal.Text = fp.lblSubitotal.Text;
             txtValorPago.Text = string.Format("{0:#,##0.00}", 0.00);
             txtTroco.Text = string.Format("{0:#,##0.00}", 0.00);
             txtFaltaPagar.Text = lblsubtotal.Text;
@@ -60,9 +60,9 @@ namespace TomMotos.view
                     cbxEmails.Text = null;
                 }
             }
-            catch(Exception erro)
-            { MessageBox.Show(""+erro.Message); }
-        
+            catch (Exception erro)
+            { MessageBox.Show("" + erro.Message); }
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -80,7 +80,7 @@ namespace TomMotos.view
                 }
                 txtValorPago.Text = string.Format("{0:#,##0.00}", double.Parse(txtDinheiro.Text) + double.Parse(txtDebito.Text) + double.Parse(txt_credito.Text) + double.Parse(txtPix.Text));
             }
-            catch (Exception erro) 
+            catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
             }
@@ -88,7 +88,7 @@ namespace TomMotos.view
 
         private void VerificarIdOrcamento() {
 
-           // string Update = @"update tb_venda set valor_pago = "++"where id_cliente=@id";
+            // string Update = @"update tb_venda set valor_pago = "++"where id_cliente=@id";
 
 
             //MySqlCommand executacmdsql = new MySqlCommand(Update, conexao);
@@ -111,7 +111,7 @@ namespace TomMotos.view
                                                 MessageBoxIcon.Exclamation);
                     if (dialogResult == DialogResult.No) return;
                 }
-                
+
                 if (cbxEmails.Text == "")
                 {
                     var result = MessageBox.Show("Deseja enviar Comprovante no email? ", "Comprovante",
@@ -127,7 +127,7 @@ namespace TomMotos.view
                         fz.carregarLoading();
                         CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
                         fz.SalvarPdf();
-                        fz.FinalizarVenda();                        
+                        fz.FinalizarVenda();
                         CaixaModel.vendaFinalizada = true;
                         fz.fecharLoading();
                         this.Close();
@@ -146,27 +146,8 @@ namespace TomMotos.view
                     this.Close();
                 }
             }
-            catch (Exception erro) {
-                fz.fecharLoading();
-                MessageBox.Show(erro.Message, "Erro, ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                var dialogResult = MessageBox.Show("Deseja finalizar a venda! \nsem enviar comprovante no email?", "Aviso",
-                                                MessageBoxButtons.YesNo,
-                                                MessageBoxIcon.Exclamation);
-                if (dialogResult == DialogResult.No) return;
-                if (dialogResult == DialogResult.Yes)
-                {
-                    fz.carregarLoading();
-                    CaixaModel.valor_pago = double.Parse(txtValorPago.Text);
-                    fz.SalvarPdf();
-                    fz.FinalizarVenda();
-                    CaixaModel.vendaFinalizada = true;
-                    fz.fecharLoading();
-                    this.Close();
-                }
-
-            }
+            catch (Exception erro){ MessageBox.Show(erro.ToString()); }
         }
-
         private void txtDinheiro_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13) {

@@ -37,7 +37,6 @@ namespace TomMotos.view
             {
                 FuncionarioModel obj = new FuncionarioModel();
 
-                obj.id = int.Parse(txt_id.Text);
                 if (txt_nome.Text == "") obj.nome = null;
                 else obj.nome = txt_nome.Text.ToUpper();
                 if (txt_sobrenome.Text == "") obj.sobrenome = null;

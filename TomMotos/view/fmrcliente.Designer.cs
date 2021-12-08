@@ -61,6 +61,7 @@ namespace TomMotos.view
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnMostrarTudo = new System.Windows.Forms.Button();
+            this.btnTudo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
             this.panel1.SuspendLayout();
@@ -329,9 +330,9 @@ namespace TomMotos.view
             // txtFiltrar
             // 
             this.txtFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltrar.Location = new System.Drawing.Point(485, 104);
+            this.txtFiltrar.Location = new System.Drawing.Point(474, 104);
             this.txtFiltrar.Name = "txtFiltrar";
-            this.txtFiltrar.Size = new System.Drawing.Size(557, 21);
+            this.txtFiltrar.Size = new System.Drawing.Size(458, 21);
             this.txtFiltrar.TabIndex = 10;
             // 
             // cbxFiltrar
@@ -346,7 +347,7 @@ namespace TomMotos.view
             "DATA DE NASCIMENTO",
             "CPF",
             "CNPJ"});
-            this.cbxFiltrar.Location = new System.Drawing.Point(368, 104);
+            this.cbxFiltrar.Location = new System.Drawing.Point(357, 104);
             this.cbxFiltrar.Name = "cbxFiltrar";
             this.cbxFiltrar.Size = new System.Drawing.Size(111, 21);
             this.cbxFiltrar.TabIndex = 9;
@@ -355,7 +356,7 @@ namespace TomMotos.view
             // 
             this.BtnFiltro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFiltro.BackgroundImage")));
             this.BtnFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnFiltro.Location = new System.Drawing.Point(1048, 97);
+            this.BtnFiltro.Location = new System.Drawing.Point(938, 94);
             this.BtnFiltro.Name = "BtnFiltro";
             this.BtnFiltro.Size = new System.Drawing.Size(41, 33);
             this.BtnFiltro.TabIndex = 11;
@@ -426,7 +427,7 @@ namespace TomMotos.view
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(328, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(436, 44);
+            this.label7.Size = new System.Drawing.Size(435, 44);
             this.label7.TabIndex = 19;
             this.label7.Text = "CADASTRO DE CLIENTES";
             // 
@@ -444,12 +445,28 @@ namespace TomMotos.view
             this.btnMostrarTudo.UseVisualStyleBackColor = false;
             this.btnMostrarTudo.Click += new System.EventHandler(this.btnMostrarTudo_Click);
             // 
+            // btnTudo
+            // 
+            this.btnTudo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
+            this.btnTudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnTudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTudo.ForeColor = System.Drawing.Color.White;
+            this.btnTudo.Location = new System.Drawing.Point(985, 91);
+            this.btnTudo.Name = "btnTudo";
+            this.btnTudo.Size = new System.Drawing.Size(104, 39);
+            this.btnTudo.TabIndex = 44;
+            this.btnTudo.Text = "MOSTRAR TUDO";
+            this.btnTudo.UseVisualStyleBackColor = false;
+            this.btnTudo.Click += new System.EventHandler(this.btnTudo_Click);
+            // 
             // Fmrcliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1100, 560);
+            this.Controls.Add(this.btnTudo);
             this.Controls.Add(this.btnMostrarTudo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dg_cliente);
@@ -506,5 +523,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnMostrarTudo;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnTudo;
     }
 }

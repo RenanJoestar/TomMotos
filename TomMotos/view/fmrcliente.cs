@@ -254,6 +254,11 @@ namespace TomMotos.view
             dg_cliente.DataSource = Cadastro.ListarTodosClientes();
         }
 
+        private void btnTudo_Click(object sender, EventArgs e)
+        {
+            dg_cliente.DataSource = Cadastro.ListarTodosClientes();
+        }
+
         private void ValidarCPF()
         {
             txt_cpf.TextMaskFormat = MaskFormat.IncludeLiterals;

@@ -63,6 +63,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgOrcamento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgOrcamento.ColumnHeadersHeight = 36;
             this.dgOrcamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -142,7 +143,7 @@
             this.cxbData.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.cxbData.Location = new System.Drawing.Point(325, 151);
             this.cxbData.Name = "cxbData";
-            this.cxbData.Size = new System.Drawing.Size(155, 20);
+            this.cxbData.Size = new System.Drawing.Size(154, 20);
             this.cxbData.TabIndex = 4;
             this.cxbData.Text = "DATA DO ORÇAMENTO";
             this.cxbData.UseVisualStyleBackColor = true;
@@ -153,7 +154,7 @@
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.label2.Location = new System.Drawing.Point(322, 202);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 16);
+            this.label2.Size = new System.Drawing.Size(29, 16);
             this.label2.TabIndex = 53;
             this.label2.Text = "ATÉ";
             // 
@@ -163,7 +164,7 @@
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.label1.Location = new System.Drawing.Point(322, 178);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 16);
+            this.label1.Size = new System.Drawing.Size(24, 16);
             this.label1.TabIndex = 52;
             this.label1.Text = "DE";
             // 
@@ -199,7 +200,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(338, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(508, 44);
+            this.label6.Size = new System.Drawing.Size(507, 44);
             this.label6.TabIndex = 0;
             this.label6.Text = "CONSULTA DE ORÇAMENTO";
             // 

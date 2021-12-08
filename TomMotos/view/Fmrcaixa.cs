@@ -332,7 +332,6 @@ namespace TomMotos.view
                 message.To.Add(new MailAddress(emailDestinatario));
                 if (CaixaModel.eOrcamento == true) message.Subject = "COMPROVANTE DE ORÇAMENTO";
                 else message.Subject = "COMPROVANTE DE VENDA";
-                // ASSUNTO DO EMAIL
                 message.IsBodyHtml = true;
                 message.Body = htmlString;
                 smtp.EnableSsl = true;
@@ -340,8 +339,6 @@ namespace TomMotos.view
                 smtp.Credentials = new NetworkCredential(emailRementente, senhaRementente);
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
-
-                
         }
 
         private void dgServicos_MouseDown(object sender, MouseEventArgs e)

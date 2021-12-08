@@ -859,67 +859,10 @@ SET tb_produto.quantidade_produto = tb_produto.quantidade_produto + tb_produto_u
 WHERE tb_produto_usado.fk_venda_id = new.id_produto_selecionado ; 
 END IF; END $$ DELIMITER ;*/
 
-call criacaoCliente('null','null', null, null, null);
-call criacaoCliente('samuel','santos','2002/04/22','99999999',null);
-call criacaoCliente('matheus','santos','2002/04/23','99929999',null);
-call criacaoCliente('pedro','santos','2002/04/20','99929959',null);
-call criacaoEmail('samuca@gmail.com','6');
-call criacaoEmail('matheus@gmail.com','7');
-call criacaoEmail('pedro@gmail.com','8');
-call criacaoEndereco('006666600','rua limonada','santana de parnaiba','germano','23','6');
-call criacaoEndereco('006666600','rua aquario','santana de parnaiba','parque santana','20','7');
-call criacaoEndereco('0066655','rua touro','santana de parnaiba','parque santana','20','8');
-call criacaoTelefone('1199999999',6);
-call criacaoTelefone('1199994444',7);
-call criacaoTelefone(null,8);
-call criacaoVeiculo('null','null','null',null,null,null,null,null);
-call criacaoVeiculo('xt','yamaha','preto',null,null,'00000001',null,'10');
-call criacaoVeiculo('xtz','yamaha','azul',null,null,'0000022',null,'11');
-
-/* fornecedor*/
-
+call criacaoCliente('DESCONHECIDO','', null, null, null);
 call criacaoFornecedor('Desconhecido','000000');
-call criacaoFornecedor('Jose silvio','222222');
-call criacaoEmail('samuca1@gmail.com','9');
-call criacaoEndereco('006666655','rua cachoeira','santana de parnaiba','imperial','13','9');
-call criacaoTelefone('119988888',9);
+call criacaoVeiculo('null','null','null',null,null,null,null,null);
 
-/*Funcionario*/
-
-call criacaoCargo('mecanico','1200');
-call criacaoFuncionario('João','blindo',007733133,'2003-10-22','2019-11-22','m','3');
-call criacaoEmail('blindo@gmail.com','10');
-call criacaoEndereco('00663332','rua alemão','santana de parnaiba','isaura','11','10');
-call criacaoTelefone('11998444',10);
-call criacaoFuncionario('Alemao','Santos',0077333322,'2002-12-22','2019-12-22','m','3');
-call criacaoEmail('Alemao@gmail.com','10');
-call criacaoEndereco('00660000','rua indio','santana de parnaiba','baruru','12','11');
-call criacaoTelefone('119981114',11);
-
-/*CRIACAO PRODUTO*/
-call criacaoProduto('oleo preto','100','100','15','mobil',null);
-call criacaoProduto('oleo','100','100','12','mobil',null);
-
-/*INSERT TB_VENDA*/
-INSERT INTO `bd_tommotos`.`tb_venda` (`validade_orcamento_servico`, `data_venda`, `venda_finalizada`, `e_orcamento`, `fk_veiculo_id`, `fk_cliente_id`) 
-VALUES ('2022-05-25', '2021-03-25', '1', '0', '8', '11');
-INSERT INTO `bd_tommotos`.`tb_venda` (`validade_orcamento_servico`, `data_venda`, `venda_finalizada`, `e_orcamento`, `fk_veiculo_id`, `fk_cliente_id`) 
-VALUES ('2022-05-25', '2021-03-25 00:00:00', '1', '0', '8', '12');
-
-call criacaoVenda(null, 0, 50, 100, 8, 11);
-call criacaoVenda(null, 0, 80, 120, 8, 11);
-call criacaoVenda(null, 0, 60, 200, 8, 11);
-/*INSERT PRODUTO USADO*/
-INSERT INTO `bd_tommotos`.`tb_produto_usado` (`quantidade_produto_usado`, `fk_produto_id`, `fk_venda_id`, `validade_da_garantia_produto`) 
-VALUES ('2', '4', '3', '2026/04/20');
-
-/*INSERT TB_LOG_FORNECIMENTO*/
-INSERT INTO `bd_tommotos`.`tb_log_fornecimento` (`data_log_fornecimento`, `qtd_produto_fornecido`, `fk_produto_id`, `fk_fornecedor_id`)
-VALUES ('2020/01/20', '5', '4', '3');
-
-/*INSERT TB_GRUPO_FUNCIONARIO*/
-INSERT INTO `bd_tommotos`.`tb_grupo_funcionarios` (`fk_venda_id`, `fk_funcionario_id`) VALUES ('3', '3');
-INSERT INTO `bd_tommotos`.`tb_grupo_funcionarios` (`fk_venda_id`, `fk_funcionario_id`) VALUES ('3', '4');
 select*from tb_cargo;
 select*from tb_cliente;
 select*from tb_email;
