@@ -31,6 +31,7 @@ namespace TomMotos.view
         private void button1_Click(object sender, EventArgs e)
         {
             Cadastrar();
+            txt_id.Text = dg_cliente.Rows[dg_cliente.Rows.Count-1].Cells[0].Value.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)

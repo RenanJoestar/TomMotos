@@ -32,7 +32,7 @@ namespace TomMotos.view
                
                     if (double.Parse(txtValorPago.Text) > double.Parse(lblsubtotal.Text))
                     {
-                        txtValorPago.Text = string.Format("{0:#,##0.00}", 0.00); ;
+                        txtValorPago.Text = string.Format("{0:#,##0.00}", 0.00);
                         MessageBox.Show("ADIANTAMENTO NÃO PODE SER MAIOR QUE O TOTAL EM ORÇAMENTO", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -113,7 +113,6 @@ namespace TomMotos.view
             {
                 MessageBox.Show("Erro " + erro);
             }
-
         }
 
         private void FmrFinalizar_Orcamento_Load(object sender, EventArgs e)

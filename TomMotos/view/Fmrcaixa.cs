@@ -127,9 +127,9 @@ namespace TomMotos.view
             else objCaixa.desconto = double.Parse(txtdesc.Text);
             objCaixa.total = double.Parse(lblSubitotal.Text);
             if (lbl_buscarCliente.Text != "" && lbl_buscarCliente.Text != "(id)") CaixaModel.fk_cliente_id = lbl_buscarCliente.Text;
-            else CaixaModel.fk_cliente_id = "9"; // cliente null
+            else CaixaModel.fk_cliente_id = "1"; // cliente null
             if (lbl_BuscarVeiculo.Text != "" && lbl_BuscarVeiculo.Text != "(id)") CaixaModel.fk_veiculo_id = lbl_BuscarVeiculo.Text; // veiculo null
-            else CaixaModel.fk_veiculo_id = "8"; // veiculo null
+            else CaixaModel.fk_veiculo_id = "1"; // veiculo null
         }
 
         public void inserirVariaveisObjProdutoUsado(string idVenda)
@@ -168,8 +168,7 @@ namespace TomMotos.view
                 string idVenda = caixaDAO.listarUltimaVenda();
                 inserirVariaveisObjProdutoUsado(idVenda);
                 inserirVariaveisObjServicoPrestado(idVenda);
-                
-               
+                MessageBox.Show("Orçamento finalizado com sucesso.");
             }
             catch (Exception erro)
             {
@@ -201,6 +200,7 @@ namespace TomMotos.view
             inserirVariaveisObjServicoPrestado(idVenda);
 
             caixaDAO.mudarStatusVenda(idVenda, true);
+            MessageBox.Show("Venda finalizada com sucesso.");
             finalizarFormCaixa(true);
         }
         private void button1_Click(object sender, EventArgs e)

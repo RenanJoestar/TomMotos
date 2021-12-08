@@ -349,7 +349,7 @@ namespace TomMotos.view
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(328, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(420, 44);
+            this.label7.Size = new System.Drawing.Size(419, 44);
             this.label7.TabIndex = 19;
             this.label7.Text = "CADASTRO DE CARGO";
             // 

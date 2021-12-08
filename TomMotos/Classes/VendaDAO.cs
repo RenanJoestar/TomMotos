@@ -105,10 +105,7 @@ namespace TomMotos.Classes
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
                 conexao.Close();
-                MessageBox.Show("Orçamento salvo!");
-            
         }
-
 
         #endregion
 

@@ -519,7 +519,7 @@ namespace TomMotos.view
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(317, 22);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(451, 44);
+            this.label10.Size = new System.Drawing.Size(450, 44);
             this.label10.TabIndex = 19;
             this.label10.Text = "CADASTRO DE PRODUTO";
             // 
@@ -543,7 +543,7 @@ namespace TomMotos.view
             this.lblAdendo.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdendo.Location = new System.Drawing.Point(807, 92);
             this.lblAdendo.Name = "lblAdendo";
-            this.lblAdendo.Size = new System.Drawing.Size(144, 16);
+            this.lblAdendo.Size = new System.Drawing.Size(143, 16);
             this.lblAdendo.TabIndex = 50;
             this.lblAdendo.Text = "(quantidade menor que)";
             this.lblAdendo.Visible = false;

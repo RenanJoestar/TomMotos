@@ -77,13 +77,12 @@ namespace TomMotos.view
                     obj.obs_veiculo = txt_obs.Text.ToUpper();
                     obj.cliente_fk = txt_cliente.Text;
 
-
                     VeiculoDAO Cadastro = new VeiculoDAO();
 
                     Cadastro.cadastrar(obj);
 
-
                     dg_veiculo.DataSource = Cadastro.ListarTodosVeiculos();
+                    txt_id.Text = dg_veiculo.Rows[dg_veiculo.Rows.Count - 1].Cells[0].Value.ToString();
                 }
                 catch (Exception erro)
                 {

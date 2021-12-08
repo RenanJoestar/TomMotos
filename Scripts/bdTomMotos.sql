@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_cargo` (
   `salario_cargo` DOUBLE NULL DEFAULT NULL,
   PRIMARY KEY (`id_cargo`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_cliente` (
   `cnpj_cliente` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`id_cliente`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_fornecedor` (
   `cnpj_fornecedor` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`id_fornecedor`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_funcionario` (
     FOREIGN KEY (`fk_cargo_id`)
     REFERENCES `bd_tommotos`.`tb_cargo` (`id_cargo`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_usuario` (
     FOREIGN KEY (`fk_funcionario_id`)
     REFERENCES `bd_tommotos`.`tb_funcionario` (`id_funcionario`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_email` (
     FOREIGN KEY (`fk_usuario_id`)
     REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_endereco` (
     FOREIGN KEY (`fk_usuario_id`)
     REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_veiculo` (
     FOREIGN KEY (`fk_cliente_id`)
     REFERENCES `bd_tommotos`.`tb_cliente` (`id_cliente`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 8
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_venda` (
     FOREIGN KEY (`fk_veiculo_id`)
     REFERENCES `bd_tommotos`.`tb_veiculo` (`id_veiculo`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -206,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_grupo_funcionarios` (
     FOREIGN KEY (`fk_venda_id`)
     REFERENCES `bd_tommotos`.`tb_venda` (`id_venda`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto` (
   `imagem_produto` LONGBLOB NULL DEFAULT NULL,
   PRIMARY KEY (`id_produto`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_log_fornecimento` (
     FOREIGN KEY (`fk_fornecedor_id`)
     REFERENCES `bd_tommotos`.`tb_fornecedor` (`id_fornecedor`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_produto_usado` (
     FOREIGN KEY (`fk_venda_id`)
     REFERENCES `bd_tommotos`.`tb_venda` (`id_venda`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -290,7 +290,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_servico_prestado` (
     FOREIGN KEY (`fk_venda_id`)
     REFERENCES `bd_tommotos`.`tb_venda` (`id_venda`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -307,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `bd_tommotos`.`tb_telefone` (
     FOREIGN KEY (`fk_usuario_id`)
     REFERENCES `bd_tommotos`.`tb_usuario` (`id_usuario`)ON DELETE CASCADE ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -859,9 +859,13 @@ SET tb_produto.quantidade_produto = tb_produto.quantidade_produto + tb_produto_u
 WHERE tb_produto_usado.fk_venda_id = new.id_produto_selecionado ; 
 END IF; END $$ DELIMITER ;*/
 
-call criacaoCliente('DESCONHECIDO','', null, null, null);
-call criacaoFornecedor('Desconhecido','000000');
+call criacaoCliente('DESCONHECIDO', '', null, null, null);
+call criacaoFornecedor('Desconhecido', '000000');
 call criacaoVeiculo('null','null','null',null,null,null,null,null);
+call criacaoCargo('Mecânico', 2500);
+call criacaoFuncionario('ANDRE', 'LINARES', '341,479,140-74', '01/01/1980', null, 'M', 1);
+call criacaoProduto('Oleo', 0, 0, 20.00, 'Mobil', null);
+call acrescentarQTDProduto(1, 10, 1);
 
 select*from tb_cargo;
 select*from tb_cliente;

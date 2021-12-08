@@ -41,8 +41,8 @@ namespace TomMotos.view
                     Cadastro.cadastrarFornecedor(obj);
 
                     dg_fornecedor.DataSource = Cadastro.ListarTodosFornecedores();
+                    txt_id.Text = dg_fornecedor.Rows[dg_fornecedor.Rows.Count - 1].Cells[0].Value.ToString();
                 }
-
             }
             catch (Exception erro)
             {

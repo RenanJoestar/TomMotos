@@ -74,7 +74,6 @@ namespace TomMotos.view
        
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-          
             if (txt_descricao_produto.Text == "" || txt_valor_produto.Text ==""|| np_quantidade.Text ==null)
             {
                 MessageBox.Show("Preencha todos valores Obrigatorio! = *");
@@ -86,7 +85,7 @@ namespace TomMotos.view
                     ProdutoModel obj = new ProdutoModel();
 
                     obj.descricao = txt_descricao_produto.Text.ToUpper();
-                    if(np_quantidade.ToString() == "") obj.quantidade = 0;
+                    if (np_quantidade.ToString() == "") obj.quantidade = 0;
                     else obj.quantidade = int.Parse(np_quantidade.Text);
                     obj.quantidade_virtual = int.Parse(np_quantidade.Text);
                     obj.valor = double.Parse(txt_valor_produto.Text);
@@ -96,14 +95,13 @@ namespace TomMotos.view
                     else obj.imagem = null;
                     Cadastro.cadastrarProduto(obj);
                     dg_produto.DataSource = Cadastro.ListarTodosProdutos();
-                
+                    txt_id.Text = dg_produto.Rows[dg_produto.Rows.Count - 1].Cells[0].Value.ToString();
                 }
                 catch (Exception erro)
                 {
                     MessageBox.Show("Erro: " + erro);
                 }
-        
-          }
+            }
         }
 
         private void Fmrproduto_Load(object sender, EventArgs e)
@@ -246,7 +244,7 @@ namespace TomMotos.view
             dt.Load(dr);
             cbxFornecedor.DisplayMember = "nome_fornecedor";
             cbxFornecedor.DataSource = dt;
-            cbxFornecedor.Text = null;
+            cbxFornecedor.Text = cbxFornecedor.DisplayMember[0].ToString();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -305,9 +303,6 @@ namespace TomMotos.view
                 obj.id = int.Parse(txt_id.Text);
                 if (np_quantidade.ToString() == "" || np_quantidade.ToString() == "0") MessageBox.Show("DIGITE UMA QUANTIDADE VALIDA");
                 else obj.quantidade = int.Parse(np_quantidade.Text);
-                MessageBox.Show("idFor " + id_fornecedor);
-                MessageBox.Show("Qtd" + np_quantidade.Text.ToString());
-                MessageBox.Show("Test " + obj.id);
 
                 ProdutoDAO Add = new ProdutoDAO();
                 Add.adicionarQtd(obj);

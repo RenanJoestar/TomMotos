@@ -44,7 +44,6 @@ namespace TomMotos.Classes
 
         public void cadastrarProduto(ProdutoModel obj)
         {
-            
                 try
                 {
                     string insert = @"CALL criacaoProduto(@descricao, @quantidade,@quantidade_virtual, @valor, @marca, @imagem)";
@@ -57,12 +56,10 @@ namespace TomMotos.Classes
                     executacmdsql.Parameters.AddWithValue("@marca", obj.marca);
                     executacmdsql.Parameters.AddWithValue("@imagem", obj.imagem);
 
-
-
                     conexao.Open();
                     executacmdsql.ExecuteNonQuery();
-                MessageBox.Show("Cadastrado com sucesso!");
-                conexao.Close();
+                    MessageBox.Show("Cadastrado com sucesso!");
+                    conexao.Close();
                 }
                 catch (Exception erro)
                 {
@@ -80,7 +77,7 @@ namespace TomMotos.Classes
 
             try
             {
-                string insert = @"call acrescentarQTDProduto(@id_produto, @quantidade,@fornecedor);";
+                string insert = @"call acrescentarQTDProduto(@id_produto, @quantidade, @fornecedor);";
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);                
                 executacmdsql.Parameters.AddWithValue("@quantidade", obj.quantidade);     

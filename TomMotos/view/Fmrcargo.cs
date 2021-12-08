@@ -38,10 +38,10 @@ namespace TomMotos.view
 
                 Cadastro.cadastrarCargo(obj);
 
-
                 dgCargo.DataSource = Cadastro.ListarTodosCargos();
-            }
-            catch (Exception erro)
+                txt_id.Text = dgCargo.Rows[dgCargo.Rows.Count - 1].Cells[0].Value.ToString();
+                }
+                catch (Exception erro)
             {
 
                 MessageBox.Show("Erro: " + erro);

@@ -69,9 +69,8 @@ namespace TomMotos.view
                     Cadastro.cadastrarFuncionario(obj);
 
                     dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
+                    txt_id.Text = dg_funcionario.Rows[dg_funcionario.Rows.Count - 1].Cells[0].Value.ToString();
                 }
-
-                
             }
             catch (Exception erro)
             {
