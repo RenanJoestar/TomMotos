@@ -56,7 +56,7 @@ namespace TomMotos.Classes
         #region METODO LISTAR
         public DataTable ListarEndereco()
         {
-            string sql = @"select rua_endereco AS 'RUA', numero_endereco AS 'NÚMERO',  bairro_endereco AS 'BAIRRO', cidade_endereco AS 'CIDADE', cep_endereco AS 'CEP'  from tb_endereco where fk_usuario_id = @id";
+            string sql = @"select id_endereco, rua_endereco AS 'RUA', numero_endereco AS 'NÚMERO',  bairro_endereco AS 'BAIRRO', cidade_endereco AS 'CIDADE', cep_endereco AS 'CEP'  from tb_endereco where fk_usuario_id = @id";
 
             conexao.Open();
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
