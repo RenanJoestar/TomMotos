@@ -214,33 +214,5 @@ namespace TomMotos.Classes
             return tabelaProduto;
         }
         #endregion
-
-        #region LISTAR TODOS ORÇAMENTOS/VENDAS
-        public DataTable listarTodosorcamento(bool orcamento)
-        {
-            string sql = @"select tb_venda.id_venda AS 'ID DA CONSULTA', tb_cliente.nome_cliente AS 'NOME DO CLIENTE', 
-                tb_cliente.cpf_cliente AS 'CPF DO CLIENTE', tb_cliente.cnpj_cliente AS 'CNPJ DO CLIENTE', 
-		        tb_venda.validade_orcamento_servico AS 'VALIDADE DO ORÇAMENTO', tb_venda.desconto_venda AS 'DESCONTO SOBRE A VENDA', 
-		        tb_venda.data_venda AS 'DATA DA VENDA', tb_venda.data_venda AS 'DATA DO FORNECIMENTO', tb_venda.total_venda AS 'TOTAL DA VENDA',tb_venda.valor_pago AS 'VALOR PAGO'
-		        from tb_venda
-		        inner join tb_cliente
-		        on tb_venda.fk_cliente_id = tb_cliente.id_cliente
-                where tb_venda.e_orcamento = " + orcamento + " and tb_venda.valor_pago < tb_venda.total_venda order by tb_venda.data_venda desc";
-
-            MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
-
-            conexao.Open();
-            executacmdsql.ExecuteNonQuery();
-
-            MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-            DataTable tabelaProduto = new DataTable();
-            da.Fill(tabelaProduto);
-
-            conexao.Close();
-
-            return tabelaProduto;
-        }
-        #endregion
     }
 }
