@@ -30,7 +30,8 @@ namespace TomMotos.Classes
                             from tb_cliente
                             inner join tb_venda
                             on tb_cliente.id_cliente = tb_venda.fk_cliente_id
-                            where tb_venda.total_venda - tb_venda.valor_pago > 0;";
+                            where tb_venda.total_venda - tb_venda.valor_pago > 0
+                            AND tb_venda.e_orcamento = false;";
 
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
 

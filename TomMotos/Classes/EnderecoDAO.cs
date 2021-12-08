@@ -62,7 +62,6 @@ namespace TomMotos.Classes
             MySqlCommand executacmdsql = new MySqlCommand(sql, conexao);
             executacmdsql.Parameters.AddWithValue("@id", EnderecoModel.id);
 
-
             executacmdsql.ExecuteNonQuery();
 
             MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
@@ -145,7 +144,6 @@ namespace TomMotos.Classes
                     }
                     catch (Exception erro)
                     {
-                        MessageBox.Show(erro.Message);
                         MessageBox.Show("Não foi possivel excluir", "EXCLUIR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

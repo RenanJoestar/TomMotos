@@ -126,7 +126,6 @@ namespace TomMotos.view
                 obj.numero = txt_numero.Text.ToUpper();
                 obj.cidade = txt_cidade.Text.ToUpper();
 
-
                 EnderecoDAO Cadastro = new EnderecoDAO();
 
                 Cadastro.cadastrarEndereco(obj);
@@ -187,12 +186,18 @@ namespace TomMotos.view
                 obj.numero = txt_numero.Text.ToUpper();
                 obj.cidade = txt_cidade.Text.ToUpper();
 
-
                 EnderecoDAO Excluir = new EnderecoDAO();
 
                 Excluir.Excluir(obj);
 
                 dgEndereco.DataSource = Excluir.ListarEndereco();
+
+                EnderecoModel.id_endereco = "";
+                obj.cep= "";
+                obj.endereco = "";
+                obj.bairro = "";
+                obj.numero = "";
+                obj.cidade = "";
             }
             catch (Exception erro)
             {
@@ -204,12 +209,12 @@ namespace TomMotos.view
         {
             string idEndereco;
             idEndereco = dgEndereco.CurrentRow.Cells[0].Value.ToString();
-            txt_cep.Text = dgEndereco.CurrentRow.Cells[1].Value.ToString();
+            txt_endereco.Text = dgEndereco.CurrentRow.Cells[1].Value.ToString();
             EnderecoModel.id_endereco = idEndereco;
-            txt_endereco.Text = dgEndereco.CurrentRow.Cells[2].Value.ToString();
-            txt_bairro.Text = dgEndereco.CurrentRow.Cells[4].Value.ToString();
-            txt_numero.Text = dgEndereco.CurrentRow.Cells[5].Value.ToString();
-            txt_cidade.Text = dgEndereco.CurrentRow.Cells[3].Value.ToString();          
+            txt_numero.Text = dgEndereco.CurrentRow.Cells[2].Value.ToString();
+            txt_bairro.Text = dgEndereco.CurrentRow.Cells[3].Value.ToString();
+            txt_cidade.Text = dgEndereco.CurrentRow.Cells[4].Value.ToString();
+            txt_cep.Text = dgEndereco.CurrentRow.Cells[5].Value.ToString();          
         }
 
        

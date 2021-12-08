@@ -402,8 +402,6 @@ C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\bin\Debug\TomMotos.pdb
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.dll
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\bin\Debug\System.Buffers.dll
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\bin\Debug\System.Memory.dll
-C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\bin\Debug\Renci.SshNet.dll
-C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\bin\Debug\MySql.Data.xml
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.xml
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.csprojAssemblyReference.cache
 C:\Users\Lab2-01\Documents\GitHub\TomMotos\TomMotos\obj\Debug\TomMotos.exe.config

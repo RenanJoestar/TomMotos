@@ -89,7 +89,6 @@ namespace TomMotos.view
             this.dg_listarVeiculoOuCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dg_listarVeiculoOuCliente.Size = new System.Drawing.Size(1069, 360);
             this.dg_listarVeiculoOuCliente.TabIndex = 0;
-            this.dg_listarVeiculoOuCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_listarVeiculoOuCliente_CellContentClick);
             this.dg_listarVeiculoOuCliente.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_listarVeiculoOuCliente_CellContentDoubleClick);
             // 
             // button2

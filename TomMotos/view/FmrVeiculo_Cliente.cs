@@ -48,11 +48,6 @@ namespace TomMotos.view
             conexao.Close();
         }
 
-        private void dg_listarVeiculoOuCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dg_listarVeiculoOuCliente_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (CaixaModel.valorPesquisa == "veiculo")
@@ -74,6 +69,8 @@ namespace TomMotos.view
                 {
                     fp.lbl_buscarCliente.Text = CaixaModel.fk_cliente_id.ToString();
                 }
+                CaixaModel.fk_veiculo_id = "";
+                fp.lbl_BuscarVeiculo.Text = CaixaModel.fk_veiculo_id.ToString();
                 this.Close();
             }
             else

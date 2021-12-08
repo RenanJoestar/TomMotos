@@ -860,11 +860,11 @@ WHERE tb_produto_usado.fk_venda_id = new.id_produto_selecionado ;
 END IF; END $$ DELIMITER ;*/
 
 call criacaoCliente('DESCONHECIDO', '', null, null, null);
-call criacaoFornecedor('Desconhecido', '000000');
+call criacaoFornecedor('DESCONHECIDO', '000000');
 call criacaoVeiculo('null','null','null',null,null,null,null,null);
-call criacaoCargo('Mecânico', 2500);
+call criacaoCargo('MECÂNICO', 2500);
 call criacaoFuncionario('ANDRE', 'LINARES', '341,479,140-74', '01/01/1980', null, 'M', 1);
-call criacaoProduto('Oleo', 0, 0, 20.00, 'Mobil', null);
+call criacaoProduto('OLEO', 0, 0, 20.00, 'MOBIL', null);
 call acrescentarQTDProduto(1, 10, 1);
 
 select*from tb_cargo;
