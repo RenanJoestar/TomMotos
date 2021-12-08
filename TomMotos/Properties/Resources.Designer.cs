@@ -73,6 +73,26 @@ namespace TomMotos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap a07cea0732b87a14882a215f754b5897 {
+            get {
+                object obj = ResourceManager.GetObject("a07cea0732b87a14882a215f754b5897", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Desenho_Vassoura_PNG_1024x1024 {
+            get {
+                object obj = ResourceManager.GetObject("Desenho-Vassoura-PNG-1024x1024", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gear__1_ {
             get {
                 object obj = ResourceManager.GetObject("gear (1)", resourceCulture);

@@ -75,5 +75,9 @@ namespace TomMotos.view
             txtValorPago.Text = "";
         }
 
+        private void dgDevedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

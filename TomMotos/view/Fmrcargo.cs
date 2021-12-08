@@ -154,24 +154,12 @@ namespace TomMotos.view
             dgCargo.DataSource = Cadastro.ListarTodosCargos();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+       
+        private void btnLimpar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtFiltro_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbxBuscar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgCargo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            txt_id.Text = "";
+            txt_nome.Text = "";
+            txt_salario.Text = "0,00";
         }
     }
 }

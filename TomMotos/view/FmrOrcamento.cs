@@ -156,7 +156,7 @@ namespace TomMotos.view
 
         private void btn_mostrar_tudo_Click(object sender, EventArgs e)
         {
-            dgOrcamento.DataSource = VendaDAO.listarTodos(true); //Puxa todos os orçamentos
+            dgOrcamento.DataSource = VendaDAO.listarTodosorcamento(true); //Puxa todos os orçamentos
             txtBuscar.Text = "";
             cbxBuscar.Text = "";
             cxbData.Checked = false;

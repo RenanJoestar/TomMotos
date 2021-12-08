@@ -261,5 +261,19 @@ namespace TomMotos.view
             }
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txt_id.Text = "";
+            txt_modelo.Text = "";
+            txt_marca.Text = "";
+            txt_cor.Text = "";
+            txt_ano.Text = "";
+            txt_km.Text = "";
+            txt_obs.Text = "";
+            txt_placa.Text = "";
+            txt_cliente.Text = "";
+            lblnomecliente.Text = "";
+        }
     }
 }

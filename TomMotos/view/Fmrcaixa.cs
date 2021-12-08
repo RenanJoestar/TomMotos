@@ -956,6 +956,11 @@ namespace TomMotos.view
             }
         }
 
+        private void cBoxOrcamento_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
         public void Excluir_Produto() {
             double subitotal = double.Parse(lblSubitotal.Text);
             if (dgProdutos.SelectedCells.Count > 0)

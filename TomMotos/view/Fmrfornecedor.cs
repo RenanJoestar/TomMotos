@@ -249,6 +249,13 @@ namespace TomMotos.view
             }
         }
 
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txt_id.Text = "";
+            txt_nome.Text = "";
+            txt_cnpj.Text = "";
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             if (txt_id.Text != "")

@@ -33,49 +33,53 @@ namespace TomMotos.view
         public void Cadastrar() 
         {
             CPF = true;
-            try
+            if (txt_nome.Text != "" && txt_cpf.Text != "   ,   ,   -" && cbxCargos.Text != "")
             {
-                FuncionarioModel obj = new FuncionarioModel();
-
-                if (txt_nome.Text == "") obj.nome = null;
-                else obj.nome = txt_nome.Text.ToUpper();
-                if (txt_sobrenome.Text == "") obj.sobrenome = null;
-                else obj.sobrenome = txt_sobrenome.Text.ToUpper();
-                if (txt_nascimento.Text == "  /  /") obj.data_nasc = null; // Verifica se a data de nascimento é null
-                else obj.data_nasc = txt_nascimento.Text.ToUpper();
-                if (txt_cpf.Text == "   ,   ,   -") FuncionarioModel.cpf = null;
-                else ValidarCPF();
-                obj.sexo = cbx_sexo.Text.ToUpper();
-                string select = "select id_cargo from tb_cargo where nome_cargo = " + "'" + cbxCargos.Text.ToString() + "'";
-                MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
-
-                MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
-
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                if (ds.Tables[0].Rows.Count > 0)
+                try
                 {
-                    id_cargo = ds.Tables[0].Rows[0]["id_cargo"].ToString();
+                    FuncionarioModel obj = new FuncionarioModel();
 
-                    obj.cargo_fk = id_cargo;
+                    if (txt_nome.Text == "") obj.nome = null;
+                    else obj.nome = txt_nome.Text.ToUpper();
+                    if (txt_sobrenome.Text == "") obj.sobrenome = null;
+                    else obj.sobrenome = txt_sobrenome.Text.ToUpper();
+                    if (txt_nascimento.Text == "  /  /") obj.data_nasc = null; // Verifica se a data de nascimento é null
+                    else obj.data_nasc = txt_nascimento.Text.ToUpper();
+                    if (txt_cpf.Text == "   ,   ,   -") FuncionarioModel.cpf = null;
+                    else ValidarCPF();
+                    obj.sexo = cbx_sexo.Text.ToUpper();
+                    string select = "select id_cargo from tb_cargo where nome_cargo = " + "'" + cbxCargos.Text.ToString() + "'";
+                    MySqlCommand executacmdsql = new MySqlCommand(select, conexao);
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(executacmdsql);
+
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        id_cargo = ds.Tables[0].Rows[0]["id_cargo"].ToString();
+
+                        obj.cargo_fk = id_cargo;
+                    }
+
+                    if (txt_contratacao.Text == "  /  /") obj.data_contratacao = null; // Verifica se a data de nascimento é null
+                    else obj.data_contratacao = txt_contratacao.Text.ToUpper();
+                    if (CPF == true)
+                    {
+                        FuncionarioDAO Cadastro = new FuncionarioDAO();
+
+                        Cadastro.cadastrarFuncionario(obj);
+
+                        dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
+                        txt_id.Text = dg_funcionario.Rows[dg_funcionario.Rows.Count - 1].Cells[0].Value.ToString();
+                    }
                 }
-
-                if (txt_contratacao.Text == "  /  /") obj.data_contratacao = null; // Verifica se a data de nascimento é null
-                else obj.data_contratacao = txt_contratacao.Text.ToUpper();
-                if (CPF == true)
+                catch (Exception erro)
                 {
-                    FuncionarioDAO Cadastro = new FuncionarioDAO();
-
-                    Cadastro.cadastrarFuncionario(obj);
-
-                    dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
-                    txt_id.Text = dg_funcionario.Rows[dg_funcionario.Rows.Count - 1].Cells[0].Value.ToString();
+                    MessageBox.Show("Erro: " + erro.Message);
                 }
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro: " + erro);
-            }
+            else MessageBox.Show("Preencha os campos Obrigatorios = * !!");
         }
         private void ValidarCPF()
         {
@@ -328,26 +332,22 @@ namespace TomMotos.view
             catch (Exception erro) { MessageBox.Show("Ouve um Erro " + erro.Message); }
         }
 
-        private void dg_funcionario_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void cbxBuscar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnMostrarTudo_Click(object sender, EventArgs e)
         {
             dg_funcionario.DataSource = Cadastro.ListarTodosFuncionario();
         }
 
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txt_id.Text = "";
+            txt_nome.Text = "";
+            txt_sobrenome.Text = "";
+            txt_nascimento.Text = "";
+            txt_contratacao.Text = "";
+            txt_cpf.Text = "";
+            cbx_sexo.SelectedIndex = -1;
+            cbxCargos.SelectedIndex = -1;
+        }
 
         private void button7_Click(object sender, EventArgs e)
         {

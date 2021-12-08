@@ -29,15 +29,16 @@ namespace TomMotos.view
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fmrcliente));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fmrcliente));
             this.label1 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_nascimento = new System.Windows.Forms.MaskedTextBox();
@@ -56,12 +57,12 @@ namespace TomMotos.view
             this.button3 = new System.Windows.Forms.Button();
             this.txtFiltrar = new System.Windows.Forms.TextBox();
             this.cbxFiltrar = new System.Windows.Forms.ComboBox();
-            this.BtnFiltro = new System.Windows.Forms.Button();
             this.dg_cliente = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnMostrarTudo = new System.Windows.Forms.Button();
             this.btnTudo = new System.Windows.Forms.Button();
+            this.BtnFiltro = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
             this.panel1.SuspendLayout();
@@ -117,6 +118,7 @@ namespace TomMotos.view
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnLimpar);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txt_nascimento);
@@ -138,10 +140,21 @@ namespace TomMotos.view
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(30, 156);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(303, 340);
+            this.groupBox1.Size = new System.Drawing.Size(303, 376);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREENCHER DADOS";
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackgroundImage = global::TomMotos.Properties.Resources.Desenho_Vassoura_PNG_1024x1024;
+            this.btnLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLimpar.Location = new System.Drawing.Point(237, 221);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(52, 33);
+            this.btnLimpar.TabIndex = 53;
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // label9
             // 
@@ -198,7 +211,7 @@ namespace TomMotos.view
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(106, 294);
+            this.button6.Location = new System.Drawing.Point(104, 315);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(99, 40);
             this.button6.TabIndex = 8;
@@ -211,7 +224,7 @@ namespace TomMotos.view
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(161, 248);
+            this.button5.Location = new System.Drawing.Point(159, 269);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(99, 40);
             this.button5.TabIndex = 7;
@@ -236,7 +249,7 @@ namespace TomMotos.view
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(62)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(56, 248);
+            this.button4.Location = new System.Drawing.Point(54, 269);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(99, 40);
             this.button4.TabIndex = 6;
@@ -352,17 +365,6 @@ namespace TomMotos.view
             this.cbxFiltrar.Size = new System.Drawing.Size(111, 21);
             this.cbxFiltrar.TabIndex = 9;
             // 
-            // BtnFiltro
-            // 
-            this.BtnFiltro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFiltro.BackgroundImage")));
-            this.BtnFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnFiltro.Location = new System.Drawing.Point(938, 94);
-            this.BtnFiltro.Name = "BtnFiltro";
-            this.BtnFiltro.Size = new System.Drawing.Size(41, 33);
-            this.BtnFiltro.TabIndex = 11;
-            this.BtnFiltro.UseVisualStyleBackColor = true;
-            this.BtnFiltro.Click += new System.EventHandler(this.BtnFiltro_Click);
-            // 
             // dg_cliente
             // 
             this.dg_cliente.AllowUserToAddRows = false;
@@ -427,7 +429,7 @@ namespace TomMotos.view
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(328, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(435, 44);
+            this.label7.Size = new System.Drawing.Size(436, 44);
             this.label7.TabIndex = 19;
             this.label7.Text = "CADASTRO DE CLIENTES";
             // 
@@ -459,6 +461,17 @@ namespace TomMotos.view
             this.btnTudo.Text = "MOSTRAR TUDO";
             this.btnTudo.UseVisualStyleBackColor = false;
             this.btnTudo.Click += new System.EventHandler(this.btnTudo_Click);
+            // 
+            // BtnFiltro
+            // 
+            this.BtnFiltro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFiltro.BackgroundImage")));
+            this.BtnFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnFiltro.Location = new System.Drawing.Point(938, 94);
+            this.BtnFiltro.Name = "BtnFiltro";
+            this.BtnFiltro.Size = new System.Drawing.Size(41, 33);
+            this.BtnFiltro.TabIndex = 11;
+            this.BtnFiltro.UseVisualStyleBackColor = true;
+            this.BtnFiltro.Click += new System.EventHandler(this.BtnFiltro_Click);
             // 
             // Fmrcliente
             // 
@@ -524,5 +537,6 @@ namespace TomMotos.view
         private System.Windows.Forms.Button btnMostrarTudo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnTudo;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

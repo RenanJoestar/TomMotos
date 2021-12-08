@@ -725,6 +725,7 @@
             this.cBoxOrcamento.TabIndex = 11;
             this.cBoxOrcamento.Text = "É orçamento";
             this.cBoxOrcamento.UseVisualStyleBackColor = true;
+            this.cBoxOrcamento.CheckedChanged += new System.EventHandler(this.cBoxOrcamento_CheckedChanged);
             this.cBoxOrcamento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cBoxOrcamento_KeyDown);
             // 
             // ch_vl_ser

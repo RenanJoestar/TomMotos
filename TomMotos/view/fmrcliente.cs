@@ -260,6 +260,18 @@ namespace TomMotos.view
             dg_cliente.DataSource = Cadastro.ListarTodosClientes();
         }
 
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txt_id.Text = "";
+            txt_nome.Text = "";
+            txt_sobrenome.Text = "";
+            txt_nascimento.Text = "";
+            txt_cpf.Text = "";
+            txt_cnpj.Text = "";
+        }
+
+ 
+
         private void ValidarCPF()
         {
             txt_cpf.TextMaskFormat = MaskFormat.IncludeLiterals;

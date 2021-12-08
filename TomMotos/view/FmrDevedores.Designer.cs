@@ -202,6 +202,7 @@
             this.dgDevedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgDevedores.Size = new System.Drawing.Size(1076, 297);
             this.dgDevedores.TabIndex = 55;
+            this.dgDevedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDevedores_CellContentClick);
             this.dgDevedores.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgDevedores_CellMouseClick);
             // 
             // txtIdVenda

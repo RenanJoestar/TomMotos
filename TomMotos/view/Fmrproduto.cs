@@ -362,5 +362,15 @@ namespace TomMotos.view
             if (cbxBuscar.Text.ToString() == "QUANTIDADE") lblAdendo.Visible = true;
             else lblAdendo.Visible = false;
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            txt_id.Text = "";
+            txt_descricao_produto.Text = "";
+            txtQTD_DIS.Text = "";
+            txt_marca_produto.Text = "";
+            ptb_perfil.Image = null;  
+            txt_valor_produto.Text = "0,00";
+        }
     }
 }
