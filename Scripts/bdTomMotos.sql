@@ -313,13 +313,12 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 USE `bd_tommotos` ;
 
-
-
 -- -----------------------------------------------------
 -- procedure CriacaoProduto
 -- -----------------------------------------------------
+
 DELIMITER $$
-CREATE PROCEDURE criacaoProduto (IN DESCRICAO VARCHAR(45), IN QUANTIDADE_PRODUTO INT, QUANTIDADE_PRODUTO_VIRTUAL INT, IN VALOR_PRODUTO double, IN MARCA VARCHAR(40), IN IMAGEM LONGBLOB)
+CREATE PROCEDURE criacaoProduto (IN DESCRICAO VARCHAR(45), IN QUANTIDADE_PRODUTO INT, IN VALOR_PRODUTO double, IN MARCA VARCHAR(40), IN IMAGEM LONGBLOB)
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
 IF EXISTS(SELECT*FROM tb_produto where tb_produto.descricao_produto = DESCRICAO AND tb_produto.valor_produto = VALOR_PRODUTO) THEN
@@ -328,13 +327,13 @@ SIGNAL CUSTOM_EXCEPTION
 SET MESSAGE_TEXT = 'ERRO, PRODUTO JA CADASTRADO';
 END;
 ELSE 
-INSERT INTO tb_produto(descricao_produto, quantidade_produto, valor_produto, marca_produto, quantidade_virtual_produto, imagem_produto)values(DESCRICAO,QUANTIDADE_PRODUTO,VALOR_PRODUTO,MARCA,QUANTIDADE_PRODUTO_VIRTUAL,IMAGEM);
+INSERT INTO tb_produto(descricao_produto, quantidade_produto, quantidade_virtual_produto, valor_produto, marca_produto, imagem_produto)values(DESCRICAO, QUANTIDADE_PRODUTO, QUANTIDADE_PRODUTO, VALOR_PRODUTO, MARCA, IMAGEM);
 END IF;
 END $$
 DELIMITER ;
 
 DELIMITER $$
-CREATE PROCEDURE UpdateProduto (IN DESCRICAO VARCHAR(45), IN QUANTIDADE_PRODUTO INT, QUANTIDADE_PRODUTO_VIRTUAL INT, IN VALOR_PRODUTO double, IN MARCA VARCHAR(40), IN IMAGEM LONGBLOB, in ID INT)
+CREATE PROCEDURE UpdateProduto (IN DESCRICAO VARCHAR(45), IN QUANTIDADE_PRODUTO INT, IN VALOR_PRODUTO double, IN MARCA VARCHAR(40), IN IMAGEM LONGBLOB, in ID INT)
 BEGIN
 DECLARE CUSTOM_EXCEPTION CONDITION FOR SQLSTATE '45000';
 IF EXISTS(SELECT*FROM tb_produto where tb_produto.descricao_produto = DESCRICAO AND tb_produto.valor_produto = VALOR_PRODUTO AND tb_produto.imagem_produto = IMAGEM AND tb_produto.marca_produto = MARCA) THEN
@@ -343,7 +342,7 @@ SIGNAL CUSTOM_EXCEPTION
 SET MESSAGE_TEXT = 'ERRO, PRODUTO JA EXISTE';
 END;
 ELSE 
-update tb_produto set descricao_produto = DESCRICAO, quantidade_produto = QUANTIDADE_PRODUTO, valor_produto = VALOR_PRODUTO, marca_produto = MARCA, quantidade_virtual_produto = QUANTIDADE_PRODUTO_VIRTUAL, imagem_produto = IMAGEM where tb_produto.id_produto = ID;
+update tb_produto set descricao_produto = DESCRICAO, quantidade_produto = QUANTIDADE_PRODUTO, valor_produto = VALOR_PRODUTO, marca_produto = MARCA, imagem_produto = IMAGEM where tb_produto.id_produto = ID;
 END IF;
 END $$
 DELIMITER ;
@@ -864,7 +863,7 @@ call criacaoFornecedor('DESCONHECIDO', '000000');
 call criacaoVeiculo('null','null','null',null,null,null,null,null);
 call criacaoCargo('MECÂNICO', 2500);
 call criacaoFuncionario('ANDRE', 'LINARES', '341,479,140-74', '01/01/1980', null, 'M', 1);
-call criacaoProduto('OLEO', 0, 0, 20.00, 'MOBIL', null);
+call criacaoProduto('OLEO', 0, 20.00, 'MOBIL', null);
 call acrescentarQTDProduto(1, 10, 1);
 
 select*from tb_cargo;

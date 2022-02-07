@@ -46,12 +46,11 @@ namespace TomMotos.Classes
         {
                 try
                 {
-                    string insert = @"CALL criacaoProduto(@descricao, @quantidade,@quantidade_virtual, @valor, @marca, @imagem)";
+                    string insert = @"CALL criacaoProduto(@descricao, @quantidade, @valor, @marca, @imagem)";
 
                     MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);
                     executacmdsql.Parameters.AddWithValue("@descricao", obj.descricao);
                     executacmdsql.Parameters.AddWithValue("@quantidade", obj.quantidade);
-                    executacmdsql.Parameters.AddWithValue("@quantidade_virtual", obj.quantidade_virtual);
                     executacmdsql.Parameters.AddWithValue("@valor", obj.valor);
                     executacmdsql.Parameters.AddWithValue("@marca", obj.marca);
                     executacmdsql.Parameters.AddWithValue("@imagem", obj.imagem);
@@ -81,11 +80,8 @@ namespace TomMotos.Classes
 
                 MySqlCommand executacmdsql = new MySqlCommand(insert, conexao);                
                 executacmdsql.Parameters.AddWithValue("@quantidade", obj.quantidade);     
-  
                 executacmdsql.Parameters.AddWithValue("@fornecedor", obj.id_fornecedor);
                 executacmdsql.Parameters.AddWithValue("@id_produto", obj.id);
-
-
 
                 conexao.Open();
                 executacmdsql.ExecuteNonQuery();
@@ -108,12 +104,11 @@ namespace TomMotos.Classes
             try
             {
 
-                string update = @"CALL UpdateProduto (@descricao, @quantidade,@quantidade_virtual,@valor,@marca,@imagem,@id)";
+                string update = @"CALL UpdateProduto (@descricao, @quantidade, @valor,@marca,@imagem,@id)";
                 MySqlCommand executacmdsql = new MySqlCommand(update, conexao);
                 executacmdsql.Parameters.AddWithValue("@id", obj.id);
                 executacmdsql.Parameters.AddWithValue("@descricao", obj.descricao);
                 executacmdsql.Parameters.AddWithValue("@quantidade", obj.quantidade);
-                executacmdsql.Parameters.AddWithValue("@quantidade_virtual", obj.quantidade_virtual);
                 executacmdsql.Parameters.AddWithValue("@valor", obj.valor);
                 executacmdsql.Parameters.AddWithValue("@marca", obj.marca);
                 executacmdsql.Parameters.AddWithValue("@imagem", obj.imagem);

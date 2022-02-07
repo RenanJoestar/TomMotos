@@ -12,7 +12,6 @@ namespace TomMotos.Model
         public string id_fornecedor { get; set; }
         public string descricao { get; set; }
         public int quantidade { get; set; }
-        public int quantidade_virtual { get; set; }
         public double valor { get; set; }
         public string marca { get; set; }
         public byte[] imagem { get; set; }

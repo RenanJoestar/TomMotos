@@ -446,14 +446,11 @@ E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\TomMotos.exe.co
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\TomMotos.exe
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\TomMotos.pdb
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\BouncyCastle.Crypto.dll
-E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\K4os.Compression.LZ4.dll
-E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\K4os.Compression.LZ4.Streams.dll
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\K4os.Hash.xxHash.dll
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.dll
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\System.Buffers.dll
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\System.Memory.dll
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\Ubiety.Dns.Core.dll
-E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\Zstandard.Net.dll
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\NReco.PdfGenerator.xml
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.SuggestedBindingRedirects.cache
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe.config
@@ -486,3 +483,5 @@ E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.exe
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.pdb
 E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\obj\Debug\TomMotos.csproj.AssemblyReference.cache
+E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\Renci.SshNet.dll
+E:\Coisas para salvar\coisas\Desktop\TomMotos\TomMotos\bin\Debug\MySql.Data.xml

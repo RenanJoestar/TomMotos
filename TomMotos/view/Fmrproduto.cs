@@ -87,7 +87,6 @@ namespace TomMotos.view
                     obj.descricao = txt_descricao_produto.Text.ToUpper();
                     if (np_quantidade.ToString() == "") obj.quantidade = 0;
                     else obj.quantidade = int.Parse(np_quantidade.Text);
-                    obj.quantidade_virtual = int.Parse(np_quantidade.Text);
                     obj.valor = double.Parse(txt_valor_produto.Text);
                     if (txt_marca_produto.Text == "") obj.marca = null;
                     else obj.marca = txt_marca_produto.Text.ToUpper();
@@ -139,8 +138,7 @@ namespace TomMotos.view
                 ProdutoModel obj = new ProdutoModel();
                 obj.id = int.Parse(txt_id.Text);
                 obj.descricao = txt_descricao_produto.Text.ToUpper();
-                obj.quantidade = int.Parse(np_quantidade.Text);
-                obj.quantidade_virtual = int.Parse(np_quantidade.Text);
+                obj.quantidade = int.Parse(txtQTD_DIS.Text);
                 obj.valor = double.Parse(txt_valor_produto.Text.ToUpper());
                 if (txt_marca_produto.Text == "") obj.marca = null;
                 else obj.marca = txt_marca_produto.Text.ToUpper();
